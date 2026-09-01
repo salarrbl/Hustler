@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -61,56 +62,57 @@ func Disconnect() error {
 func createIndexes(ctx context.Context) error {
 	indexes := map[string][]mongo.IndexModel{
 		"targets": {
-			{Keys: map[string]int{"domain": 1}, Options: options.Index().SetUnique(true)},
-			{Keys: map[string]int{"status": 1}},
-			{Keys: map[string]int{"source": 1}},
-			{Keys: map[string]int{"added_at": -1}},
+			{Keys: bson.D{{Key: "domain", Value: 1}}, Options: options.Index().SetUnique(true)},
+			{Keys: bson.D{{Key: "status", Value: 1}}},
+			{Keys: bson.D{{Key: "source", Value: 1}}},
+			{Keys: bson.D{{Key: "added_at", Value: -1}}},
 		},
 		"js_files": {
-			{Keys: map[string]int{"target_id": 1, "js_hash": 1}, Options: options.Index().SetUnique(true)},
-			{Keys: map[string]int{"target_id": 1}},
-			{Keys: map[string]int{"url": 1}},
-			{Keys: map[string]int{"fetched_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_hash", Value: 1}}, Options: options.Index().SetUnique(true)},
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "url", Value: 1}}},
+			{Keys: bson.D{{Key: "fetched_at", Value: -1}}},
 		},
 		"secrets": {
-			{Keys: map[string]int{"target_id": 1, "js_file_id": 1}},
-			{Keys: map[string]int{"pattern": 1}},
-			{Keys: map[string]int{"confidence": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_file_id", Value: 1}}},
+			{Keys: bson.D{{Key: "pattern", Value: 1}}},
+			{Keys: bson.D{{Key: "confidence", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 		"endpoints": {
-			{Keys: map[string]int{"target_id": 1, "js_file_id": 1}},
-			{Keys: map[string]int{"endpoint": 1}},
-			{Keys: map[string]int{"method": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_file_id", Value: 1}}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "endpoint", Value: 1}}},
+			{Keys: bson.D{{Key: "method", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 		"params": {
-			{Keys: map[string]int{"target_id": 1, "js_file_id": 1}},
-			{Keys: map[string]int{"param_name": 1}},
-			{Keys: map[string]int{"context": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_file_id", Value: 1}}},
+			{Keys: bson.D{{Key: "param_name", Value: 1}}},
+			{Keys: bson.D{{Key: "context", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 		"sinks": {
-			{Keys: map[string]int{"target_id": 1, "js_file_id": 1}},
-			{Keys: map[string]int{"sink_type": 1}},
-			{Keys: map[string]int{"source_type": 1}},
-			{Keys: map[string]int{"confidence": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_file_id", Value: 1}}},
+			{Keys: bson.D{{Key: "sink_type", Value: 1}}},
+			{Keys: bson.D{{Key: "source_type", Value: 1}}},
+			{Keys: bson.D{{Key: "confidence", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 		"blh_candidates": {
-			{Keys: map[string]int{"target_id": 1}},
-			{Keys: map[string]int{"referenced_domain": 1}},
-			{Keys: map[string]int{"resolution_status": 1}},
-			{Keys: map[string]int{"risk_level": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "referenced_domain", Value: 1}}},
+			{Keys: bson.D{{Key: "resolution_status", Value: 1}}},
+			{Keys: bson.D{{Key: "risk_level", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 		"library_cves": {
-			{Keys: map[string]int{"target_id": 1, "js_file_id": 1}},
-			{Keys: map[string]int{"library_name": 1}},
-			{Keys: map[string]int{"version": 1}},
-			{Keys: map[string]int{"cve_id": 1}},
-			{Keys: map[string]int{"severity": 1}},
-			{Keys: map[string]int{"found_at": -1}},
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "js_file_id", Value: 1}}},
+			{Keys: bson.D{{Key: "library_name", Value: 1}}},
+			{Keys: bson.D{{Key: "version", Value: 1}}},
+			{Keys: bson.D{{Key: "cve_id", Value: 1}}},
+			{Keys: bson.D{{Key: "severity", Value: 1}}},
+			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
 	}
 
