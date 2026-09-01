@@ -12,6 +12,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"hustler/internal/config"
 	"hustler/internal/mongo"
@@ -158,7 +159,7 @@ func (m *JSModule) fetchAndStore(ctx context.Context, target *models.Target, jsU
 
 	// Create JSFile record
 	jsFile := &models.JSFile{
-		ID:            hashStr[:16], // Use first 16 chars of hash as ID
+		ID:            uuid.New().String(), // Use UUID for unique ID
 		TargetID:      target.ID,
 		URL:           jsURL,
 		JSHash:        hashStr,
