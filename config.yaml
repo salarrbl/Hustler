@@ -1,0 +1,47 @@
+# Hustler Configuration
+# Watchdogs sync is DISABLED by default - must be explicitly enabled
+
+mongo:
+  uri: "mongodb://localhost:27017"
+  database: "hustler"
+  max_pool: 100
+  min_pool: 5
+  timeout_sec: 10
+
+watchdogs:
+  enabled: false  # MUST be explicitly set to true + CLI invocation to sync
+  mongo_uri: "mongodb://localhost:27017"
+  database: "watchdogs"
+  sync_interval: "1h"
+  field_mapping:
+    # TODO: confirm Watchdogs schema - these field names need verification against actual Watchdogs MongoDB
+    collection: "http"              # Watchdogs collection to pull from (http, subdomains, etc.)
+    domain_field: "subdomain"       # Field containing the subdomain
+    root_domain_field: "root_domain" # Field containing root domain
+    status_field: "status_code"     # Field for HTTP status code
+    tech_field: "technologies"      # Field for technologies
+    title_field: "title"            # Field for page title
+    ports_field: "ports"            # Field for open ports
+    cdn_field: "cdn"                # Field for CDN
+    provider_field: "providers"     # Field for discovery provider
+    discovered_at_field: "discovered_at" # Field for discovery timestamp
+
+http:
+  timeout_sec: 30
+  follow_redirects: false
+  max_idle_conns: 100
+  max_conns_per_host: 20
+  user_agent: "Hustler/1.0 (Bug Bounty Automation)"
+
+js:
+  fetch_timeout_sec: 15
+  max_concurrent_fetch: 10
+  skip_hashes: []  # SHA256 hashes of known libraries to skip
+  entropy_threshold: 3.5  # Shannon entropy threshold for secret detection
+  enable_source_maps: true
+  cdn_blocklist_path: "data/cdn_blocklist.txt"
+  cve_dataset_path: "data/cve_dataset.json"
+
+logging:
+  level: "info"
+  format: "console"
