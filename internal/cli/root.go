@@ -26,6 +26,7 @@ func init() {
 	rootCmd.PersistentFlags().StringP("config", "c", "config.yaml", "Config file path")
 	rootCmd.PersistentFlags().StringP("mongo-uri", "", "", "MongoDB URI (overrides config)")
 	rootCmd.PersistentFlags().StringP("mongo-db", "", "", "MongoDB database (overrides config)")
+	rootCmd.AddCommand(WebCmd)
 }
 
 func GetRootCmd() *cobra.Command {

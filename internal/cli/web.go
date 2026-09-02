@@ -1,9 +1,10 @@
 package cli
 
 import (
+	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 	"strings"
 	"time"
 
@@ -18,7 +19,7 @@ import (
 
 // WebCmd is the "hustler web" command
 var WebCmd = &cobra.Command{
-	Use:   "web",
+	Use:   "web [port]",
 	Short: "Start the web dashboard",
 	Long:  `Start a local HTTP server serving the Hustler web dashboard on port 8080.`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -29,8 +30,8 @@ var WebCmd = &cobra.Command{
 
 		mux := http.NewServeMux()
 
-		// Serve static files from internal/web/
-		fs := http.FileServer(http.Dir("internal/web"))
+		// Serve static files from public/
+		fs := http.FileServer(http.Dir("public"))
 		mux.Handle("/", fs)
 
 		// API routes
@@ -91,7 +92,7 @@ func listTargets(w http.ResponseWriter, r *http.Request) {
 	}
 	
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(targets)
+	json.NewEncoder(w).Encode(targets)
 }
 
 func addTarget(w http.ResponseWriter, r *http.Request) {
@@ -111,6 +112,8 @@ func addTarget(w http.ResponseWriter, r *http.Request) {
 	var existing models.Target
 	err := coll.FindOne(ctx, bson.M{"domain": req.Domain}).Decode(&existing)
 	if err == nil {
+		// Target exists, enqueue job
+		enqueueJob(existing.ID, "webui")
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(existing)
 		return
@@ -175,19 +178,22 @@ func getFindings(w http.ResponseWriter, r *http.Request) {
 	// Get jobs
 	jobColl := mongo.GetCollection("jobs")
 	jobCursor, _ := jobColl.Find(ctx, bson.M{"target_id": targetID})
-	var jobs []models.Job
 	if jobCursor != nil {
 		defer jobCursor.Close(ctx)
-		jobCursor.All(ctx, &jobs)
+		var jobs []models.Job
+		if err := jobCursor.All(ctx, &jobs); err == nil {
+			result["jobs"] = jobs
+		}
 	}
-	result["jobs"] = jobs
 	
 	// Get secrets
 	secretColl := mongo.GetCollection("secrets")
 	secretCursor, _ := secretColl.Find(ctx, bson.M{"target_id": targetID})
 	if secretCursor != nil {
 		defer secretCursor.Close(ctx)
-		secretCursor.All(ctx, &result["secrets"])
+		secrets := make([]models.Secret, 0)
+		secretCursor.All(ctx, &secrets)
+		result["secrets"] = secrets
 	}
 	
 	// Get sinks
@@ -195,7 +201,9 @@ func getFindings(w http.ResponseWriter, r *http.Request) {
 	sinkCursor, _ := sinkColl.Find(ctx, bson.M{"target_id": targetID})
 	if sinkCursor != nil {
 		defer sinkCursor.Close(ctx)
-		sinkCursor.All(ctx, &result["sinks"])
+		sinks := make([]models.Sink, 0)
+		sinkCursor.All(ctx, &sinks)
+		result["sinks"] = sinks
 	}
 	
 	// Get endpoints
@@ -203,7 +211,9 @@ func getFindings(w http.ResponseWriter, r *http.Request) {
 	epCursor, _ := epColl.Find(ctx, bson.M{"target_id": targetID})
 	if epCursor != nil {
 		defer epCursor.Close(ctx)
-		epCursor.All(ctx, &result["endpoints"])
+		endpoints := make([]models.Endpoint, 0)
+		epCursor.All(ctx, &endpoints)
+		result["endpoints"] = endpoints
 	}
 	
 	// Get BLH
@@ -211,7 +221,9 @@ func getFindings(w http.ResponseWriter, r *http.Request) {
 	blhCursor, _ := blhColl.Find(ctx, bson.M{"target_id": targetID})
 	if blhCursor != nil {
 		defer blhCursor.Close(ctx)
-		blhCursor.All(ctx, &result["blh"])
+		blh := make([]models.BLHCandidate, 0)
+		blhCursor.All(ctx, &blh)
+		result["blh"] = blh
 	}
 	
 	// Get CVEs
@@ -219,7 +231,9 @@ func getFindings(w http.ResponseWriter, r *http.Request) {
 	cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": targetID})
 	if cveCursor != nil {
 		defer cveCursor.Close(ctx)
-		cveCursor.All(ctx, &result["cves"])
+		cves := make([]models.LibraryCVE, 0)
+		cveCursor.All(ctx, &cves)
+		result["cves"] = cves
 	}
 	
 	w.Header().Set("Content-Type", "application/json")
@@ -256,7 +270,7 @@ func createJob(w http.ResponseWriter, r *http.Request) {
 	
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	fmt.Fprintf(w, `{"status":"queued","target_id":"%s"}`, req.TargetID)
+	json.NewEncoder(w).Encode(map[string]string{"status": "queued", "target_id": req.TargetID})
 }
 
 func enqueueJob(targetID, source string) {
