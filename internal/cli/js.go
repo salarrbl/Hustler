@@ -264,30 +264,11 @@ func runAnalyzers(ctx context.Context, target *models.Target, jsFile *models.JSF
 }
 
 func init() {
-	jsCmd.AddCommand(jsHuntCmd, jsScanCmd)
+	jsCmd.AddCommand(jsHuntCmd)
 	GetRootCmd().AddCommand(jsCmd)
 
 	// Shell completion for JS commands
 	_ = jsHuntCmd.RegisterFlagCompletionFunc("domain", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
-		ctx := context.Background()
-		coll := mongo.GetCollection("targets")
-		cursor, err := coll.Find(ctx, bson.M{})
-		if err != nil {
-			return nil, cobra.ShellCompDirectiveError
-		}
-		defer cursor.Close(ctx)
-		var targets []models.Target
-		if err := cursor.All(ctx, &targets); err != nil {
-			return nil, cobra.ShellCompDirectiveError
-		}
-		var domains []string
-		for _, t := range targets {
-			domains = append(domains, t.Domain)
-		}
-		return domains, cobra.ShellCompDirectiveDefault
-	})
-
-	_ = jsScanCmd.RegisterFlagCompletionFunc("domain", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		ctx := context.Background()
 		coll := mongo.GetCollection("targets")
 		cursor, err := coll.Find(ctx, bson.M{})
