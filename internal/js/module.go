@@ -14,6 +14,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
+	"hustler/internal/analyzers"
 	"hustler/internal/config"
 	"hustler/internal/mongo"
 	"hustler/internal/models"
@@ -21,22 +22,23 @@ import (
 
 // JSModule handles the JavaScript hunting pipeline
 type JSModule struct {
-	cfg       config.JSConfig
-	httpClient *http.Client
+	cfg          config.JSConfig
+	httpClient   *http.Client
+	sensitiveCfg config.SensitiveEndpointCheckConfig
 }
 
 // NewJSModule creates a new JS hunting module
-func NewJSModule(cfg config.JSConfig) *JSModule {
+func NewJSModule(jsCfg config.JSConfig, sensitiveCfg config.SensitiveEndpointCheckConfig) *JSModule {
 	transport := &http.Transport{
-		MaxIdleConns:        cfg.MaxConcurrentFetch * 2,
-		MaxIdleConnsPerHost: cfg.MaxConcurrentFetch,
-		MaxConnsPerHost:     cfg.MaxConcurrentFetch,
+		MaxIdleConns:        jsCfg.MaxConcurrentFetch * 2,
+		MaxIdleConnsPerHost: jsCfg.MaxConcurrentFetch,
+		MaxConnsPerHost:     jsCfg.MaxConcurrentFetch,
 		IdleConnTimeout:     30 * time.Second,
 		DisableCompression:  false,
 	}
 
 	client := &http.Client{
-		Timeout:   time.Duration(cfg.FetchTimeoutSec) * time.Second,
+		Timeout:   time.Duration(jsCfg.FetchTimeoutSec) * time.Second,
 		Transport: transport,
 		CheckRedirect: func(req *http.Request, via []*http.Request) error {
 			return http.ErrUseLastResponse
@@ -44,21 +46,22 @@ func NewJSModule(cfg config.JSConfig) *JSModule {
 	}
 
 	return &JSModule{
-		cfg:        cfg,
-		httpClient: client,
+		cfg:          jsCfg,
+		sensitiveCfg: sensitiveCfg,
+		httpClient:   client,
 	}
 }
 
 // JSFileResult represents the result of fetching a JS file
 type JSFileResult struct {
-	JSFile   *models.JSFile
-	Content  string
-	Error    error
-	Skipped  bool
+	JSFile     *models.JSFile
+	Content    string
+	Error      error
+	Skipped    bool
 	SkipReason string
 }
 
-// FetchAndProcess fetches JS files for a target and runs analyzers
+// FetchAndProcess fetches JS files for a target and runs all analyzers
 func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, jsURLs []string) ([]JSFileResult, error) {
 	if len(jsURLs) == 0 {
 		return nil, fmt.Errorf("no JS URLs provided")
@@ -67,6 +70,16 @@ func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, j
 	// Filter and deduplicate URLs
 	uniqueURLs := m.deduplicateURLs(jsURLs)
 	log.Info().Int("total", len(jsURLs)).Int("unique", len(uniqueURLs)).Str("target", target.Domain).Msg("Processing JS files")
+
+	// Check which URLs are already known (incremental)
+	knowURLs := m.getKnownURLs(ctx, target.ID, uniqueURLs)
+	newURLs := make([]string, 0, len(uniqueURLs))
+	for _, u := range uniqueURLs {
+		if !knowURLs[u] {
+			newURLs = append(newURLs, u)
+		}
+	}
+	log.Info().Int("known", len(uniqueURLs)-len(newURLs)).Int("new", len(newURLs)).Msg("URL deduplication complete")
 
 	// Fetch JS files with concurrency control
 	semaphore := make(chan struct{}, m.cfg.MaxConcurrentFetch)
@@ -89,7 +102,176 @@ func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, j
 	}
 
 	wg.Wait()
+
+	// Collect successfully fetched results with content
+	var fetchedResults []JSFileResult
+	var jsFiles []*models.JSFile
+	contentMap := make(map[string]string)
+	for _, r := range results {
+		if r.Error == nil && r.Content != "" {
+			fetchedResults = append(fetchedResults, r)
+			jsFiles = append(jsFiles, r.JSFile)
+			contentMap[r.JSFile.URL] = r.Content
+		}
+	}
+
+	// Run analyzers on fetched content
+	if len(jsFiles) > 0 {
+		m.runAnalyzers(ctx, target, jsFiles, contentMap)
+	}
+
 	return results, nil
+}
+
+// runAnalyzers runs all enabled analyzers on the fetched JS files
+func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string) {
+	log.Info().Int("files", len(jsFiles)).Msg("Running analyzers")
+
+	// 1. Secret scanner
+	secretScanner := analyzers.NewSecretScanner(m.cfg)
+	for _, jsFile := range jsFiles {
+		content := contentMap[jsFile.URL]
+		if content == "" {
+			continue
+		}
+		secrets, err := secretScanner.Scan(ctx, target, jsFile, content)
+		if err != nil {
+			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Secret scanner failed")
+		} else {
+			log.Info().Int("count", len(secrets)).Str("js_file", jsFile.URL).Msg("Secret scanner complete")
+		}
+	}
+
+	// 2. Sink analyzer
+	sinkAnalyzer := analyzers.NewSinkAnalyzer()
+	for _, jsFile := range jsFiles {
+		content := contentMap[jsFile.URL]
+		if content == "" {
+			continue
+		}
+		sinks, err := sinkAnalyzer.Scan(ctx, target, jsFile, content)
+		if err != nil {
+			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Sink analyzer failed")
+		} else {
+			log.Info().Int("count", len(sinks)).Str("js_file", jsFile.URL).Msg("Sink analyzer complete")
+		}
+	}
+
+	// 3. Endpoint extractor
+	endpointExtractor := analyzers.NewEndpointExtractor()
+	for _, jsFile := range jsFiles {
+		content := contentMap[jsFile.URL]
+		if content == "" {
+			continue
+		}
+		endpoints, err := endpointExtractor.ExtractEndpoints(ctx, target, jsFile, content)
+		if err != nil {
+			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Endpoint extractor failed")
+		} else {
+			log.Info().Int("count", len(endpoints)).Str("js_file", jsFile.URL).Msg("Endpoint extractor complete")
+			// Store discovered endpoints as URLs
+			m.storeDiscoveredURLs(ctx, target.ID, endpoints, "extracted_from_js")
+		}
+	}
+
+	// 4. Parameter extractor
+	paramExtractor := analyzers.NewParamExtractor()
+	for _, jsFile := range jsFiles {
+		content := contentMap[jsFile.URL]
+		if content == "" {
+			continue
+		}
+		params, err := paramExtractor.ExtractParams(ctx, target, jsFile, content)
+		if err != nil {
+			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Param extractor failed")
+		} else {
+			log.Info().Int("count", len(params)).Str("js_file", jsFile.URL).Msg("Param extractor complete")
+		}
+	}
+
+	// 5. BLH analyzer
+	blhAnalyzer := analyzers.NewBLHAnalyzer(m.httpClient)
+	blhCandidates, err := blhAnalyzer.AnalyzeBLH(ctx, target, jsFiles, contentMap)
+	if err != nil {
+		log.Warn().Err(err).Msg("BLH analyzer failed")
+	} else {
+		log.Info().Int("count", len(blhCandidates)).Msg("BLH analysis complete")
+	}
+
+	// 6. Library CVE analyzer
+	cveAnalyzer := analyzers.NewLibraryCVEAnalyzer()
+	cveResults, err := cveAnalyzer.AnalyzeLibraries(ctx, target, jsFiles, contentMap)
+	if err != nil {
+		log.Warn().Err(err).Msg("Library CVE analyzer failed")
+	} else {
+		log.Info().Int("count", len(cveResults)).Msg("Library CVE analysis complete")
+	}
+
+	// 7. Sensitive endpoint check (if enabled)
+	if m.sensitiveCfg.Enabled {
+		sensitiveAnalyzer := analyzers.NewSensitiveEndpointAnalyzer(m.sensitiveCfg, m.httpClient)
+		if sensitiveAnalyzer != nil {
+			// Get endpoints from DB for this target
+			epColl := mongo.GetCollection("endpoints")
+			cursor, err := epColl.Find(ctx, map[string]interface{}{"target_id": target.ID})
+			if err != nil {
+				log.Warn().Err(err).Msg("Failed to query endpoints for sensitive check")
+			} else {
+				var endpoints []models.Endpoint
+				cursor.All(ctx, &endpoints)
+				candidates, err := sensitiveAnalyzer.Check(ctx, target, endpoints)
+				if err != nil {
+					log.Warn().Err(err).Msg("Sensitive endpoint check failed")
+				} else {
+					log.Info().Int("count", len(candidates)).Msg("Sensitive endpoint check complete")
+				}
+			}
+		}
+	}
+}
+
+// storeDiscoveredURLs persists discovered URLs to the discovered_urls collection
+func (m *JSModule) storeDiscoveredURLs(ctx context.Context, targetID string, endpoints []models.Endpoint, source string) {
+	coll := mongo.GetCollection("discovered_urls")
+	now := time.Now()
+	for _, ep := range endpoints {
+		doc := models.DiscoveredURL{
+			ID:        uuid.New().String(),
+			TargetID:  targetID,
+			URL:       ep.Endpoint,
+			URLType:   "endpoint",
+			Source:    source,
+			FirstSeen: now,
+			LastSeen:  now,
+		}
+		// Use upsert to update last_seen if exists
+		filter := map[string]interface{}{"target_id": targetID, "url": ep.Endpoint}
+		update := map[string]interface{}{"$set": map[string]interface{}{
+			"last_seen": now,
+		}}
+		_, err := coll.UpdateOne(ctx, filter, update)
+		if err != nil {
+			// If not found, insert new
+			coll.InsertOne(ctx, doc)
+		}
+	}
+}
+
+// getKnownURLs checks which URLs are already in the discovered_urls collection
+func (m *JSModule) getKnownURLs(ctx context.Context, targetID string, urls []string) map[string]bool {
+	coll := mongo.GetCollection("discovered_urls")
+	known := make(map[string]bool)
+	for _, u := range urls {
+		var doc models.DiscoveredURL
+		err := coll.FindOne(ctx, map[string]interface{}{
+			"target_id": targetID,
+			"url":       u,
+		}).Decode(&doc)
+		if err == nil {
+			known[u] = true
+		}
+	}
+	return known
 }
 
 // fetchAndStore fetches a single JS file, checks hash dedupe, stores if new
@@ -159,7 +341,7 @@ func (m *JSModule) fetchAndStore(ctx context.Context, target *models.Target, jsU
 
 	// Create JSFile record
 	jsFile := &models.JSFile{
-		ID:            uuid.New().String(), // Use UUID for unique ID
+		ID:            uuid.New().String(),
 		TargetID:      target.ID,
 		URL:           jsURL,
 		JSHash:        hashStr,
@@ -180,6 +362,21 @@ func (m *JSModule) fetchAndStore(ctx context.Context, target *models.Target, jsU
 	if m.cfg.EnableSourceMaps && sourceMapURL != "" {
 		m.fetchSourceMap(ctx, target.ID, jsFile.ID, sourceMapURL)
 	}
+
+	// Store as discovered URL
+	m.storeDiscoveredURLs(ctx, target.ID, nil, "manual")
+	// Add the JS URL itself as discovered
+	jsURLDoc := models.DiscoveredURL{
+		ID:        uuid.New().String(),
+		TargetID:  target.ID,
+		URL:       jsURL,
+		URLType:   "js_file",
+		Source:    "manual",
+		FirstSeen: time.Now(),
+		LastSeen:  time.Now(),
+	}
+	urlColl := mongo.GetCollection("discovered_urls")
+	urlColl.InsertOne(ctx, jsURLDoc)
 
 	log.Info().Str("url", jsURL).Str("hash", hashStr[:16]).Int("size", len(body)).Msg("JS file fetched and stored")
 	return JSFileResult{JSFile: jsFile, Content: content}

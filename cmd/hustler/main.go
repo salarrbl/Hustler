@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -10,8 +12,11 @@ import (
 
 	"hustler/internal/cli"
 	"hustler/internal/config"
+	"hustler/internal/jobqueue"
 	"hustler/internal/mongo"
 )
+
+var workerPool *jobqueue.WorkerPool
 
 func main() {
 	// Parse flags early to get config path
@@ -49,6 +54,26 @@ func main() {
 	defer mongo.Disconnect()
 
 	log.Info().Str("database", cfg.Mongo.Database).Msg("Connected to MongoDB")
+
+	// Create and start worker pool
+	workerPool = jobqueue.NewWorkerPool(cfg.Hustler, cfg.Discovery)
+	workerPool.Start()
+	defer workerPool.Stop()
+
+	// Make worker pool available to CLI
+	cli.SetWorkerPool(workerPool)
+
+	// Handle graceful shutdown
+	sigCh := make(chan os.Signal, 1)
+	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
+	go func() {
+		<-sigCh
+		log.Info().Msg("Shutdown signal received, stopping worker pool...")
+		workerPool.Stop()
+		os.Exit(0)
+	}()
+
+	log.Info().Int("max_concurrent_hunts", cfg.Hustler.MaxConcurrentHunts).Msg("Worker pool ready")
 
 	// Execute CLI
 	if err := cli.Execute(); err != nil {

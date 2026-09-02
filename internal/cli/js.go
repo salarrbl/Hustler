@@ -3,10 +3,12 @@ package cli
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"hustler/internal/config"
 	"hustler/internal/js"
 	"hustler/internal/analyzers"
@@ -22,7 +24,9 @@ var jsCmd = &cobra.Command{
 
 var jsHuntCmd = &cobra.Command{
 	Use:   "hunt <domain>",
-	Short: "Run JS hunting pipeline on a target",
+	Short: "Show findings and job status for a target",
+	Long: `Display existing findings (secrets, sinks, etc.) and current hunt job status for a target.
+This is a read-only command - it does not start or re-run scans.`,
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		domain := args[0]
@@ -36,14 +40,78 @@ var jsHuntCmd = &cobra.Command{
 			return fmt.Errorf("target not found: %s", domain)
 		}
 
-		// For now, we need JS URLs to hunt. In future, this would crawl for JS files.
-		// For testing, we can pass JS URLs via a file or flags.
-		// This is a placeholder - real implementation would discover JS files first.
-		
-		fmt.Printf("Target: %s (ID: %s)\n", target.Domain, target.ID)
-		fmt.Println("JS hunting pipeline would run here.")
-		fmt.Println("Need to discover JS files first (from Watchdogs or crawling).")
-		
+		fmt.Printf("=== Target: %s (ID: %s) ===\n", target.Domain, target.ID)
+
+		// Get latest job status
+		jobColl := mongo.GetCollection("jobs")
+		cursor, err := jobColl.Find(ctx, bson.M{"target_id": target.ID})
+		if err != nil {
+			return fmt.Errorf("failed to query jobs: %w", err)
+		}
+		defer cursor.Close(ctx)
+
+		var jobs []models.Job
+		if err := cursor.All(ctx, &jobs); err != nil {
+			return fmt.Errorf("failed to decode jobs: %w", err)
+		}
+
+		if len(jobs) > 0 {
+			latestJob := jobs[0]
+			fmt.Printf("\nLast Hunt Job:\n")
+			fmt.Printf("  ID:     %s\n", latestJob.ID)
+			fmt.Printf("  Status: %s\n", latestJob.Status)
+			fmt.Printf("  Queued: %s\n", latestJob.QueuedAt.Format(time.RFC3339))
+			if latestJob.StartedAt != nil {
+				fmt.Printf("  Started: %s\n", latestJob.StartedAt.Format(time.RFC3339))
+			}
+			if latestJob.FinishedAt != nil {
+				fmt.Printf("  Finished: %s\n", latestJob.FinishedAt.Format(time.RFC3339))
+			}
+			if latestJob.Error != "" {
+				fmt.Printf("  Error: %s\n", latestJob.Error)
+			}
+			if latestJob.Source != "" {
+				fmt.Printf("  Source: %s\n", latestJob.Source)
+			}
+		} else {
+			fmt.Println("\nNo hunt job has ever run for this target.")
+		}
+
+		// Show findings
+		fmt.Printf("\n=== Findings ===\n")
+
+		// Secrets
+		secretColl := mongo.GetCollection("secrets")
+		scursor, _ := secretColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer scursor.Close(ctx)
+		var secrets []models.Secret
+		scursor.All(ctx, &secrets)
+		if len(secrets) > 0 {
+			fmt.Printf("\nSecrets (%d):\n", len(secrets))
+			for _, s := range secrets {
+				fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f)\n",
+					s.Pattern, s.Line, s.Confidence, s.Entropy)
+			}
+		}
+
+		// Sinks
+		sinkColl := mongo.GetCollection("sinks")
+		sinkCursor, _ := sinkColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer sinkCursor.Close(ctx)
+		var sinks []models.Sink
+		sinkCursor.All(ctx, &sinks)
+		if len(sinks) > 0 {
+			fmt.Printf("\nSinks (%d):\n", len(sinks))
+			for _, sk := range sinks {
+				fmt.Printf("  - %s from %s (line %d, confidence: %.2f, origin_check: %v)\n",
+					sk.SinkType, sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck)
+			}
+		}
+
+		if len(secrets) == 0 && len(sinks) == 0 {
+			fmt.Println("\nNo findings yet. Run a scan with `hustler js scan <domain> <js-url>` to generate findings.")
+		}
+
 		return nil
 	},
 }
@@ -74,7 +142,7 @@ var jsScanCmd = &cobra.Command{
 		log.Info().Str("target", domain).Str("js_url", jsURL).Msg("Starting JS scan")
 
 		// Create JS module
-		jsModule := js.NewJSModule(cfg.JS)
+		jsModule := js.NewJSModule(cfg.JS, cfg.Sensitive)
 
 		// Fetch and process
 		results, err := jsModule.FetchAndProcess(ctx, &target, []string{jsURL})

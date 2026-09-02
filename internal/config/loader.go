@@ -10,7 +10,7 @@ import (
 )
 
 // Load loads configuration from config.yaml and environment variables
-func Load(configPath string) (*Config, error) {
+func Load(configPath string) (*FullConfig, error) {
 	// Load .env file if exists
 	if _, err := os.Stat(".env"); err == nil {
 		if err := godotenv.Load(); err != nil {
@@ -35,7 +35,7 @@ func Load(configPath string) (*Config, error) {
 		return nil, fmt.Errorf("failed to read config file: %w", err)
 	}
 
-	var cfg Config
+	var cfg FullConfig
 	if err := v.Unmarshal(&cfg); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal config: %w", err)
 	}
@@ -46,7 +46,7 @@ func Load(configPath string) (*Config, error) {
 	return &cfg, nil
 }
 
-func setDefaults(cfg *Config) {
+func setDefaults(cfg *FullConfig) {
 	if cfg.Mongo.URI == "" {
 		cfg.Mongo.URI = "mongodb://localhost:27017"
 	}
@@ -90,10 +90,36 @@ func setDefaults(cfg *Config) {
 		cfg.JS.EntropyThreshold = 3.5
 	}
 
+	// Discovery config defaults
+	if cfg.Discovery.Enabled == false {
+		cfg.Discovery.Enabled = true // enable discovery by default
+	}
+	if !cfg.Discovery.UseKatana {
+		cfg.Discovery.UseKatana = true // katana enabled by default
+	}
+	if cfg.Discovery.UseGau == false {
+		cfg.Discovery.UseGau = false // gau disabled by default
+	}
+	if len(cfg.Sensitive.HeuristicPaths) == 0 {
+		cfg.Sensitive.HeuristicPaths = []string{
+			"/api/", "/admin", "/internal", "/config", "/export", "/backup", "/debug",
+		}
+	}
+	if len(cfg.Sensitive.SensitivePatterns) == 0 {
+		cfg.Sensitive.SensitivePatterns = []string{
+			"password", "token", "apiKey", "apikey", "secret", "ssn",
+			"credit_card", "creditcard", "cvv", "email",
+		}
+	}
+
 	if cfg.Logging.Level == "" {
 		cfg.Logging.Level = "info"
 	}
 	if cfg.Logging.Format == "" {
 		cfg.Logging.Format = "console"
+	}
+
+	if cfg.Hustler.MaxConcurrentHunts == 0 {
+		cfg.Hustler.MaxConcurrentHunts = 3
 	}
 }

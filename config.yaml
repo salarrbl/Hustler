@@ -45,3 +45,33 @@ js:
 logging:
   level: "info"
   format: "console"
+
+hustler:
+  max_concurrent_hunts: 3
+
+discovery:
+  enabled: true
+  use_katana: true
+  use_gau: false
+
+# Sensitive endpoint check is DISABLED by default for safety
+sensitive_endpoint_check:
+  enabled: false
+  rate_limit_per_sec: 2
+  heuristic_paths:
+    - "/api/"
+    - "/admin"
+    - "/internal"
+    - "/config"
+    - "/export"
+    - "/backup"
+    - "/debug"
+  sensitive_patterns:
+    - "password"
+    - "token"
+    - "apiKey"
+    - "apikey"
+    - "secret"
+    - "ssn"
+    - "credit_card"
+    - "email"

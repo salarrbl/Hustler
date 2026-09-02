@@ -114,6 +114,23 @@ func createIndexes(ctx context.Context) error {
 			{Keys: bson.D{{Key: "severity", Value: 1}}},
 			{Keys: bson.D{{Key: "found_at", Value: -1}}},
 		},
+		"sensitive_endpoint_candidates": {
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "endpoint", Value: 1}}},
+			{Keys: bson.D{{Key: "checked_at", Value: -1}}},
+		},
+		"discovered_urls": {
+			{Keys: bson.D{{Key: "target_id", Value: 1}, {Key: "url", Value: 1}}, Options: options.Index().SetUnique(true)},
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "url_type", Value: 1}}},
+			{Keys: bson.D{{Key: "last_seen", Value: -1}}},
+		},
+		"jobs": {
+			{Keys: bson.D{{Key: "target_id", Value: 1}}},
+			{Keys: bson.D{{Key: "status", Value: 1}}},
+			{Keys: bson.D{{Key: "queued_at", Value: 1}}},
+			{Keys: bson.D{{Key: "source", Value: 1}}},
+		},
 	}
 
 	for collName, models := range indexes {

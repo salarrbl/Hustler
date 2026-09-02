@@ -20,17 +20,36 @@ var targetCmd = &cobra.Command{
 
 var targetAddCmd = &cobra.Command{
 	Use:   "add <domain>",
-	Short: "Add a target manually",
+	Short: "Add a target manually and enqueue hunt job",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		domain := args[0]
 		ctx := context.Background()
 
-		target := models.NewTarget(domain, models.SourceManual)
+		// Check if target already exists
 		coll := mongo.GetCollection("targets")
-		_, err := coll.InsertOne(ctx, target)
+		var existing models.Target
+		err := coll.FindOne(ctx, map[string]interface{}{"domain": domain}).Decode(&existing)
+		if err == nil {
+			return fmt.Errorf("target already exists: %s (ID: %s)", domain, existing.ID)
+		}
+
+		target := models.NewTarget(domain, models.SourceManual)
+		_, err = coll.InsertOne(ctx, target)
 		if err != nil {
 			return fmt.Errorf("failed to insert target: %w", err)
+		}
+
+		// Enqueue hunt job (non-blocking)
+		wp := GetWorkerPool()
+		if wp != nil {
+			job, err := wp.EnqueueJobForTarget(ctx, target.ID, "manual")
+			if err != nil {
+				log.Warn().Err(err).Str("target_id", target.ID).Msg("Failed to enqueue hunt job")
+			} else {
+				log.Info().Str("job_id", job.ID).Str("target_id", target.ID).Msg("Hunt job enqueued")
+				fmt.Printf("Enqueued hunt job: %s\n", job.ID)
+			}
 		}
 
 		log.Info().Str("domain", domain).Str("id", target.ID).Msg("Target added successfully")

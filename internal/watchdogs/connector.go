@@ -5,25 +5,29 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson"
 	wmongo "go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
 	"hustler/internal/config"
+	"hustler/internal/jobqueue"
+	"hustler/internal/mongo"
 	"hustler/internal/models"
 )
 
 // Connector handles read-only sync from Watchdogs MongoDB
 type Connector struct {
-	client      *wmongo.Client
-	db          *wmongo.Database
-	cfg         config.WatchdogsConfig
-	hustlerColl *wmongo.Collection
+	client       *wmongo.Client
+	watchdogsDb  *wmongo.Database
+	hustlerColl  *wmongo.Collection
+	cfg          config.WatchdogsConfig
+	workerPool   *jobqueue.WorkerPool
 }
 
 // NewConnector creates a new Watchdogs connector
-func NewConnector(cfg config.WatchdogsConfig) (*Connector, error) {
+func NewConnector(cfg config.WatchdogsConfig, wp *jobqueue.WorkerPool) (*Connector, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -42,14 +46,19 @@ func NewConnector(cfg config.WatchdogsConfig) (*Connector, error) {
 	}
 
 	db := client.Database(cfg.Database)
-	hustlerColl := db.Collection("targets") // Use Watchdogs DB connection but targets collection
 
 	return &Connector{
 		client:      client,
-		db:          db,
+		watchdogsDb: db,
 		cfg:         cfg,
-		hustlerColl: hustlerColl,
+		hustlerColl: mongo.GetCollection("targets"),
+		workerPool:  wp,
 	}, nil
+}
+
+// SetWorkerPool injects the worker pool for enqueuing jobs
+func (c *Connector) SetWorkerPool(wp *jobqueue.WorkerPool) {
+	c.workerPool = wp
 }
 
 // Close closes the Watchdogs MongoDB connection
@@ -57,11 +66,13 @@ func (c *Connector) Close() error {
 	return c.client.Disconnect(context.Background())
 }
 
-// Sync pulls targets from Watchdogs and upserts into Hustler's targets collection
-// This is EXPLICITLY INVOKED via CLI - never auto-runs
+// Sync pulls targets from Watchdogs and upserts into Hustler's targets collection.
+// Sync is incremental: only domains NOT already in Hustler are created as new targets.
+// Each new target gets a hunt job enqueued into the worker pool.
+// This is EXPLICITLY INVOKED via CLI - never auto-runs.
 func (c *Connector) Sync(ctx context.Context) (int, error) {
 	if !c.cfg.Enabled {
-		return 0, fmt.Errorf("Watchdogs sync is disabled - enable in config or use explicit CLI flag")
+		return 0, fmt.Errorf("Watchdogs sync is disabled - set watchdogs.enabled: true in config.yaml")
 	}
 
 	mapping := c.cfg.FieldMapping
@@ -70,7 +81,7 @@ func (c *Connector) Sync(ctx context.Context) (int, error) {
 	}
 
 	// Query Watchdogs collection
-	coll := c.db.Collection(mapping.Collection)
+	coll := c.watchdogsDb.Collection(mapping.Collection)
 	cursor, err := coll.Find(ctx, bson.M{})
 	if err != nil {
 		return 0, fmt.Errorf("failed to query Watchdogs collection %s: %w", mapping.Collection, err)
@@ -98,15 +109,14 @@ func (c *Connector) Sync(ctx context.Context) (int, error) {
 			continue
 		}
 
-		// Check if already exists in Hustler
+		// Dedupe: check if domain already exists in Hustler
 		filter := bson.M{"domain": domain}
-		var existing models.Target
-		err := c.hustlerColl.FindOne(ctx, filter).Decode(&existing)
+		err := c.hustlerColl.FindOne(ctx, filter).Decode(new(models.Target))
 		if err == nil {
-			// Update existing with latest Watchdogs data
-			if err := c.updateTargetFromWatchdogs(ctx, &existing, doc, mapping); err != nil {
-				continue
-			}
+			// Domain already exists — update it with latest Watchdogs data
+			var existing models.Target
+			c.hustlerColl.FindOne(ctx, filter).Decode(&existing)
+			c.updateTargetFromWatchdogs(ctx, &existing, doc, mapping)
 			skipped++
 			continue
 		}
@@ -115,17 +125,35 @@ func (c *Connector) Sync(ctx context.Context) (int, error) {
 		target := models.NewTarget(domain, models.SourceWatchdogs)
 		c.populateTargetFromWatchdogs(target, doc, mapping)
 
-		_, err = c.hustlerColl.InsertOne(ctx, target)
+		result, err := c.hustlerColl.InsertOne(ctx, target)
 		if err != nil {
+			if IsDuplicateKeyError(err) {
+				skipped++
+				continue
+			}
+			log.Warn().Err(err).Str("domain", domain).Msg("Failed to insert target from Watchdogs")
 			continue
 		}
+		target.ID = result.InsertedID.(string)
 		synced++
+
+		// Enqueue hunt job for this new target (concurrency-limited by worker pool)
+		if c.workerPool != nil {
+			job, err := c.workerPool.EnqueueJobForTarget(ctx, target.ID, "watchdogs")
+			if err != nil {
+				log.Warn().Err(err).Str("domain", domain).Msg("Failed to enqueue hunt job for Watchdogs target")
+			} else {
+				log.Info().Str("job_id", job.ID).Str("domain", domain).Msg("Hunt job enqueued for Watchdogs target")
+			}
+		}
 	}
 
 	if err := cursor.Err(); err != nil {
 		return synced, fmt.Errorf("cursor error: %w", err)
 	}
 
+	log.Info().Int("synced", synced).Int("skipped", skipped).Msg("Watchdogs sync completed")
+	fmt.Printf("Watchdogs sync: %d new targets, %d skipped (already known)\n", synced, skipped)
 	return synced, nil
 }
 
@@ -210,4 +238,15 @@ func (c *Connector) populateTargetFromWatchdogs(target *models.Target, doc bson.
 			target.DiscoveredAt = &t
 		}
 	}
+}
+
+// IsDuplicateKeyError checks if a MongoDB error is a duplicate key error (code 11000)
+func IsDuplicateKeyError(err error) bool {
+	if err == nil {
+		return false
+	}
+	if mongoErr, ok := err.(interface{ Code() int }); ok {
+		return mongoErr.Code() == 11000
+	}
+	return false
 }

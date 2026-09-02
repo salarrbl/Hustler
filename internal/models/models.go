@@ -151,3 +151,47 @@ type LibraryCVE struct {
 	Reference   string    `bson:"reference,omitempty" json:"reference,omitempty"`
 	FoundAt     time.Time `bson:"found_at" json:"found_at"`
 }
+
+// JobStatus represents the status of a hunt job
+type JobStatus string
+
+const (
+	JobStatusQueued   JobStatus = "queued"
+	JobStatusRunning  JobStatus = "running"
+	JobStatusDone     JobStatus = "done"
+	JobStatusError    JobStatus = "error"
+)
+
+// Job represents a hunt job in the queue
+type Job struct {
+	ID          string     `bson:"_id" json:"id"`
+	TargetID    string     `bson:"target_id" json:"target_id"`
+	Status      JobStatus  `bson:"status" json:"status"`
+	QueuedAt    time.Time  `bson:"queued_at" json:"queued_at"`
+	StartedAt   *time.Time `bson:"started_at,omitempty" json:"started_at,omitempty"`
+	FinishedAt  *time.Time `bson:"finished_at,omitempty" json:"finished_at,omitempty"`
+	Error       string     `bson:"error,omitempty" json:"error,omitempty"`
+	Source      string     `bson:"source" json:"source"` // "manual" or "watchdogs"
+}
+
+// DiscoveredURL tracks URLs that have been seen for a target to enable incremental scanning
+type DiscoveredURL struct {
+	ID        string    `bson:"_id" json:"id"`
+	TargetID  string    `bson:"target_id" json:"target_id"`
+	URL       string    `bson:"url" json:"url"`
+	URLType   string    `bson:"url_type" json:"url_type"` // js_file or endpoint
+	Source    string    `bson:"source" json:"source"`     // how it was discovered (katana, gau, wayback, extracted_from_js, etc.)
+	FirstSeen time.Time `bson:"first_seen" json:"first_seen"`
+	LastSeen  time.Time `bson:"last_seen" json:"last_seen"`
+}
+
+// SensitiveEndpointCandidate represents an endpoint that returned potentially sensitive data
+type SensitiveEndpointCandidate struct {
+	ID             string    `bson:"_id" json:"id"`
+	TargetID       string    `bson:"target_id" json:"target_id"`
+	Endpoint       string    `bson:"endpoint" json:"endpoint"`
+	StatusCode     int       `bson:"status_code" json:"status_code"`
+	ResponseSize   int       `bson:"response_size" json:"response_size"`
+	MatchedPatterns []string  `bson:"matched_patterns" json:"matched_patterns"` // e.g., ["password", "token", "email"]
+	CheckedAt      time.Time `bson:"checked_at" json:"checked_at"`
+}

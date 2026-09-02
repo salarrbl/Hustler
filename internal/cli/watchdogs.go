@@ -22,7 +22,8 @@ var watchdogsSyncCmd = &cobra.Command{
 	Short: "Sync targets from Watchdogs MongoDB (requires explicit invocation)",
 	Long: `Pull targets from Watchdogs' MongoDB into Hustler's target queue.
 This command MUST be explicitly invoked - it never runs automatically.
-Requires watchdogs.enabled=true in config.yaml.`,
+Requires watchdogs.enabled=true in config.yaml.
+Sync is incremental: only new domains (not already in Hustler) are added.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cfg, err := config.Load("config.yaml")
 		if err != nil {
@@ -33,7 +34,7 @@ Requires watchdogs.enabled=true in config.yaml.`,
 			return fmt.Errorf("Watchdogs sync is disabled - set watchdogs.enabled: true in config.yaml")
 		}
 
-		connector, err := watchdogs.NewConnector(cfg.Watchdogs)
+		connector, err := watchdogs.NewConnector(cfg.Watchdogs, GetWorkerPool())
 		if err != nil {
 			return fmt.Errorf("failed to create Watchdogs connector: %w", err)
 		}
