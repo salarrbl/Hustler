@@ -180,15 +180,13 @@ func (s *SecretScanner) Scan(ctx context.Context, target *models.Target, jsFile 
 					continue
 				}
 
-				// Redact matched string for storage (keep first 4 + last 4 chars)
-				redacted := s.redactString(matched)
-
+				// Store full matched value (no redaction)
 				secret := models.Secret{
 					ID:         uuid.New().String(),
 					TargetID:   target.ID,
 					JSFileID:   jsFile.ID,
 					Pattern:    pattern.Name,
-					Matched:    redacted,
+					Matched:    matched,
 					Line:       lineNum,
 					Column:     strings.Index(line, matched) + 1,
 					Entropy:    entropy,
@@ -196,6 +194,7 @@ func (s *SecretScanner) Scan(ctx context.Context, target *models.Target, jsFile 
 					Context:    s.getContext(line, matched),
 					FoundAt:    time.Now(),
 					IsMinified: isMinified,
+					RawMatch:   matched,
 				}
 
 				secrets = append(secrets, secret)
@@ -345,6 +344,14 @@ func (s *SecretScanner) redactString(str string) string {
 		return strings.Repeat("*", len(str))
 	}
 	return str[:4] + strings.Repeat("*", len(str)-8) + str[len(str)-4:]
+}
+
+// getMatchDisplay returns the match for display - shows full value if short enough, otherwise redacted
+func (s *SecretScanner) getMatchDisplay(str string) string {
+	if len(str) <= 40 {
+		return str
+	}
+	return str[:8] + "***" + str[len(str)-8:]
 }
 
 // getContext returns surrounding context for a match

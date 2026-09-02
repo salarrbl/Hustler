@@ -84,6 +84,17 @@ This is a read-only command - it does not start or re-run scans.`,
 		// Show findings
 		fmt.Printf("\n=== Findings ===\n")
 
+		// Build JSFile ID -> URL map for resolving source files
+		jsFileColl := mongo.GetCollection("js_files")
+		jsFileCursor, _ := jsFileColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer jsFileCursor.Close(ctx)
+		var jsFiles []models.JSFile
+		jsFileCursor.All(ctx, &jsFiles)
+		jsFileMap := make(map[string]string)
+		for _, jf := range jsFiles {
+			jsFileMap[jf.ID] = jf.URL
+		}
+
 		// Secrets
 		secretColl := mongo.GetCollection("secrets")
 		scursor, _ := secretColl.Find(ctx, bson.M{"target_id": target.ID})
@@ -91,15 +102,29 @@ This is a read-only command - it does not start or re-run scans.`,
 		var secrets []models.Secret
 		scursor.All(ctx, &secrets)
 		if len(secrets) > 0 {
-			fmt.Printf("\nSecrets (%d):\n", len(secrets))
+			fmt.Printf("\n%s\n", color.New(color.FgHiYellow, color.Bold).Sprintf("=== SECRETS (%d) ===", len(secrets)))
 			for _, s := range secrets {
 				c := statusColorByConfidence(s.Confidence)
 				minifiedTag := ""
 				if s.IsMinified {
-					minifiedTag = " [minified]"
+					minifiedTag = color.New(color.FgHiBlack).Sprintf(" [minified]")
 				}
-				fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f%s)\\n",
-					c.Sprintf("%s", bold(s.Pattern)), s.Line, s.Confidence, s.Entropy, minifiedTag)
+				fileURL := jsFileMap[s.JSFileID]
+				if fileURL == "" {
+					fileURL = "(unknown file)"
+				}
+				// Color the pattern name by confidence
+				patternColored := c.Sprintf("%s", bold(s.Pattern))
+				// Show URL in cyan
+				urlColored := color.New(color.FgHiCyan).Sprintf("%s", fileURL)
+				// Show matched value (redacted if stored, raw if in-memory)
+				displayMatch := s.Matched
+				if s.RawMatch != "" {
+					displayMatch = s.RawMatch
+				}
+				matchedColored := color.New(color.FgHiYellow).Sprintf("%s", displayMatch)
+				fmt.Printf("  %s: %s  (line %d, conf: %.2f, entropy: %.2f%s) → %s\n",
+					patternColored, matchedColored, s.Line, s.Confidence, s.Entropy, minifiedTag, urlColored)
 			}
 		}
 
@@ -110,74 +135,122 @@ This is a read-only command - it does not start or re-run scans.`,
 		var sinks []models.Sink
 		sinkCursor.All(ctx, &sinks)
 		if len(sinks) > 0 {
-			fmt.Printf("\nSinks (%d):\n", len(sinks))
+			fmt.Printf("\n%s\n", color.New(color.FgHiMagenta, color.Bold).Sprintf("=== SINKS (%d) ===", len(sinks)))
 			for _, sk := range sinks {
 				c := sinkColor(sk.HasOriginCheck, sk.SinkType, sk.SourceType)
 				minifiedTag := ""
 				if sk.IsMinified {
-					minifiedTag = " [minified]"
+					minifiedTag = color.New(color.FgHiBlack).Sprintf(" [minified]")
 				}
 				lowConfTag := ""
 				if sk.LowConfidence {
-					lowConfTag = " [LOW_CONF_MINIFIED]"
+					lowConfTag = color.New(color.FgHiRed).Sprintf(" [LOW_CONF]")
 				}
-				fmt.Printf("  - %s from %s (line %d, confidence: %.2f, origin_check: %v%s%s)\\n",
-					c.Sprintf("%s", bold(sk.SinkType)), sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck, minifiedTag, lowConfTag)
+				fileURL := jsFileMap[sk.JSFileID]
+				if fileURL == "" {
+					fileURL = "(unknown file)"
+				}
+				sinkColored := c.Sprintf("%s", bold(sk.SinkType))
+				sourceColored := color.New(color.FgHiWhite).Sprintf("%s", sk.SourceType)
+				urlColored := color.New(color.FgHiCyan).Sprintf("%s", fileURL)
+				originCheck := "✓"
+				if !sk.HasOriginCheck {
+					originCheck = color.New(color.FgHiRed).Sprintf("✗")
+				}
+				fmt.Printf("  %s  from %s  (line %d, conf: %.2f, origin: %s%s%s) → %s\n",
+					sinkColored, sourceColored, sk.Line, sk.Confidence, originCheck, minifiedTag, lowConfTag, urlColored)
 			}
 		}
 
-		// BLH candidates
+		// BLH candidates - split into real vulnerabilities vs target subdomains
 		blhColl := mongo.GetCollection("blh_candidates")
-		blhCursor, _ := blhColl.Find(ctx, bson.M{"target_id": target.ID})
-		defer blhCursor.Close(ctx)
-		var blhCandidates []models.BLHCandidate
-		blhCursor.All(ctx, &blhCandidates)
-		if len(blhCandidates) > 0 {
-			fmt.Printf("\nBLH Candidates (%d):\n", len(blhCandidates))
-			for _, b := range blhCandidates {
+		
+		// First, get ALL candidates to separate them properly
+		allCursor, _ := blhColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer allCursor.Close(ctx)
+		var allBLH []models.BLHCandidate
+		allCursor.All(ctx, &allBLH)
+		
+		// Separate: real takeover candidates vs target's own subdomains
+		var vulnBLH []models.BLHCandidate
+		var targetSubdomains []models.BLHCandidate
+		for _, b := range allBLH {
+			if b.IsTargetSubdomain {
+				targetSubdomains = append(targetSubdomains, b)
+			} else {
+				// Only show actionable vulnerability states for third-party domains
+				actionableStatuses := map[string]bool{
+					"unclaimed_s3":          true,
+					"github_pages_missing":  true,
+					"heroku_missing":        true,
+					"shopify_missing":       true,
+					"surge_missing":         true,
+					"netlify_missing":       true,
+					"azure_missing":         true,
+					"nxdomain":              true,
+				}
+				if actionableStatuses[b.ResolutionStatus] {
+					vulnBLH = append(vulnBLH, b)
+				}
+			}
+		}
+		
+		// Print REAL BLH vulnerabilities (third-party takeover candidates)
+		if len(vulnBLH) > 0 {
+			fmt.Printf("\n%s\n", color.New(color.FgHiRed, color.Bold).Sprintf("=== BLH VULNERABILITIES (%d) ===", len(vulnBLH)))
+			for _, b := range vulnBLH {
 				c := riskColor(b.RiskLevel)
 				source := b.FoundIn
 				if source == "" {
 					source = "js_file"
 				}
-				subdomainTag := ""
-				if b.IsTargetSubdomain {
-					subdomainTag = " [TARGET_SUBDOMAIN]"
-				}
-				fmt.Printf("  - %s [%s] (%s%s) - %s\n",
-					c.Sprintf("%s", b.ReferencedDomain), b.ResolutionStatus, b.RiskLevel, subdomainTag, b.Evidence)
-				fmt.Printf("    Source: %s\n", source)
+				fmt.Printf("  %s  %s %s %s %s\n",
+					c.Sprintf("[%s]", b.ResolutionStatus),
+					color.New(color.FgHiWhite).Sprintf("%s", b.ReferencedDomain),
+					c.Sprintf("(%s)", b.RiskLevel),
+					color.New(color.FgHiCyan).Sprintf("cloud: %s", func() string { if b.CloudProvider != "" { return b.CloudProvider }; return "unknown" }()),
+					color.New(color.FgHiBlack).Sprintf("— %s", b.Evidence))
+				fmt.Printf("    Source: %s | Found in: %s\n", source, b.FoundIn)
 			}
+		} else {
+			fmt.Printf("\n%s\n", color.New(color.FgHiGreen).Sprintf("BLH: No takeover vulnerabilities found."))
 		}
 
 		// Library CVEs
-		cveColl := mongo.GetCollection("library_cves")
-		cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": target.ID})
-		defer cveCursor.Close(ctx)
-		var cves []models.LibraryCVE
-		cveCursor.All(ctx, &cves)
-		if len(cves) > 0 {
-			fmt.Printf("\nLibrary CVEs (%d):\n", len(cves))
-			for _, c := range cves {
-				sev := severityColor(c.Severity)
-				fmt.Printf("  - %s v%s: %s (%s) - %s\n",
-					bold(c.LibraryName), c.Version, c.CVEID, sev.Sprintf("%s", c.Severity), c.Description)
-			}
-		}
+				cveColl := mongo.GetCollection("library_cves")
+				cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": target.ID})
+				defer cveCursor.Close(ctx)
+				var cves []models.LibraryCVE
+				cveCursor.All(ctx, &cves)
+				if len(cves) > 0 {
+					fmt.Printf("\n%s\n", color.New(color.FgHiCyan, color.Bold).Sprintf("=== LIBRARY CVEs (%d) ===", len(cves)))
+					for _, c := range cves {
+						sev := severityColor(c.Severity)
+						libColored := color.New(color.FgHiWhite).Sprintf("%s", bold(c.LibraryName))
+						verColored := color.New(color.FgHiYellow).Sprintf("v%s", c.Version)
+						cveColored := color.New(color.FgHiRed).Sprintf("%s", c.CVEID)
+						sevColored := sev.Sprintf("(%s)", c.Severity)
+						fmt.Printf("  %s %s  %s %s — %s\n",
+							libColored, verColored, cveColored, sevColored, c.Description)
+					}
+				}
 
 		// Sensitive endpoint candidates
-		senColl := mongo.GetCollection("sensitive_endpoint_candidates")
-		sensCursor, _ := senColl.Find(ctx, bson.M{"target_id": target.ID})
-		defer sensCursor.Close(ctx)
-		var sensCands []models.SensitiveEndpointCandidate
-		sensCursor.All(ctx, &sensCands)
-		if len(sensCands) > 0 {
-			fmt.Printf("\nSensitive Endpoints (%d):\n", len(sensCands))
-			for _, sc := range sensCands {
-				fmt.Printf("  - %s (HTTP %d, size: %d bytes) - patterns: %v\n",
-					sc.Endpoint, sc.StatusCode, sc.ResponseSize, sc.MatchedPatterns)
-			}
-		}
+				senColl := mongo.GetCollection("sensitive_endpoint_candidates")
+				sensCursor, _ := senColl.Find(ctx, bson.M{"target_id": target.ID})
+				defer sensCursor.Close(ctx)
+				var sensCands []models.SensitiveEndpointCandidate
+				sensCursor.All(ctx, &sensCands)
+				if len(sensCands) > 0 {
+					fmt.Printf("\n%s\n", color.New(color.FgHiBlue, color.Bold).Sprintf("=== SENSITIVE ENDPOINTS (%d) ===", len(sensCands)))
+					for _, sc := range sensCands {
+						endpointColored := color.New(color.FgHiCyan).Sprintf("%s", sc.Endpoint)
+						statusColored := color.New(color.FgHiWhite).Sprintf("HTTP %d", sc.StatusCode)
+						patternsColored := color.New(color.FgHiYellow).Sprintf("%v", sc.MatchedPatterns)
+						fmt.Printf("  %s  %s  size: %d  patterns: %s\n",
+							endpointColored, statusColored, sc.ResponseSize, patternsColored)
+					}
+				}
 
 		if len(secrets) == 0 && len(sinks) == 0 {
 			fmt.Println("\nNo findings yet. Run a scan with `hustler js scan <domain> <js-url>` to generate findings.")

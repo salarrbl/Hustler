@@ -85,6 +85,7 @@ type Secret struct {
 	Context    string    `bson:"context,omitempty" json:"context,omitempty"` // surrounding code
 	FoundAt    time.Time `bson:"found_at" json:"found_at"`
 	IsMinified bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
+	RawMatch   string    `bson:"raw_match,omitempty" json:"raw_match,omitempty"` // unredacted for display
 }
 
 // Endpoint represents an API endpoint extracted from JS
