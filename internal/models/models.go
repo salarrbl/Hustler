@@ -84,6 +84,7 @@ type Secret struct {
 	Confidence float64   `bson:"confidence" json:"confidence"`     // 0-1 confidence score
 	Context    string    `bson:"context,omitempty" json:"context,omitempty"` // surrounding code
 	FoundAt    time.Time `bson:"found_at" json:"found_at"`
+	IsMinified bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
 }
 
 // Endpoint represents an API endpoint extracted from JS
@@ -111,31 +112,35 @@ type Param struct {
 
 // Sink represents a source/sink analysis hit
 type Sink struct {
-	ID          string    `bson:"_id" json:"id"`
-	TargetID    string    `bson:"target_id" json:"target_id"`
-	JSFileID    string    `bson:"js_file_id" json:"js_file_id"`
-	SinkType    string    `bson:"sink_type" json:"sink_type"`       // eval, innerHTML, document.write, postMessage, etc.
-	SourceType  string    `bson:"source_type" json:"source_type"`   // URL param, postMessage data, user input, etc.
-	Line        int       `bson:"line" json:"line"`
-	Column      int       `bson:"column,omitempty" json:"column,omitempty"`
-	Snippet     string    `bson:"snippet" json:"snippet"`           // code snippet around the sink
-	Confidence  float64   `bson:"confidence" json:"confidence"`     // 0-1
-	HasOriginCheck bool     `bson:"has_origin_check" json:"has_origin_check"` // for postMessage
-	FoundAt     time.Time `bson:"found_at" json:"found_at"`
+	ID              string    `bson:"_id" json:"id"`
+	TargetID        string    `bson:"target_id" json:"target_id"`
+	JSFileID        string    `bson:"js_file_id" json:"js_file_id"`
+	SinkType        string    `bson:"sink_type" json:"sink_type"`       // eval, innerHTML, postMessage, etc.
+	SourceType      string    `bson:"source_type" json:"source_type"`   // URL param, postMessage data, user input, etc.
+	Line            int       `bson:"line" json:"line"`
+	Column          int       `bson:"column,omitempty" json:"column,omitempty"`
+	Snippet         string    `bson:"snippet" json:"snippet"`           // code snippet around the sink
+	Confidence      float64   `bson:"confidence" json:"confidence"`     // 0-1
+	HasOriginCheck  bool      `bson:"has_origin_check" json:"has_origin_check"` // for postMessage
+	FoundAt         time.Time `bson:"found_at" json:"found_at"`
+	IsMinified      bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
+	LowConfidence   bool      `bson:"low_confidence,omitempty" json:"low_confidence,omitempty"`
 }
 
 // BLHCandidate represents a broken link hijacking candidate
 type BLHCandidate struct {
-	ID               string    `bson:"_id" json:"id"`
-	TargetID         string    `bson:"target_id" json:"target_id"`
-	JSFileID         string    `bson:"js_file_id" json:"js_file_id"`
-	ReferencedURL    string    `bson:"referenced_url" json:"referenced_url"`
-	ReferencedDomain string    `bson:"referenced_domain" json:"referenced_domain"`
-	ResolutionStatus string    `bson:"resolution_status" json:"resolution_status"` // resolves, nxdomain, unclaimed, etc.
-	RiskLevel        string    `bson:"risk_level" json:"risk_level"`               // critical, high, medium, low
-	CloudProvider    string    `bson:"cloud_provider,omitempty" json:"cloud_provider,omitempty"` // S3, GitHub Pages, Azure, etc.
-	Evidence         string    `bson:"evidence,omitempty" json:"evidence,omitempty"`
-	FoundAt          time.Time `bson:"found_at" json:"found_at"`
+	ID                string    `bson:"_id" json:"id"`
+	TargetID          string    `bson:"target_id" json:"target_id"`
+	JSFileID          string    `bson:"js_file_id,omitempty" json:"js_file_id,omitempty"`
+	ReferencedURL     string    `bson:"referenced_url,omitempty" json:"referenced_url,omitempty"`
+	ReferencedDomain  string    `bson:"referenced_domain" json:"referenced_domain"`
+	ResolutionStatus  string    `bson:"resolution_status" json:"resolution_status"`
+	RiskLevel         string    `bson:"risk_level" json:"risk_level"`
+	CloudProvider     string    `bson:"cloud_provider,omitempty" json:"cloud_provider,omitempty"`
+	Evidence          string    `bson:"evidence,omitempty" json:"evidence,omitempty"`
+	FoundIn           string    `bson:"found_in,omitempty" json:"found_in,omitempty"` // "js_file" or "html_page"
+	IsTargetSubdomain bool      `bson:"is_target_subdomain,omitempty" json:"is_target_subdomain,omitempty"`
+	FoundAt           time.Time `bson:"found_at" json:"found_at"`
 }
 
 // LibraryCVE represents a fingerprinted library with CVE matches
@@ -187,11 +192,12 @@ type DiscoveredURL struct {
 
 // SensitiveEndpointCandidate represents an endpoint that returned potentially sensitive data
 type SensitiveEndpointCandidate struct {
-	ID             string    `bson:"_id" json:"id"`
-	TargetID       string    `bson:"target_id" json:"target_id"`
-	Endpoint       string    `bson:"endpoint" json:"endpoint"`
-	StatusCode     int       `bson:"status_code" json:"status_code"`
-	ResponseSize   int       `bson:"response_size" json:"response_size"`
-	MatchedPatterns []string  `bson:"matched_patterns" json:"matched_patterns"` // e.g., ["password", "token", "email"]
-	CheckedAt      time.Time `bson:"checked_at" json:"checked_at"`
+	ID              string    `bson:"_id" json:"id"`
+	TargetID        string    `bson:"target_id" json:"target_id"`
+	Endpoint        string    `bson:"endpoint" json:"endpoint"`
+	StatusCode      int       `bson:"status_code" json:"status_code"`
+	ResponseSize    int       `bson:"response_size" json:"response_size"`
+	MatchedPatterns []string  `bson:"matched_patterns" json:"matched_patterns"`
+	FoundAt         time.Time `bson:"found_at" json:"found_at"`
+	Source          string    `bson:"source,omitempty" json:"source,omitempty"` // "common_path", "js_extracted", "html_extracted"
 }

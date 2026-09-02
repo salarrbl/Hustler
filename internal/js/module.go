@@ -62,7 +62,7 @@ type JSFileResult struct {
 }
 
 // FetchAndProcess fetches JS files for a target and runs all analyzers
-func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, jsURLs []string) ([]JSFileResult, error) {
+func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, jsURLs []string, htmlContent map[string]string) ([]JSFileResult, error) {
 	if len(jsURLs) == 0 {
 		return nil, fmt.Errorf("no JS URLs provided")
 	}
@@ -117,14 +117,14 @@ func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, j
 
 	// Run analyzers on fetched content
 	if len(jsFiles) > 0 {
-		m.runAnalyzers(ctx, target, jsFiles, contentMap)
+		m.runAnalyzers(ctx, target, jsFiles, contentMap, htmlContent)
 	}
 
 	return results, nil
 }
 
 // runAnalyzers runs all enabled analyzers on the fetched JS files
-func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string) {
+func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string, htmlContent map[string]string) {
 	log.Info().Int("files", len(jsFiles)).Msg("Running analyzers")
 
 	// 1. Secret scanner
@@ -191,7 +191,7 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 
 	// 5. BLH analyzer
 	blhAnalyzer := analyzers.NewBLHAnalyzer(m.httpClient)
-	blhCandidates, err := blhAnalyzer.AnalyzeBLH(ctx, target, jsFiles, contentMap)
+	blhCandidates, err := blhAnalyzer.AnalyzeBLH(ctx, target, jsFiles, contentMap, htmlContent)
 	if err != nil {
 		log.Warn().Err(err).Msg("BLH analyzer failed")
 	} else {

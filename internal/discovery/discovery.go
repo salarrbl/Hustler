@@ -19,9 +19,9 @@ import (
 
 // DiscoveryRunner discovers JS URLs for a target using external tools
 type DiscoveryRunner struct {
-	cfg        config.DiscoveryConfig
-	httpClient *http.Client
-	katanaPath string
+	cfg         config.DiscoveryConfig
+	httpClient  *http.Client
+	katanaPath  string
 }
 
 // NewDiscoveryRunner creates a new discovery runner
@@ -41,25 +41,45 @@ func NewDiscoveryRunner(cfg config.DiscoveryConfig, httpClient *http.Client) *Di
 	}
 }
 
+// DiscoverResult holds both JS URLs and HTML content from crawled pages
+type DiscoverResult struct {
+	JSURLs      []string
+	HTMLContent map[string]string // URL -> HTML content
+}
+
 // DiscoverJSURLs discovers JS URLs for a target using enabled tools
 func (d *DiscoveryRunner) DiscoverJSURLs(ctx context.Context, target *models.Target) ([]string, error) {
+	result, err := d.Discover(ctx, target)
+	if err != nil {
+		return nil, err
+	}
+	return result.JSURLs, nil
+}
+
+// Discover discovers JS URLs and fetches HTML content for BLH analysis
+func (d *DiscoveryRunner) Discover(ctx context.Context, target *models.Target) (*DiscoverResult, error) {
 	if !d.cfg.Enabled {
 		log.Info().Str("domain", target.Domain).Msg("Discovery disabled in config")
-		return []string{}, nil
+		return &DiscoverResult{JSURLs: []string{}, HTMLContent: map[string]string{}}, nil
 	}
 
 	allURLs := make(map[string]bool)
+	htmlContent := make(map[string]string)
 	stats := make(map[string]int)
 
 	// Use katana if enabled (active crawling - most reliable for modern sites)
 	if d.cfg.UseKatana {
-		if urls, err := d.discoverViaKatana(ctx, target.Domain); err != nil {
+		if result, err := d.discoverViaKatana(ctx, target.Domain); err != nil {
 			log.Warn().Err(err).Str("domain", target.Domain).Msg("Katana discovery failed")
 		} else {
-			for _, u := range urls {
+			for _, u := range result.JSURLs {
 				allURLs[u] = true
 			}
-			stats["katana"] = len(urls)
+			for k, v := range result.HTMLContent {
+				htmlContent[k] = v
+			}
+			stats["katana"] = len(result.JSURLs)
+			stats["katana_html"] = len(result.HTMLContent)
 		}
 	}
 
@@ -94,20 +114,24 @@ func (d *DiscoveryRunner) DiscoverJSURLs(ctx context.Context, target *models.Tar
 	log.Info().
 		Str("domain", target.Domain).
 		Int("total_discovered", len(result)).
+		Int("html_pages", len(htmlContent)).
 		Interface("by_source", stats).
 		Msg("Discovery complete")
 
-	return result, nil
+	return &DiscoverResult{
+		JSURLs:      result,
+		HTMLContent: htmlContent,
+	}, nil
 }
 
-// discoverViaKatana runs katana to crawl for JS files
-func (d *DiscoveryRunner) discoverViaKatana(ctx context.Context, domain string) ([]string, error) {
+// discoverViaKatana runs katana to crawl for JS files and fetches HTML content
+func (d *DiscoveryRunner) discoverViaKatana(ctx context.Context, domain string) (*DiscoverResult, error) {
 	ctx, cancel := context.WithTimeout(ctx, 3*time.Minute)
 	defer cancel()
 
 	// Check if katana is available
 	if _, err := exec.LookPath(d.katanaPath); err != nil {
-		return []string{}, fmt.Errorf("katana not found: %w", err)
+		return &DiscoverResult{JSURLs: []string{}, HTMLContent: map[string]string{}}, fmt.Errorf("katana not found: %w", err)
 	}
 
 	cmd := exec.CommandContext(ctx, d.katanaPath,
@@ -116,10 +140,11 @@ func (d *DiscoveryRunner) discoverViaKatana(ctx context.Context, domain string) 
 		"-d", "2",  // depth 2
 		"-nc",      // no color
 		"-silent",  // silent mode
+		"-c", "10", // concurrency
 	)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		return []string{}, fmt.Errorf("katana failed: %w", err)
+		return &DiscoverResult{JSURLs: []string{}, HTMLContent: map[string]string{}}, fmt.Errorf("katana failed: %w", err)
 	}
 
 	// Parse output - look for lines containing .js
@@ -135,7 +160,44 @@ func (d *DiscoveryRunner) discoverViaKatana(ctx context.Context, domain string) 
 			urls = append(urls, line)
 		}
 	}
-	return urls, nil
+
+	// Also fetch HTML content from the main page and a few key pages
+	htmlContent := make(map[string]string)
+	mainURL := "https://" + domain
+	if html, err := d.fetchHTML(ctx, mainURL); err == nil {
+		htmlContent[mainURL] = html
+	}
+
+	return &DiscoverResult{
+		JSURLs:      urls,
+		HTMLContent: htmlContent,
+	}, nil
+}
+
+// fetchHTML fetches HTML content from a URL
+func (d *DiscoveryRunner) fetchHTML(ctx context.Context, url string) (string, error) {
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	if err != nil {
+		return "", err
+	}
+	req.Header.Set("User-Agent", "Hustler/1.0 (Bug Bounty Automation)")
+
+	resp, err := d.httpClient.Do(req)
+	if err != nil {
+		return "", err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return "", fmt.Errorf("HTTP %d", resp.StatusCode)
+	}
+
+	body, err := io.ReadAll(io.LimitReader(resp.Body, 2*1024*1024))
+	if err != nil {
+		return "", err
+	}
+
+	return string(body), nil
 }
 
 // discoverViaWaybackCDX queries the Wayback Machine CDX API for JS URLs

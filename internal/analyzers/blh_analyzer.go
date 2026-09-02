@@ -114,7 +114,7 @@ func (b *BLHAnalyzer) extractRootDomain(domain string) string {
 			"net.au": true, "net.nz": true, "gov.uk": true, "gov.au": true,
 			"edu.au": true, "ac.uk": true, "ac.nz": true, "ac.za": true,
 			"mil.nz": true, "ne.jp": true, "or.jp": true, "ac.jp": true,
-			"co.jp": true, "com.cn": true, "net.cn": true, "org.cn": true,
+			"co.jp": true, "net.cn": true, "org.cn": true,
 			"gov.cn": true, "mil.cn": true, "co.kr": true, "or.kr": true,
 			"ne.kr": true, "re.kr": true, "pe.kr": true, "seoul.kr": true,
 			"go.jp": true, "lg.jp": true, "ed.jp": true, "ac.th": true,
@@ -123,9 +123,8 @@ func (b *BLHAnalyzer) extractRootDomain(domain string) string {
 			"web.id": true, "my.id": true, "biz.id": true, "co.in": true,
 			"firm.in": true, "gen.in": true, "ind.in": true, "net.in": true,
 			"org.in": true, "co.il": true, "org.il": true, "net.il": true,
-			"ac.il": true, "co.za": true, "org.za": true, "net.za": true,
-			"co.zw": true, "org.zw": true, "ac.zw": true, "gov.zw": true,
-			"co.ve": true, "org.ve": true, "net.ve": true, "co.za": true,
+			"ac.il": true, "co.zw": true, "org.zw": true, "ac.zw": true,
+			"gov.zw": true, "co.ve": true, "org.ve": true, "net.ve": true,
 		}
 		if len(parts) >= 3 {
 			lastTwo := parts[len(parts)-2] + "." + parts[len(parts)-1]

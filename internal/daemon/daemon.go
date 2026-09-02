@@ -142,10 +142,10 @@ func (d *Daemon) processJob(ctx context.Context, job *models.Job) {
 
 	log.Info().Str("domain", target.Domain).Msg("Starting discovery for target")
 
-	// Run discovery to find JS URLs
+	// Run discovery to find JS URLs and fetch HTML content
 	httpClient := &http.Client{Timeout: 60 * time.Second}
 	discoveryRunner := discovery.NewDiscoveryRunner(d.cfg.Discovery, httpClient)
-	jsURLs, err := discoveryRunner.DiscoverJSURLs(ctx, &target)
+	discoverResult, err := discoveryRunner.Discover(ctx, &target)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("discovery failed: %w", err).Error()
@@ -154,9 +154,13 @@ func (d *Daemon) processJob(ctx context.Context, job *models.Job) {
 		return
 	}
 
+	jsURLs := discoverResult.JSURLs
+	htmlContent := discoverResult.HTMLContent
+
 	log.Info().
 		Str("domain", target.Domain).
 		Int("js_urls_discovered", len(jsURLs)).
+		Int("html_pages", len(htmlContent)).
 		Msg("Discovery complete, starting analysis")
 
 	if len(jsURLs) == 0 {
@@ -168,7 +172,7 @@ func (d *Daemon) processJob(ctx context.Context, job *models.Job) {
 
 	// Run JS analysis pipeline
 	jsModule := js.NewJSModule(d.cfg.JS, d.cfg.Sensitive)
-	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs)
+	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs, htmlContent)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("JS analysis failed: %w", err).Error()

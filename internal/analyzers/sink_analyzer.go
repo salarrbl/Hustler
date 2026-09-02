@@ -66,6 +66,13 @@ func (s *SinkAnalyzer) Scan(ctx context.Context, target *models.Target, jsFile *
 	var sinks []models.Sink
 	lines := strings.Split(content, "\n")
 
+	// Detect if file is minified
+	isMinified := s.isMinifiedFile(content, lines)
+
+	// Find source positions (character offsets)
+	sourcePositions := s.findSourcePositions(content)
+
+	var fileSinkCount int
 	for lineNum, line := range lines {
 		lineNum++ // 1-indexed
 
@@ -73,9 +80,21 @@ func (s *SinkAnalyzer) Scan(ctx context.Context, target *models.Target, jsFile *
 		for sinkType, pattern := range sinkPatterns {
 			matches := pattern.FindAllStringIndex(line, -1)
 			for _, match := range matches {
-				// Check if any source is nearby (within 10 lines)
-				sourceType := s.findNearbySource(lines, lineNum, 10)
-				confidence := 0.5
+				fileSinkCount++
+
+				// Determine source type using proximity
+				var sourceType string
+				var confidence float64 = 0.5
+
+				if isMinified {
+					// Use character-offset-based proximity for minified files
+					charOffset := s.lineToCharOffset(lines, lineNum-1) + match[0]
+					sourceType = s.findNearbySourceByCharOffset(sourcePositions, charOffset, 500)
+				} else {
+					// Use line-based proximity for normal files
+					sourceType = s.findNearbySource(lines, lineNum, 10)
+				}
+
 				if sourceType != "" {
 					confidence = 0.75
 				}
@@ -99,6 +118,8 @@ func (s *SinkAnalyzer) Scan(ctx context.Context, target *models.Target, jsFile *
 					Confidence:      confidence,
 					HasOriginCheck:  hasOriginCheck,
 					FoundAt:         time.Now(),
+					IsMinified:      isMinified,
+					LowConfidence:   isMinified && fileSinkCount > 30,
 				}
 				sinks = append(sinks, sink)
 			}
@@ -117,10 +138,61 @@ func (s *SinkAnalyzer) Scan(ctx context.Context, target *models.Target, jsFile *
 			log.Error().Err(err).Msg("Failed to store sinks")
 			return sinks, err
 		}
-		log.Info().Int("count", len(sinks)).Str("target", target.Domain).Str("js_file", jsFile.URL).Msg("Source/sink findings stored")
+		log.Info().Int("count", len(sinks)).Str("target", target.Domain).Str("js_file", jsFile.URL).Bool("minified", isMinified).Int("sink_count", fileSinkCount).Msg("Source/sink findings stored")
 	}
 
 	return sinks, nil
+}
+
+// isMinifiedFile detects if a JS file is minified
+func (s *SinkAnalyzer) isMinifiedFile(content string, lines []string) bool {
+	if len(lines) < 20 && len(content) > 5000 {
+		return true
+	}
+	totalLen := 0
+	for _, line := range lines {
+		totalLen += len(line)
+	}
+	if len(lines) > 0 && totalLen/len(lines) > 500 {
+		return true
+	}
+	return false
+}
+
+// findSourcePositions returns character offsets of all source patterns in the content
+func (s *SinkAnalyzer) findSourcePositions(content string) []struct {
+	offset    int
+	sourceType string
+} {
+	var positions []struct {
+		offset     int
+		sourceType string
+	}
+	for sourceType, pattern := range sourcePatterns {
+		matches := pattern.FindAllStringIndex(content, -1)
+		for _, match := range matches {
+			positions = append(positions, struct {
+				offset     int
+				sourceType string
+			}{offset: match[0], sourceType: sourceType})
+		}
+	}
+	return positions
+}
+
+// findNearbySourceByCharOffset finds a source near a character offset
+func (s *SinkAnalyzer) findNearbySourceByCharOffset(positions []struct{ offset int; sourceType string }, charOffset, radius int) string {
+	start := charOffset - radius
+	end := charOffset + radius
+	if start < 0 {
+		start = 0
+	}
+	for _, pos := range positions {
+		if pos.offset >= start && pos.offset <= end {
+			return pos.sourceType
+		}
+	}
+	return ""
 }
 
 // findNearbySource looks for sources near a line (within radius lines)
@@ -135,6 +207,15 @@ func (s *SinkAnalyzer) findNearbySource(lines []string, lineNum, radius int) str
 		}
 	}
 	return ""
+}
+
+// lineToCharOffset converts a line number to approximate character offset
+func (s *SinkAnalyzer) lineToCharOffset(lines []string, lineIdx int) int {
+	offset := 0
+	for i := 0; i < lineIdx && i < len(lines); i++ {
+		offset += len(lines[i]) + 1 // +1 for newline
+	}
+	return offset
 }
 
 // hasOriginCheck checks if postMessage has origin validation

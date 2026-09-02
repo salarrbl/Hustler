@@ -152,7 +152,7 @@ func (s *SensitiveEndpointAnalyzer) checkOne(ctx context.Context, target *models
 			StatusCode:      resp.StatusCode,
 			ResponseSize:    responseSize,
 			MatchedPatterns: matched,
-			CheckedAt:       time.Now(),
+			FoundAt:         time.Now(),
 		}
 		log.Info().
 			Str("endpoint", fullURL).

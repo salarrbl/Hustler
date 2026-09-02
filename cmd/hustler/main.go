@@ -174,7 +174,7 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 
 	// Analyze
 	jsModule := js.NewJSModule(cfg.JS, cfg.Sensitive)
-	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs)
+	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs, nil)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("analysis failed: %w", err).Error()

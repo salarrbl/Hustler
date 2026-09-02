@@ -94,8 +94,12 @@ This is a read-only command - it does not start or re-run scans.`,
 			fmt.Printf("\nSecrets (%d):\n", len(secrets))
 			for _, s := range secrets {
 				c := statusColorByConfidence(s.Confidence)
-				fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f)\n",
-					c.Sprintf("%s", bold(s.Pattern)), s.Line, s.Confidence, s.Entropy)
+				minifiedTag := ""
+				if s.IsMinified {
+					minifiedTag = " [minified]"
+				}
+				fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f%s)\\n",
+					c.Sprintf("%s", bold(s.Pattern)), s.Line, s.Confidence, s.Entropy, minifiedTag)
 			}
 		}
 
@@ -109,8 +113,16 @@ This is a read-only command - it does not start or re-run scans.`,
 			fmt.Printf("\nSinks (%d):\n", len(sinks))
 			for _, sk := range sinks {
 				c := sinkColor(sk.HasOriginCheck, sk.SinkType, sk.SourceType)
-				fmt.Printf("  - %s from %s (line %d, confidence: %.2f, origin_check: %v)\n",
-					c.Sprintf("%s", bold(sk.SinkType)), sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck)
+				minifiedTag := ""
+				if sk.IsMinified {
+					minifiedTag = " [minified]"
+				}
+				lowConfTag := ""
+				if sk.LowConfidence {
+					lowConfTag = " [LOW_CONF_MINIFIED]"
+				}
+				fmt.Printf("  - %s from %s (line %d, confidence: %.2f, origin_check: %v%s%s)\\n",
+					c.Sprintf("%s", bold(sk.SinkType)), sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck, minifiedTag, lowConfTag)
 			}
 		}
 
@@ -124,8 +136,17 @@ This is a read-only command - it does not start or re-run scans.`,
 			fmt.Printf("\nBLH Candidates (%d):\n", len(blhCandidates))
 			for _, b := range blhCandidates {
 				c := riskColor(b.RiskLevel)
-				fmt.Printf("  - %s [%s] (%s) - %s\n",
-					c.Sprintf("%s", b.ReferencedDomain), b.ResolutionStatus, b.RiskLevel, b.Evidence)
+				source := b.FoundIn
+				if source == "" {
+					source = "js_file"
+				}
+				subdomainTag := ""
+				if b.IsTargetSubdomain {
+					subdomainTag = " [TARGET_SUBDOMAIN]"
+				}
+				fmt.Printf("  - %s [%s] (%s%s) - %s\n",
+					c.Sprintf("%s", b.ReferencedDomain), b.ResolutionStatus, b.RiskLevel, subdomainTag, b.Evidence)
+				fmt.Printf("    Source: %s\n", source)
 			}
 		}
 
@@ -202,7 +223,7 @@ var jsScanCmd = &cobra.Command{
 		jsModule := js.NewJSModule(cfg.JS, cfg.Sensitive)
 
 		// Fetch and process
-		results, err := jsModule.FetchAndProcess(ctx, &target, []string{jsURL})
+		results, err := jsModule.FetchAndProcess(ctx, &target, []string{jsURL}, nil)
 		if err != nil {
 			return fmt.Errorf("JS fetch failed: %w", err)
 		}

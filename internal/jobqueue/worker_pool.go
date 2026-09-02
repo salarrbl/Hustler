@@ -241,7 +241,7 @@ func (wp *WorkerPool) processHunt(job *models.Job) error {
 		EnableSourceMaps:   true,
 	}, config.SensitiveEndpointCheckConfig{})
 
-	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs)
+	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs, nil)
 	if err != nil {
 		return fmt.Errorf("JS analysis failed: %w", err)
 	}
