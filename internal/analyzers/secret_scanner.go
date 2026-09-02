@@ -180,7 +180,6 @@ func (s *SecretScanner) Scan(ctx context.Context, target *models.Target, jsFile 
 					continue
 				}
 
-				// Store full matched value (no redaction)
 				secret := models.Secret{
 					ID:         uuid.New().String(),
 					TargetID:   target.ID,
@@ -194,7 +193,6 @@ func (s *SecretScanner) Scan(ctx context.Context, target *models.Target, jsFile 
 					Context:    s.getContext(line, matched),
 					FoundAt:    time.Now(),
 					IsMinified: isMinified,
-					RawMatch:   matched,
 				}
 
 				secrets = append(secrets, secret)

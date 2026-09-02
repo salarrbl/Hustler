@@ -41,6 +41,10 @@ type Target struct {
 	CDN          string   `bson:"cdn,omitempty" json:"cdn,omitempty"`
 	Providers    []string `bson:"providers,omitempty" json:"providers,omitempty"`
 	DiscoveredAt *time.Time `bson:"discovered_at,omitempty" json:"discovered_at,omitempty"`
+	// Web UI job tracking fields
+	JobStatus     string     `bson:"job_status,omitempty" json:"job_status,omitempty"`
+	JobStartedAt  *time.Time `bson:"job_started_at,omitempty" json:"job_started_at,omitempty"`
+	JobFinishedAt *time.Time `bson:"job_finished_at,omitempty" json:"job_finished_at,omitempty"`
 }
 
 // NewTarget creates a new target with generated ID
@@ -85,7 +89,6 @@ type Secret struct {
 	Context    string    `bson:"context,omitempty" json:"context,omitempty"` // surrounding code
 	FoundAt    time.Time `bson:"found_at" json:"found_at"`
 	IsMinified bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
-	RawMatch   string    `bson:"raw_match,omitempty" json:"raw_match,omitempty"` // unredacted for display
 }
 
 // Endpoint represents an API endpoint extracted from JS

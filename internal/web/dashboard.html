@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustler - Bug Bounty Dashboard</title>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: #161b22;
+            --bg-hover: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-red: #f85149;
+            --accent-yellow: #d29922;
+            --accent-purple: #bc8cff;
+            --accent-cyan: #39d4c0;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .header h1 span { color: var(--accent-cyan); }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+        }
+        
+        .stat-card .label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .stat-card.critical .value { color: var(--accent-red); }
+        .stat-card.high .value { color: var(--accent-yellow); }
+        .stat-card.medium .value { color: var(--accent-blue); }
+        .stat-card.success .value { color: var(--accent-green); }
+        
+        .main {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            height: calc(100vh - 80px);
+        }
+        
+        .sidebar {
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .target-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .target-form input {
+            flex: 1;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+        
+        .target-form button {
+            background: var(--accent-cyan);
+            border: none;
+            color: #000;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .target-list {
+            list-style: none;
+        }
+        
+        .target-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+        
+        .target-item:hover, .target-item.active {
+            background: var(--bg-hover);
+        }
+        
+        .target-item .domain {
+            font-weight: 500;
+        }
+        
+        .target-item .status {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+        
+        .target-item .job-badge {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            background: var(--bg-dark);
+        }
+        
+        .target-item .job-badge.running { color: var(--accent-blue); }
+        .target-item .job-badge.done { color: var(--accent-green); }
+        .target-item .job-badge.error { color: var(--accent-red); }
+        
+        .content {
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .content-actions button {
+            background: var(--accent-cyan);
+            border: none;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-header h3 {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-header .count {
+            background: var(--bg-dark);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .section-body {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .finding-row {
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        .finding-row:last-child { border-bottom: none; }
+        .finding-row:hover { background: var(--bg-hover); }
+        
+        .finding-tag {
+            flex-shrink: 0;
+            width: 80px;
+        }
+        
+        .finding-value {
+            flex: 1;
+            word-break: break-all;
+        }
+        
+        .finding-meta {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .tag-secret { color: var(--accent-yellow); }
+        .tag-sink { color: var(--accent-red); }
+        .tag-blh { color: var(--accent-green); }
+        .tag-cve { color: var(--accent-purple); }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        .refresh-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .refresh-btn:hover { background: var(--bg-hover); }
+        
+        .spinner {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span>⚡</span> Hustler</h1>
+        <button class="refresh-btn" onclick="refreshData()">↻ Refresh</button>
+    </div>
+    
+    <div class="stats" id="stats">
+        <div class="stat-card critical">
+            <div class="label">CRITICAL SECRETS</div>
+            <div class="value" id="stat-critical-secrets">-</div>
+        </div>
+        <div class="stat-card high">
+            <div class="label">HIGH SINKS</div>
+            <div class="value" id="stat-high-sinks">-</div>
+        </div>
+        <div class="stat-card medium">
+            <div class="label">BLH VULNERABILITIES</div>
+            <div class="value" id="stat-blh">-</div>
+        </div>
+        <div class="stat-card success">
+            <div class="label">TARGETS SCANNED</div>
+            <div class="value" id="stat-targets">-</div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="target-form">
+                    <input type="text" id="newTargetInput" placeholder="Add target domain...">
+                    <button onclick="addTarget()">+</button>
+                </div>
+            </div>
+            <ul class="target-list" id="targetList">
+                <!-- Populated by JS -->
+            </ul>
+        </div>
+        
+        <div class="content" id="content">
+            <div class="empty-state">
+                <h3>Select a target to view findings</h3>
+                <p>Add a new target or select from the list</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let targets = [];
+        let findings = {};
+        let selectedTarget = null;
+        
+        // API calls
+        async function api(endpoint, options = {}) {
+            const resp = await fetch(`/api${endpoint}`, {
+                headers: { 'Content-Type': 'application/json' },
+                ...options
+            });
+            return resp.json();
+        }
+        
+        async function loadTargets() {
+            try {
+                targets = await api('/targets');
+                renderTargets();
+            } catch (e) { console.error('Failed to load targets:', e); }
+        }
+        
+        async function loadFindings(targetId) {
+            try {
+                findings[targetId] = await api(`/findings/${targetId}`);
+                renderFindings(targetId);
+            } catch (e) { console.error('Failed to load findings:', e); }
+        }
+        
+        async function addTarget(domain) {
+            if (!domain) return;
+            try {
+                await api('/targets', { method: 'POST', body: JSON.stringify({ domain }) });
+                await loadTargets();
+                document.getElementById('newTargetInput').value = '';
+            } catch (e) { console.error('Failed to add target:', e); }
+        }
+        
+        async function triggerScan(targetId) {
+            try {
+                await api(`/jobs`, { method: 'POST', body: JSON.stringify({ target_id: targetId, source: 'manual' }) });
+                await loadFindings(targetId);
+            } catch (e) { console.error('Failed to trigger scan:', e); }
+        }
+        
+        function renderTargets() {
+            const list = document.getElementById('targetList');
+            const stats = document.getElementById('stats');
+            
+            list.innerHTML = targets.map(t => `
+                <li class="target-item ${selectedTarget?.id === t.id ? 'active' : ''}" onclick="selectTarget('${t.id}')">
+                    <div class="domain">${t.domain}</div>
+                    <div class="status">${t.source} • ${t.status}</div>
+                    ${t.job_status === 'running' ? '<span class="job-badge running"><span class="spinner"></span></span>' : ''}
+                    ${t.job_status === 'done' ? '<span class="job-badge done">✓</span>' : ''}
+                    ${t.job_status === 'error' ? '<span class="job-badge error">✗</span>' : ''}
+                </li>
+            `).join('');
+            
+            document.getElementById('stat-targets').textContent = targets.length;
+        }
+        
+        function selectTarget(id) {
+            selectedTarget = targets.find(t => t.id === id);
+            renderTargets();
+            loadFindings(id);
+        }
+        
+        function renderFindings(targetId) {
+            const f = findings[targetId];
+            if (!f) return;
+            
+            const content = document.getElementById('content');
+            const s = f.secrets || [];
+            const sk = f.sinks || [];
+            const blh = f.blh || [];
+            const cves = f.cves || [];
+            
+            // Update stats
+            const criticalSecrets = s.filter(x => x.confidence >= 0.8).length;
+            const highSinks = sk.filter(x => x.confidence >= 0.75 && !x.has_origin_check).length;
+            const vulnBLH = blh.filter(x => !x.is_target_subdomain && ['unclaimed_s3','github_pages_missing','nxdomain'].includes(x.resolution_status)).length;
+            
+            document.getElementById('stat-critical-secrets').textContent = criticalSecrets;
+            document.getElementById('stat-high-sinks').textContent = highSinks;
+            document.getElementById('stat-blh').textContent = vulnBLH;
+            
+            const header = selectedTarget ? `
+                <div class="content-header">
+                    <h2>${selectedTarget.domain}</h2>
+                    <div class="content-actions">
+                        <button onclick="triggerScan('${targetId}')">▶ Re-run Scan</button>
+                    </div>
+                </div>
+            ` : '';
+            
+            const secretRows = s.slice(0, 50).map(s => `
+                <div class="finding-row">
+                    <div class="finding-tag tag-secret">${s.pattern}</div>
+                    <div class="finding-value">${escapeHtml(s.matched)}</div>
+                    <div class="finding-meta">L${s.line} conf:${s.confidence.toFixed(2)}</div>
+                    <div class="finding-meta">${shortUrl(s.js_file_url)}</div>
+                </div>
+            `).join('');
+            
+            const sinkRows = sk.filter(x => x.confidence >= 0.75 || !x.has_origin_check).slice(0, 50).map(sk => `
+                <div class="finding-row">
+                    <div class="finding-tag tag-sink">${sk.sink_type}</div>
+                    <div class="finding-value">${sk.source_type ? `from ${sk.source_type}` : ''}</div>
+                    <div class="finding-meta">L${sk.line} origin:${sk.has_origin_check ? '✓' : '✗'}</div>
+                    <div class="finding-meta">${shortUrl(sk.js_file_url)}</div>
+                </div>
+            `).join('');
+            
+            const blhRows = blh.filter(x => !x.is_target_subdomain && ['unclaimed_s3','github_pages_missing','nxdomain'].includes(x.resolution_status)).slice(0, 20).map(b => `
+                <div class="finding-row">
+                    <div class="finding-tag tag-blh">${b.resolution_status}</div>
+                    <div class="finding-value">${escapeHtml(b.referenced_domain)}</div>
+                    <div class="finding-meta">${b.evidence}</div>
+                </div>
+            `).join('');
+            
+            const cveRows = cves.slice(0, 20).map(c => `
+                <div class="finding-row">
+                    <div class="finding-tag tag-cve">${c.library_name} v${c.version}</div>
+                    <div class="finding-value">${escapeHtml(c.description)}</div>
+                    <div class="finding-meta">${c.cve_id}</div>
+                </div>
+            `).join('');
+            
+            content.innerHTML = `
+                ${header}
+                ${s.length > 0 ? `
+                <div class="section">
+                    <div class="section-header">
+                        <h3>🔑 Secrets (${s.length})</h3>
+                        <span class="count">${s.filter(x=>x.confidence>=0.8).length} high-confidence</span>
+                    </div>
+                    <div class="section-body">${secretRows}${s.length > 50 ? '<div class="empty-state">...and ' + (s.length - 50) + ' more</div>' : ''}</div>
+                </div>` : ''}
+                
+                ${sk.length > 0 ? `
+                <div class="section">
+                    <div class="section-header">
+                        <h3>⚡ Sinks (${sk.length})</h3>
+                        <span class="count">${sk.filter(x=>!x.has_origin_check&&x.confidence>=0.75).length} risky</span>
+                    </div>
+                    <div class="section-body">${sinkRows}${sk.length > 50 ? '<div class="empty-state">...and ' + (sk.length - 50) + ' more</div>' : ''}</div>
+                </div>` : ''}
+                
+                ${blhRows.length > 0 ? `
+                <div class="section">
+                    <div class="section-header">
+                        <h3>🌐 BLH Vulnerabilities (${blhRows.length})</h3>
+                    </div>
+                    <div class="section-body">${blhRows}</div>
+                </div>` : ''}
+                
+                ${cves.length > 0 ? `
+                <div class="section">
+                    <div class="section-header">
+                        <h3>📦 Library CVEs (${cves.length})</h3>
+                    </div>
+                    <div class="section-body">${cveRows}</div>
+                </div>` : ''}
+                
+                ${s.length === 0 && sk.length === 0 && blhRows.length === 0 && cves.length === 0 ? `
+                <div class="empty-state">
+                    <h3>No findings yet</h3>
+                    <p>Run a scan to discover vulnerabilities</p>
+                </div>` : ''}
+            `;
+        }
+        
+        function shortUrl(url) {
+            if (!url) return '';
+            try {
+                const u = new URL(url);
+                return u.pathname.split('/').pop() || u.hostname;
+            } catch { return url.slice(-50); }
+        }
+        
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+        
+        function refreshData() {
+            loadTargets();
+            if (selectedTarget) loadFindings(selectedTarget.id);
+        }
+        
+        // Auto-refresh every 30s
+        setInterval(() => {
+            if (selectedTarget) loadFindings(selectedTarget.id);
+        }, 30000);
+        
+        // Init
+        loadTargets();
+    </script>
+</body>
+</html>

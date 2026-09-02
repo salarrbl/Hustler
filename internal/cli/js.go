@@ -117,12 +117,8 @@ This is a read-only command - it does not start or re-run scans.`,
 				patternColored := c.Sprintf("%s", bold(s.Pattern))
 				// Show URL in cyan
 				urlColored := color.New(color.FgHiCyan).Sprintf("%s", fileURL)
-				// Show matched value (redacted if stored, raw if in-memory)
-				displayMatch := s.Matched
-				if s.RawMatch != "" {
-					displayMatch = s.RawMatch
-				}
-				matchedColored := color.New(color.FgHiYellow).Sprintf("%s", displayMatch)
+				// Show matched value in yellow (full value, no redaction)
+				matchedColored := color.New(color.FgHiYellow).Sprintf("%s", s.Matched)
 				fmt.Printf("  %s: %s  (line %d, conf: %.2f, entropy: %.2f%s) → %s\n",
 					patternColored, matchedColored, s.Line, s.Confidence, s.Entropy, minifiedTag, urlColored)
 			}
