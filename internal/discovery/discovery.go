@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"os/exec"
 	"strings"
 	"time"
@@ -20,13 +21,23 @@ import (
 type DiscoveryRunner struct {
 	cfg        config.DiscoveryConfig
 	httpClient *http.Client
+	katanaPath string
 }
 
 // NewDiscoveryRunner creates a new discovery runner
 func NewDiscoveryRunner(cfg config.DiscoveryConfig, httpClient *http.Client) *DiscoveryRunner {
+	// Try to find katana in common locations
+	katanaPath := "katana"
+	if p, err := exec.LookPath("katana"); err == nil {
+		katanaPath = p
+	} else if _, err := os.Stat("/home/qarqa/go/bin/katana"); err == nil {
+		katanaPath = "/home/qarqa/go/bin/katana"
+	}
+
 	return &DiscoveryRunner{
 		cfg:        cfg,
 		httpClient: httpClient,
+		katanaPath: katanaPath,
 	}
 }
 
@@ -40,7 +51,19 @@ func (d *DiscoveryRunner) DiscoverJSURLs(ctx context.Context, target *models.Tar
 	allURLs := make(map[string]bool)
 	stats := make(map[string]int)
 
-	// Always try Wayback CDX API first (no external tool needed)
+	// Use katana if enabled (active crawling - most reliable for modern sites)
+	if d.cfg.UseKatana {
+		if urls, err := d.discoverViaKatana(ctx, target.Domain); err != nil {
+			log.Warn().Err(err).Str("domain", target.Domain).Msg("Katana discovery failed")
+		} else {
+			for _, u := range urls {
+				allURLs[u] = true
+			}
+			stats["katana"] = len(urls)
+		}
+	}
+
+	// Use Wayback CDX API (historical data)
 	if urls, err := d.discoverViaWaybackCDX(ctx, target.Domain); err != nil {
 		log.Warn().Err(err).Str("domain", target.Domain).Msg("Wayback CDX discovery failed")
 	} else {
@@ -75,6 +98,44 @@ func (d *DiscoveryRunner) DiscoverJSURLs(ctx context.Context, target *models.Tar
 		Msg("Discovery complete")
 
 	return result, nil
+}
+
+// discoverViaKatana runs katana to crawl for JS files
+func (d *DiscoveryRunner) discoverViaKatana(ctx context.Context, domain string) ([]string, error) {
+	ctx, cancel := context.WithTimeout(ctx, 3*time.Minute)
+	defer cancel()
+
+	// Check if katana is available
+	if _, err := exec.LookPath(d.katanaPath); err != nil {
+		return []string{}, fmt.Errorf("katana not found: %w", err)
+	}
+
+	cmd := exec.CommandContext(ctx, d.katanaPath,
+		"-u", "https://"+domain,
+		"-jc",      // extract JS file endpoints
+		"-d", "2",  // depth 2
+		"-nc",      // no color
+		"-silent",  // silent mode
+	)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return []string{}, fmt.Errorf("katana failed: %w", err)
+	}
+
+	// Parse output - look for lines containing .js
+	lines := strings.Split(string(output), "\n")
+	var urls []string
+	for _, line := range lines {
+		line = strings.TrimSpace(line)
+		// Skip non-URL lines (logs start with [INF] etc.)
+		if strings.HasPrefix(line, "[") {
+			continue
+		}
+		if line != "" && (strings.HasSuffix(line, ".js") || strings.Contains(line, ".js?")) {
+			urls = append(urls, line)
+		}
+	}
+	return urls, nil
 }
 
 // discoverViaWaybackCDX queries the Wayback Machine CDX API for JS URLs

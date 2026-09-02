@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 
@@ -40,16 +41,22 @@ var targetAddCmd = &cobra.Command{
 			return fmt.Errorf("failed to insert target: %w", err)
 		}
 
-		// Enqueue hunt job (non-blocking)
-		wp := GetWorkerPool()
-		if wp != nil {
-			job, err := wp.EnqueueJobForTarget(ctx, target.ID, "manual")
-			if err != nil {
-				log.Warn().Err(err).Str("target_id", target.ID).Msg("Failed to enqueue hunt job")
-			} else {
-				log.Info().Str("job_id", job.ID).Str("target_id", target.ID).Msg("Hunt job enqueued")
-				fmt.Printf("Enqueued hunt job: %s\n", job.ID)
-			}
+		// Enqueue hunt job (write to MongoDB for daemon to pick up)
+		jobColl := mongo.GetCollection("jobs")
+		job := &models.Job{
+			ID:       uuid.New().String(),
+			TargetID: target.ID,
+			Status:   models.JobStatusQueued,
+			QueuedAt: time.Now(),
+			Source:   "manual",
+		}
+		_, err = jobColl.InsertOne(ctx, job)
+		if err != nil {
+			log.Warn().Err(err).Str("target_id", target.ID).Msg("Failed to enqueue hunt job")
+			fmt.Printf("Warning: Failed to enqueue hunt job: %v\n", err)
+			fmt.Printf("Make sure the daemon is running: hustler daemon start\n")
+		} else {
+			fmt.Printf("Enqueued hunt job: %s\n", job.ID)
 		}
 
 		log.Info().Str("domain", domain).Str("id", target.ID).Msg("Target added successfully")
