@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"hustler/internal/mongo"
 	"hustler/internal/models"
 )
@@ -88,11 +90,23 @@ var targetListCmd = &cobra.Command{
 			return nil
 		}
 
-		fmt.Printf("%-36s %-20s %-12s %-15s %s\n", "ID", "DOMAIN", "SOURCE", "STATUS", "ADDED AT")
+		// Header
+		fmt.Printf("%-36s %-20s %-12s %-15s %s\n",
+			color.New(color.Bold).Sprintf("ID"),
+			color.New(color.Bold).Sprintf("DOMAIN"),
+			color.New(color.Bold).Sprintf("SOURCE"),
+			color.New(color.Bold).Sprintf("STATUS"),
+			color.New(color.Bold).Sprintf("ADDED AT"),
+		)
 		fmt.Println("--------------------------------------------------------------------------------")
+
 		for _, t := range targets {
-			fmt.Printf("%-36s %-20s %-12s %-15s %s\n",
-				t.ID, t.Domain, t.Source, t.Status, t.AddedAt.Format(time.RFC3339))
+			sc := statusColor(string(t.Status))
+			src := sourceColor(string(t.Source))
+			fmt.Printf("%-36s %-20s ", t.ID, t.Domain)
+			fmt.Printf("%-12s ", src.Sprintf("%s", t.Source))
+			fmt.Printf("%-15s", sc.Sprintf("%s", t.Status))
+			fmt.Printf("%s\n", t.AddedAt.Format(time.RFC3339))
 		}
 		return nil
 	},
@@ -132,4 +146,29 @@ var targetRemoveCmd = &cobra.Command{
 func init() {
 	targetCmd.AddCommand(targetAddCmd, targetListCmd, targetRemoveCmd)
 	GetRootCmd().AddCommand(targetCmd)
+
+	// Shell completion for target add
+	_ = targetAddCmd.RegisterFlagCompletionFunc("domain", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return []string{".com", ".io", ".org", ".net", ".xyz", ".app"}, cobra.ShellCompDirectiveNoFileComp
+	})
+
+	// Shell completion for target remove (list existing domains)
+	_ = targetRemoveCmd.RegisterFlagCompletionFunc("domain-or-id", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		ctx := context.Background()
+		coll := mongo.GetCollection("targets")
+		cursor, err := coll.Find(ctx, bson.M{})
+		if err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		defer cursor.Close(ctx)
+		var targets []models.Target
+		if err := cursor.All(ctx, &targets); err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		var domains []string
+		for _, t := range targets {
+			domains = append(domains, t.Domain)
+		}
+		return domains, cobra.ShellCompDirectiveDefault
+	})
 }

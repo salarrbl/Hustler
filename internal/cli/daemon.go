@@ -6,8 +6,10 @@ import (
 	"strconv"
 	"syscall"
 
+	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"hustler/internal/config"
 	"hustler/internal/mongo"
 )
@@ -53,37 +55,63 @@ var daemonStatusCmd = &cobra.Command{
 		}
 		defer mongo.Disconnect()
 
-		jobColl := mongo.GetCollection("jobs")
-
-		var queuedCount int64
-		queuedCount, err = jobColl.CountDocuments(nil, map[string]interface{}{
-			"status": "queued",
-		})
-		if err != nil {
-			return fmt.Errorf("failed to count queued jobs: %w", err)
-		}
-
-		var runningCount int64
-		runningCount, err = jobColl.CountDocuments(nil, map[string]interface{}{
-			"status": "running",
-		})
-		if err != nil {
-			return fmt.Errorf("failed to count running jobs: %w", err)
-		}
-
+		// Check PID file
 		pidRunning := false
+		var daemonPID int
 		if pidBytes, err := os.ReadFile("/tmp/hustler-daemon.pid"); err == nil {
 			if pid, err := strconv.Atoi(string(pidBytes)); err == nil {
+				daemonPID = pid
 				if proc, err := os.FindProcess(pid); err == nil {
 					pidRunning = proc.Signal(syscall.Signal(0)) == nil
 				}
 			}
 		}
 
+		// Query job statistics
+		jobColl := mongo.GetCollection("jobs")
+
+		var queuedCount int64
+		queuedCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "queued"})
+
+		var runningCount int64
+		runningCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "running"})
+
+		var doneCount int64
+		doneCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "done"})
+
+		var errorCount int64
+		errorCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "error"})
+
+		var totalTargets int64
+		targetColl := mongo.GetCollection("targets")
+		totalTargets, _ = targetColl.CountDocuments(nil, bson.M{})
+
 		fmt.Printf("Hustler Daemon Status:\n")
-		fmt.Printf("  Process: %s\n", map[bool]string{true: "RUNNING", false: "NOT RUNNING"}[pidRunning])
-		fmt.Printf("  Queued jobs: %d\n", queuedCount)
-		fmt.Printf("  Running jobs: %d\n", runningCount)
+		if pidRunning {
+			color.New(color.FgGreen).Printf("  Process: RUNNING (PID %d)\n", daemonPID)
+		} else {
+			color.New(color.FgRed).Printf("  Process: NOT RUNNING\n")
+		}
+		
+		fmt.Printf("\nDaemon Function:\n")
+		fmt.Printf("  - Polls MongoDB every 3 seconds for queued hunt jobs\n")
+		fmt.Printf("  - Runs discovery (katana/wayback/gau) for JS files\n")
+		fmt.Printf("  - Fetches and analyzes JS files (secrets, sinks, endpoints, params)\n")
+		fmt.Printf("  - Runs BLH checks, CVE mapping, library fingerprinting\n")
+		fmt.Printf("  - Stores findings in MongoDB collections\n")
+		
+		fmt.Printf("\nJob Statistics:\n")
+		color.New(color.FgYellow).Printf("  Queued:   %d\n", queuedCount)
+		color.New(color.FgBlue).Printf("  Running:  %d\n", runningCount)
+		color.New(color.FgGreen).Printf("  Completed: %d\n", doneCount)
+		color.New(color.FgRed).Printf("  Errors:   %d\n", errorCount)
+		
+		fmt.Printf("\nTargets: %d total\n", totalTargets)
+		
+		if !pidRunning {
+			color.New(color.FgRed).Printf("\n⚠ Daemon is not running! Start it with: hustler daemon start\n")
+			color.New(color.FgRed).Printf("   Targets added with 'hustler target add' will NOT be processed.\n")
+		}
 
 		return nil
 	},

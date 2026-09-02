@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 
@@ -27,7 +28,7 @@ var jsHuntCmd = &cobra.Command{
 	Short: "Show findings and job status for a target",
 	Long: `Display existing findings (secrets, sinks, etc.) and current hunt job status for a target.
 This is a read-only command - it does not start or re-run scans.`,
-	Args:  cobra.ExactArgs(1),
+	Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		domain := args[0]
 		ctx := context.Background()
@@ -40,7 +41,7 @@ This is a read-only command - it does not start or re-run scans.`,
 			return fmt.Errorf("target not found: %s", domain)
 		}
 
-		fmt.Printf("=== Target: %s (ID: %s) ===\n", target.Domain, target.ID)
+		color.New(color.FgHiYellow).Printf("=== Target: %s (ID: %s) ===\n", target.Domain, target.ID)
 
 		// Get latest job status
 		jobColl := mongo.GetCollection("jobs")
@@ -59,7 +60,10 @@ This is a read-only command - it does not start or re-run scans.`,
 			latestJob := jobs[0]
 			fmt.Printf("\nLast Hunt Job:\n")
 			fmt.Printf("  ID:     %s\n", latestJob.ID)
-			fmt.Printf("  Status: %s\n", latestJob.Status)
+
+			sc := statusColor(string(latestJob.Status))
+			fmt.Printf("  Status: %s\n", sc.Sprintf("%s", latestJob.Status))
+
 			fmt.Printf("  Queued: %s\n", latestJob.QueuedAt.Format(time.RFC3339))
 			if latestJob.StartedAt != nil {
 				fmt.Printf("  Started: %s\n", latestJob.StartedAt.Format(time.RFC3339))
@@ -68,7 +72,7 @@ This is a read-only command - it does not start or re-run scans.`,
 				fmt.Printf("  Finished: %s\n", latestJob.FinishedAt.Format(time.RFC3339))
 			}
 			if latestJob.Error != "" {
-				fmt.Printf("  Error: %s\n", latestJob.Error)
+				color.New(color.FgRed).Printf("  Error: %s\n", latestJob.Error)
 			}
 			if latestJob.Source != "" {
 				fmt.Printf("  Source: %s\n", latestJob.Source)
@@ -89,8 +93,9 @@ This is a read-only command - it does not start or re-run scans.`,
 		if len(secrets) > 0 {
 			fmt.Printf("\nSecrets (%d):\n", len(secrets))
 			for _, s := range secrets {
+				c := statusColorByConfidence(s.Confidence)
 				fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f)\n",
-					s.Pattern, s.Line, s.Confidence, s.Entropy)
+					c.Sprintf("%s", bold(s.Pattern)), s.Line, s.Confidence, s.Entropy)
 			}
 		}
 
@@ -103,8 +108,53 @@ This is a read-only command - it does not start or re-run scans.`,
 		if len(sinks) > 0 {
 			fmt.Printf("\nSinks (%d):\n", len(sinks))
 			for _, sk := range sinks {
+				c := sinkColor(sk.HasOriginCheck, sk.SinkType, sk.SourceType)
 				fmt.Printf("  - %s from %s (line %d, confidence: %.2f, origin_check: %v)\n",
-					sk.SinkType, sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck)
+					c.Sprintf("%s", bold(sk.SinkType)), sk.SourceType, sk.Line, sk.Confidence, sk.HasOriginCheck)
+			}
+		}
+
+		// BLH candidates
+		blhColl := mongo.GetCollection("blh_candidates")
+		blhCursor, _ := blhColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer blhCursor.Close(ctx)
+		var blhCandidates []models.BLHCandidate
+		blhCursor.All(ctx, &blhCandidates)
+		if len(blhCandidates) > 0 {
+			fmt.Printf("\nBLH Candidates (%d):\n", len(blhCandidates))
+			for _, b := range blhCandidates {
+				c := riskColor(b.RiskLevel)
+				fmt.Printf("  - %s [%s] (%s) - %s\n",
+					c.Sprintf("%s", b.ReferencedDomain), b.ResolutionStatus, b.RiskLevel, b.Evidence)
+			}
+		}
+
+		// Library CVEs
+		cveColl := mongo.GetCollection("library_cves")
+		cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer cveCursor.Close(ctx)
+		var cves []models.LibraryCVE
+		cveCursor.All(ctx, &cves)
+		if len(cves) > 0 {
+			fmt.Printf("\nLibrary CVEs (%d):\n", len(cves))
+			for _, c := range cves {
+				sev := severityColor(c.Severity)
+				fmt.Printf("  - %s v%s: %s (%s) - %s\n",
+					bold(c.LibraryName), c.Version, c.CVEID, sev.Sprintf("%s", c.Severity), c.Description)
+			}
+		}
+
+		// Sensitive endpoint candidates
+		senColl := mongo.GetCollection("sensitive_endpoint_candidates")
+		sensCursor, _ := senColl.Find(ctx, bson.M{"target_id": target.ID})
+		defer sensCursor.Close(ctx)
+		var sensCands []models.SensitiveEndpointCandidate
+		sensCursor.All(ctx, &sensCands)
+		if len(sensCands) > 0 {
+			fmt.Printf("\nSensitive Endpoints (%d):\n", len(sensCands))
+			for _, sc := range sensCands {
+				fmt.Printf("  - %s (HTTP %d, size: %d bytes) - patterns: %v\n",
+					sc.Endpoint, sc.StatusCode, sc.ResponseSize, sc.MatchedPatterns)
 			}
 		}
 
@@ -114,6 +164,13 @@ This is a read-only command - it does not start or re-run scans.`,
 
 		return nil
 	},
+}
+
+func sinkColor(hasOriginCheck bool, sinkType, sourceType string) *color.Color {
+	if !hasOriginCheck && (sinkType == "postMessage" || sourceType == "postMessage_data") {
+		return color.New(color.FgHiRed)
+	}
+	return color.New(color.Reset)
 }
 
 var jsScanCmd = &cobra.Command{
@@ -183,7 +240,9 @@ func runAnalyzers(ctx context.Context, target *models.Target, jsFile *models.JSF
 	} else {
 		fmt.Printf("Secrets found: %d\n", len(secrets))
 		for _, s := range secrets {
-			fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f)\n", s.Pattern, s.Line, s.Confidence, s.Entropy)
+			c := statusColorByConfidence(s.Confidence)
+			fmt.Printf("  - %s (line %d, confidence: %.2f, entropy: %.2f)\n",
+				c.Sprintf("%s", bold(s.Pattern)), s.Line, s.Confidence, s.Entropy)
 		}
 	}
 
@@ -195,15 +254,55 @@ func runAnalyzers(ctx context.Context, target *models.Target, jsFile *models.JSF
 	} else {
 		fmt.Printf("Sink findings: %d\n", len(sinks))
 		for _, sk := range sinks {
-			fmt.Printf("  - %s from %s (line %d, confidence: %.2f)\n", sk.SinkType, sk.SourceType, sk.Line, sk.Confidence)
+			c := sinkColor(sk.HasOriginCheck, sk.SinkType, sk.SourceType)
+			fmt.Printf("  - %s from %s (line %d, confidence: %.2f)\n",
+				c.Sprintf("%s", bold(sk.SinkType)), sk.SourceType, sk.Line, sk.Confidence)
 		}
 	}
 
-	// TODO: Add other analyzers (endpoints, params, BLH, CDN blocklist, library CVE, source-map)
 	fmt.Println("\n--- Scan Complete ---")
 }
 
 func init() {
 	jsCmd.AddCommand(jsHuntCmd, jsScanCmd)
 	GetRootCmd().AddCommand(jsCmd)
+
+	// Shell completion for JS commands
+	_ = jsHuntCmd.RegisterFlagCompletionFunc("domain", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		ctx := context.Background()
+		coll := mongo.GetCollection("targets")
+		cursor, err := coll.Find(ctx, bson.M{})
+		if err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		defer cursor.Close(ctx)
+		var targets []models.Target
+		if err := cursor.All(ctx, &targets); err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		var domains []string
+		for _, t := range targets {
+			domains = append(domains, t.Domain)
+		}
+		return domains, cobra.ShellCompDirectiveDefault
+	})
+
+	_ = jsScanCmd.RegisterFlagCompletionFunc("domain", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		ctx := context.Background()
+		coll := mongo.GetCollection("targets")
+		cursor, err := coll.Find(ctx, bson.M{})
+		if err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		defer cursor.Close(ctx)
+		var targets []models.Target
+		if err := cursor.All(ctx, &targets); err != nil {
+			return nil, cobra.ShellCompDirectiveError
+		}
+		var domains []string
+		for _, t := range targets {
+			domains = append(domains, t.Domain)
+		}
+		return domains, cobra.ShellCompDirectiveDefault
+	})
 }
