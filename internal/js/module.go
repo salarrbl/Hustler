@@ -115,20 +115,78 @@ func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, j
 		}
 	}
 
+	return results, nil
+}
+
+// FetchAndProcessWithCounter fetches JS files for a target and runs all analyzers with phase counters
+func (m *JSModule) FetchAndProcessWithCounter(ctx context.Context, target *models.Target, jsURLs []string, htmlContent map[string]string, pc *phaseCounter) ([]JSFileResult, error) {
+	if len(jsURLs) == 0 {
+		return nil, fmt.Errorf("no JS URLs provided")
+	}
+
+	// Filter and deduplicate URLs
+	uniqueURLs := m.deduplicateURLs(jsURLs)
+	log.Info().Int("total", len(jsURLs)).Int("unique", len(uniqueURLs)).Str("target", target.Domain).Msg("Processing JS files")
+
+	// Check which URLs are already known (incremental)
+	knowURLs := m.getKnownURLs(ctx, target.ID, uniqueURLs)
+	newURLs := make([]string, 0, len(uniqueURLs))
+	for _, u := range uniqueURLs {
+		if !knowURLs[u] {
+			newURLs = append(newURLs, u)
+		}
+	}
+	log.Info().Int("known", len(uniqueURLs)-len(newURLs)).Int("new", len(newURLs)).Msg("URL deduplication complete")
+
+	// Fetch JS files with concurrency control
+	semaphore := make(chan struct{}, m.cfg.MaxConcurrentFetch)
+	var wg sync.WaitGroup
+	results := make([]JSFileResult, len(uniqueURLs))
+	resultsMu := sync.Mutex{}
+
+	for i, jsURL := range uniqueURLs {
+		wg.Add(1)
+		go func(idx int, u string) {
+			defer wg.Done()
+			semaphore <- struct{}{}
+			defer func() { <-semaphore }()
+
+			result := m.fetchAndStore(ctx, target, u)
+			resultsMu.Lock()
+			results[idx] = result
+			resultsMu.Unlock()
+		}(i, jsURL)
+	}
+
+	wg.Wait()
+
+	// Collect successfully fetched results with content
+	var fetchedResults []JSFileResult
+	var jsFiles []*models.JSFile
+	contentMap := make(map[string]string)
+	for _, r := range results {
+		if r.Error == nil && r.Content != "" {
+			fetchedResults = append(fetchedResults, r)
+			jsFiles = append(jsFiles, r.JSFile)
+			contentMap[r.JSFile.URL] = r.Content
+		}
+	}
+
 	// Run analyzers on fetched content
 	if len(jsFiles) > 0 {
-		m.runAnalyzers(ctx, target, jsFiles, contentMap, htmlContent)
+		m.runAnalyzersWithCounter(ctx, target, jsFiles, contentMap, htmlContent, pc)
 	}
 
 	return results, nil
 }
 
-// runAnalyzers runs all enabled analyzers on the fetched JS files
-func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string, htmlContent map[string]string) {
+// runAnalyzersWithCounter runs all enabled analyzers on the fetched JS files with phase counters
+func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string, htmlContent map[string]string, pc *phaseCounter) {
 	log.Info().Int("files", len(jsFiles)).Msg("Running analyzers")
 
 	// 1. Secret scanner
 	secretScanner := analyzers.NewSecretScanner(m.cfg)
+	totalSecrets := 0
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -138,12 +196,14 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Secret scanner failed")
 		} else {
-			log.Info().Int("count", len(secrets)).Str("js_file", jsFile.URL).Msg("Secret scanner complete")
+			totalSecrets += len(secrets)
 		}
 	}
+	pc.secrets.Add(int64(totalSecrets))
 
 	// 2. Sink analyzer
 	sinkAnalyzer := analyzers.NewSinkAnalyzer()
+	totalSinks := 0
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -153,12 +213,14 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Sink analyzer failed")
 		} else {
-			log.Info().Int("count", len(sinks)).Str("js_file", jsFile.URL).Msg("Sink analyzer complete")
+			totalSinks += len(sinks)
 		}
 	}
+	pc.sinks.Add(int64(totalSinks))
 
 	// 3. Endpoint extractor
 	endpointExtractor := analyzers.NewEndpointExtractor()
+	totalEndpoints := 0
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -168,14 +230,16 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Endpoint extractor failed")
 		} else {
-			log.Info().Int("count", len(endpoints)).Str("js_file", jsFile.URL).Msg("Endpoint extractor complete")
+			totalEndpoints += len(endpoints)
 			// Store discovered endpoints as URLs
 			m.storeDiscoveredURLs(ctx, target.ID, endpoints, "extracted_from_js")
 		}
 	}
+	pc.endpoints.Add(int64(totalEndpoints))
 
 	// 4. Parameter extractor
 	paramExtractor := analyzers.NewParamExtractor()
+	totalParams := 0
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -185,9 +249,10 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Param extractor failed")
 		} else {
-			log.Info().Int("count", len(params)).Str("js_file", jsFile.URL).Msg("Param extractor complete")
+			totalParams += len(params)
 		}
 	}
+	pc.params.Add(int64(totalParams))
 
 	// 5. BLH analyzer
 	blhAnalyzer := analyzers.NewBLHAnalyzer(m.httpClient)
@@ -195,7 +260,7 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 	if err != nil {
 		log.Warn().Err(err).Msg("BLH analyzer failed")
 	} else {
-		log.Info().Int("count", len(blhCandidates)).Msg("BLH analysis complete")
+		pc.blh.Add(int64(len(blhCandidates)))
 	}
 
 	// 6. Library CVE analyzer
@@ -204,7 +269,7 @@ func (m *JSModule) runAnalyzers(ctx context.Context, target *models.Target, jsFi
 	if err != nil {
 		log.Warn().Err(err).Msg("Library CVE analyzer failed")
 	} else {
-		log.Info().Int("count", len(cveResults)).Msg("Library CVE analysis complete")
+		pc.cves.Add(int64(len(cveResults)))
 	}
 
 	// 7. Sensitive endpoint check (if enabled)

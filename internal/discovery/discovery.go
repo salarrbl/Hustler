@@ -84,7 +84,7 @@ func (d *DiscoveryRunner) Discover(ctx context.Context, target *models.Target) (
 	}
 
 	// Use Wayback CDX API (historical data)
-	if urls, err := d.discoverViaWaybackCDX(ctx, target.Domain); err != nil {
+	if urls, err := d.DiscoverViaWaybackCDX(ctx, target.Domain); err != nil {
 		log.Warn().Err(err).Str("domain", target.Domain).Msg("Wayback CDX discovery failed")
 	} else {
 		for _, u := range urls {
@@ -201,7 +201,7 @@ func (d *DiscoveryRunner) fetchHTML(ctx context.Context, url string) (string, er
 }
 
 // discoverViaWaybackCDX queries the Wayback Machine CDX API for JS URLs
-func (d *DiscoveryRunner) discoverViaWaybackCDX(ctx context.Context, domain string) ([]string, error) {
+func (d *DiscoveryRunner) DiscoverViaWaybackCDX(ctx context.Context, domain string) ([]string, error) {
 	// Wayback CDX API endpoint - query for JS files
 	cdxURL := fmt.Sprintf("https://web.archive.org/cdx/search/cdx?url=*.%s/*.js&output=json&fl=original&limit=1000&collapse=urlkey", domain)
 
