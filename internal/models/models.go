@@ -14,6 +14,18 @@ const (
 	SourceManual    TargetSource = "manual"
 )
 
+// TargetPlatform represents the bug bounty platform category
+type TargetPlatform string
+
+const (
+	PlatformHackerOne  TargetPlatform = "hackerone"
+	PlatformBugcrowd   TargetPlatform = "bugcrowd"
+	PlatformIntigriti  TargetPlatform = "intigriti"
+	PlatformYesWeHack  TargetPlatform = "yeswehack"
+	PlatformOpenBugBounty TargetPlatform = "openbugbounty"
+	PlatformFreelance  TargetPlatform = "freelance"
+)
+
 // TargetStatus represents the status of a target
 type TargetStatus string
 
@@ -29,6 +41,7 @@ type Target struct {
 	ID        string       `bson:"_id" json:"id"`
 	Domain    string       `bson:"domain" json:"domain"`
 	Source    TargetSource `bson:"source" json:"source"`
+	Platform  TargetPlatform `bson:"platform,omitempty" json:"platform,omitempty"`
 	Status    TargetStatus `bson:"status" json:"status"`
 	AddedAt   time.Time    `bson:"added_at" json:"added_at"`
 	UpdatedAt time.Time    `bson:"updated_at" json:"updated_at"`

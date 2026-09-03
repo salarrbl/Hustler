@@ -76,38 +76,50 @@ var WebCmd = &cobra.Command{
 
 func listTargets(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-	coll := mongo.GetCollection("targets")
-	
-	cursor, err := coll.Find(ctx, bson.M{})
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+
+	// Group by platform
+	result := map[string]interface{}{
+		"by_platform": map[string]interface{}{},
 	}
-	defer cursor.Close(ctx)
-	
-	var targets []models.Target
-	if err := cursor.All(ctx, &targets); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+
+	// Get targets
+	targetColl := mongo.GetCollection("targets")
+	cursor, _ := targetColl.Find(ctx, bson.M{})
+	if cursor != nil {
+		defer cursor.Close(ctx)
+		var targets []models.Target
+		cursor.All(ctx, &targets)
+
+		// Group by platform
+		byPlatform := make(map[string][]models.Target)
+		for _, t := range targets {
+			platform := string(t.Platform)
+			if platform == "" {
+				platform = string(models.PlatformFreelance)
+			}
+			byPlatform[platform] = append(byPlatform[platform], t)
+		}
+		result["by_platform"] = byPlatform
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(targets)
+	json.NewEncoder(w).Encode(result)
 }
 
 func addTarget(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-	
+
 	var req struct {
-		Domain string `json:"domain"`
+		Domain   string `json:"domain"`
+		Platform string `json:"platform"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	
+
 	coll := mongo.GetCollection("targets")
-	
+
 	// Check if target exists
 	var existing models.Target
 	err := coll.FindOne(ctx, bson.M{"domain": req.Domain}).Decode(&existing)
@@ -118,27 +130,33 @@ func addTarget(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(existing)
 		return
 	}
-	
+
+	// Default platform
+	if req.Platform == "" {
+		req.Platform = string(models.PlatformFreelance)
+	}
+
 	// Create new target
 	target := &models.Target{
 		ID:        primitive.NewObjectID().Hex(),
 		Domain:    req.Domain,
 		Source:    models.SourceManual,
+		Platform:  models.TargetPlatform(req.Platform),
 		Status:    models.StatusPending,
 		AddedAt:   time.Now(),
 		UpdatedAt: time.Now(),
 	}
-	
+
 	result, err := coll.InsertOne(ctx, target)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	target.ID = result.InsertedID.(string)
-	
+
 	// Enqueue job
 	enqueueJob(target.ID, "webui")
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(target)
