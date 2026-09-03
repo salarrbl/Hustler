@@ -77,44 +77,40 @@ var WebCmd = &cobra.Command{
 func listTargets(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	// Group by platform
-	result := map[string]interface{}{
-		"by_platform": map[string]interface{}{},
-	}
-
-	// Get targets
-	targetColl := mongo.GetCollection("targets")
-	cursor, _ := targetColl.Find(ctx, bson.M{})
-	if cursor != nil {
-		defer cursor.Close(ctx)
-		var targets []models.Target
-		cursor.All(ctx, &targets)
-
-		// Group by platform
-		byPlatform := make(map[string][]models.Target)
-		for _, t := range targets {
-			platform := string(t.Platform)
-			if platform == "" {
-				platform = string(models.PlatformFreelance)
-			}
-			byPlatform[platform] = append(byPlatform[platform], t)
-		}
-		result["by_platform"] = byPlatform
+	// Get targets with hierarchical grouping (platform -> program -> domains)
+	tree, err := buildTargetTree(ctx)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(result)
+	json.NewEncoder(w).Encode(tree)
 }
 
 func addTarget(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	var req struct {
-		Domain   string `json:"domain"`
-		Platform string `json:"platform"`
+		Domain    string `json:"domain"`
+		Platform  string `json:"platform"`
+		Program   string `json:"program"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Require platform and program
+	if req.Platform == "" || req.Program == "" {
+		http.Error(w, "Both platform and program are required", http.StatusBadRequest)
+		return
+	}
+
+	// Get or create program
+	programID, err := getOrCreateProgram(ctx, req.Program, req.Platform)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("Failed to create program: %v", err), http.StatusInternalServerError)
 		return
 	}
 
@@ -122,7 +118,7 @@ func addTarget(w http.ResponseWriter, r *http.Request) {
 
 	// Check if target exists
 	var existing models.Target
-	err := coll.FindOne(ctx, bson.M{"domain": req.Domain}).Decode(&existing)
+	err = coll.FindOne(ctx, bson.M{"domain": req.Domain}).Decode(&existing)
 	if err == nil {
 		// Target exists, enqueue job
 		enqueueJob(existing.ID, "webui")
@@ -131,17 +127,13 @@ func addTarget(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Default platform
-	if req.Platform == "" {
-		req.Platform = string(models.PlatformFreelance)
-	}
-
 	// Create new target
 	target := &models.Target{
 		ID:        primitive.NewObjectID().Hex(),
 		Domain:    req.Domain,
 		Source:    models.SourceManual,
 		Platform:  models.TargetPlatform(req.Platform),
+		ProgramID: programID,
 		Status:    models.StatusPending,
 		AddedAt:   time.Now(),
 		UpdatedAt: time.Now(),

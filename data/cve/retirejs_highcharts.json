@@ -1,0 +1,22 @@
+[
+  {
+    "library": "highcharts",
+    "max_version": "6.1.0",
+    "cve_id": "CVE-2018-20801",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in highcharts",
+    "source": "retire.js"
+  },
+  {
+    "library": "highcharts",
+    "max_version": "9.0.0",
+    "cve_id": "CVE-2021-29489",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting (XSS) and Prototype Pollution in Highcharts \u003c 9.0.0",
+    "source": "retire.js"
+  }
+]

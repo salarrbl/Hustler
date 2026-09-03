@@ -1,0 +1,12 @@
+[
+  {
+    "library": "jquery-ui-tooltip",
+    "max_version": "1.10.0",
+    "cve_id": "CVE-2012-6662",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting (XSS) vulnerability in the default content option in jquery.ui.tooltip",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "library": "c3",
+    "max_version": "0.4.11",
+    "cve_id": "CVE-2016-1000240",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in c3",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "library": "ExtJS",
+    "max_version": "4.0.0",
+    "cve_id": "CVE-2010-4207",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in ExtJS charts.swf",
+    "source": "retire.js"
+  },
+  {
+    "library": "ExtJS",
+    "max_version": "4.0.0",
+    "cve_id": "CVE-2012-5881",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in ExtJS charts.swf",
+    "source": "retire.js"
+  },
+  {
+    "library": "ExtJS",
+    "max_version": "6.0.0",
+    "cve_id": "CVE-2007-2285",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Directory traversal and arbitrary file read",
+    "source": "retire.js"
+  },
+  {
+    "library": "ExtJS",
+    "max_version": "6.6.0",
+    "cve_id": "CVE-2018-8046",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in Sencha Ext JS 4 to 6 via getTip() method of Action Columns",
+    "source": "retire.js"
+  }
+]

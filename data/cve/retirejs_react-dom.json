@@ -1,0 +1,52 @@
+[
+  {
+    "library": "react-dom",
+    "max_version": "16.0.1",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of `react-dom` are vulnerable to Cross-Site Scripting (XSS). The package fails to validate attribute names in HTML tags which may lead to Cross-Site Scripting in specific scenarios",
+    "source": "retire.js"
+  },
+  {
+    "library": "react-dom",
+    "max_version": "16.1.2",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of `react-dom` are vulnerable to Cross-Site Scripting (XSS). The package fails to validate attribute names in HTML tags which may lead to Cross-Site Scripting in specific scenarios",
+    "source": "retire.js"
+  },
+  {
+    "library": "react-dom",
+    "max_version": "16.2.1",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of `react-dom` are vulnerable to Cross-Site Scripting (XSS). The package fails to validate attribute names in HTML tags which may lead to Cross-Site Scripting in specific scenarios",
+    "source": "retire.js"
+  },
+  {
+    "library": "react-dom",
+    "max_version": "16.3.3",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of `react-dom` are vulnerable to Cross-Site Scripting (XSS). The package fails to validate attribute names in HTML tags which may lead to Cross-Site Scripting in specific scenarios",
+    "source": "retire.js"
+  },
+  {
+    "library": "react-dom",
+    "max_version": "16.4.2",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of `react-dom` are vulnerable to Cross-Site Scripting (XSS). The package fails to validate attribute names in HTML tags which may lead to Cross-Site Scripting in specific scenarios",
+    "source": "retire.js"
+  }
+]

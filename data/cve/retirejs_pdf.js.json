@@ -1,0 +1,42 @@
+[
+  {
+    "library": "pdf.js",
+    "max_version": "1.10.100",
+    "cve_id": "CVE-2018-5158",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
+    "source": "retire.js"
+  },
+  {
+    "library": "pdf.js",
+    "max_version": "2.0.550",
+    "cve_id": "CVE-2018-5158",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
+    "source": "retire.js"
+  },
+  {
+    "library": "pdf.js",
+    "max_version": "4.2.67",
+    "cve_id": "CVE-2024-4367",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "PDF.js vulnerable to arbitrary JavaScript execution upon opening a malicious PDF",
+    "source": "retire.js"
+  },
+  {
+    "library": "pdf.js",
+    "max_version": "6.2.108",
+    "cve_id": "CVE-2026-16633",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "PDF.js: Arbitrary JavaScript execution upon opening a malicious PDF ",
+    "source": "retire.js"
+  }
+]

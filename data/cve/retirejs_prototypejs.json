@@ -1,0 +1,32 @@
+[
+  {
+    "library": "prototypejs",
+    "max_version": "1.5.1.2",
+    "cve_id": "CVE-2008-7220",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "prototypejs",
+    "max_version": "1.6.0.2",
+    "cve_id": "CVE-2008-7220",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "prototypejs",
+    "max_version": "1.7.4",
+    "cve_id": "CVE-2020-27511",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "An issue was discovered in the stripTags and unescapeHTML components in Prototype 1.7.3 where an attacker can cause a Regular Expression Denial of Service (ReDOS) through stripping crafted HTML tags.",
+    "source": "retire.js"
+  }
+]

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson"
 	wmongo "go.mongodb.org/mongo-driver/mongo"
@@ -12,7 +13,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 
 	"hustler/internal/config"
-	"hustler/internal/jobqueue"
 	"hustler/internal/mongo"
 	"hustler/internal/models"
 )
@@ -23,11 +23,10 @@ type Connector struct {
 	watchdogsDb  *wmongo.Database
 	hustlerColl  *wmongo.Collection
 	cfg          config.WatchdogsConfig
-	workerPool   *jobqueue.WorkerPool
 }
 
 // NewConnector creates a new Watchdogs connector
-func NewConnector(cfg config.WatchdogsConfig, wp *jobqueue.WorkerPool) (*Connector, error) {
+func NewConnector(cfg config.WatchdogsConfig) (*Connector, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -52,13 +51,7 @@ func NewConnector(cfg config.WatchdogsConfig, wp *jobqueue.WorkerPool) (*Connect
 		watchdogsDb: db,
 		cfg:         cfg,
 		hustlerColl: mongo.GetCollection("targets"),
-		workerPool:  wp,
 	}, nil
-}
-
-// SetWorkerPool injects the worker pool for enqueuing jobs
-func (c *Connector) SetWorkerPool(wp *jobqueue.WorkerPool) {
-	c.workerPool = wp
 }
 
 // Close closes the Watchdogs MongoDB connection
@@ -68,7 +61,7 @@ func (c *Connector) Close() error {
 
 // Sync pulls targets from Watchdogs and upserts into Hustler's targets collection.
 // Sync is incremental: only domains NOT already in Hustler are created as new targets.
-// Each new target gets a hunt job enqueued into the worker pool.
+// Each new target gets a hunt job enqueued directly into MongoDB.
 // This is EXPLICITLY INVOKED via CLI - never auto-runs.
 func (c *Connector) Sync(ctx context.Context) (int, error) {
 	if !c.cfg.Enabled {
@@ -137,14 +130,20 @@ func (c *Connector) Sync(ctx context.Context) (int, error) {
 		target.ID = result.InsertedID.(string)
 		synced++
 
-		// Enqueue hunt job for this new target (concurrency-limited by worker pool)
-		if c.workerPool != nil {
-			job, err := c.workerPool.EnqueueJobForTarget(ctx, target.ID, "watchdogs")
-			if err != nil {
-				log.Warn().Err(err).Str("domain", domain).Msg("Failed to enqueue hunt job for Watchdogs target")
-			} else {
-				log.Info().Str("job_id", job.ID).Str("domain", domain).Msg("Hunt job enqueued for Watchdogs target")
-			}
+		// Enqueue hunt job directly into MongoDB (daemon will pick it up)
+		job := &models.Job{
+			ID:       uuid.New().String(),
+			TargetID: target.ID,
+			Status:   models.JobStatusQueued,
+			QueuedAt: time.Now(),
+			Source:   "watchdogs",
+		}
+		jobColl := mongo.GetCollection("jobs")
+		_, err = jobColl.InsertOne(ctx, job)
+		if err != nil {
+			log.Warn().Err(err).Str("domain", domain).Msg("Failed to enqueue hunt job for Watchdogs target")
+		} else {
+			log.Info().Str("job_id", job.ID).Str("domain", domain).Msg("Hunt job enqueued for Watchdogs target")
 		}
 	}
 
@@ -238,6 +237,39 @@ func (c *Connector) populateTargetFromWatchdogs(target *models.Target, doc bson.
 			target.DiscoveredAt = &t
 		}
 	}
+
+	// Handle program and platform mapping
+	var programName string
+	if mapping.ProgramField != "" {
+		if v, ok := doc[mapping.ProgramField]; ok {
+			if s, ok := v.(string); ok {
+				programName = s
+			}
+		}
+	}
+
+	var platform string
+	if mapping.PlatformField != "" {
+		if v, ok := doc[mapping.PlatformField]; ok {
+			if s, ok := v.(string); ok {
+				platform = s
+			}
+		}
+	}
+
+	// Default platform if not found in Watchdogs doc
+	if platform == "" {
+		platform = "freelance"
+	}
+
+	// Get or create program if we have a program name
+	if programName != "" {
+		programID, err := c.getOrCreateProgram(programName, platform)
+		if err == nil {
+			target.ProgramID = programID
+			target.Platform = models.TargetPlatform(platform)
+		}
+	}
 }
 
 // IsDuplicateKeyError checks if a MongoDB error is a duplicate key error (code 11000)
@@ -249,4 +281,32 @@ func IsDuplicateKeyError(err error) bool {
 		return mongoErr.Code() == 11000
 	}
 	return false
+}
+
+// getOrCreateProgram finds or creates a program and returns its ID
+func (c *Connector) getOrCreateProgram(name, platform string) (string, error) {
+	ctx := context.Background()
+	programColl := c.hustlerColl.Database().Collection("programs")
+
+	// Check if exists
+	var existing models.Program
+	err := programColl.FindOne(ctx, bson.M{"name": name, "platform": platform}).Decode(&existing)
+	if err == nil {
+		return existing.ID, nil
+	}
+
+	// Create new
+	program := &models.Program{
+		ID:       uuid.New().String(),
+		Name:     name,
+		Platform: platform,
+		AddedAt:  time.Now(),
+	}
+
+	result, err := programColl.InsertOne(ctx, program)
+	if err != nil {
+		return "", err
+	}
+
+	return result.InsertedID.(string), nil
 }

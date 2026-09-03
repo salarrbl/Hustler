@@ -1,0 +1,12 @@
+[
+  {
+    "library": "video.js",
+    "max_version": "7.14.3",
+    "cve_id": "CVE-2021-23414",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of video.js before 7.14.3 are vulnerable to Cross-Site Scripting (XSS). The src attribute of track tags does not properly escape HTML, allowing arbitrary JavaScript execution via crafted track source values.",
+    "source": "retire.js"
+  }
+]

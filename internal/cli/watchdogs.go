@@ -34,7 +34,7 @@ Sync is incremental: only new domains (not already in Hustler) are added.`,
 			return fmt.Errorf("Watchdogs sync is disabled - set watchdogs.enabled: true in config.yaml")
 		}
 
-		connector, err := watchdogs.NewConnector(cfg.Watchdogs, GetWorkerPool())
+		connector, err := watchdogs.NewConnector(cfg.Watchdogs)
 		if err != nil {
 			return fmt.Errorf("failed to create Watchdogs connector: %w", err)
 		}

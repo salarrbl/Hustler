@@ -1,0 +1,62 @@
+[
+  {
+    "library": "froala",
+    "max_version": "3.2.3",
+    "cve_id": "CVE-2019-19935",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOM-based cross-site scripting in Froala Editor",
+    "source": "retire.js"
+  },
+  {
+    "library": "froala",
+    "max_version": "3.2.7",
+    "cve_id": "CVE-2021-28114",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala WYSIWYG Editor 3.2.6-1 is affected by XSS due to a namespace confusion during parsing.",
+    "source": "retire.js"
+  },
+  {
+    "library": "froala",
+    "max_version": "3.2.7",
+    "cve_id": "CVE-2021-30109",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala WYSIWYG Editor 3.2.6 is affected by Cross Site Scripting (XSS). Under certain conditions, a base64 crafted string leads to persistent XSS.",
+    "source": "retire.js"
+  },
+  {
+    "library": "froala",
+    "max_version": "4.0.11",
+    "cve_id": "CVE-2020-22864",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in [insert video]",
+    "source": "retire.js"
+  },
+  {
+    "library": "froala",
+    "max_version": "4.1.4",
+    "cve_id": "CVE-2023-41592",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala Editor v4.0.1 to v4.1.1 was discovered to contain a cross-site scripting (XSS) vulnerability.",
+    "source": "retire.js"
+  },
+  {
+    "library": "froala",
+    "max_version": "4.3.1",
+    "cve_id": "CVE-2024-51434",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala WYSIWYG editor allows cross-site scripting (XSS)",
+    "source": "retire.js"
+  }
+]

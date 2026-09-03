@@ -1,0 +1,12 @@
+[
+  {
+    "library": "knockout",
+    "max_version": "3.5.0",
+    "cve_id": "CVE-2019-14862",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS injection point in attr name binding for browser IE7 and older",
+    "source": "retire.js"
+  }
+]

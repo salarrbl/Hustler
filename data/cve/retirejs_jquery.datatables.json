@@ -1,0 +1,32 @@
+[
+  {
+    "library": "jquery.datatables",
+    "max_version": "1.10.10",
+    "cve_id": "CVE-2015-6584",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery.datatables",
+    "max_version": "1.10.22",
+    "cve_id": "CVE-2020-28458",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "datatables.net vulnerable to Prototype Pollution due to incomplete fix",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery.datatables",
+    "max_version": "1.11.3",
+    "cve_id": "CVE-2021-23445",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross site scripting in datatables.net",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "library": "chart.js",
+    "max_version": "2.9.4",
+    "cve_id": "CVE-2020-7746",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in chart.js",
+    "source": "retire.js"
+  }
+]

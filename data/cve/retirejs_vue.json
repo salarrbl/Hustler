@@ -1,0 +1,12 @@
+[
+  {
+    "library": "vue",
+    "max_version": "3.0.0-alpha.0",
+    "cve_id": "CVE-2024-9506",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS vulnerability in vue package that is exploitable through inefficient regex evaluation in the parseHTML function",
+    "source": "retire.js"
+  }
+]

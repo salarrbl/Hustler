@@ -2,7 +2,6 @@ package cli
 
 import (
 	"github.com/spf13/cobra"
-	"hustler/internal/jobqueue"
 )
 
 var rootCmd = &cobra.Command{
@@ -15,8 +14,6 @@ starting with JavaScript hunting (secrets, endpoints, source/sink analysis, BLH,
 		return nil
 	},
 }
-
-var workerPool *jobqueue.WorkerPool
 
 func Execute() error {
 	return rootCmd.Execute()
@@ -31,12 +28,4 @@ func init() {
 
 func GetRootCmd() *cobra.Command {
 	return rootCmd
-}
-
-func SetWorkerPool(wp *jobqueue.WorkerPool) {
-	workerPool = wp
-}
-
-func GetWorkerPool() *jobqueue.WorkerPool {
-	return workerPool
 }

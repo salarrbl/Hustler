@@ -29,12 +29,13 @@ js:
   enable_source_maps: true              # Fetch & store source maps
   skip_hashes: []                       # SHA256 prefixes to skip (known libs)
 
-# Discovery Configuration
-discovery:
-  enabled: true                         # Enable discovery phase
-  use_katana: true                      # Katana active crawl
-  use_gau: false                        # Gau historical
-  # katana_timeout inherited from js.katana_timeout
+# CVE Module (NEW)
+cve:
+  data_dir: "./data/cve"                # Local cache location
+  enable_online_lookup: true             # Query osv.dev/npm APIs
+  rate_limit_rps: 2.0                   # API requests per second
+  update_interval_days: 7               # Auto-update frequency
+  min_confidence: 0.5                   # Minimum confidence to report (0-1)
 
 # Sensitive Endpoint Check (Active - DISABLED BY DEFAULT)
 sensitive:
@@ -89,12 +90,15 @@ All config values can be overridden via environment variables (prefix `HUSTLER_`
 
 | Config Path | Env Var | Example |
 |-------------|---------|---------|
-| `mongo.uri` | `HUSTLER_MONGO_URI` | `mongodb://user:pass@host:27017` |
+| `mongo.uri` | `HUSTLER_MONGO_URI` | `mongodb://user:***@host:27017` |
 | `mongo.database` | `HUSTLER_MONGO_DB` | `hustler_prod` |
 | `logging.level` | `HUSTLER_LOG_LEVEL` | `debug` |
 | `js.max_concurrent_fetches` | `HUSTLER_JS_MAX_FETCHES` | `20` |
 | `js.use_katana` | `HUSTLER_JS_USE_KATANA` | `true` |
 | `js.entropy_threshold` | `HUSTLER_JS_ENTROPY` | `4.0` |
+| `cve.data_dir` | `HUSTLER_CVE_DATA_DIR` | `/opt/hustler/data/cve` |
+| `cve.enable_online_lookup` | `HUSTLER_CVE_ONLINE` | `true` |
+| `cve.rate_limit_rps` | `HUSTLER_CVE_RATE_LIMIT` | `5.0` |
 | `sensitive.enabled` | `HUSTLER_SENSITIVE_ENABLED` | `true` |
 | `hustler.max_concurrent_hunts` | `HUSTLER_MAX_HUNTS` | `5` |
 | `watchdogs.enabled` | `HUSTLER_WATCHDOGS_ENABLED` | `true` |
@@ -121,6 +125,13 @@ js:
   katana_depth: 1
   entropy_threshold: 3.0
 
+cve:
+  data_dir: "./data/cve"
+  enable_online_lookup: true
+  rate_limit_rps: 1.0
+  update_interval_days: 1
+  min_confidence: 0.5
+
 sensitive:
   enabled: false
 
@@ -135,7 +146,7 @@ watchdogs:
 ### Production (High Throughput)
 ```yaml
 mongo:
-  uri: "mongodb://user:pass@mongo-cluster:27017"
+  uri: "mongodb://user:***@mongo-cluster:27017"
   database: "hustler_prod"
 
 logging:
@@ -155,6 +166,13 @@ js:
   skip_hashes:
     - "a1b2c3d4"  # jQuery 3.x hash prefix
     - "e5f6g7h8"  # React hash prefix
+
+cve:
+  data_dir: "/opt/hustler/data/cve"
+  enable_online_lookup: true
+  rate_limit_rps: 5.0
+  update_interval_days: 7
+  min_confidence: 0.55
 
 sensitive:
   enabled: true
@@ -210,6 +228,13 @@ js:
   use_gau: false
   katana_depth: 1
   entropy_threshold: 3.5
+
+cve:
+  data_dir: "./data/cve"
+  enable_online_lookup: false  # Disable in CI
+  rate_limit_rps: 1.0
+  update_interval_days: 30
+  min_confidence: 0.5
 
 sensitive:
   enabled: false
@@ -269,9 +294,22 @@ func (c *FullConfig) setDefaults() {
     if c.JS.KatanaDepth == 0 { c.JS.KatanaDepth = 2 }
     if c.JS.KatanaTimeout == 0 { c.JS.KatanaTimeout = 180 }
     if c.JS.EntropyThreshold == 0 { c.JS.EntropyThreshold = 3.5 }
-    if c.Discovery.KatanaDepth == 0 { c.Discovery.KatanaDepth = c.JS.KatanaDepth }
+    if c.JS.UseKatana == false { c.JS.UseKatana = true }
+    if c.JS.UseGau == false { c.JS.UseGau = false }
+    if c.JS.EnableSourceMaps == false { c.JS.EnableSourceMaps = true }
+    
+    if c.CVE.DataDir == "" { c.CVE.DataDir = "./data/cve" }
+    if c.CVE.EnableOnlineLookup == false { c.CVE.EnableOnlineLookup = true }
+    if c.CVE.RateLimitRPS == 0 { c.CVE.RateLimitRPS = 2.0 }
+    if c.CVE.UpdateIntervalDays == 0 { c.CVE.UpdateIntervalDays = 7 }
+    if c.CVE.MinConfidence == 0 { c.CVE.MinConfidence = 0.5 }
+    
+    if c.Sensitive.Enabled == false { c.Sensitive.Enabled = false }
+    
     if c.Hustler.MaxConcurrentHunts == 0 { c.Hustler.MaxConcurrentHunts = 3 }
     if c.Hustler.PollIntervalSeconds == 0 { c.Hustler.PollIntervalSeconds = 3 }
+    
+    if c.Watchdogs.Enabled == false { c.Watchdogs.Enabled = false }
 }
 ```
 
@@ -285,6 +323,7 @@ type FullConfig struct {
     Mongo       MongoConfig                   `mapstructure:"mongo"`
     Logging     LoggingConfig                 `mapstructure:"logging"`
     JS          JSConfig                      `mapstructure:"js"`
+    CVE         CVEConfig                     `mapstructure:"cve"`      // NEW
     Discovery   DiscoveryConfig               `mapstructure:"discovery"`
     Sensitive   SensitiveEndpointCheckConfig  `mapstructure:"sensitive"`
     Hustler     HustlerConfig                 `mapstructure:"hustler"`
@@ -316,6 +355,15 @@ type JSConfig struct {
     EntropyThreshold   float64  `mapstructure:"entropy_threshold"`
     EnableSourceMaps   bool     `mapstructure:"enable_source_maps"`
     SkipHashes         []string `mapstructure:"skip_hashes"`
+}
+
+// CVEConfig - CVE module settings (NEW)
+type CVEConfig struct {
+    DataDir            string  `mapstructure:"data_dir"`
+    EnableOnlineLookup bool    `mapstructure:"enable_online_lookup"`
+    RateLimitRPS       float64 `mapstructure:"rate_limit_rps"`
+    UpdateIntervalDays int     `mapstructure:"update_interval_days"`
+    MinConfidence      float64 `mapstructure:"min_confidence"`
 }
 
 // DiscoveryConfig - Discovery phase settings
@@ -357,9 +405,13 @@ type WatchdogsConfig struct {
 | `js.fetch_timeout_seconds` | 1-300 |
 | `js.katana_depth` | 1-10 |
 | `js.entropy_threshold` | 0.0-8.0 |
+| `cve.rate_limit_rps` | 0.1-50.0 |
+| `cve.update_interval_days` | 1-365 |
+| `cve.min_confidence` | 0.0-1.0 |
 | `hustler.max_concurrent_hunts` | 1-20 |
 | `hustler.poll_interval_seconds` | 1-300 |
 | `sensitive.enabled` | If true, `heuristic_paths` must not be empty |
+| `watchdogs.enabled` | If true, sources must be configured |
 
 ---
 
@@ -374,6 +426,8 @@ type WatchdogsConfig struct {
 | False positive secrets | Entropy threshold too low | Increase `entropy_threshold` to 4.0+ |
 | Daemon not picking up jobs | Poll interval too high | Reduce `poll_interval_seconds` |
 | MongoDB connection refused | Wrong URI/database | Check `mongo.uri` and `mongo.database` |
+| CVE update timeout | Slow network to APIs | Increase timeout, check proxy |
+| No new CVEs on update | Already up to date | Check `./data/cve/.last_update` |
 
 ---
 

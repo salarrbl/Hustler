@@ -1,0 +1,152 @@
+[
+  {
+    "library": "angularjs",
+    "max_version": "1.5.0-beta.1",
+    "cve_id": "CVE-2019-14863",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS through xlink:href attributes",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.7.9",
+    "cve_id": "CVE-2019-10768",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.0",
+    "cve_id": "CVE-2020-7676",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS may be triggered in AngularJS applications that sanitize user-controlled HTML snippets before passing them to JQLite methods like JQLite.prepend, JQLite.after, JQLite.append, JQLite.replaceWith, JQLite.append, new JQLite and angular.element.",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2023-26117",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service via the $resource service",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2023-26116",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service via the angular.copy() utility",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2022-25869",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular (deprecated package) Cross-site Scripting",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2023-26118",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service via the \u003cinput type=\"url\"\u003e element",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2025-0716",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS improperly sanitizes SVG elements",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2024-8373",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS allows attackers to bypass common image source restrictions",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2026-11998",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular's deprecated package has a Cross-Site Scripting issue",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2024-21490",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to super-linear runtime due to backtracking",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2024-8372",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS allows attackers to bypass common image source restrictions",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2025-2336",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS Incomplete Filtering of Special Elements vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.9.9",
+    "cve_id": "CVE-2025-4690",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS Regular expression Denial of Service (ReDoS)",
+    "source": "retire.js"
+  },
+  {
+    "library": "angularjs",
+    "max_version": "999.999.999",
+    "cve_id": "CVE-2022-25844",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service (ReDoS)",
+    "source": "retire.js"
+  }
+]

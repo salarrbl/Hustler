@@ -11,12 +11,15 @@ Detect secrets, API keys, tokens, passwords, and other sensitive data embedded i
 
 #### Pattern-Based Detection
 The scanner uses **67+ regex patterns** covering:
-- **Cloud Providers**: AWS (Access Key ID, Secret Access Key, Session Token), GCP, Azure, Heroku
-- **Communication Platforms**: Slack (tokens, webhooks), Discord
-- **Database Connections**: MongoDB, PostgreSQL, MySQL, Redis, JDBC URLs
-- **Authentication**: OAuth tokens, Bearer tokens, JWT tokens, refresh/access tokens
-- **Configuration Files**: .env patterns, .htaccess auth, SSH keys
-- **Generic**: High-entropy strings, Base64 strings, generic API keys/secrets
+
+| Category | Examples |
+|----------|----------|
+| **Cloud Providers** | AWS (Access Key ID, Secret Access Key, Session Token), GCP, Azure, Heroku |
+| **Communication Platforms** | Slack (tokens, webhooks), Discord |
+| **Database Connections** | MongoDB, PostgreSQL, MySQL, Redis, JDBC URLs |
+| **Authentication** | OAuth tokens, Bearer tokens, JWT tokens, refresh/access tokens |
+| **Configuration Files** | .env patterns, .htaccess auth, SSH keys |
+| **Generic** | High-entropy strings, Base64 strings, generic API keys/secrets |
 
 #### Entropy Analysis (Shannon Entropy)
 ```go
@@ -37,10 +40,10 @@ func calculateConfidence(pattern, entropy, matched)
 - **Capped at 1.0**, floored at 0.0
 
 #### Redaction for Storage
-Matched secrets are **redacted** before storage: `AKIA1234567890ABCDEF` → `AKIA********ABCDEF`
+Matched secrets are **redacted** before storage: `AKIA********ABCDEF`
 
 ### Output
-Stored in MongoDB `secrets` collection with: pattern name, redacted match, line/column, entropy, confidence, context snippet.
+Stored in MongoDB `secrets` collection with: pattern name, redacted match, line/column, entropy, confidence, context snippet, is_minified flag.
 
 ---
 
@@ -52,6 +55,7 @@ Perform **source/sink analysis** to identify DOM-based XSS vulnerabilities by fi
 ### Methodology
 
 #### Sink Patterns (13 sinks)
+
 | Sink Type | Pattern | Risk |
 |-----------|---------|------|
 | `eval` | `\beval\s*\(` | **Critical** - arbitrary code execution |
@@ -70,6 +74,7 @@ Perform **source/sink analysis** to identify DOM-based XSS vulnerabilities by fi
 | `window.open` | `window\.open\s*\(` | **Low** - popup |
 
 #### Source Patterns (13 sources)
+
 | Source Type | Pattern | Description |
 |-------------|---------|-------------|
 | `url_params` | `URLSearchParams`, `location.search` | Query string parameters |
@@ -96,7 +101,7 @@ var originCheckPattern = regexp.MustCompile(`(?i)(?:event\.origin|message\.origi
 Checks if `postMessage` calls validate `event.origin` - critical for preventing cross-origin XSS.
 
 ### Output
-Stored in MongoDB `sinks` collection with: sink type, source type, line/column, snippet, confidence, has_origin_check.
+Stored in MongoDB `sinks` collection with: sink type, source type, line/column, snippet, confidence, has_origin_check, is_minified, low_confidence flags.
 
 ---
 
@@ -113,7 +118,7 @@ func extractDomains(content, baseURL string) []string
 ```
 Two regex patterns:
 1. `src/href` attributes: `(?:src|href)=["']([^"']*://[^"']+)["']`
-2. Full URLs: `https?://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(?:/[^\s"']*)?`
+2. Full URLs: `https?://[a-zA-Z0-9\-\.]+.[a-zA-Z]{2,}(?:/[^\s"']*)?`
 
 **Filters out**: Same domain as base URL, internal references.
 
@@ -141,9 +146,10 @@ func checkDomain(ctx, domain) *BLHCandidate
 Tracks seen domains per target to avoid re-checking.
 
 ### Output
-Stored in MongoDB `blh_candidates` collection with: domain, resolution_status, risk_level, cloud_provider, evidence.
+Stored in MongoDB `blh_candidates` collection with: domain, resolution_status, risk_level, cloud_provider, evidence, found_in (js_file/html_page), is_target_subdomain.
 
 ### Risk Levels
+
 | Risk | Condition |
 |------|-----------|
 | **Critical** | NXDOMAIN (registerable), Unclaimed S3 bucket |
@@ -181,7 +187,7 @@ Inferred from calling function:
 - Others → empty (unknown)
 
 ### Output
-Stored in MongoDB `endpoints` collection with: endpoint URL, method, context, source JS file.
+Stored in MongoDB `endpoints` collection with: endpoint URL, method, context, source JS file, full_url.
 
 ---
 
@@ -216,7 +222,7 @@ Stored in MongoDB `params` collection with: param_name, context, location.
 
 ---
 
-## 6. Library CVE Analyzer (`internal/analyzers/library_cve_analyzer.go`)
+## 6. Library CVE Analyzer (`internal/analyzers/library_cve_analyzer.go`) — **LEGACY**
 
 ### Purpose
 Fingerprint JavaScript libraries and check against known CVE database.
@@ -224,6 +230,7 @@ Fingerprint JavaScript libraries and check against known CVE database.
 ### Methodology
 
 #### Library Fingerprinting (10 signatures)
+
 | Library | Pattern |
 |---------|---------|
 | jQuery | `jquery\s*[:=]\s*['"]([12]\.\d+\.\d+)['"]` |
@@ -266,7 +273,76 @@ Stored in MongoDB `library_cves` collection with: library_name, version, cve_id,
 
 ---
 
-## 7. Sensitive Endpoint Analyzer (`internal/analyzers/sensitive_endpoint_analyzer.go`)
+## 7. CVE Module (`internal/cve/module.go`) — **NEW**
+
+### Purpose
+Multi-source vulnerability analysis for both **server-side** and **client-side** technologies with confidence scoring to reduce false positives.
+
+### Data Sources
+
+| Source | Coverage | Update Method |
+|--------|----------|---------------|
+| **retire.js** | 5000+ client-side JS library CVEs | `hustler cve update` (GitHub raw) |
+| **osv.dev** | npm, Go, Rust, PyPI, Maven, etc. | `hustler cve update` (API) |
+| **npm advisories** | npm-specific advisories | `hustler cve update` (API) |
+| **Embedded** | Apache, Nginx, PHP, OpenSSL | Built-in |
+
+### Analysis Phases
+
+1. **Server-Side Fingerprinting** (`analyzeServerTech`)
+   - Uses WappalyzerGo on HTTP response headers/body
+   - Identifies: Apache, Nginx, PHP, OpenSSL, Express, etc.
+   - Cross-references with local + online CVE databases
+
+2. **Client-Side Detection** (`analyzeClientLibs`)
+   - Pattern matching on JS file content (16 library patterns)
+   - Source map analysis (planned)
+   - Package.json parsing (planned)
+
+3. **Package File Analysis** (`analyzePackageFiles`)
+   - Extract versions from package.json in source maps
+   - Future enhancement
+
+### Confidence Scoring (Reduces False Positives)
+
+| Detection Method | Base Confidence | Description |
+|-----------------|-----------------|-------------|
+| Package.json / source map | 0.70 | Exact version from build artifacts |
+| Server header (Wappalyzer) | 0.60 | Technology fingerprint from HTTP |
+| JS file regex match | 0.55 | Pattern matching in source code |
+| Fuzzy version match | 0.50 | Semantic version comparison |
+
+**Minimum confidence to report**: 0.5 (configurable via `cve.min_confidence`)
+
+### Version Matching
+Semantic version comparison: detected version ≤ max vulnerable version = affected.
+
+### CLI Commands
+```bash
+hustler cve update          # Download latest, shows NEW CVEs found
+hustler cve status          # Database stats
+hustler cve list --library lodash --severity high --limit 0
+hustler cve list --cve CVE-2021-44228
+hustler cve list --format json
+```
+
+### Integration with Hunt Pipeline
+Runs automatically after JS discovery:
+```
+🔬 [secrets]   12 findings
+🔬 [sinks]     45 findings
+🔬 [endpoints] 89 found
+🔬 [blh]       2 candidates
+🔍 [cve] Analyzing for known vulnerabilities...
+🔬 [cve]       3 matches
+```
+
+### Output
+Stored in MongoDB `library_cves` collection with: target_id, js_file_id, library_name, version, cve_id, severity, description, reference, found_at.
+
+---
+
+## 8. Sensitive Endpoint Analyzer (`internal/analyzers/sensitive_endpoint_analyzer.go`)
 
 ### Purpose
 **Active check** (disabled by default) - makes GET requests to extracted endpoints to detect sensitive data exposure.
@@ -294,14 +370,15 @@ Stored in MongoDB `sensitive_endpoint_candidates` collection with: endpoint, sta
 ## Summary: Analysis Pipeline Order
 
 ```go
-// In internal/js/module.go:runAnalyzers()
+// In internal/js/module.go:runAnalyzersWithCounter()
 1. Secret Scanner        // Static analysis - secrets in code
 2. Sink Analyzer         // Static analysis - DOM XSS sources/sinks
 3. Endpoint Extractor    // Static analysis - API endpoints
 4. Param Extractor       // Static analysis - parameter names
 5. BLH Analyzer          // External check - domain availability
-6. Library CVE Analyzer  // Static + DB lookup - vulnerable libs
-7. Sensitive Endpoint    // Active check - only if enabled
+6. Library CVE Analyzer  // Static + DB lookup - vulnerable libs (legacy)
+7. CVE Module            // Multi-source with confidence (NEW)
+8. Sensitive Endpoint    // Active check - only if enabled
 ```
 
 All analyzers write directly to MongoDB collections for the `js hunt` command to display.
@@ -316,7 +393,7 @@ Edit `internal/analyzers/secret_scanner.go` → add to `patterns` slice in `NewS
 ### Adding Sink/Source Patterns
 Edit `internal/analyzers/sink_analyzer.go` → add to `sinkPatterns` or `sourcePatterns` maps.
 
-### Adding CVE Data
+### Adding CVE Data (Legacy)
 1. Create JSON file with CVE data
 2. Call `cveAnalyzer.LoadCVEDatabase("path/to/cves.json")` in `runAnalyzers()`
 
@@ -338,4 +415,4 @@ sensitive:
 
 ---
 
-*For implementation details of each analyzer, see the source files in `internal/analyzers/`.*
+*See `internal/analyzers/` and `internal/cve/` for implementation details.*

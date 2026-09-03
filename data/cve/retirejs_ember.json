@@ -1,0 +1,252 @@
+[
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.1.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.2.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.3.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.4.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.5.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.0-rc.6.1",
+    "cve_id": "CVE-2013-4170",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.1",
+    "cve_id": "CVE-2014-0013",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.0.1",
+    "cve_id": "CVE-2014-0014",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.1.3",
+    "cve_id": "CVE-2014-0013",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.1.3",
+    "cve_id": "CVE-2014-0014",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.2.1",
+    "cve_id": "CVE-2014-0013",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.2.1",
+    "cve_id": "CVE-2014-0014",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.2.2",
+    "cve_id": "CVE-2014-0046",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ember-routing-auto-location can be forced to redirect to another domain",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.3.1",
+    "cve_id": "CVE-2014-0013",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.3.1",
+    "cve_id": "CVE-2014-0014",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.3.2",
+    "cve_id": "CVE-2014-0046",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ember-routing-auto-location can be forced to redirect to another domain",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.4.0-beta.2",
+    "cve_id": "CVE-2014-0013",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.4.0-beta.2",
+    "cve_id": "CVE-2014-0014",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.5.0",
+    "cve_id": "CVE-2014-0046",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ember-routing-auto-location can be forced to redirect to another domain",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.11.4",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.12.2",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "1.13.12",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "2.0.3",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "2.1.2",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "ember",
+    "max_version": "2.2.1",
+    "cve_id": "CVE-2015-7565",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

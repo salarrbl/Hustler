@@ -1,0 +1,22 @@
+[
+  {
+    "library": "jquery-ui-dialog",
+    "max_version": "1.10.0",
+    "cve_id": "CVE-2010-5312",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Title cross-site scripting vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-ui-dialog",
+    "max_version": "1.12.0",
+    "cve_id": "CVE-2016-7103",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS Vulnerability on closeText option",
+    "source": "retire.js"
+  }
+]

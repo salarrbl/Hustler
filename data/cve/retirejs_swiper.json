@@ -1,0 +1,22 @@
+[
+  {
+    "library": "swiper",
+    "max_version": "6.5.1",
+    "cve_id": "CVE-2021-23370",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of the package swiper before 6.5.1 are susceptible to prototype pollution.",
+    "source": "retire.js"
+  },
+  {
+    "library": "swiper",
+    "max_version": "12.1.2",
+    "cve_id": "CVE-2026-27212",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Swiper versions \u003e=6.5.1 and \u003c12.1.2 are vulnerable to Prototype Pollution that bypasses a previous fix. The indexOf() check used to block forbidden keys can be neutralized by polluting Array.prototype.indexOf, allowing crafted input passed to extendDefaults() to add or modify properties on Object.prototype.",
+    "source": "retire.js"
+  }
+]

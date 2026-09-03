@@ -1,0 +1,52 @@
+[
+  {
+    "library": "markdown-it",
+    "max_version": "3.0.0",
+    "cve_id": "CVE-2015-10005",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting (XSS)",
+    "source": "retire.js"
+  },
+  {
+    "library": "markdown-it",
+    "max_version": "4.1.0",
+    "cve_id": "CVE-2015-3295",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting (XSS)",
+    "source": "retire.js"
+  },
+  {
+    "library": "markdown-it",
+    "max_version": "12.3.2",
+    "cve_id": "CVE-2022-21670",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS)",
+    "source": "retire.js"
+  },
+  {
+    "library": "markdown-it",
+    "max_version": "14.1.1",
+    "cve_id": "CVE-2026-2327",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of the package markdown-it from 13.0.0 and before 14.1.1 are vulnerable to Regular Expression Denial of Service (ReDoS) due to the use of the regex /\\*+$/ in the linkify function. An attacker can supply a long sequence of * characters followed by a non-matching character, which triggers excessive backtracking and may lead to a denial-of-service condition.",
+    "source": "retire.js"
+  },
+  {
+    "library": "markdown-it",
+    "max_version": "14.2.0",
+    "cve_id": "CVE-2026-48988",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "markdown-it: Quadratic complexity DoS in smartquotes rule via replaceAt string operations",
+    "source": "retire.js"
+  }
+]

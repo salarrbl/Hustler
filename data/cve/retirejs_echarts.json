@@ -1,0 +1,12 @@
+[
+  {
+    "library": "echarts",
+    "max_version": "6.1.0",
+    "cve_id": "CVE-2026-45249",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Apache ECharts has a cross-site scripting (XSS) vulnerability",
+    "source": "retire.js"
+  }
+]

@@ -1,151 +1,65 @@
-# Hustler Wiki - Complete Documentation
+# Hustler Wiki
+
+Technical documentation for the Hustler bug bounty automation tool.
 
 ## Table of Contents
 
 | # | Document | Description |
 |---|----------|-------------|
-| 01 | [Overview](01-Overview.md) | Architecture, data flow, core components, command reference |
-| 02 | [Analyzer Methodologies](02-Analyzer-Methodologies.md) | Deep dive into each analyzer: Secret, Sink, BLH, Endpoint, Param, CVE, Sensitive |
-| 03 | [Discovery & JS Module](03-Discovery-JS-Module.md) | Katana, Wayback CDX, Gau, fetch pipeline, analyzers |
-| 04 | [Daemon, Job Queue & CLI](04-Daemon-JobQueue-CLI.md) | Background processing, worker pool, CLI commands, job lifecycle |
-| 05 | [Configuration](05-Configuration.md) | Complete config.yaml reference, env vars, profiles |
-| 06 | [Data Models & MongoDB](06-Data-Models-MongoDB.md) | All collections, schemas, indexes, Go models, queries |
-| 07 | [Usage & Workflows](07-Usage-Workflows.md) | Step-by-step workflows for bug bounty hunting |
+| 01 | [Overview](01-Overview.md) | Architecture, components, target hierarchy |
+| 02 | [Analyzer Methodologies](02-Analyzer-Methodologies.md) | How each analyzer works (secrets, sinks, BLH, endpoints, params, CVE) |
+| 03 | [Discovery & JS Module](03-Discovery-JS-Module.md) | Katana, Wayback CDX, Gau discovery + JS processing pipeline |
+| 04 | [Daemon, Job Queue & CLI](04-Daemon-JobQueue-CLI.md) | Background daemon, worker pool, all CLI commands |
+| 05 | [Configuration](05-Configuration.md) | Complete config.yaml reference with profiles |
+| 06 | [Data Models & MongoDB](06-Data-Models-MongoDB.md) | All MongoDB schemas and Go structs |
+| 07 | [Usage Workflows](07-Usage-Workflows.md) | Bug bounty workflows, MongoDB queries, integration |
 
 ---
 
-## Quick Navigation
+## Quick Links
 
-### For New Users
-1. Start with **[01-Overview](01-Overview.md)** - understand the architecture
-2. Read **[07-Usage-Workflows](07-Usage-Workflows.md)** - quick start guide
-3. Check **[05-Configuration](05-Configuration.md)** - configure for your environment
-
-### For Developers/Contributors
-1. **[02-Analyzer-Methodologies](02-Analyzer-Methodologies.md)** - how each analyzer works
-2. **[03-Discovery-JS-Module](03-Discovery-JS-Module.md)** - discovery & processing pipeline
-3. **[04-Daemon-JobQueue-CLI](04-Daemon-JobQueue-CLI.md)** - daemon & job queue internals
-4. **[06-Data-Models-MongoDB](06-Data-Models-MongoDB.md)** - data structures & schemas
-
-### For Bug Bounty Hunters
-1. **[07-Usage-Workflows](07-Usage-Workflows.md)** - practical hunting workflows
-2. **[02-Analyzer-Methodologies](02-Analyzer-Methodologies.md)** - what each analyzer finds
-3. **[06-Data-Models-MongoDB](06-Data-Models-MongoDB.md)** - MongoDB queries for analysis
+- **Main README**: [../README.md](../README.md)
+- **CLI Reference**: [../CLI_REFERENCE.md](../CLI_REFERENCE.md)
+- **CVE Module**: [../CVE_MODULE.md](../CVE_MODULE.md) | [Quick Ref](../CVE_QUICKREF.md)
 
 ---
 
-## Key Concepts Summary
+## Architecture Overview
 
-### What Hustler Does
 ```
-Target Domain → Discovery (Katana/Wayback) → Fetch JS Files → Analyze → Store Findings
-                                    ↓
-                              MongoDB Collections
-                                    ↓
-                            View via: ./hustler js hunt <domain>
+CLI Commands ──▶ Daemon (3s poll) ──▶ Discovery (Katana + Wayback) ──▶ JS Fetch + 8 Analyzers ──▶ MongoDB
 ```
 
-### Core Philosophy
-- **Explicit triggering** - No automatic scanning; every target added manually
-- **Daemon-based** - Background processor picks up queued jobs
-- **Incremental** - Re-runs only process new/changed files
-- **MongoDB-centric** - All state persisted, queryable, resumable
-- **CLI-first** - Web UI is secondary
+### Core Modules
+1. **Discovery** - Katana (active) + Wayback CDX (historical)
+2. **JS Module** - Fetch, hash dedupe, incremental scanning
+3. **Analyzers** - Secrets, Sinks, Endpoints, Params, BLH, CVE (legacy + new), Sensitive
+4. **CVE Module** - retire.js, osv.dev, npm, embedded server tech with confidence scoring
+5. **Daemon** - Background job processor with phase-level logging
+6. **CLI** - Target/Program/Daemon/JS/CVE/Watchdogs/Web commands
 
-### Main Commands
-| Command | Purpose |
-|---------|---------|
-| `hustler target add <domain>` | Add target, enqueue job (non-blocking) |
-| `hustler daemon start` | Start background processor (MUST RUN) |
-| `hustler daemon status` | Check status + see what's running |
-| `hustler js hunt <domain>` | View findings (read-only, colorized) |
-| `hustler target list/remove` | Manage targets |
-
-### What Each Analyzer Finds
-
-| Analyzer | Finds | Risk Level |
-|----------|-------|------------|
-| **Secret Scanner** | API keys, tokens, passwords, DB URLs, SSH keys | Critical-High |
-| **Sink Analyzer** | DOM XSS sinks (eval, innerHTML, postMessage, etc.) | High-Medium |
-| **BLH Analyzer** | Unclaimed S3, GitHub Pages, expired domains | Critical-High |
-| **Endpoint Extractor** | API endpoints for further testing | Medium |
-| **Param Extractor** | Parameter names for fuzzing/injection | Medium |
-| **Library CVE** | Vulnerable JS libraries (jQuery, Lodash, etc.) | High-Medium |
-| **Sensitive Endpoint** | Endpoints leaking sensitive data (opt-in) | Variable |
+### Key Features
+- **Explicit triggering** - No automatic scanning
+- **Incremental** - Hash-based dedupe, only new/changed files processed
+- **Hierarchical targets** - Platform → Program → Domain
+- **Confidence scoring** - Reduces false positives
+- **Multi-source CVE** - 5000+ JS libs + server tech
 
 ---
 
-## File Structure
+## Getting Started
 
-```
-Hustler/
-├── cmd/hustler/main.go           # Entry point
-├── config.yaml                   # Configuration
-├── internal/
-│   ├── analyzers/                # 7 analysis modules
-│   │   ├── secret_scanner.go
-│   │   ├── sink_analyzer.go
-│   │   ├── blh_analyzer.go
-│   │   ├── endpoint_extractor.go
-│   │   ├── param_extractor.go
-│   │   ├── library_cve_analyzer.go
-│   │   └── sensitive_endpoint_analyzer.go
-│   ├── cli/                      # CLI commands
-│   │   ├── root.go
-│   │   ├── target.go
-│   │   ├── js.go
-│   │   ├── daemon.go
-│   │   ├── watchdogs.go
-│   │   └── colors.go
-│   ├── config/                   # Config loading
-│   ├── daemon/                   # Daemon loop
-│   ├── discovery/                # JS file discovery
-│   ├── jobqueue/                 # Worker pool (alt impl)
-│   ├── js/                       # JS processing pipeline
-│   ├── models/                   # Data models
-│   └── mongo/                    # MongoDB helpers
-└── wiki/                         # This documentation
-```
-
----
-
-## External Dependencies
-
-| Tool | Purpose | Required |
-|------|---------|----------|
-| **MongoDB** | Persistence | ✅ Yes |
-| **Katana** | Active JS discovery | ✅ Yes |
-| **Gau** | Historical URLs | ❌ Optional (disabled) |
-| **Go 1.21+** | Runtime | ✅ Yes |
+See [README.md](../README.md#quick-start) for installation and basic workflow.
 
 ---
 
 ## Contributing
 
-### Adding a New Analyzer
-1. Create `internal/analyzers/new_analyzer.go`
-2. Implement `Scan/Analyze` method
-3. Add model struct in `internal/models/models.go`
-4. Register in `internal/js/module.go:runAnalyzers()`
-5. Add MongoDB collection indexes
-6. Document in `02-Analyzer-Methodologies.md`
-
-### Adding a Discovery Source
-1. Add method to `internal/discovery/discovery.go`
-2. Add config fields in `internal/config/config.go`
-3. Call from `DiscoverJSURLs()`
-4. Document in `03-Discovery-JS-Module.md`
+Documentation is generated from source code. To update:
+1. Modify the relevant Go files
+2. Regenerate documentation (or update wiki files manually)
+3. Keep wiki in sync with implementation
 
 ---
 
-## License & Credits
-
-- **Katana** - ProjectDiscovery (active crawling)
-- **Wayback Machine** - Internet Archive (historical data)
-- **Gau** - lc (historical URLs, alternative)
-- **Retire.js** - CVE database reference (library_cve_analyzer)
-- **domgo.at** - XSS source reference
-
----
-
-*Generated from Hustler codebase. For questions, check the source files in `internal/` or the corresponding wiki documents.*
+*Last updated: 2026-09-04*

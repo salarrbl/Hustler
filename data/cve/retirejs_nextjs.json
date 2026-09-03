@@ -1,0 +1,1092 @@
+[
+  {
+    "library": "nextjs",
+    "max_version": "2.4.1",
+    "cve_id": "CVE-2017-16877",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Directory Traversal Vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "4.2.3",
+    "cve_id": "CVE-2018-6184",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Directory traversal vulnerability in Next.js",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "7.0.2",
+    "cve_id": "CVE-2018-18282",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js has cross site scripting (XSS) vulnerability via the 404 or 500 /_error page",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "9.3.2",
+    "cve_id": "CVE-2020-5284",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Directory Traversal in Next.js",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "9.5.4",
+    "cve_id": "CVE-2020-15242",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Open Redirect in Next.js",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "11.1.0",
+    "cve_id": "CVE-2021-37699",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Open Redirect in Next.js",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "11.1.1",
+    "cve_id": "CVE-2021-39178",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in Image Optimization API",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "11.1.3",
+    "cve_id": "CVE-2021-43803",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unexpected server crash in Next.js versions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.0.5",
+    "cve_id": "CVE-2021-43803",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unexpected server crash in Next.js versions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.0.9",
+    "cve_id": "CVE-2022-21721",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOS Vulnerability for self-hosted next.js apps",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.1.0",
+    "cve_id": "CVE-2022-23646",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper CSP in Image Optimization API",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.2.4",
+    "cve_id": "CVE-2022-36046",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unexpected server crash in Next.js",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.3.5",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "12.3.6",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.4.20-canary.13",
+    "cve_id": "CVE-2023-46298",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js missing cache-control header may lead to CDN caching empty reply",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.0",
+    "cve_id": "CVE-2024-39693",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Denial of Service (DoS) condition",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.1",
+    "cve_id": "CVE-2024-34350",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Vulnerable to HTTP Request Smuggling",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.7",
+    "cve_id": "CVE-2024-46982",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Cache Poisoning",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.8",
+    "cve_id": "CVE-2024-56332",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.9",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "13.5.10",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.1.1",
+    "cve_id": "CVE-2024-34351",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Server-Side Request Forgery in Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.7",
+    "cve_id": "CVE-2024-47831",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service condition in Next.js image optimization",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.10",
+    "cve_id": "CVE-2024-46982",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Cache Poisoning",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.15",
+    "cve_id": "CVE-2024-51479",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js authorization bypass vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.21",
+    "cve_id": "CVE-2024-56332",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.24",
+    "cve_id": "CVE-2025-32421",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Race Condition to Cache Poisoning",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.25",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.26",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.30",
+    "cve_id": "CVE-2025-48068",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.31",
+    "cve_id": "CVE-2025-57752",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.31",
+    "cve_id": "CVE-2025-55173",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A vulnerability in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) allowed attacker-controlled external image sources to trigger file downloads with arbitrary content and filenames, enabling phishing or malicious file delivery.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "14.2.32",
+    "cve_id": "CVE-2025-57822",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Server-Side Request Forgery (SSRF) vulnerability in Next.js Middleware (fixed in v14.2.32 and v15.4.7) allowed sensitive request headers to be reflected back when passed directly into NextResponse.next() in self-hosted applications.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.0.0-canary.206",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.0.1-canary.4",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.0.2-canary.12",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.0.3-canary.10",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.0.4-canary.53",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.1.1-canary.28",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.1.2",
+    "cve_id": "CVE-2024-56332",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.1.6",
+    "cve_id": "CVE-2025-32421",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Race Condition to Cache Poisoning",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.1.8",
+    "cve_id": "CVE-2025-49826",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache poisoning bug in Next.js (versions 15.0.4 through 15.1.8) could cause an HTTP 204 response to be cached for static pages and subsequently served to all visitors, resulting in a Denial of Service condition for those pages.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.0-canary.78",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.1-canary.7",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.2",
+    "cve_id": "CVE-2025-48068",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.2-canary.8",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.3",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.2.4",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.3.0-canary.47",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.3.1-canary.16",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.3.3",
+    "cve_id": "CVE-2025-49005",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache poisoning issue in Next.js App Router (\u003e=15.3.0 and \u003c15.3.3) may have allowed RSC payloads to be cached and served in place of HTML under specific conditions involving middleware and redirects, causing incorrect responses for affected pages.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.4.0-canary.131",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.4.2-canary.57",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.4.5",
+    "cve_id": "CVE-2025-57752",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.4.5",
+    "cve_id": "CVE-2025-55173",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A vulnerability in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) allowed attacker-controlled external image sources to trigger file downloads with arbitrary content and filenames, enabling phishing or malicious file delivery.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.4.7",
+    "cve_id": "CVE-2025-57822",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Server-Side Request Forgery (SSRF) vulnerability in Next.js Middleware (fixed in v14.2.32 and v15.4.7) allowed sensitive request headers to be reflected back when passed directly into NextResponse.next() in self-hosted applications.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.1-canary.40",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.10",
+    "cve_id": "CVE-2025-59471",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability exists in self-hosted Next.js applications with remotePatterns configured for the Image Optimizer. The /_next/image endpoint loads external images entirely into memory without a size limit, allowing an attacker to exhaust server memory by requesting optimization of arbitrarily large images from allowed domains.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.13",
+    "cve_id": "CVE-2026-29057",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.14",
+    "cve_id": "CVE-2026-27980",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44577",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44573",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44572",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to cache poisoning and Denial of Service via the x-nextjs-data request header. An external client sending this header on a request to a redirect-returning middleware path causes the standard Location header to be replaced with the internal x-nextjs-redirect header, which browsers do not follow; if a CDN caches the malformed response, all subsequent visitors to that path receive a broken redirect.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44580",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44581",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44582",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44578",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44576",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using React Server Components are vulnerable to cache poisoning when shared caches do not correctly partition response variants. An attacker can cause RSC payloads to be served from the original URL and poison shared cache entries so subsequent visitors receive component payloads instead of the expected HTML.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44579",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44575",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44574",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications relying on middleware to protect dynamic routes are vulnerable to authorization bypass via crafted query parameters. Specially crafted parameters can alter the dynamic route value seen by the page rendering logic while leaving the visible URL path unchanged, causing middleware to match a different route than the page actually renders.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.18",
+    "cve_id": "CVE-2026-45109",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The fix for CVE-2026-44575 (middleware authorization bypass) was not applied to middleware.ts when using Turbopack. Applications using Turbopack for compilation remain vulnerable to the same middleware bypass as described in that advisory.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64645",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64647",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64646",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64648",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64643",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64641",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Denial of Service in App Router using Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64649",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64644",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "15.6.0-canary.61",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.5",
+    "cve_id": "CVE-2025-59471",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability exists in self-hosted Next.js applications with remotePatterns configured for the Image Optimizer. The /_next/image endpoint loads external images entirely into memory without a size limit, allowing an attacker to exhaust server memory by requesting optimization of arbitrarily large images from allowed domains.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.5",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27980",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-29057",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27979",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js App Router with Partial Prerendering enabled allows attackers to send oversized next-resume POST payloads in non-minimal deployments. The previous mitigation only covered minimal-mode deployments, leaving equivalent non-minimal deployments vulnerable to unbounded request body buffering and excessive memory consumption.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27977",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "In Next.js development mode (next dev), cross-site protection for internal WebSocket endpoints treated Origin: null as a bypass case even when allowedDevOrigins was configured. This allows opaque/sandboxed contexts to connect to the HMR WebSocket channel if the dev server is reachable from attacker-controlled content.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27978",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Server Action CSRF validation treated the string origin value 'null' as a missing origin rather than a cross-origin request. Attackers could exploit this by inducing victims to submit Server Actions from sandboxed iframe contexts, bypassing origin verification and potentially executing state-changing actions with victim credentials.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44575",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44573",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44572",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to cache poisoning and Denial of Service via the x-nextjs-data request header. An external client sending this header on a request to a redirect-returning middleware path causes the standard Location header to be replaced with the internal x-nextjs-redirect header, which browsers do not follow; if a CDN caches the malformed response, all subsequent visitors to that path receive a broken redirect.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44574",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications relying on middleware to protect dynamic routes are vulnerable to authorization bypass via crafted query parameters. Specially crafted parameters can alter the dynamic route value seen by the page rendering logic while leaving the visible URL path unchanged, causing middleware to match a different route than the page actually renders.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44578",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44581",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44580",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44577",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44579",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44582",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44576",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using React Server Components are vulnerable to cache poisoning when shared caches do not correctly partition response variants. An attacker can cause RSC payloads to be served from the original URL and poison shared cache entries so subsequent visitors receive component payloads instead of the expected HTML.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.6",
+    "cve_id": "CVE-2026-45109",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The fix for CVE-2026-44575 (middleware authorization bypass) was not applied to middleware.ts when using Turbopack. Applications using Turbopack for compilation remain vulnerable to the same middleware bypass as described in that advisory.",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64647",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64646",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64648",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64642",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64649",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64643",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64641",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Denial of Service in App Router using Server Actions",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64645",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+    "source": "retire.js"
+  },
+  {
+    "library": "nextjs",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64644",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
+    "source": "retire.js"
+  }
+]

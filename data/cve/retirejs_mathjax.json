@@ -1,0 +1,22 @@
+[
+  {
+    "library": "mathjax",
+    "max_version": "2.7.4",
+    "cve_id": "CVE-2018-1999024",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Macro in MathJax running untrusted Javascript within a web browser",
+    "source": "retire.js"
+  },
+  {
+    "library": "mathjax",
+    "max_version": "2.7.10",
+    "cve_id": "CVE-2023-39663",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "MathJax Regular expression Denial of Service (ReDoS)",
+    "source": "retire.js"
+  }
+]

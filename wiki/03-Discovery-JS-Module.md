@@ -15,17 +15,16 @@ The discovery phase finds JavaScript URLs for a target using **three sources** (
 
 ### Configuration
 ```yaml
-discovery:
-  enabled: true
-  use_katana: true      # Active crawling - finds LIVE JS files
-  use_gau: false        # Historical - often slow/blocked
-  katana_depth: 2       # Crawl depth
-  katana_timeout: 180   # Seconds
+js:
+  use_katana: true        # Active crawling - finds LIVE JS files
+  use_gau: false          # Historical - often slow/blocked
+  katana_depth: 2         # Crawl depth
+  katana_timeout: 180     # Seconds
 ```
 
 ---
 
-### 1. Katana (Active Crawling) - **Primary**
+### 1. Katana (Active Crawling) — **Primary**
 
 **Command:**
 ```bash
@@ -101,7 +100,7 @@ url := arr[0]
 
 ---
 
-### 3. Gau (GetAllUrls) - Disabled by Default
+### 3. Gau (GetAllUrls) — Disabled by Default
 
 **Command:**
 ```bash
@@ -163,7 +162,7 @@ discoverViaGau() ──────▶
               └───────────────────┘
                         ▼
               ┌───────────────────┐
-              │  RUN ANALYZERS    │ ──▶ 7 analyzers in sequence
+              │  RUN ANALYZERS    │ ──▶ 8 analyzers in sequence
               └───────────────────┘
 ```
 
@@ -256,7 +255,7 @@ func extractSourceMapURL(content, baseURL string) string
 ### Step 7: Analyzer Pipeline
 
 ```go
-func runAnalyzers(ctx, target, jsFiles, contentMap)
+func runAnalyzersWithCounter(ctx, target, jsFiles, contentMap, htmlContent, pc)
 ```
 
 | Order | Analyzer | Input | Output Collection |
@@ -266,8 +265,9 @@ func runAnalyzers(ctx, target, jsFiles, contentMap)
 | 3 | EndpointExtractor | content | `endpoints` |
 | 4 | ParamExtractor | content | `params` |
 | 5 | BLHAnalyzer | contentMap | `blh_candidates` |
-| 6 | LibraryCVEAnalyzer | contentMap | `library_cves` |
-| 7 | SensitiveEndpointAnalyzer | endpoints from DB | `sensitive_endpoint_candidates` |
+| 6 | LibraryCVEAnalyzer | contentMap | `library_cves` (legacy) |
+| 7 | CVE Module | jsFiles + HTTP responses | `library_cves` (NEW) |
+| 8 | SensitiveEndpointAnalyzer | endpoints from DB | `sensitive_endpoint_candidates` |
 
 **Key Design:** Each analyzer:
 - Runs independently per JS file
@@ -304,7 +304,7 @@ DiscoveryRunner.DiscoverJSURLs()
 Unique URLs (deduplicated)
        │
        ▼
-JSModule.FetchAndProcess()
+JSModule.FetchAndProcessWithCounter()
        │
        ├── getKnownURLs() ──▶ Filter already-seen
        │
@@ -314,7 +314,7 @@ JSModule.FetchAndProcess()
        │    ├── Check js_files for hash
        │    └── Store new JSFile
        │
-       └── runAnalyzers() ──▶ 7 analyzers → 7 MongoDB collections
+       └── runAnalyzers() ──▶ 8 analyzers → 8 MongoDB collections
 ```
 
 ---

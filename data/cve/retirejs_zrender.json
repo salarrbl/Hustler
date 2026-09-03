@@ -1,0 +1,22 @@
+[
+  {
+    "library": "zrender",
+    "max_version": "4.3.3",
+    "cve_id": "CVE-2021-39227",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The merge and clone helper methods in zrender's src/core/util.ts module are vulnerable to Prototype Pollution. Malicious input passed to these methods can add or modify properties on Object.prototype, affecting zrender and downstream consumers such as Apache ECharts which exports these methods directly.",
+    "source": "retire.js"
+  },
+  {
+    "library": "zrender",
+    "max_version": "5.2.1",
+    "cve_id": "CVE-2021-39227",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The merge and clone helper methods in zrender's src/core/util.ts module are vulnerable to Prototype Pollution. Malicious input passed to these methods can add or modify properties on Object.prototype, affecting zrender and downstream consumers such as Apache ECharts which exports these methods directly.",
+    "source": "retire.js"
+  }
+]

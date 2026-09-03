@@ -1,0 +1,22 @@
+[
+  {
+    "library": "bootstrap-select",
+    "max_version": "1.13.6",
+    "cve_id": "CVE-2019-20921",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting (XSS) via title and data-content",
+    "source": "retire.js"
+  },
+  {
+    "library": "bootstrap-select",
+    "max_version": "1.13.6",
+    "cve_id": "CVE-2019-20921",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in bootstrap-select",
+    "source": "retire.js"
+  }
+]

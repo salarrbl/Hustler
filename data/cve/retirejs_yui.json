@@ -1,0 +1,122 @@
+[
+  {
+    "library": "YUI",
+    "max_version": "2.8.2",
+    "cve_id": "CVE-2010-4207",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.8.2",
+    "cve_id": "CVE-2010-4208",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.8.2",
+    "cve_id": "CVE-2010-4209",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.9.0",
+    "cve_id": "CVE-2010-4710",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.9.1",
+    "cve_id": "CVE-2012-5881",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.9.1",
+    "cve_id": "CVE-2012-5882",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "2.9.1",
+    "cve_id": "CVE-2012-5883",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "3.9.2",
+    "cve_id": "CVE-2013-4941",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "3.9.2",
+    "cve_id": "CVE-2013-4942",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "3.10.3",
+    "cve_id": "CVE-2013-4939",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "3.10.11",
+    "cve_id": "CVE-2013-4940",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "YUI",
+    "max_version": "3.10.13",
+    "cve_id": "CVE-2013-4940",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

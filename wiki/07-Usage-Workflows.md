@@ -8,7 +8,7 @@ Complete guide for using Hustler in bug bounty workflows.
 ```bash
 # Install Go 1.21+
 # Install MongoDB
-# Install Katana
+# Install Katana (REQUIRED)
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 
 # Install Gau (optional)
@@ -44,10 +44,14 @@ cp config.yaml.example config.yaml
 ```
 Output:
 ```
-2024-01-15T10:30:00 INF Starting Hustler daemon...
-Daemon started. Add targets with: hustler target add <domain>
-Status: hustler daemon status
-Stop: hustler daemon stop
+🛡️  Hustler Daemon Initializing...
+✅ Connected to MongoDB
+
+⚡ Daemon started. Ready to process hunt jobs.
+   Commands:
+     • Add target:  hustler target add <domain> [--platform hackerone]
+     • Status:      hustler daemon status
+     • Stop:        hustler daemon stop
 ```
 
 **Keep this running** - it processes jobs in background.
@@ -56,19 +60,19 @@ Stop: hustler daemon stop
 
 ### 2. Add Targets (Terminal 2)
 ```bash
-# Add single target
-./hustler target add example.com
+# Add single target (requires platform and program)
+./hustler target add example.com --platform hackerone --program example
 
 # Add multiple
-./hustler target add target1.com
-./hustler target add target2.com
-./hustler target add target3.com
+./hustler target add target1.com --platform bugcrowd --program acme
+./hustler target add target2.com --platform intigriti --program acme
+./hustler target add target3.com --platform freelance --program my-client
 ```
 
 Output:
 ```
 Enqueued hunt job: 550e8400-e29b-41d4-a716-446655440000
-Added target: example.com (ID: 6ba7b810-9dad-11d1-80b4-00c04fd430c8)
+Added target: example.com (ID: 6ba7b810-9dad-11d1-80b4-00c04fd430c8) [hackerone / example]
 ```
 
 **Returns immediately** - job is queued, daemon picks it up within 3 seconds.
@@ -104,7 +108,7 @@ Job Statistics:
 
 Currently Processing (1 jobs):
   • Job: 550e8400-e29b-41d4-a716-446655440000
-    Target: example.com (6ba7b810-9dad-11d1-80b4-00c04fd430c8)
+    Target: example.com [hackerone]
     Started: 2024-01-15T10:30:05Z
     Phase: Fetching & Analyzing JS files
 
@@ -175,11 +179,10 @@ Sensitive Endpoints (0):
 ## Advanced Workflows
 
 ### Workflow 1: Large Scope Recon
-
 ```bash
 # 1. Add all targets from scope file
 cat scope.txt | while read domain; do
-  ./hustler target add "$domain"
+  ./hustler target add "$domain" --platform hackerone --program main-program
 done
 
 # 2. Monitor
@@ -194,28 +197,54 @@ mongoexport -d hustler -c library_cves -o all_cves.json
 
 ---
 
-### Workflow 2: Focused Analysis (Specific JS File)
-
+### Workflow 2: Bulk Import
 ```bash
-# If you found an interesting JS file manually
-./hustler target add target.com
+# From text file (one domain per line, # comments ignored)
+./hustler target import scope.txt --platform hackerone --program main-program
 
-# Wait for processing, then check results
-./hustler js hunt target.com
+# From JSON array
+echo '["t1.com", "t2.com", "t3.com"]' | ./hustler target import - --platform bugcrowd --program acme
 
-# Or scan a specific URL directly (if you have the URL)
-# Note: This was removed in current version - use target add + js hunt
+# Output:
+# Added: target1.com [Platform: hackerone]
+# Added: target2.com [Platform: hackerone]
+# Skipped (exists): target3.com
+# Done. Added: 2, Skipped: 1
 ```
 
 ---
 
-### Workflow 3: BLH Hunting
+### Workflow 3: CVE Database Management
+```bash
+# Initial update (downloads retire.js, osv.dev, npm data)
+./hustler cve update
 
+# Check status anytime
+./hustler cve status
+
+# List all CVEs for a library
+./hustler cve list --library lodash --limit 0
+
+# Filter by severity
+./hustler cve list --severity high --limit 20
+
+# Search specific CVE
+./hustler cve list --cve CVE-2021-44228
+
+# JSON output for scripting
+./hustler cve list --library react --format json
+```
+
+**Daemon auto-updates weekly** if enabled in config.
+
+---
+
+### Workflow 4: BLH Hunting
 ```bash
 # 1. Add targets with many external references
-./hustler target add shopify.com
-./hustler target add github.io
-./hustler target add s3.amazonaws.com
+./hustler target add shopify.com --platform hackerone --program shopify
+./hustler target add github.io --platform freelance --program github-pages
+./hustler target add s3.amazonaws.com --platform bugcrowd --program aws
 
 # 2. Wait for BLH analysis (runs after JS processing)
 
@@ -231,17 +260,19 @@ mongo hustler --eval 'db.blh_candidates.find({risk_level: "critical"}).pretty()'
 
 ---
 
-### Workflow 4: Secret Hunting
-
+### Workflow 5: Secret Hunting
 ```bash
 # 1. Hunt targets
-./hustler target add api.example.com
+./hustler target add api.example.com --platform hackerone --program api
 
 # 2. Check high-confidence secrets
 mongo hustler --eval 'db.secrets.find({confidence: {$gte: 0.8}}).pretty()'
 
 # 3. Filter by pattern
 mongo hustler --eval 'db.secrets.find({pattern: "aws_secret_access_key"}).pretty()'
+
+# 4. Export for reporting
+mongoexport -d hustler -c secrets --type=csv -f target_id,pattern,confidence,entropy,line -o secrets.csv
 ```
 
 **What secrets it finds:**
@@ -256,11 +287,10 @@ mongo hustler --eval 'db.secrets.find({pattern: "aws_secret_access_key"}).pretty
 
 ---
 
-### Workflow 5: DOM XSS Hunting (Sink Analysis)
-
+### Workflow 6: DOM XSS Hunting (Sink Analysis)
 ```bash
 # 1. Hunt
-./hustler target add app.example.com
+./hustler target add app.example.com --platform intigriti --program app
 
 # 2. Check sinks without origin check (highest XSS risk)
 mongo hustler --eval 'db.sinks.find({sink_type: "postMessage", has_origin_check: false}).pretty()'
@@ -280,11 +310,10 @@ mongo hustler --eval 'db.sinks.find({sink_type: {$in: ["eval", "innerHTML", "doc
 
 ---
 
-### Workflow 6: API Endpoint Enumeration
-
+### Workflow 7: API Endpoint Enumeration
 ```bash
 # 1. Hunt
-./hustler target add api.example.com
+./hustler target add api.example.com --platform hackerone --program api
 
 # 2. Get all endpoints
 mongo hustler --eval 'db.endpoints.find({target_id: "..."}).pretty()'
@@ -294,36 +323,41 @@ mongo hustler --eval 'db.endpoints.find({endpoint: {$regex: "(admin|internal|deb
 
 # 4. Get parameters for fuzzing
 mongo hustler --eval 'db.params.find({target_id: "..."}, {param_name: 1, context: 1}).pretty()'
+
+# 5. Export for nuclei/ffuf
+mongoexport -d hustler -c endpoints -q '{"target_id": "..."}' --type=csv -f endpoint,method -o endpoints.csv
 ```
 
 ---
 
-### Workflow 7: Vulnerable Library Detection
-
+### Workflow 8: Vulnerable Library Detection
 ```bash
 # 1. Hunt
-./hustler target add legacy.example.com
+./hustler target add legacy.example.com --platform hackerone --program legacy
 
 # 2. Check CVEs
 mongo hustler --eval 'db.library_cves.find({severity: {$in: ["critical", "high"]}}).pretty()'
 
 # 3. Get library inventory
 mongo hustler --eval 'db.library_cves.aggregate([{$group: {_id: "$library_name", versions: {$addToSet: "$version"}, cves: {$sum: 1}}}])'
+
+# 4. Check CVE database directly
+./hustler cve list --library jquery --severity high
+./hustler cve list --source retire.js
 ```
 
 ---
 
-## Incremental Scanning
-
+### Workflow 9: Incremental Scanning
 Hustler supports **incremental scanning** - re-running on same target only processes new/changed files.
 
 ```bash
 # First run
-./hustler target add example.com
+./hustler target add example.com --platform hackerone --program test
 # ... wait for completion ...
 
 # Later (new deployment, new JS files)
-./hustler target add example.com
+./hustler target add example.com --platform hackerone --program test
 # Only NEW or CHANGED JS files are processed
 # Results accumulate in MongoDB
 ```
@@ -337,8 +371,22 @@ Hustler supports **incremental scanning** - re-running on same target only proce
 
 ---
 
-## Watchdogs (Platform Sync) - Disabled by Default
+### Workflow 10: Program Management
+```bash
+# List all programs by platform
+./hustler program list
 
+# Create program explicitly
+./hustler program add walmart --platform hackerone
+./hustler program add acme-corp --platform freelance
+
+# Then add targets to it
+./hustler target add walmart.com --platform hackerone --program walmart
+```
+
+---
+
+### Workflow 11: Watchdogs (Platform Sync) - Disabled by Default
 ```yaml
 # config.yaml
 watchdogs:
@@ -357,24 +405,13 @@ watchdogs:
 
 ---
 
-## Shell Completion
-
+### Workflow 12: Web Dashboard
 ```bash
-# Bash
-./hustler completion bash > /etc/bash_completion.d/hustler
-source /etc/bash_completion.d/hustler
-
-# Zsh
-./hustler completion zsh > "${fpath[1]}/_hustler"
-
-# Fish
-./hustler completion fish > ~/.config/fish/completions/hustler.fish
-```
-
-**Tab completion works for:**
-```bash
-./hustler target remove <TAB>        # Shows target domains
-./hustler js hunt <TAB>              # Shows target domains
+./hustler web
+# Open http://localhost:8080
+# Browse tree: Platform → Program → Domain
+# Click domain → view findings
+# Add new targets via "Add Target" button (requires platform + program)
 ```
 
 ---
@@ -405,6 +442,7 @@ db.targets.aggregate([
   { $lookup: { from: "library_cves", localField: "_id", foreignField: "target_id", as: "cves" }},
   { $project: {
       domain: 1,
+      platform: 1,
       source: 1,
       status: 1,
       secrets: { $size: "$secrets" },
@@ -424,6 +462,26 @@ db.targets.aggregate([
 mongoexport -d hustler -c secrets --type=csv -f target_id,pattern,confidence,entropy,line -o secrets.csv
 mongoexport -d hustler -c sinks --type=csv -f target_id,sink_type,source_type,confidence,has_origin_check -o sinks.csv
 mongoexport -d hustler -c blh_candidates --type=csv -f target_id,referenced_domain,risk_level,resolution_status -o blh.csv
+mongoexport -d hustler -c library_cves --type=csv -f target_id,library_name,version,cve_id,severity -o cves.csv
+```
+
+---
+
+## Integration with Other Tools
+
+### With Nuclei (for endpoint testing)
+```bash
+# Export endpoints
+mongoexport -d hustler -c endpoints -q '{"target_id": "..."}' --type=csv -f endpoint,method -o endpoints.csv
+
+# Feed to nuclei
+cat endpoints.csv | cut -d, -f1 | nuclei -t cves/ -t exposures/
+```
+
+### With ffuf (for parameter fuzzing)
+```bash
+# Get parameters
+mongo hustler --eval 'db.params.find({target_id: "..."}, {param_name: 1}).forEach(printjson)'
 ```
 
 ---
@@ -439,6 +497,8 @@ mongoexport -d hustler -c blh_candidates --type=csv -f target_id,referenced_doma
 | MongoDB connection error | Verify `mongo.uri` in config.yaml, check MongoDB running |
 | Daemon stops unexpectedly | Check logs, run in tmux/systemd for persistence |
 | Jobs stuck in "running" | Restart daemon - it recovers pending jobs from MongoDB |
+| CVE update timeout | Check network/proxy, increase timeout |
+| No new CVEs on update | Already up to date - check `./data/cve/.last_update` |
 
 ---
 
@@ -482,58 +542,4 @@ tmux attach -t hustler  # Attach to view logs
 
 ---
 
-## Integration with Other Tools
-
-### With Nuclei (for endpoint testing)
-```bash
-# Export endpoints
-mongoexport -d hustler -c endpoints -q '{"target_id": "..."}' --type=csv -f endpoint,method -o endpoints.csv
-
-# Feed to nuclei
-cat endpoints.csv | cut -d, -f1 | nuclei -t cves/ -t exposures/
-```
-
-### With ffuf (for parameter fuzzing)
-```bash
-# Get parameters
-mongo hustler --eval 'db.params.find({target_id: "..."}, {param_name: 1}).forEach(printjson)'
-
-# Fuzz
-ffuf -u "https://target.com/api/endpoint?FUZZ=test" -w params.txt
-```
-
-### With Custom Scripts
-```python
-# Python example: Get high-risk findings
-from pymongo import MongoClient
-
-client = MongoClient("mongodb://localhost:27017")
-db = client["hustler"]
-
-# Critical BLH
-for blh in db.blh_candidates.find({"risk_level": "critical"}):
-    print(f"CRITICAL: {blh['referenced_domain']} - {blh['evidence']}")
-
-# High-confidence secrets
-for secret in db.secrets.find({"confidence": {"$gte": 0.85}}):
-    print(f"SECRET: {secret['pattern']} (confidence: {secret['confidence']})")
-```
-
----
-
-## Best Practices
-
-1. **Always run daemon in tmux/systemd** - survives disconnection
-2. **Use separate MongoDB database per program** - avoid mixing scope
-3. **Review BLH critical findings first** - highest impact (subdomain takeover)
-4. **Check postMessage sinks without origin check** - common DOM XSS
-5. **Run incrementally** - re-add targets after deployments
-6. **Export and archive findings** - MongoDB can grow large
-7. **Tune entropy threshold** - 3.5 default, 4.0+ for fewer false positives
-8. **Disable sensitive endpoint check** unless explicitly authorized
-9. **Monitor disk space** - JS files + source maps can be large
-10. **Use skip_hashes** for known library files to reduce noise
-
----
-
-*See `01-Overview.md` for architecture, `02-Analyzer-Methodologies.md` for analyzer details, `03-Discovery-JS-Module.md` for discovery internals, `04-Daemon-JobQueue-CLI.md` for daemon/CLI, `05-Configuration.md` for config options, `06-Data-Models-MongoDB.md` for data schemas.*
+*See `wiki/` for detailed documentation on each component.*

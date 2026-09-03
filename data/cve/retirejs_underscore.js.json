@@ -1,0 +1,22 @@
+[
+  {
+    "library": "underscore.js",
+    "max_version": "1.12.1",
+    "cve_id": "CVE-2021-23358",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": " vulnerable to Arbitrary Code Injection via the template function",
+    "source": "retire.js"
+  },
+  {
+    "library": "underscore.js",
+    "max_version": "1.13.8",
+    "cve_id": "CVE-2026-27601",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Underscore.js versions up to 1.13.7 are vulnerable to Denial of Service via stack overflow. The _.flatten and _.isEqual functions use unbounded recursion without a depth limit, so deeply nested structures sourced from untrusted input (e.g. via JSON.parse) can exhaust the call stack and crash the process.",
+    "source": "retire.js"
+  }
+]

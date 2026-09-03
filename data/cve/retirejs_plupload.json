@@ -1,0 +1,42 @@
+[
+  {
+    "library": "plupload",
+    "max_version": "1.5.4",
+    "cve_id": "CVE-2012-2401",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "plupload",
+    "max_version": "1.5.5",
+    "cve_id": "CVE-2013-0237",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "plupload",
+    "max_version": "2.1.9",
+    "cve_id": "CVE-2016-4566",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "plupload",
+    "max_version": "2.3.9",
+    "cve_id": "CVE-2021-23562",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Fixed another case of html entities not being encoded that could be exploded by uploading a file name with html in it.",
+    "source": "retire.js"
+  }
+]

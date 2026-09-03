@@ -1,0 +1,142 @@
+[
+  {
+    "library": "handlebars",
+    "max_version": "3.0.8",
+    "cve_id": "CVE-2019-20920",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "3.0.8",
+    "cve_id": "CVE-2019-19919",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Disallow calling helperMissing and blockHelperMissing directly",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.0.0",
+    "cve_id": "CVE-2015-8861",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Quoteless attributes in templates can lead to XSS",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.3.0",
+    "cve_id": "CVE-2019-19919",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Disallow calling helperMissing and blockHelperMissing directly",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.4.5",
+    "cve_id": "CVE-2019-20922",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in Handlebars",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.5.3",
+    "cve_id": "CVE-2019-20920",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.7",
+    "cve_id": "CVE-2021-23383",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.7",
+    "cve_id": "CVE-2021-23369",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Remote code execution in handlebars when compiling templates",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33916",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars is vulnerable to XSS via prototype pollution: the resolvePartial() function looks up partial names with an unguarded property access that traverses the prototype chain. If Object.prototype has been polluted with a string value matching a partial name, the polluted content is rendered unescaped, allowing cross-site scripting.",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33937",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars is vulnerable to Remote Code Execution when Handlebars.compile() is passed an attacker-controlled pre-parsed AST object. The value field of a NumberLiteral AST node is emitted directly into the generated JavaScript without sanitization, allowing code injection that executes on the server.",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33938",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars is vulnerable to Remote Code Execution via the @partial-block mechanism. When a helper with write access to the template data context overwrites @partial-block with a crafted Handlebars AST, subsequent invocation of that partial causes the runtime to dynamically compile the AST, executing arbitrary JavaScript on the server.",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33939",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars is vulnerable to Denial of Service via unregistered decorator syntax. When a template contains a decorator reference to an unregistered decorator (e.g. {{*n}}), the compiled template attempts to invoke undefined as a function, causing an unhandled TypeError that crashes the Node.js process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33940",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars is vulnerable to Remote Code Execution through dynamic partial lookups. A crafted object with call: true placed in the template context bypasses resolvePartial() guards and causes the runtime to compile the object as a Handlebars AST via env.compile(), executing injected JavaScript on the server.",
+    "source": "retire.js"
+  },
+  {
+    "library": "handlebars",
+    "max_version": "4.7.9",
+    "cve_id": "CVE-2026-33941",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Handlebars CLI precompiler is vulnerable to code injection through multiple unsanitized inputs: template file names, the namespace (-n), CommonJS path (-c), and AMD path (-h) options are all interpolated into generated JavaScript without escaping. An attacker who controls these values can inject arbitrary JavaScript that executes when the generated bundle is loaded.",
+    "source": "retire.js"
+  }
+]

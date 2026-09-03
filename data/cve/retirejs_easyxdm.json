@@ -1,0 +1,22 @@
+[
+  {
+    "library": "easyXDM",
+    "max_version": "2.4.18",
+    "cve_id": "CVE-2013-5212",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "easyXDM",
+    "max_version": "2.4.19",
+    "cve_id": "CVE-2014-1403",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

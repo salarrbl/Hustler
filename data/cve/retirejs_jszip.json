@@ -1,0 +1,32 @@
+[
+  {
+    "library": "jszip",
+    "max_version": "2.7.0",
+    "cve_id": "CVE-2021-23413",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution",
+    "source": "retire.js"
+  },
+  {
+    "library": "jszip",
+    "max_version": "3.7.0",
+    "cve_id": "CVE-2021-23413",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution",
+    "source": "retire.js"
+  },
+  {
+    "library": "jszip",
+    "max_version": "3.8.0",
+    "cve_id": "CVE-2022-48285",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Santize filenames when files are loaded with loadAsync, to avoid “zip slip” attacks.",
+    "source": "retire.js"
+  }
+]

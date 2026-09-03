@@ -1,0 +1,42 @@
+[
+  {
+    "library": "jquery-validation",
+    "max_version": "1.19.3",
+    "cve_id": "CVE-2021-21252",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-validation",
+    "max_version": "1.19.4",
+    "cve_id": "CVE-2021-43306",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS vulnerability in URL2 validation",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-validation",
+    "max_version": "1.19.5",
+    "cve_id": "CVE-2022-31147",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS vulnerability in url and URL2 validation",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-validation",
+    "max_version": "1.20.0",
+    "cve_id": "CVE-2025-3573",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jquery-validation vulnerable to Cross-site Scripting",
+    "source": "retire.js"
+  }
+]

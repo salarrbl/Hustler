@@ -2,60 +2,54 @@
 
 This document explains the background processing architecture, job queue implementation, and CLI command structure.
 
-## Daemon Architecture (`internal/daemon/daemon.go`)
+## Daemon Architecture (`cmd/hustler/main.go`)
 
 ### Overview
 The daemon is a **long-running background process** that:
 1. Polls MongoDB every 3 seconds for queued jobs
-2. Processes each job sequentially (per worker)
+2. Processes each job (spawns goroutine per job)
 3. Handles graceful shutdown on SIGINT/SIGTERM
 4. Tracks running state via PID file
 
-### Daemon Loop
+### Daemon Loop (`runDaemon`)
 
 ```go
-func (d *Daemon) Start() error {
-    // 1. Setup logging
-    zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
-    log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: "15:04:05"})
-    
-    // 2. Save PID for stop command
-    pidFile := "/tmp/hustler-daemon.pid"
-    os.WriteFile(pidFile, []byte(fmt.Sprintf("%d", os.Getpid())), 0644)
-    defer os.Remove(pidFile)
-    
-    // 3. Signal handling
+func runDaemon(cfg *config.FullConfig) {
+    // 1. Save PID
+    os.WriteFile("/tmp/hustler-daemon.pid", []byte(fmt.Sprintf("%d", os.Getpid())), 0644)
+    defer os.Remove("/tmp/hustler-daemon.pid")
+
+    // 2. Signal handling
     sigCh := make(chan os.Signal, 1)
     signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
     go func() {
         <-sigCh
-        log.Info().Msg("Shutdown signal received, stopping daemon...")
-        d.stop()
+        fmt.Println("\n🛡️  Shutting down Hustler daemon...")
+        os.Exit(0)
     }()
-    
-    // 4. Main polling loop (every 3 seconds)
+
+    fmt.Println("🛡️  Hustler Daemon Initializing...")
+    fmt.Println("✅ Connected to MongoDB")
+    fmt.Println("\n⚡ Daemon started. Ready to process hunt jobs.")
+    fmt.Println("   Commands:")
+    fmt.Println("     • Add target:  hustler target add <domain> [--platform hackerone]")
+    fmt.Println("     • Status:      hustler daemon status")
+    fmt.Println("     • Stop:        hustler daemon stop")
+
+    ctx := context.Background()
     ticker := time.NewTicker(3 * time.Second)
     defer ticker.Stop()
-    
-    for {
-        select {
-        case <-sigCh:
-            d.stop()
-            return nil
-        case <-ticker.C:
-            if !d.running { return nil }
-            d.pollJobs(ctx)
-        case <-ctx.Done():
-            return nil
-        }
+
+    for range ticker.C {
+        processQueuedJobs(ctx, cfg)
     }
 }
 ```
 
-### Job Processing (`pollJobs` → `processJob`)
+### Job Processing (`processQueuedJobs` → `processJob`)
 
 ```
-pollJobs() (every 3s)
+processQueuedJobs() (every 3s)
        │
        ▼
 Find jobs with status="queued" (FIFO order)
@@ -64,7 +58,7 @@ Find jobs with status="queued" (FIFO order)
 For each job:
        │
        ▼
-processJob(job)
+processJob(job) ──▶ spawns goroutine
        │
        ├── Update job status → "running", set started_at
        │
@@ -75,9 +69,9 @@ processJob(job)
        │       ├── Wayback CDX
        │       └── Gau (if enabled)
        │
-       ├── If URLs found: JSModule.FetchAndProcess(jsURLs)
+       ├── If URLs found: JSModule.FetchAndProcessWithCounter(jsURLs)
        │       ├── Fetch all JS files (concurrent, hash-deduped)
-       │       ├── Run 7 analyzers
+       │       ├── Run 8 analyzers
        │       └── Store all findings in MongoDB
        │
        ├── Update job status → "done", set finished_at
@@ -92,10 +86,10 @@ processJob(job)
 
 ---
 
-## Worker Pool (`internal/jobqueue/worker_pool.go`)
+## Worker Pool (`internal/jobqueue/worker_pool.go`) — Alternative Implementation
 
 ### Overview
-Alternative implementation (not currently used by daemon) providing **concurrent job processing** with:
+Alternative implementation providing **concurrent job processing** with:
 - Fixed worker count (configurable, default 3)
 - Channel-based job queue (buffered 1000)
 - MongoDB job recovery on startup
@@ -195,35 +189,48 @@ func (wp *WorkerPool) worker(id int) {
 ```
 hustler
 ├── target
-│   ├── add <domain>        # Add target, enqueue job (non-blocking)
-│   ├── list                # List all targets
-│   └── remove <domain>     # Remove target
+│   ├── add <domain>           # Add target, enqueue job (requires --platform --program)
+│   ├── import <file>          # Bulk import (requires --platform --program)
+│   ├── list                   # List all targets (platform → program → domains)
+│   └── remove <domain-or-id>  # Remove target
+├── program
+│   ├── list                   # Show programs by platform (with empty)
+│   └── add <name> --platform  # Create program explicitly
 ├── js
-│   └── hunt <domain>       # Read-only findings viewer
+│   └── hunt <domain>          # Read-only findings viewer (colorized)
 ├── daemon
-│   ├── start               # Start background daemon
-│   ├── status              # Show daemon status + XSS ref
-│   └── stop                # Graceful stop
+│   ├── start                  # Start background daemon
+│   ├── status                 # Show daemon status + active jobs
+│   └── stop                   # Graceful stop
+├── cve
+│   ├── update                 # Update CVE database (shows new CVEs)
+│   ├── status                 # Show CVE database stats
+│   └── list                   # List CVEs with filters (--library, --severity, --source, --cve, --limit)
 ├── watchdogs
-│   └── sync                # Sync from platforms (disabled)
-└── completion <shell>      # Shell completions
+│   └── sync                   # Sync from platforms (disabled by default)
+├── web [port]                 # Web dashboard (default 8080)
+└── completion <shell>         # Shell completions
 ```
 
 ### Command Details
 
-#### `hustler target add <domain>`
+#### `hustler target add <domain> --platform <platform> --program <program>`
 ```go
 // internal/cli/target.go
 func addTarget(cmd, args) {
     // 1. Validate domain
     // 2. Check if exists
-    // 3. Create Target struct
+    // 3. Require platform and program flags
+    // 4. Get or create program
+    // 5. Create Target struct
     target := models.NewTarget(domain, models.SourceManual)
+    target.Platform = models.TargetPlatform(platform)
+    target.ProgramID = programID
     
-    // 4. Insert into targets collection
+    // 6. Insert into targets collection
     coll.InsertOne(ctx, target)
     
-    // 5. Create & enqueue job
+    // 7. Create & enqueue job
     job := &models.Job{
         ID:       uuid.New().String(),
         TargetID: target.ID,
@@ -233,12 +240,50 @@ func addTarget(cmd, args) {
     }
     jobColl.InsertOne(ctx, job)
     
-    // 6. Return immediately (non-blocking)
+    // 8. Return immediately (non-blocking)
     fmt.Printf("Enqueued hunt job: %s\n", job.ID)
-    fmt.Printf("Added target: %s (ID: %s)\n", domain, target.ID)
+    fmt.Printf("Added target: %s (ID: %s) [%s / %s]\n", domain, target.ID, platform, programName)
 }
 ```
 **Key**: Returns immediately. Daemon picks up job on next poll (within 3s).
+
+#### `hustler target import <file> --platform <platform> --program <program>`
+- Supports **line-separated** domains (one per line, `#` comments ignored)
+- Supports **JSON array** (if first char is `[`)
+- All targets get same platform/program
+- Output: `Added: N, Skipped: M`
+
+#### `hustler target list`
+Shows hierarchical tree:
+```
+◆ hackerone:
+────────────────────────────────────────────────────────────
+  ◆ walmart (3)
+    walmart.com                          manual       pending
+    corp.walmart.com                     manual       pending
+    sparkshop.com                        manual       pending
+  ◆ shopify (1)
+    shopify.com                          manual       pending
+  ⚠ Uncategorized (2)
+    test.com
+    legacy.example.com
+
+◇ bugcrowd:
+────────────────────────────────────────────────────────────
+  ⚠ Uncategorized (1)
+    acme.com
+
+◆ freelance:
+────────────────────────────────────────────────────────────
+  ⚠ Uncategorized (2)
+    time.ir
+    divar.ir
+```
+- Shows status (`pending`, `active`, `completed`, `error`) and source (`manual`, `watchdogs`)
+- Color-coded platforms
+
+#### `hustler program list`
+Same tree but shows **empty programs too**.
 
 #### `hustler js hunt <domain>`
 ```go
@@ -258,10 +303,21 @@ func huntTarget(cmd, args) {
 **Read-only** - does NOT trigger scans.
 
 #### `hustler daemon start`
-```go
-// Forks to daemon process
-os.Args = append([]string{"hustler", "daemon"}, args...)
-// Main.go detects "daemon" subcommand and runs Daemon.Start()
+Starts background daemon with phase-level logging:
+```
+🎯 Hunt started: walmart.com [hackerone]
+🔍 [katana] Crawling...
+✅ [katana] Found 365 JS URLs
+🔍 [wayback] Querying CDX...
+✅ [wayback] Found 12 JS URLs
+📥 Fetching 41 unique JS files...
+🔬 [secrets]   29 findings
+🔬 [sinks]     391 findings
+🔬 [endpoints] 156 findings
+🔬 [params]    87 findings
+🔬 [blh]       3 candidates
+🔬 [cve]       5 matches
+🏁 Hunt complete: walmart.com (8m 12s)
 ```
 
 #### `hustler daemon status`
@@ -272,12 +328,45 @@ Shows:
 - Currently processing jobs with inferred phase
 - Queued jobs list
 - Target count
-- **XSS Source Reference** (DOM-based sources from domgo.at)
 
-#### `hustler daemon stop`
-```go
-// Read PID file, send SIGTERM
-proc.Signal(syscall.SIGTERM)
+#### `hustler cve update`
+```bash
+🔍 Initializing CVE module...
+📥 Downloading CVE database from online sources...
+✅ CVE database updated successfully (38.0s)
+
+🆕 New CVEs added: 27
+📚 New libraries: 1
+📦 Updated sources: 2
+  @angular/core: 27 new CVE(s)
+    🟡 CVE-2021-4231 (≤ 10.2.5)
+    🟡 CVE-2021-4231 (≤ 11.0.5)
+    🟡 CVE-2021-4231 (≤ 11.1.0-next.3)
+    ... and 24 more
+
+⚠ Errors:
+  • npm: Get "https://registry.npmjs.org/...": net/http: TLS handshake timeout
+```
+
+#### `hustler cve list`
+```bash
+# All CVEs (unlimited)
+hustler cve list --limit 0
+
+# Filter by library
+hustler cve list --library lodash --limit 0
+
+# Filter by severity
+hustler cve list --severity high --limit 10
+
+# Filter by source
+hustler cve list --source retire.js
+
+# Search by CVE ID
+hustler cve list --cve CVE-2021-44228
+
+# JSON output
+hustler cve list --format json --library react
 ```
 
 ---
@@ -315,17 +404,18 @@ proc.Signal(syscall.SIGTERM)
 
 | Collection | Purpose | Key Fields |
 |------------|---------|------------|
-| `targets` | Target domains | `_id`, `domain`, `source`, `status`, `added_at` |
-| `jobs` | Hunt jobs | `_id`, `target_id`, `status`, `queued_at`, `started_at`, `finished_at`, `error`, `source` |
-| `js_files` | Fetched JS files | `_id`, `target_id`, `url`, `js_hash`, `status_code`, `content_length` |
-| `secrets` | Secret findings | `_id`, `target_id`, `js_file_id`, `pattern`, `matched`, `entropy`, `confidence` |
-| `sinks` | Source/sink hits | `_id`, `target_id`, `js_file_id`, `sink_type`, `source_type`, `confidence`, `has_origin_check` |
-| `endpoints` | API endpoints | `_id`, `target_id`, `js_file_id`, `endpoint`, `method`, `context` |
+| `targets` | Target domains | `_id`, `domain`, `source`, `platform`, `program_id`, `status`, `added_at` |
+| `programs` | Bug bounty programs | `_id`, `name`, `platform`, `added_at` |
+| `jobs` | Hunt jobs | `_id`, `target_id`, `status`, `queued_at`, `started_at`, `finished_at`, `error`, `source`, `current_step` |
+| `js_files` | Fetched JS files | `_id`, `target_id`, `url`, `js_hash`, `status_code`, `content_length`, `fetched_at` |
+| `secrets` | Secret findings | `_id`, `target_id`, `js_file_id`, `pattern`, `matched`, `entropy`, `confidence`, `is_minified` |
+| `sinks` | Source/sink hits | `_id`, `target_id`, `js_file_id`, `sink_type`, `source_type`, `confidence`, `has_origin_check`, `is_minified`, `low_confidence` |
+| `endpoints` | API endpoints | `_id`, `target_id`, `js_file_id`, `endpoint`, `method`, `full_url`, `context` |
 | `params` | Parameters | `_id`, `target_id`, `js_file_id`, `param_name`, `context`, `location` |
-| `blh_candidates` | BLH findings | `_id`, `target_id`, `js_file_id`, `referenced_domain`, `resolution_status`, `risk_level` |
-| `library_cves` | Vulnerable libs | `_id`, `target_id`, `js_file_id`, `library_name`, `version`, `cve_id`, `severity` |
+| `blh_candidates` | BLH findings | `_id`, `target_id`, `js_file_id`, `referenced_domain`, `resolution_status`, `risk_level`, `cloud_provider`, `evidence`, `found_in`, `is_target_subdomain` |
+| `library_cves` | Vulnerable libs | `_id`, `target_id`, `js_file_id`, `library_name`, `version`, `cve_id`, `severity`, `description`, `reference` |
 | `discovered_urls` | Incremental tracking | `_id`, `target_id`, `url`, `url_type`, `source`, `first_seen`, `last_seen` |
-| `sensitive_endpoint_candidates` | Active check results | `_id`, `target_id`, `endpoint`, `status_code`, `matched_patterns` |
+| `sensitive_endpoint_candidates` | Active check results | `_id`, `target_id`, `endpoint`, `status_code`, `response_size`, `matched_patterns`, `source` |
 
 ---
 
@@ -345,6 +435,7 @@ hustler:
 ## Process Management
 
 ### Starting Daemon (Production)
+
 ```bash
 # Option 1: tmux (recommended)
 tmux new-session -d -s hustler './hustler daemon start'
@@ -430,4 +521,4 @@ mongoexport -d hustler -c secrets -q '{"target_id": "..."}' -o secrets.json
 
 ---
 
-*See `internal/daemon/daemon.go`, `internal/jobqueue/worker_pool.go`, and `internal/cli/` for implementation details.*
+*See `cmd/hustler/main.go`, `internal/jobqueue/worker_pool.go`, and `internal/cli/` for implementation details.*

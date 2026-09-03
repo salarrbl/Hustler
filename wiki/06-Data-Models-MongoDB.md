@@ -4,19 +4,20 @@ Complete reference for all data structures and database collections.
 
 ## MongoDB Collections Overview
 
-| Collection | Description | Indexes |
-|------------|-------------|---------|
-| `targets` | Target domains to scan | `domain` (unique), `source`, `status` |
-| `jobs` | Hunt job queue | `target_id`, `status`, `queued_at` |
-| `js_files` | Fetched JavaScript files | `target_id`, `js_hash`, `url` |
-| `secrets` | Secret findings | `target_id`, `js_file_id`, `pattern` |
-| `sinks` | Source/sink analysis | `target_id`, `js_file_id`, `sink_type` |
+| Collection | Description | Key Indexes |
+|------------|-------------|-------------|
+| `targets` | Target domains to scan | `domain` (unique), `source`, `status`, `platform`, `program_id` |
+| `programs` | Bug bounty programs | `name` + `platform` (unique) |
+| `jobs` | Hunt job queue | `target_id`, `status`, `queued_at`, `source` |
+| `js_files` | Fetched JavaScript files | `target_id`, `js_hash`, `url`, `target_id`+`js_hash` (unique) |
+| `secrets` | Secret findings | `target_id`, `js_file_id`, `pattern`, `confidence` |
+| `sinks` | Source/sink analysis | `target_id`, `js_file_id`, `sink_type`, `has_origin_check` |
 | `endpoints` | API endpoints | `target_id`, `endpoint` |
-| `params` | Parameter names | `target_id`, `param_name` |
-| `blh_candidates` | Broken link hijacking | `target_id`, `referenced_domain` |
-| `library_cves` | Vulnerable libraries | `target_id`, `library_name`, `cve_id` |
-| `discovered_urls` | Incremental tracking | `target_id`, `url` (unique), `source` |
-| `sensitive_endpoint_candidates` | Active check results | `target_id`, `endpoint` |
+| `params` | Parameter names | `target_id`, `param_name`, `context` |
+| `blh_candidates` | Broken link hijacking | `target_id`, `referenced_domain`, `risk_level`, `resolution_status` |
+| `library_cves` | Vulnerable libraries | `target_id`, `library_name`, `cve_id`, `severity` |
+| `discovered_urls` | Incremental tracking | `target_id`+`url` (unique), `source`, `last_seen` |
+| `sensitive_endpoint_candidates` | Active check results | `target_id`, `endpoint`, `status_code` |
 
 ---
 
@@ -28,6 +29,8 @@ Complete reference for all data structures and database collections.
   _id: "uuid-string",                    // Primary key
   domain: "example.com",                  // Target domain (unique)
   source: "manual",                       // "manual" | "watchdogs"
+  platform: "hackerone",                  // "hackerone" | "bugcrowd" | "intigriti" | "yeswehack" | "openbugbounty" | "freelance"
+  program_id: "uuid-string",              // Reference to programs._id
   status: "pending",                      // "pending" | "active" | "completed" | "error"
   added_at: ISODate("2024-01-15T10:30:00Z"),
   updated_at: ISODate("2024-01-15T10:30:00Z"),
@@ -40,7 +43,12 @@ Complete reference for all data structures and database collections.
   ports: ["80", "443"],
   cdn: "Cloudflare",
   providers: ["AWS", "Vercel"],
-  discovered_at: ISODate("2024-01-10T08:00:00Z")
+  discovered_at: ISODate("2024-01-10T08:00:00Z"),
+  
+  // Web UI job tracking fields
+  job_status: "done",
+  job_started_at: ISODate("2024-01-15T10:30:05Z"),
+  job_finished_at: ISODate("2024-01-15T10:35:00Z")
 }
 ```
 
@@ -49,6 +57,25 @@ Complete reference for all data structures and database collections.
 db.targets.createIndex({ domain: 1 }, { unique: true })
 db.targets.createIndex({ source: 1 })
 db.targets.createIndex({ status: 1 })
+db.targets.createIndex({ platform: 1 })
+db.targets.createIndex({ program_id: 1 })
+```
+
+---
+
+### `programs`
+```javascript
+{
+  _id: "uuid-string",
+  name: "walmart",
+  platform: "hackerone",
+  added_at: ISODate("2024-01-15T10:30:00Z")
+}
+```
+
+**Indexes:**
+```javascript
+db.programs.createIndex({ name: 1, platform: 1 }, { unique: true })
 ```
 
 ---
@@ -63,7 +90,8 @@ db.targets.createIndex({ status: 1 })
   started_at: ISODate("2024-01-15T10:30:05Z"),   // Null if not started
   finished_at: ISODate("2024-01-15T10:35:00Z"),  // Null if not finished
   error: "",                              // Error message if status="error"
-  source: "manual"                        // "manual" | "watchdogs"
+  source: "manual",                       // "manual" | "watchdogs"
+  current_step: "analyzing.js"            // Current phase: "discovery.katana", "discovery.wayback", "analyzing.js", "analyzing.cve", "complete"
 }
 ```
 
@@ -117,7 +145,8 @@ db.js_files.createIndex({ url: 1 })
   entropy: 4.2,
   confidence: 0.85,
   context: "...aws_secret_access_key = \"AKIA...\"...",
-  found_at: ISODate("2024-01-15T10:31:05Z")
+  found_at: ISODate("2024-01-15T10:31:05Z"),
+  is_minified: false
 }
 ```
 
@@ -144,7 +173,9 @@ db.secrets.createIndex({ confidence: -1 })  // High confidence first
   snippet: "  element.innerHTML = userInput;\n> element.innerHTML = getData();\n  ...",
   confidence: 0.75,
   has_origin_check: false,                // Only for postMessage
-  found_at: ISODate("2024-01-15T10:31:10Z")
+  found_at: ISODate("2024-01-15T10:31:10Z"),
+  is_minified: false,
+  low_confidence: false
 }
 ```
 
@@ -216,6 +247,8 @@ db.params.createIndex({ context: 1 })
   risk_level: "critical",                 // "critical" | "high" | "medium" | "low"
   cloud_provider: "S3",                   // "S3" | "Azure" | "GitHub" | "unknown"
   evidence: "S3 bucket appears unclaimed",
+  found_in: "js_file",                    // "js_file" | "html_page"
+  is_target_subdomain: false,
   found_at: ISODate("2024-01-15T10:31:25Z")
 }
 ```
@@ -289,7 +322,8 @@ db.discovered_urls.createIndex({ last_seen: -1 })
   status_code: 200,
   response_size: 2048,
   matched_patterns: ["email", "password", "token"],
-  checked_at: ISODate("2024-01-15T10:32:00Z")
+  checked_at: ISODate("2024-01-15T10:32:00Z"),
+  source: "common_path"                   // "common_path" | "js_extracted" | "html_extracted"
 }
 ```
 
@@ -310,6 +344,8 @@ type Target struct {
     ID           string       `bson:"_id" json:"id"`
     Domain       string       `bson:"domain" json:"domain"`
     Source       TargetSource `bson:"source" json:"source"`
+    Platform     TargetPlatform `bson:"platform,omitempty" json:"platform,omitempty"`
+    ProgramID    string       `bson:"program_id,omitempty" json:"program_id,omitempty"`
     Status       TargetStatus `bson:"status" json:"status"`
     AddedAt      time.Time    `bson:"added_at" json:"added_at"`
     UpdatedAt    time.Time    `bson:"updated_at" json:"updated_at"`
@@ -321,6 +357,19 @@ type Target struct {
     CDN          string       `bson:"cdn,omitempty" json:"cdn,omitempty"`
     Providers    []string     `bson:"providers,omitempty" json:"providers,omitempty"`
     DiscoveredAt *time.Time   `bson:"discovered_at,omitempty" json:"discovered_at,omitempty"`
+    JobStatus     string     `bson:"job_status,omitempty" json:"job_status,omitempty"`
+    JobStartedAt  *time.Time `bson:"job_started_at,omitempty" json:"job_started_at,omitempty"`
+    JobFinishedAt *time.Time `bson:"job_finished_at,omitempty" json:"job_finished_at,omitempty"`
+}
+```
+
+### Program
+```go
+type Program struct {
+    ID        string    `bson:"_id" json:"id"`
+    Name      string    `bson:"name" json:"name"`
+    Platform  string    `bson:"platform" json:"platform"`
+    AddedAt   time.Time `bson:"added_at" json:"added_at"`
 }
 ```
 
@@ -335,6 +384,7 @@ type Job struct {
     FinishedAt *time.Time  `bson:"finished_at,omitempty" json:"finished_at,omitempty"`
     Error      string      `bson:"error,omitempty" json:"error,omitempty"`
     Source     string      `bson:"source" json:"source"`
+    CurrentStep string      `bson:"current_step,omitempty" json:"current_step,omitempty"`
 }
 ```
 
@@ -369,6 +419,7 @@ type Secret struct {
     Confidence float64   `bson:"confidence" json:"confidence"`
     Context    string    `bson:"context,omitempty" json:"context,omitempty"`
     FoundAt    time.Time `bson:"found_at" json:"found_at"`
+    IsMinified bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
 }
 ```
 
@@ -386,6 +437,8 @@ type Sink struct {
     Confidence      float64   `bson:"confidence" json:"confidence"`
     HasOriginCheck  bool      `bson:"has_origin_check" json:"has_origin_check"`
     FoundAt         time.Time `bson:"found_at" json:"found_at"`
+    IsMinified      bool      `bson:"is_minified,omitempty" json:"is_minified,omitempty"`
+    LowConfidence   bool      `bson:"low_confidence,omitempty" json:"low_confidence,omitempty"`
 }
 ```
 
@@ -419,16 +472,18 @@ type Param struct {
 ### BLHCandidate
 ```go
 type BLHCandidate struct {
-    ID               string    `bson:"_id" json:"id"`
-    TargetID         string    `bson:"target_id" json:"target_id"`
-    JSFileID         string    `bson:"js_file_id" json:"js_file_id"`
-    ReferencedURL    string    `bson:"referenced_url" json:"referenced_url"`
-    ReferencedDomain string    `bson:"referenced_domain" json:"referenced_domain"`
-    ResolutionStatus string    `bson:"resolution_status" json:"resolution_status"`
-    RiskLevel        string    `bson:"risk_level" json:"risk_level"`
-    CloudProvider    string    `bson:"cloud_provider,omitempty" json:"cloud_provider,omitempty"`
-    Evidence         string    `bson:"evidence,omitempty" json:"evidence,omitempty"`
-    FoundAt          time.Time `bson:"found_at" json:"found_at"`
+    ID                string    `bson:"_id" json:"id"`
+    TargetID          string    `bson:"target_id" json:"target_id"`
+    JSFileID          string    `bson:"js_file_id,omitempty" json:"js_file_id,omitempty"`
+    ReferencedURL     string    `bson:"referenced_url,omitempty" json:"referenced_url,omitempty"`
+    ReferencedDomain  string    `bson:"referenced_domain" json:"referenced_domain"`
+    ResolutionStatus  string    `bson:"resolution_status" json:"resolution_status"`
+    RiskLevel         string    `bson:"risk_level" json:"risk_level"`
+    CloudProvider     string    `bson:"cloud_provider,omitempty" json:"cloud_provider,omitempty"`
+    Evidence          string    `bson:"evidence,omitempty" json:"evidence,omitempty"`
+    FoundIn           string    `bson:"found_in,omitempty" json:"found_in,omitempty"`
+    IsTargetSubdomain bool      `bson:"is_target_subdomain,omitempty" json:"is_target_subdomain,omitempty"`
+    FoundAt           time.Time `bson:"found_at" json:"found_at"`
 }
 ```
 
@@ -470,7 +525,8 @@ type SensitiveEndpointCandidate struct {
     StatusCode      int       `bson:"status_code" json:"status_code"`
     ResponseSize    int       `bson:"response_size" json:"response_size"`
     MatchedPatterns []string  `bson:"matched_patterns" json:"matched_patterns"`
-    CheckedAt       time.Time `bson:"checked_at" json:"checked_at"`
+    FoundAt         time.Time `bson:"found_at" json:"found_at"`
+    Source          string    `bson:"source,omitempty" json:"source,omitempty"`
 }
 ```
 
@@ -484,6 +540,19 @@ type TargetSource string
 const (
     SourceWatchdogs TargetSource = "watchdogs"
     SourceManual    TargetSource = "manual"
+)
+```
+
+### TargetPlatform
+```go
+type TargetPlatform string
+const (
+    PlatformHackerOne      TargetPlatform = "hackerone"
+    PlatformBugcrowd       TargetPlatform = "bugcrowd"
+    PlatformIntigriti      TargetPlatform = "intigriti"
+    PlatformYesWeHack      TargetPlatform = "yeswehack"
+    PlatformOpenBugBounty  TargetPlatform = "openbugbounty"
+    PlatformFreelance      TargetPlatform = "freelance"
 )
 ```
 
@@ -511,92 +580,78 @@ const (
 
 ---
 
-## Common Queries
-
-### Get target with latest job status
-```javascript
-db.targets.aggregate([
-  { $match: { domain: "example.com" } },
-  { $lookup: {
-      from: "jobs",
-      localField: "_id",
-      foreignField: "target_id",
-      as: "jobs"
-  }},
-  { $unwind: "$jobs" },
-  { $sort: { "jobs.queued_at": -1 } },
-  { $limit: 1 }
-])
-```
-
-### Get all findings for a target
-```javascript
-// Secrets
-db.secrets.find({ target_id: "uuid" }).sort({ confidence: -1 })
-
-// Sinks without origin check (high risk)
-db.sinks.find({ target_id: "uuid", has_origin_check: false, sink_type: "postMessage" })
-
-// Critical BLH candidates
-db.blh_candidates.find({ target_id: "uuid", risk_level: "critical" })
-
-// High severity CVEs
-db.library_cves.find({ target_id: "uuid", severity: { $in: ["critical", "high"] } })
-```
-
-### Find targets with unprocessed jobs
-```javascript
-db.jobs.aggregate([
-  { $match: { status: { $in: ["queued", "running"] } } },
-  { $lookup: {
-      from: "targets",
-      localField: "target_id",
-      foreignField: "_id",
-      as: "target"
-  }},
-  { $unwind: "$target" }
-])
-```
-
-### Statistics dashboard
-```javascript
-// Job stats
-db.jobs.aggregate([
-  { $group: { _id: "$status", count: { $sum: 1 } } }
-])
-
-// Findings per target
-db.targets.aggregate([
-  { $lookup: { from: "secrets", localField: "_id", foreignField: "target_id", as: "secrets" }},
-  { $lookup: { from: "sinks", localField: "_id", foreignField: "target_id", as: "sinks" }},
-  { $lookup: { from: "blh_candidates", localField: "_id", foreignField: "target_id", as: "blh" }},
-  { $project: {
-      domain: 1,
-      secrets_count: { $size: "$secrets" },
-      sinks_count: { $size: "$sinks" },
-      blh_count: { $size: "$blh" }
-  }}
-])
-```
-
----
-
-## Migration / Schema Changes
-
-When adding fields to models:
-1. Add field to Go struct with `bson:"field_name,omitempty"`
-2. Add `omitempty` for backward compatibility
-3. No MongoDB migration needed (schemaless)
-4. New documents will have the field, old ones won't
-
-Example: Adding `CVEDescription` to LibraryCVE
+## PhaseCounter
 ```go
-type LibraryCVE struct {
-    // ... existing fields ...
-    Description string `bson:"description,omitempty" json:"description,omitempty"`  // New field
+type PhaseCounter struct {
+    Secrets     atomic.Int64
+    Sinks       atomic.Int64
+    Endpoints   atomic.Int64
+    Params      atomic.Int64
+    BLH         atomic.Int64
+    Cves        atomic.Int64
+    Fetched     atomic.Int64
+    Skipped     atomic.Int64
 }
 ```
 
 ---
 
-*See `internal/models/models.go` for complete model definitions.*
+## CVE Module Types (`internal/cve/module.go`)
+
+### LocalCVEEntry
+```go
+type LocalCVEEntry struct {
+    Library      string  `json:"library"`
+    MaxVersion   string  `json:"max_version"`
+    CVEID        string  `json:"cve_id"`
+    Severity     string  `json:"severity"`
+    CVSS         float64 `json:"cvss"`
+    HasPoC       bool    `json:"has_poc"`
+    Summary      string  `json:"summary"`
+    FixedVersion string  `json:"fixed_version,omitempty"`
+    Source       string  `json:"source"` // "snare", "retire.js", "osv", "github", "npm"
+}
+```
+
+### CVEFinding
+```go
+type CVEFinding struct {
+    CVEID        string  `json:"cve_id"`
+    Library      string  `json:"library"`
+    DetectedVer  string  `json:"detected_version"`
+    FixedVer     string  `json:"fixed_version,omitempty"`
+    Severity     string  `json:"severity"`
+    CVSS         float64 `json:"cvss"`
+    HasPoC       bool    `json:"has_poc"`
+    Summary      string  `json:"summary"`
+    Source       string  `json:"source"`        // "local", "osv.dev", "github", "npm", "retire.js"
+    Confidence   float64 `json:"confidence"`    // 0-1
+    MatchType    string  `json:"match_type"`    // "exact", "range", "fuzzy"
+    Context      string  `json:"context,omitempty"` // where detected: "header", "js_file", "package_json", "source_map"
+}
+```
+
+### CVEConfig
+```go
+type CVEConfig struct {
+    DataDir            string  `mapstructure:"data_dir"`
+    EnableOnlineLookup bool    `mapstructure:"enable_online_lookup"`
+    RateLimitRPS       float64 `mapstructure:"rate_limit_rps"`
+    UpdateIntervalDays int     `mapstructure:"update_interval_days"`
+    MinConfidence      float64 `mapstructure:"min_confidence"` // minimum confidence to report
+}
+```
+
+### UpdateResult
+```go
+type UpdateResult struct {
+    NewCVEs        []LocalCVEEntry
+    NewLibraries   int
+    UpdatedSources int
+    Errors         []string
+}
+```
+
+---
+
+*See `internal/models/models.go` and `internal/cve/module.go` for implementation.*

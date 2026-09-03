@@ -1,0 +1,52 @@
+[
+  {
+    "library": "DWR",
+    "max_version": "1.1.4",
+    "cve_id": "CVE-2007-01-09",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "DWR",
+    "max_version": "2.0.11",
+    "cve_id": "CVE-2014-5326",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "DWR",
+    "max_version": "2.0.11",
+    "cve_id": "CVE-2014-5325",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "DWR",
+    "max_version": "3.0.RC3",
+    "cve_id": "CVE-2014-5326",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  },
+  {
+    "library": "DWR",
+    "max_version": "3.0.RC3",
+    "cve_id": "CVE-2014-5325",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

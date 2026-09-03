@@ -1,0 +1,32 @@
+[
+  {
+    "library": "jPlayer",
+    "max_version": "2.2.20",
+    "cve_id": "CVE-2013-1942",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerabilities in actionscript/Jplayer.as in the Flash SWF component",
+    "source": "retire.js"
+  },
+  {
+    "library": "jPlayer",
+    "max_version": "2.3.0",
+    "cve_id": "CVE-2013-2022",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerabilities in actionscript/Jplayer.as in the Flash SWF component",
+    "source": "retire.js"
+  },
+  {
+    "library": "jPlayer",
+    "max_version": "2.3.1",
+    "cve_id": "CVE-2013-2023",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in actionscript/Jplayer.as in the Flash SWF component",
+    "source": "retire.js"
+  }
+]

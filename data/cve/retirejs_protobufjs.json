@@ -1,0 +1,322 @@
+[
+  {
+    "library": "protobufjs",
+    "max_version": "5.0.3",
+    "cve_id": "CVE-2018-3738",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of protobufjs before 5.0.3 and 6.8.6 are vulnerable to Regular Expression Denial of Service (ReDoS) when parsing crafted invalid .proto files.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "6.8.6",
+    "cve_id": "CVE-2018-3738",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of protobufjs before 5.0.3 and 6.8.6 are vulnerable to Regular Expression Denial of Service (ReDoS) when parsing crafted invalid .proto files.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "6.10.3",
+    "cve_id": "CVE-2022-25878",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs versions 6.10.0-6.10.2 and 6.11.0-6.11.2 are vulnerable to Prototype Pollution. An attacker can pollute Object.prototype by providing untrusted input to util.setProperty or ReflectionObject.setParsedOption, or by causing the application to parse or load malicious .proto files.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "6.11.3",
+    "cve_id": "CVE-2022-25878",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs versions 6.10.0-6.10.2 and 6.11.0-6.11.2 are vulnerable to Prototype Pollution. An attacker can pollute Object.prototype by providing untrusted input to util.setProperty or ReflectionObject.setParsedOption, or by causing the application to parse or load malicious .proto files.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "6.11.4",
+    "cve_id": "CVE-2023-36665",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs 6.10.0-6.11.3 and 7.0.0-7.2.3 allow Prototype Pollution via user-controlled protobuf messages, enabling attackers to pollute Object.prototype through parse, load/loadSync, or setParsedOption/setProperty functions.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.2.5",
+    "cve_id": "CVE-2023-36665",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs 6.10.0-6.11.3 and 7.0.0-7.2.3 allow Prototype Pollution via user-controlled protobuf messages, enabling attackers to pollute Object.prototype through parse, load/loadSync, or setParsedOption/setProperty functions.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.5",
+    "cve_id": "CVE-2026-41242",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Remote Code Execution when loading crafted JSON descriptors. Schema-controlled type names and type references reach runtime code generation without sufficient validation, allowing an attacker who can influence the loaded schema to execute arbitrary JavaScript in the process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44294",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via crafted protobuf schemas or JSON descriptors. Control characters in field names are not escaped before being embedded into generated JavaScript function bodies, causing runtime code generation to throw a syntax error and making affected message types unusable.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44293",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Remote Code Execution via crafted protobuf descriptors. A non-string default value for a bytes field in an attacker-controlled descriptor can cause unsafe code to be emitted into the generated toObject conversion function, executing arbitrary JavaScript when the function is called.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44289",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via stack overflow when decoding deeply nested protobuf data. The decoder recurses without a depth limit when processing nested group fields or message fields, allowing a crafted protobuf binary payload to exhaust the JavaScript call stack.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44291",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to a prototype pollution gadget where internal type lookup tables use plain objects that inherit from Object.prototype. If Object.prototype has been polluted by another vulnerability, attacker-controlled strings can be incorporated into generated encode or decode JavaScript functions, potentially leading to arbitrary code execution.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44292",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs generated message constructors copy enumerable properties from a provided properties object without filtering the __proto__ key. An attacker who can control the properties object passed to a generated message constructor can modify the prototype chain of the resulting message instance, potentially affecting downstream instanceof checks or inherited property lookups.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44290",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via prototype pollution in schema option processing. Crafted protobuf schemas with option paths that traverse inherited object properties can write to global JavaScript constructor properties, corrupting process-wide built-in functionality and causing persistent failures for the lifetime of the affected process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.6",
+    "cve_id": "CVE-2026-44288",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs's minimal UTF-8 decoder accepts overlong byte sequences and decodes them to their canonical characters rather than replacing them with the Unicode replacement character. This can allow attackers to bypass application-level byte-pattern filters, since bytes that do not match forbidden ASCII characters may decode to strings containing those characters.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.5.8",
+    "cve_id": "CVE-2026-45740",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs allows unbounded recursion when expanding nested JSON descriptors via Root.fromJSON() and Namespace.addJSON(), enabling stack overflow denial-of-service via crafted deeply-nested JSON descriptors.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.6.1",
+    "cve_id": "CVE-2026-48712",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.6.3",
+    "cve_id": "CVE-2026-54269",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "7.6.5",
+    "cve_id": "CVE-2026-59877",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.1",
+    "cve_id": "CVE-2026-41242",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Remote Code Execution when loading crafted JSON descriptors. Schema-controlled type names and type references reach runtime code generation without sufficient validation, allowing an attacker who can influence the loaded schema to execute arbitrary JavaScript in the process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44294",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via crafted protobuf schemas or JSON descriptors. Control characters in field names are not escaped before being embedded into generated JavaScript function bodies, causing runtime code generation to throw a syntax error and making affected message types unusable.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44293",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Remote Code Execution via crafted protobuf descriptors. A non-string default value for a bytes field in an attacker-controlled descriptor can cause unsafe code to be emitted into the generated toObject conversion function, executing arbitrary JavaScript when the function is called.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44289",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via stack overflow when decoding deeply nested protobuf data. The decoder recurses without a depth limit when processing nested group fields or message fields, allowing a crafted protobuf binary payload to exhaust the JavaScript call stack.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44291",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to a prototype pollution gadget where internal type lookup tables use plain objects that inherit from Object.prototype. If Object.prototype has been polluted by another vulnerability, attacker-controlled strings can be incorporated into generated encode or decode JavaScript functions, potentially leading to arbitrary code execution.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44292",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs generated message constructors copy enumerable properties from a provided properties object without filtering the __proto__ key. An attacker who can control the properties object passed to a generated message constructor can modify the prototype chain of the resulting message instance, potentially affecting downstream instanceof checks or inherited property lookups.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44290",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs is vulnerable to Denial of Service via prototype pollution in schema option processing. Crafted protobuf schemas with option paths that traverse inherited object properties can write to global JavaScript constructor properties, corrupting process-wide built-in functionality and causing persistent failures for the lifetime of the affected process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.0.2",
+    "cve_id": "CVE-2026-44288",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs's minimal UTF-8 decoder accepts overlong byte sequences and decodes them to their canonical characters rather than replacing them with the Unicode replacement character. This can allow attackers to bypass application-level byte-pattern filters, since bytes that do not match forbidden ASCII characters may decode to strings containing those characters.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.2.0",
+    "cve_id": "CVE-2026-45740",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs allows unbounded recursion when expanding nested JSON descriptors via Root.fromJSON() and Namespace.addJSON(), enabling stack overflow denial-of-service via crafted deeply-nested JSON descriptors.",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.4.1",
+    "cve_id": "CVE-2026-48712",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Denial of service through unbounded Any expansion during JSON conversion",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.5.0",
+    "cve_id": "CVE-2026-54270",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Memory amplification from preserved unknown fields in binary decode",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.6.0",
+    "cve_id": "CVE-2026-54269",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.6.5",
+    "cve_id": "CVE-2026-59876",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Text Format string map parsing can mutate returned map object prototype",
+    "source": "retire.js"
+  },
+  {
+    "library": "protobufjs",
+    "max_version": "8.6.6",
+    "cve_id": "CVE-2026-59877",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "protobufjs: Denial of Service via infinite loop in .proto option parsing",
+    "source": "retire.js"
+  }
+]

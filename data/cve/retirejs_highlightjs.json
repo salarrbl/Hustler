@@ -1,0 +1,22 @@
+[
+  {
+    "library": "highlightjs",
+    "max_version": "9.18.2",
+    "cve_id": "CVE-2020-26237",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of highlight.js are vulnerable to Prototype Pollution. A malicious HTML code block with a crafted language name can pollute the base object's prototype during syntax highlighting, potentially causing application instability or crashes (Denial of Service) in applications that render user-provided code blocks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "highlightjs",
+    "max_version": "10.1.2",
+    "cve_id": "CVE-2020-26237",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of highlight.js are vulnerable to Prototype Pollution. A malicious HTML code block with a crafted language name can pollute the base object's prototype during syntax highlighting, potentially causing application instability or crashes (Denial of Service) in applications that render user-provided code blocks.",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "library": "jquery",
+    "max_version": "1.6.3",
+    "cve_id": "CVE-2011-4969",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS with location.hash",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "1.9.0b1",
+    "cve_id": "CVE-2012-6708",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Selector interpreted as HTML",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "1.9.0",
+    "cve_id": "CVE-2020-7656",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of jQuery prior to 1.9.0 are vulnerable to Cross-Site Scripting (XSS). The load method fails to recognize and strip script tags containing whitespace in the closing tag (e.g. \u003c/script \u003e), allowing enclosed script logic to execute and enabling attackers to run arbitrary JavaScript in a victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "1.12.0",
+    "cve_id": "CVE-2015-9251",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "3rd party CORS request may execute",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "3.0.0-beta1",
+    "cve_id": "CVE-2015-9251",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "3rd party CORS request may execute",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "3.0.0",
+    "cve_id": "CVE-2016-10707",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service in jquery",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2019-11358",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery before 3.4.0, as used in Drupal, Backdrop CMS, and other products, mishandles jQuery.extend(true, {}, ...) because of Object.prototype pollution",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "3.5.0",
+    "cve_id": "CVE-2020-11023",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "passing HTML containing \u003coption\u003e elements from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code.",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery",
+    "max_version": "3.5.0",
+    "cve_id": "CVE-2020-11022",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regex in its jQuery.htmlPrefilter sometimes may introduce XSS",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "library": "select2",
+    "max_version": "4.0.6",
+    "cve_id": "CVE-2016-10744",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Neutralization of Input During Web Page Generation in Select2",
+    "source": "retire.js"
+  }
+]

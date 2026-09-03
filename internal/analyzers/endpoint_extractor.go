@@ -44,7 +44,7 @@ var methodPatterns = map[string]string{
 }
 
 // ExtractEndpoints scans JS content for API endpoints
-func (e *EndpointExtractor) ExtractEndpoints(ctx context.Context, target *models.Target, jsFile *models.JSFile, content string) ([]models.Endpoint, error) {
+func (e *EndpointExtractor) ExtractEndpoints(ctx context.Context, target *models.Target, jsFile *models.JSFile, content string, foundIn string) ([]models.Endpoint, error) {
 	var endpoints []models.Endpoint
 	lines := strings.Split(content, "\n")
 	seen := make(map[string]bool)
@@ -81,6 +81,7 @@ func (e *EndpointExtractor) ExtractEndpoints(ctx context.Context, target *models
 					Endpoint:  epURL,
 					Method:    method,
 					Context:   "extracted_from_js",
+					FoundIn:   foundIn,
 					FoundAt:   time.Now(),
 				}
 
@@ -101,7 +102,7 @@ func (e *EndpointExtractor) ExtractEndpoints(ctx context.Context, target *models
 			log.Error().Err(err).Msg("Failed to store endpoints")
 			return endpoints, err
 		}
-		log.Info().Int("count", len(endpoints)).Str("target", target.Domain).Str("js_file", jsFile.URL).Msg("Endpoints extracted and stored")
+		log.Info().Int("count", len(endpoints)).Str("target", target.Domain).Str("js_file", jsFile.URL).Str("found_in", foundIn).Msg("Endpoints extracted and stored")
 	}
 
 	return endpoints, nil

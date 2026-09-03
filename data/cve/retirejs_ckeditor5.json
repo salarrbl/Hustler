@@ -1,0 +1,72 @@
+[
+  {
+    "library": "ckeditor5",
+    "max_version": "10.0.1",
+    "cve_id": "CVE-2018-11093",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the link package",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "25.0.0",
+    "cve_id": "CVE-2021-21254",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDos in several packages",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "27.0.0",
+    "cve_id": "CVE-2021-21391",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDos in several packages",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "35.0.0",
+    "cve_id": "CVE-2022-31175",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "security fix for the Markdown GFM, HTML support and HTML embed packages",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "43.1.1",
+    "cve_id": "CVE-2024-45613",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting (XSS) in the clipboard package",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "45.2.2",
+    "cve_id": "CVE-2025-58064",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in the CKEditor 5 clipboard package. It can be triggered by specific user actions if the editor is configured with either the HTML embed plugin or a custom plugin introducing a view RawElement, allowing unauthorized JavaScript code execution when malicious content is inserted.",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor5",
+    "max_version": "46.0.3",
+    "cve_id": "CVE-2025-58064",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in the CKEditor 5 clipboard package. It can be triggered by specific user actions if the editor is configured with either the HTML embed plugin or a custom plugin introducing a view RawElement, allowing unauthorized JavaScript code execution when malicious content is inserted.",
+    "source": "retire.js"
+  }
+]

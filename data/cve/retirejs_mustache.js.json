@@ -1,0 +1,12 @@
+[
+  {
+    "library": "mustache.js",
+    "max_version": "2.2.1",
+    "cve_id": "CVE-2015-8862",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "weakness in HTML escaping",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "library": "jquery.prettyPhoto",
+    "max_version": "3.1.5",
+    "cve_id": "CVE-2013-6837",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

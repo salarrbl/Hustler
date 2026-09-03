@@ -1,0 +1,42 @@
+[
+  {
+    "library": "jquery-ui",
+    "max_version": "1.13.0",
+    "cve_id": "CVE-2021-41182",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `altField` option of the Datepicker widget",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-ui",
+    "max_version": "1.13.0",
+    "cve_id": "CVE-2021-41184",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `of` option of the `.position()` util",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-ui",
+    "max_version": "1.13.0",
+    "cve_id": "CVE-2021-41183",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS Vulnerability on text options of jQuery UI datepicker",
+    "source": "retire.js"
+  },
+  {
+    "library": "jquery-ui",
+    "max_version": "1.13.2",
+    "cve_id": "CVE-2022-31160",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS when refreshing a checkboxradio with an HTML-like initial text label ",
+    "source": "retire.js"
+  }
+]

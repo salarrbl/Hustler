@@ -1,0 +1,142 @@
+[
+  {
+    "library": "lodash",
+    "max_version": "4.17.5",
+    "cve_id": "CVE-2018-3721",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.11",
+    "cve_id": "CVE-2018-16487",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.11",
+    "cve_id": "CVE-2019-1010266",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.12",
+    "cve_id": "CVE-2019-10744",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.19",
+    "cve_id": "CVE-2020-8203",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.21",
+    "cve_id": "CVE-2021-23337",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Command Injection in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.21",
+    "cve_id": "CVE-2026-4800",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Command Injection in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.21",
+    "cve_id": "CVE-2020-28500",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.23",
+    "cve_id": "CVE-2025-13465",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash versions 4.0.0 through 4.17.22 are vulnerable to prototype pollution via the _.unset and _.omit functions. An attacker can pass crafted paths to delete methods from global prototypes such as Object.prototype, though the issue only permits deletion and not overwriting of properties.",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.17.23",
+    "cve_id": "CVE-2026-2950",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash versions 4.0.0 through 4.17.22 are vulnerable to prototype pollution via the _.unset and _.omit functions. An attacker can pass crafted paths to delete methods from global prototypes such as Object.prototype, though the issue only permits deletion and not overwriting of properties.",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.18.0",
+    "cve_id": "CVE-2025-13465",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash 4.17.23 and earlier are vulnerable to a prototype pollution bypass in _.unset and _.omit. The fix for CVE-2025-13465 only guards against string key members, so attackers can bypass it by passing array-wrapped path segments to delete properties from built-in prototypes including Object.prototype, Number.prototype, and String.prototype.",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.18.0",
+    "cve_id": "CVE-2026-2950",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash 4.17.23 and earlier are vulnerable to a prototype pollution bypass in _.unset and _.omit. The fix for CVE-2025-13465 only guards against string key members, so attackers can bypass it by passing array-wrapped path segments to delete properties from built-in prototypes including Object.prototype, Number.prototype, and String.prototype.",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.18.0",
+    "cve_id": "CVE-2021-23337",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash _.template is vulnerable to code injection via unsanitized options.imports key names. Untrusted key names are passed to the Function() constructor sink without validation, and the use of assignInWith (which enumerates inherited properties) also means that pre-existing prototype pollution on Object.prototype can flow into the Function() sink and execute arbitrary code at template compilation time.",
+    "source": "retire.js"
+  },
+  {
+    "library": "lodash",
+    "max_version": "4.18.0",
+    "cve_id": "CVE-2026-4800",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash _.template is vulnerable to code injection via unsanitized options.imports key names. Untrusted key names are passed to the Function() constructor sink without validation, and the use of assignInWith (which enumerates inherited properties) also means that pre-existing prototype pollution on Object.prototype can flow into the Function() sink and execute arbitrary code at template compilation time.",
+    "source": "retire.js"
+  }
+]

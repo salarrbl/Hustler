@@ -1,0 +1,152 @@
+[
+  {
+    "library": "dojo",
+    "max_version": "1.1.0",
+    "cve_id": "CVE-2008-6681",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Affected versions of dojo are susceptible to a cross-site scripting vulnerability in the dijit.Editor and textarea components, which execute their contents as Javascript, even when sanitized.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.2.0",
+    "cve_id": "CVE-2015-5654",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.2.0 are vulnerable to Cross-Site Scripting (XSS). The package fails to sanitize HTML code in user-controlled input, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.4.2",
+    "cve_id": "CVE-2010-2275",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting (XSS) vulnerability in dijit/tests/_testCommon.js in Dojo Toolkit SDK before 1.4.2 allows remote attackers to inject arbitrary web script or HTML via the theme parameter, as demonstrated by an attack against dijit/tests/form/test_Button.html",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.10.10",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.11.6",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.11.10",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.12.4",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.12.8",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.13.1",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.13.7",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.14",
+    "cve_id": "CVE-2018-15494",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "In Dojo Toolkit before 1.14.0, there is unescaped string injection in dojox/Grid/DataGrid.",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.14.6",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.15.3",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.16.2",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js"
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.16.5",
+    "cve_id": "CVE-2021-23450",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution",
+    "source": "retire.js"
+  }
+]

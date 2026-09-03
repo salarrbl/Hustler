@@ -1,0 +1,102 @@
+[
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.22",
+    "cve_id": "CVE-2020-7733",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.22",
+    "cve_id": "CVE-2020-7733",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.23",
+    "cve_id": "CVE-2020-7793",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ua-parser-js Regular Expression Denial of Service vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.24",
+    "cve_id": "CVE-2021-27292",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.30",
+    "cve_id": "CVE-2021-4229",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Embedded malware in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.7.33",
+    "cve_id": "CVE-2022-25927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS Vulnerability in ua-parser-js version",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "0.8.1",
+    "cve_id": "CVE-2021-4229",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Embedded malware in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "1.0.1",
+    "cve_id": "CVE-2021-4229",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Embedded malware in ua-parser-js",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "1.0.33",
+    "cve_id": "CVE-2022-25927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS Vulnerability in ua-parser-js version",
+    "source": "retire.js"
+  },
+  {
+    "library": "ua-parser-js",
+    "max_version": "2.0.10",
+    "cve_id": "CVE-2026-48125",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "UAParser.js: Unbounded `Sec-CH-UA-Model` parsing can trigger ReDoS in `withClientHints()`",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "library": "moment.js",
+    "max_version": "2.11.2",
+    "cve_id": "CVE-2016-4055",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "reDOS - regular expression denial of service",
+    "source": "retire.js"
+  },
+  {
+    "library": "moment.js",
+    "max_version": "2.19.3",
+    "cve_id": "CVE-2017-18214",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS)",
+    "source": "retire.js"
+  },
+  {
+    "library": "moment.js",
+    "max_version": "2.29.2",
+    "cve_id": "CVE-2022-24785",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "This vulnerability impacts npm (server) users of moment.js, especially if user provided locale string, eg fr is directly used to switch moment locale.",
+    "source": "retire.js"
+  },
+  {
+    "library": "moment.js",
+    "max_version": "2.29.4",
+    "cve_id": "CVE-2022-31129",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS), Affecting moment package, versions \u003e=2.18.0 \u003c2.29.4",
+    "source": "retire.js"
+  }
+]

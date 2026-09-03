@@ -1,0 +1,722 @@
+[
+  {
+    "library": "axios",
+    "max_version": "0.18.1",
+    "cve_id": "CVE-2019-10742",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios up to and including 0.18.0 allows attackers to cause a denial of service (application crash) by continuing to accepting content after maxContentLength is exceeded",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.21.1",
+    "cve_id": "CVE-2020-28168",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios NPM package 0.21.0 contains a Server-Side Request Forgery (SSRF) vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.21.2",
+    "cve_id": "CVE-2021-3749",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to Inefficient Regular Expression Complexity",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.28.0",
+    "cve_id": "CVE-2023-45857",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios Cross-Site Request Forgery Vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.30.0",
+    "cve_id": "CVE-2025-27152",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.30.2",
+    "cve_id": "CVE-2025-58754",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "When Axios runs on Node.js and is given a data: scheme URL, it decodes the entire payload into memory and returns a synthetic 200 response, ignoring maxContentLength and maxBodyLength limits. An attacker can supply a very large data: URI to cause unbounded memory allocation and crash the process, constituting a Denial of Service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.30.3",
+    "cve_id": "CVE-2026-25639",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The mergeConfig function in axios crashes with a TypeError when processing configuration objects containing __proto__ as an own property, such as those created via JSON.parse. An attacker who can pass a JSON payload with __proto__ as a config key can trigger a complete Denial of Service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.0",
+    "cve_id": "CVE-2025-62718",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not correctly normalize hostnames when checking NO_PROXY rules, causing requests to loopback addresses with a trailing dot (localhost.) or IPv6 literals ([::1]) to bypass NO_PROXY matching and be routed through the configured proxy. Attackers controlling request URLs can exploit this to bypass SSRF mitigations and reach sensitive loopback or internal services.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.0",
+    "cve_id": "CVE-2026-40175",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to being used as a gadget in a prototype pollution attack chain: when Object.prototype is polluted with CRLF-containing header values via another dependency, Axios merges the polluted properties into request headers without sanitization. This allows HTTP request smuggling attacks including bypassing AWS IMDSv2 session token requirements to steal cloud credentials.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-44495",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios contains prototype pollution gadgets in request config processing; a polluted Object.prototype.transformResponse can be executed with access to request credentials and response data, enabling credential theft and response hijacking across all requests.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42034",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not enforce maxBodyLength for stream request bodies when maxRedirects is set to 0, because the native HTTP transport path used in that configuration does not perform byte counting. Oversized streamed uploads are sent in full despite the configured body size limit, enabling uncontrolled upstream data transfer and potential resource exhaustion.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42039",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The toFormData helper in Axios recursively walks nested objects without a depth limit or try/catch protection. An attacker who can provide a deeply nested object as request data or params can trigger a stack overflow, crashing the Node.js request handler or process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42035",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget that allows header injection in the Node.js HTTP adapter. When Object.prototype is polluted with duck-typed FormData properties including getHeaders, Axios treats any plain object payload as a FormData instance and calls the attacker-controlled getHeaders() function, merging arbitrary headers into the outgoing request.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42038",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The fix for the NO_PROXY hostname normalization bypass (GHSA-3p68-rc4w-qgx5) is incomplete: shouldBypassProxy() does not resolve loopback address equivalents. When NO_PROXY=localhost is set, requests to 127.0.0.1 and [::1] are still routed through the configured proxy, enabling SSRF bypasses against internal services.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42033",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios has multiple prototype pollution gadgets where config properties are read without hasOwnProperty guards. When Object.prototype is polluted by a co-dependency, an attacker can silently intercept and modify every JSON response (parseReviver gadget) or fully hijack the underlying HTTP transport to intercept credentials and headers (transport gadget).",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42043",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Axios 1.15.0 patch for NO_PROXY hostname normalization is incomplete: the isLoopback() function only recognizes three specific addresses (localhost, 127.0.0.1, ::1) but not the full RFC 1122 loopback subnet 127.0.0.0/8. Requests to any 127.x.x.x address other than 127.0.0.1 bypass NO_PROXY matching and are routed through the configured proxy, enabling SSRF.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42036",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not enforce maxContentLength when responseType is set to 'stream'. The response stream is returned directly without byte-counting, allowing unbounded downstream consumption of arbitrarily large server responses despite the configured limit.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42041",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget via the validateStatus config property, which uniquely uses the JavaScript in operator (which traverses the prototype chain) during config merging. When Object.prototype.validateStatus is polluted with () =\u003e true, all HTTP error responses (401, 403, 500, etc.) are silently treated as successes, bypassing authentication and error handling.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42040",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The encode() function in Axios's AxiosURLSearchParams helper contains a character map entry that reverses the safe percent-encoding of null bytes: '%00' is mapped back to a raw null byte '\\x00' after encodeURIComponent has correctly encoded it. Applications using AxiosURLSearchParams directly without an external encoder will produce URLs containing raw null bytes, which can cause truncation or WAF bypass in downstream C-based parsers.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.31.1",
+    "cve_id": "CVE-2026-42042",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios's XSRF token protection uses truthy/falsy semantics rather than strict boolean comparison for the withXSRFToken config property. When Object.prototype is polluted with any truthy non-boolean value for withXSRFToken, the same-origin check is bypassed and the XSRF token is sent to all cross-origin destinations, enabling CSRF attacks after token theft.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.32.0",
+    "cve_id": "CVE-2026-44490",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios 1.15.2 exposes two prototype pollution gadgets: HTTP header injection via utils.merge() building plain objects that walk the prototype chain, and a crash DoS where a polluted Object.prototype.get or .set causes TypeError on every axios request.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.32.0",
+    "cve_id": "CVE-2026-44496",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.32.0",
+    "cve_id": "CVE-2026-44486",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.32.0",
+    "cve_id": "CVE-2026-44487",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.32.0",
+    "cve_id": "CVE-2026-44492",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The shouldBypassProxy function introduced in Axios 1.15.0 does not normalize IPv4-mapped IPv6 addresses, allowing bypass of NO_PROXY exclusions when requests use IPv4-mapped IPv6 notation to target excluded IPv4 addresses.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67319",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Nested axios option objects can consume polluted prototype values",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67313",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67312",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67315",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67320",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67321",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios form serializer maxDepth bypass via {} metatoken",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "0.33.0",
+    "cve_id": "CVE-2026-67316",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Prototype pollution gadgets can alter axios request construction",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.6.0",
+    "cve_id": "CVE-2023-45857",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios Cross-Site Request Forgery Vulnerability",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.7.4",
+    "cve_id": "CVE-2024-39338",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Server-Side Request Forgery in axios",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.8.2",
+    "cve_id": "CVE-2025-27152",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "axios Requests Vulnerable To Possible SSRF and Credential Leakage via Absolute URL",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.12.0",
+    "cve_id": "CVE-2025-58754",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "When Axios runs on Node.js and is given a data: scheme URL, it decodes the entire payload into memory and returns a synthetic 200 response, ignoring maxContentLength and maxBodyLength limits. An attacker can supply a very large data: URI to cause unbounded memory allocation and crash the process, constituting a Denial of Service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.13.2",
+    "cve_id": "CVE-2026-39865",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A state corruption bug in axios's HTTP/2 session cleanup logic allows a malicious server to crash the client process through concurrent session closures. After splicing an entry from the sessions array, iteration continues over the modified array, causing undefined behavior and potential crashes when a server closes multiple HTTP/2 sessions simultaneously.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.13.5",
+    "cve_id": "CVE-2026-25639",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The mergeConfig function in axios crashes with a TypeError when processing configuration objects containing __proto__ as an own property, such as those created via JSON.parse. An attacker who can pass a JSON payload with __proto__ as a config key can trigger a complete Denial of Service.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.0",
+    "cve_id": "CVE-2025-62718",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not correctly normalize hostnames when checking NO_PROXY rules, causing requests to loopback addresses with a trailing dot (localhost.) or IPv6 literals ([::1]) to bypass NO_PROXY matching and be routed through the configured proxy. Attackers controlling request URLs can exploit this to bypass SSRF mitigations and reach sensitive loopback or internal services.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.0",
+    "cve_id": "CVE-2026-40175",
+    "severity": "CRITICAL",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to being used as a gadget in a prototype pollution attack chain: when Object.prototype is polluted with CRLF-containing header values via another dependency, Axios merges the polluted properties into request headers without sanitization. This allows HTTP request smuggling attacks including bypassing AWS IMDSv2 session token requirements to steal cloud credentials.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42037",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to CRLF injection via the Content-Type header in multipart form-data requests. When constructing per-part headers for binary or Blob-like values, value.type is interpolated without sanitizing CRLF sequences, allowing an attacker who controls the MIME type of an uploaded file to inject arbitrary headers into the multipart body.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42034",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not enforce maxBodyLength for stream request bodies when maxRedirects is set to 0, because the native HTTP transport path used in that configuration does not perform byte counting. Oversized streamed uploads are sent in full despite the configured body size limit, enabling uncontrolled upstream data transfer and potential resource exhaustion.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42039",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The toFormData helper in Axios recursively walks nested objects without a depth limit or try/catch protection. An attacker who can provide a deeply nested object as request data or params can trigger a stack overflow, crashing the Node.js request handler or process.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42035",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget that allows header injection in the Node.js HTTP adapter. When Object.prototype is polluted with duck-typed FormData properties including getHeaders, Axios treats any plain object payload as a FormData instance and calls the attacker-controlled getHeaders() function, merging arbitrary headers into the outgoing request.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42038",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The fix for the NO_PROXY hostname normalization bypass (GHSA-3p68-rc4w-qgx5) is incomplete: shouldBypassProxy() does not resolve loopback address equivalents. When NO_PROXY=localhost is set, requests to 127.0.0.1 and [::1] are still routed through the configured proxy, enabling SSRF bypasses against internal services.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42033",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios has multiple prototype pollution gadgets where config properties are read without hasOwnProperty guards. When Object.prototype is polluted by a co-dependency, an attacker can silently intercept and modify every JSON response (parseReviver gadget) or fully hijack the underlying HTTP transport to intercept credentials and headers (transport gadget).",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42043",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Axios 1.15.0 patch for NO_PROXY hostname normalization is incomplete: the isLoopback() function only recognizes three specific addresses (localhost, 127.0.0.1, ::1) but not the full RFC 1122 loopback subnet 127.0.0.0/8. Requests to any 127.x.x.x address other than 127.0.0.1 bypass NO_PROXY matching and are routed through the configured proxy, enabling SSRF.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42036",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios does not enforce maxContentLength when responseType is set to 'stream'. The response stream is returned directly without byte-counting, allowing unbounded downstream consumption of arbitrarily large server responses despite the configured limit.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42041",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget via the validateStatus config property, which uniquely uses the JavaScript in operator (which traverses the prototype chain) during config merging. When Object.prototype.validateStatus is polluted with () =\u003e true, all HTTP error responses (401, 403, 500, etc.) are silently treated as successes, bypassing authentication and error handling.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42040",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The encode() function in Axios's AxiosURLSearchParams helper contains a character map entry that reverses the safe percent-encoding of null bytes: '%00' is mapped back to a raw null byte '\\x00' after encodeURIComponent has correctly encoded it. Applications using AxiosURLSearchParams directly without an external encoder will produce URLs containing raw null bytes, which can cause truncation or WAF bypass in downstream C-based parsers.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.1",
+    "cve_id": "CVE-2026-42042",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios's XSRF token protection uses truthy/falsy semantics rather than strict boolean comparison for the withXSRFToken config property. When Object.prototype is polluted with any truthy non-boolean value for withXSRFToken, the same-origin check is bypassed and the XSRF token is sent to all cross-origin destinations, enabling CSRF attacks after token theft.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.2",
+    "cve_id": "CVE-2026-44495",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios contains prototype pollution gadgets in request config processing; a polluted Object.prototype.transformResponse can be executed with access to request credentials and response data, enabling credential theft and response hijacking across all requests.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.2",
+    "cve_id": "CVE-2026-42044",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget via the parseReviver configuration property. When Object.prototype.parseReviver is polluted, Axios uses the attacker-controlled function as a JSON.parse reviver on every response, enabling silent selective modification of JSON values (e.g. privilege escalation) and exfiltration of all response data including API keys.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.15.2",
+    "cve_id": "CVE-2026-42264",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios has five config properties (auth, baseURL, socketPath, beforeRedirect, insecureHTTPParser) that are read from the merged config object without hasOwnProperty guards, making them exploitable as prototype pollution gadgets. When Object.prototype is polluted, these properties enable credential injection, request hijacking to attacker-controlled servers, SSRF via Unix sockets, and arbitrary code execution via redirect callbacks.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44494",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios is vulnerable to a prototype pollution gadget attack where a polluted Object.prototype.proxy causes all HTTP requests to be routed through an attacker-controlled proxy, enabling full man-in-the-middle attacks including credential interception.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44490",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios 1.15.2 exposes two prototype pollution gadgets: HTTP header injection via utils.merge() building plain objects that walk the prototype chain, and a crash DoS where a polluted Object.prototype.get or .set causes TypeError on every axios request.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44496",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Regular Expression Denial of Service (ReDoS) via Cookie Name Injection",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44486",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Proxy-Authorization header leaks to redirect target when proxy is re-evaluated to direct connection",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44487",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Proxy-Authorization Credential Leak to Origin Server Across HTTP-to-HTTPS Redirect in Axios Node.js HTTP Adapter",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44488",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Allocation of Resources Without Limits or Throttling in Axios",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44492",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The shouldBypassProxy function introduced in Axios 1.15.0 does not normalize IPv4-mapped IPv6 addresses, allowing bypass of NO_PROXY exclusions when requests use IPv4-mapped IPv6 notation to target excluded IPv4 addresses.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.16.0",
+    "cve_id": "CVE-2026-44489",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios 1.15.2 has an incomplete prototype pollution fix: nested proxy objects created by utils.merge() remain plain objects, allowing a polluted Object.prototype.username to inject Proxy-Authorization headers into all proxied HTTP requests.",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67313",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Excessive recursion in formDataToJSON can cause denial of service",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67319",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Nested axios option objects can consume polluted prototype values",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67316",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Prototype pollution gadgets can alter axios request construction",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67312",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Deep formToJSON Key Recursion Can Cause Denial of Service",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67317",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Fetch adapter `ReadableStream` uploads bypass `maxBodyLength`",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67318",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: HTTP/2 streamed uploads bypass `maxBodyLength`",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67315",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: NO_PROXY bypass for 0.0.0.0 local addresses in axios",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67321",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios form serializer maxDepth bypass via {} metatoken",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67320",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios Node HTTP adapter can use an inherited proxy after interceptor config cloning",
+    "source": "retire.js"
+  },
+  {
+    "library": "axios",
+    "max_version": "1.18.0",
+    "cve_id": "CVE-2026-67314",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Axios: Prototype pollution auth subfields can inject Basic auth",
+    "source": "retire.js"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "library": "blueimp-file-upload",
+    "max_version": "9.22.1",
+    "cve_id": "CVE-2018-9206",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unrestricted Upload of File with Dangerous Type in blueimp-file-upload",
+    "source": "retire.js"
+  }
+]

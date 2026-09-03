@@ -61,6 +61,8 @@ type WatchdogsMapping struct {
 	CDNField          string `mapstructure:"cdn_field"`          // field for CDN (e.g., "cdn")
 	ProviderField     string `mapstructure:"provider_field"`     // field for discovery provider (e.g., "providers")
 	DiscoveredAtField string `mapstructure:"discovered_at_field"` // field for discovery timestamp
+	ProgramField      string `mapstructure:"program_field"`      // field for program name (e.g., "program", "scope_name")
+	PlatformField     string `mapstructure:"platform_field"`     // field for platform (e.g., "platform", "source")
 }
 
 // HTTPConfig holds HTTP client settings

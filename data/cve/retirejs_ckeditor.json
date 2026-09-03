@@ -1,0 +1,82 @@
+[
+  {
+    "library": "ckeditor",
+    "max_version": "4.11.0",
+    "cve_id": "CVE-2018-17960",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in the HTML parser",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.16.2",
+    "cve_id": "CVE-2021-32808",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in the Widget plugin",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.16.2",
+    "cve_id": "CVE-2021-32809",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in the Clipboard plugin",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.16.2",
+    "cve_id": "CVE-2021-37695",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerability in the Fake Objects plugin",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.17.0",
+    "cve_id": "CVE-2021-41164",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerabilities in the core module",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.17.0",
+    "cve_id": "CVE-2021-41165",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS vulnerabilities in the core module",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.18.0",
+    "cve_id": "CVE-2022-24728",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inject malformed URL to bypass content sanitization for XSS",
+    "source": "retire.js"
+  },
+  {
+    "library": "ckeditor",
+    "max_version": "4.21.0",
+    "cve_id": "CVE-2023-28439",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "cross-site scripting vulnerability has been discovered affecting Iframe Dialog and Media Embed packages. The vulnerability may trigger a JavaScript code",
+    "source": "retire.js"
+  }
+]

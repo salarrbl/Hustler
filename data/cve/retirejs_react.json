@@ -1,0 +1,72 @@
+[
+  {
+    "library": "react",
+    "max_version": "0.4.2",
+    "cve_id": "CVE-2013-7035",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability can arise when using user data as a key",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "0.5.2",
+    "cve_id": "CVE-2013-7035",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability can arise when using user data as a key",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "16.0.1",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability when the attacker controls an attribute name",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "16.1.2",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability when the attacker controls an attribute name",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "16.2.1",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability when the attacker controls an attribute name",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "16.3.3",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability when the attacker controls an attribute name",
+    "source": "retire.js"
+  },
+  {
+    "library": "react",
+    "max_version": "16.4.2",
+    "cve_id": "CVE-2018-6341",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "potential XSS vulnerability when the attacker controls an attribute name",
+    "source": "retire.js"
+  }
+]

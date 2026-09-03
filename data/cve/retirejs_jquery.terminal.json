@@ -1,0 +1,12 @@
+[
+  {
+    "library": "jquery.terminal",
+    "max_version": "2.31.1",
+    "cve_id": "CVE-2021-43862",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jquery.terminal self XSS on user input",
+    "source": "retire.js"
+  }
+]

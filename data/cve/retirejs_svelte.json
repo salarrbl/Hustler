@@ -1,0 +1,122 @@
+[
+  {
+    "library": "svelte",
+    "max_version": "3.49.0",
+    "cve_id": "CVE-2022-25875",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "4.2.19",
+    "cve_id": "CVE-2024-45047",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Svelte has a potential mXSS vulnerability due to improper HTML escaping",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.46.4",
+    "cve_id": "CVE-2025-15265",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "An XSS vulnerability exists in Svelte 5 when using the experimental hydratable function with attacker-controlled key values. The key is embedded into a server-rendered script block without escaping unsafe characters, allowing a malicious key to break out of the script context and execute arbitrary JavaScript in the client's browser.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.51.5",
+    "cve_id": "CVE-2026-27125",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "In Svelte SSR, attribute spreading on elements enumerates prototype-chain properties rather than own properties, which can expose polluted Object.prototype attributes in rendered output.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.51.5",
+    "cve_id": "CVE-2026-27121",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of svelte prior to 5.51.5 are vulnerable to cross-site scripting (XSS) during server-side rendering. When using spread syntax to render attributes from untrusted data, event handler properties are included in the rendered HTML output. If an application spreads user-controlled or external data as element attributes, an attacker can inject malicious event handlers that execute in victims' browsers.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.51.5",
+    "cve_id": "CVE-2026-27122",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "When using `\u003csvelte:element this={tag}\u003e` in server-side rendering, the provided tag name is not validated or sanitized before being emitted into the HTML output. If the tag string contains unexpected characters, it can result in HTML injection in the SSR output. Client-side rendering is not affected.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.51.5",
+    "cve_id": "CVE-2026-27119",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "In certain circumstances, the server-side rendering output of an `\u003coption\u003e` element does not properly escape its content, potentially allowing HTML injection in the SSR output. Client-side rendering is not affected.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.53.5",
+    "cve_id": "CVE-2026-27901",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The contents of `bind:innerText` and `bind:textContent` on `contenteditable` elements were not properly escaped. This could enable HTML injection and Cross-site Scripting (XSS) if rendering untrusted data as the binding's initial value on the server.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.53.5",
+    "cve_id": "CVE-2026-27902",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Errors from `transformError` were not correctly escaped prior to being embedded in the HTML output, causing potential HTML injection and XSS if attacker-controlled content is returned from `transformError`.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.55.7",
+    "cve_id": "CVE-2026-42599",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Svelte is vulnerable to XSS when spread syntax is used to render attributes from untrusted data, because event handler properties such as onclick are included in the server-rendered HTML output. An attacker who can control spread attributes can inject malicious event handlers that execute in victims' browsers before Svelte's hydration runs.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.55.7",
+    "cve_id": "CVE-2026-42573",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Svelte is vulnerable to DOM clobbering of its internal framework state when attribute spreading is used on form elements and the name attribute on child input or button elements is user-controlled. Simultaneous attacker-controlled spread and name attributes can corrupt Svelte's state and potentially lead to XSS.",
+    "source": "retire.js"
+  },
+  {
+    "library": "svelte",
+    "max_version": "5.55.7",
+    "cve_id": "CVE-2026-42567",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "An internal regex in the Svelte runtime can take exponential time when processing svelte:element tags of unconstrained length, leading to ReDoS.",
+    "source": "retire.js"
+  }
+]

@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strconv"
 	"syscall"
 	"time"
 
@@ -13,6 +14,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson"
 	"hustler/internal/config"
+	"hustler/internal/cve"
 	"hustler/internal/discovery"
 	"hustler/internal/js"
 	"hustler/internal/mongo"
@@ -53,6 +55,15 @@ func (d *Daemon) Start() error {
 		log.Info().Msg("Shutdown signal received, stopping daemon...")
 		d.stop()
 	}()
+
+	d.running = true
+	fmt.Println("🛡️  Hustler Daemon Initializing...")
+	fmt.Println("✅ Connected to MongoDB")
+	fmt.Println("\n⚡ Daemon started. Ready to process hunt jobs.")
+	fmt.Println("   Commands:")
+	fmt.Println("     • Add target:  hustler target add <domain> --platform hackerone --program walmart")
+	fmt.Println("     • Status:      hustler daemon status")
+	fmt.Println("     • Stop:        hustler daemon stop")
 
 	// Main polling loop
 	ticker := time.NewTicker(3 * time.Second)
@@ -106,7 +117,7 @@ func (d *Daemon) pollJobs(ctx context.Context) {
 		return
 	}
 
-	log.Info().Int("queued_jobs_found", len(jobs)).Msg("Processing queued jobs")
+	log.Info().Int("queued_jobs", len(jobs)).Msg("Processing queued jobs")
 
 	for i := range jobs {
 		if !d.running {
@@ -140,72 +151,119 @@ func (d *Daemon) processJob(ctx context.Context, job *models.Job) {
 		return
 	}
 
-	log.Info().Str("domain", target.Domain).Msg("Starting discovery for target")
+	startTime := time.Now()
+	var pc models.PhaseCounter
 
-	// Run discovery to find JS URLs and fetch HTML content
+	fmt.Printf("\n🎯 Hunt started: %s [%s]\n", target.Domain, target.Platform)
+
+	// Discovery - Katana
+	job.CurrentStep = "discovery.katana"
+	d.updateJobStatus(job)
+	fmt.Printf("🔍 [katana] Crawling...\n")
 	httpClient := &http.Client{Timeout: 60 * time.Second}
 	discoveryRunner := discovery.NewDiscoveryRunner(d.cfg.Discovery, httpClient)
-	discoverResult, err := discoveryRunner.Discover(ctx, &target)
+	jsURLs, err := discoveryRunner.DiscoverJSURLs(ctx, &target)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("discovery failed: %w", err).Error()
 		d.updateJobStatus(job)
-		log.Error().Err(err).Str("domain", target.Domain).Msg("Job failed: discovery error")
+		fmt.Printf("❌ [katana] Failed: %v\n", err)
 		return
 	}
+	fmt.Printf("✅ [katana] Found %d JS URLs\n", len(jsURLs))
 
-	jsURLs := discoverResult.JSURLs
-	htmlContent := discoverResult.HTMLContent
-
-	log.Info().
-		Str("domain", target.Domain).
-		Int("js_urls_discovered", len(jsURLs)).
-		Int("html_pages", len(htmlContent)).
-		Msg("Discovery complete, starting analysis")
+	// Discovery - Wayback CDX
+	job.CurrentStep = "discovery.wayback"
+	d.updateJobStatus(job)
+	fmt.Printf("🔍 [wayback] Querying CDX...\n")
+	waybackURLs, wbErr := discoveryRunner.DiscoverViaWaybackCDX(ctx, target.Domain)
+	if wbErr != nil {
+		fmt.Printf("❌ [wayback] Failed: %v\n", wbErr)
+	} else {
+		fmt.Printf("✅ [wayback] Found %d JS URLs\n", len(waybackURLs))
+		// Merge URLs
+		jsURLs = append(jsURLs, waybackURLs...)
+	}
 
 	if len(jsURLs) == 0 {
-		log.Warn().Str("domain", target.Domain).Msg("No JS URLs discovered")
 		job.Status = models.JobStatusDone
 		d.updateJobStatus(job)
+		elapsed := time.Since(startTime)
+		fmt.Printf("🏁 Hunt complete: %s (no JS URLs found — %.0fs)\n", target.Domain, elapsed.Seconds())
 		return
 	}
 
-	// Run JS analysis pipeline
+	// Fetch and analyze
+	job.CurrentStep = "analyzing.js"
+	d.updateJobStatus(job)
+	fmt.Printf("📥 Fetching %d unique JS files...\n", len(jsURLs))
 	jsModule := js.NewJSModule(d.cfg.JS, d.cfg.Sensitive)
-	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs, htmlContent)
+	results, err := jsModule.FetchAndProcessWithCounter(ctx, &target, jsURLs, nil, &pc)
 	if err != nil {
 		job.Status = models.JobStatusError
-		job.Error = fmt.Errorf("JS analysis failed: %w", err).Error()
+		job.Error = fmt.Errorf("analysis failed: %w", err).Error()
 		d.updateJobStatus(job)
-		log.Error().Err(err).Str("domain", target.Domain).Msg("Job failed: analysis error")
+		fmt.Printf("❌ Analysis failed: %v\n", err)
 		return
 	}
 
-	// Summarize results
-	fetched := 0
-	skipped := 0
-	for _, r := range results {
-		if r.Skipped {
-			skipped++
-		} else if r.Error == nil {
-			fetched++
+	fetched, skipped := summarizeResults(results)
+	fmt.Printf("✅ Fetched %d files (%d skipped, already known)\n", fetched, skipped)
+
+	// Phase results
+	secretsCount := pc.Secrets.Load()
+	sinksCount := pc.Sinks.Load()
+	endpointsCount := pc.Endpoints.Load()
+	paramsCount := pc.Params.Load()
+	blhCount := pc.BLH.Load()
+	cveCount := pc.Cves.Load()
+
+	fmt.Printf("🔬 [secrets]   %d findings\n", secretsCount)
+	fmt.Printf("🔬 [sinks]     %d findings\n", sinksCount)
+	fmt.Printf("🔬 [endpoints] %d found\n", endpointsCount)
+	fmt.Printf("🔬 [params]    %d found\n", paramsCount)
+	fmt.Printf("🔬 [blh]       %d candidates\n", blhCount)
+
+	// CVE Analysis Phase
+	job.CurrentStep = "analyzing.cve"
+	d.updateJobStatus(job)
+	fmt.Printf("🔍 [cve] Analyzing for known vulnerabilities...\n")
+
+	cveModule, err := cve.NewCVEModule(cve.DefaultCVEConfig())
+	if err != nil {
+		log.Warn().Err(err).Msg("Failed to initialize CVE module, skipping CVE analysis")
+	} else {
+		var jsFiles []*models.JSFile
+		var httpResponses []cve.HTTPResponse
+		for _, r := range results {
+			if r.JSFile != nil {
+				jsFiles = append(jsFiles, r.JSFile)
+			}
+		}
+
+		cveFindings, err := cveModule.Analyze(ctx, &target, jsFiles, httpResponses)
+		if err != nil {
+			log.Warn().Err(err).Msg("CVE analysis failed")
+		} else {
+			cveColl := mongo.GetCollection("library_cves")
+			for _, finding := range cveFindings {
+				cveColl.InsertOne(ctx, finding)
+			}
+			cveCount = int64(len(cveFindings))
+			fmt.Printf("🔬 [cve]       %d matches\n", cveCount)
 		}
 	}
 
-	log.Info().
-		Str("domain", target.Domain).
-		Int("total_discovered", len(jsURLs)).
-		Int("fetched", fetched).
-		Int("skipped", skipped).
-		Msg("Hunt complete")
-
-	// Update job status to done
+	// Complete
 	finishedAt := time.Now()
 	job.FinishedAt = &finishedAt
 	job.Status = models.JobStatusDone
+	job.CurrentStep = "complete"
 	d.updateJobStatus(job)
 
-	// Update target status
+	elapsed := time.Since(startTime)
+	fmt.Printf("🏁 Hunt complete: %s (%.0fs)\n", target.Domain, elapsed.Seconds())
+
 	coll.UpdateOne(ctx,
 		bson.M{"_id": target.ID},
 		bson.M{"$set": bson.M{
@@ -231,13 +289,121 @@ func (d *Daemon) updateJobStatus(job *models.Job) {
 	if job.Error != "" {
 		update["error"] = job.Error
 	}
-	coll.UpdateOne(ctx,
-		bson.M{"_id": job.ID},
-		bson.M{"$set": update},
-	)
+	if job.CurrentStep != "" {
+		update["current_step"] = job.CurrentStep
+	}
+	coll.UpdateOne(ctx, bson.M{"_id": job.ID}, bson.M{"$set": update})
 }
 
-// IsRunning checks if the daemon is currently running
-func (d *Daemon) IsRunning() bool {
-	return d.running
+func summarizeResults(results []js.JSFileResult) (fetched, skipped int) {
+	for _, r := range results {
+		if r.Skipped {
+			skipped++
+		} else if r.Error == nil {
+			fetched++
+		}
+	}
+	return
+}
+
+// RunDaemonStatus runs the daemon status command
+func RunDaemonStatus() {
+	cfg, err := config.Load("config.yaml")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to load config: %v\n", err)
+		os.Exit(1)
+	}
+
+	if err := mongo.Connect(cfg.Mongo); err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to connect to MongoDB: %v\n", err)
+		os.Exit(1)
+	}
+	defer mongo.Disconnect()
+
+	jobColl := mongo.GetCollection("jobs")
+	targetColl := mongo.GetCollection("targets")
+
+	queuedCount, _ := jobColl.CountDocuments(nil, bson.M{"status": "queued"})
+	totalTargets, _ := targetColl.CountDocuments(nil, bson.M{})
+
+	pidRunning := false
+	var daemonPID int
+	if pidBytes, err := os.ReadFile("/tmp/hustler-daemon.pid"); err == nil {
+		if pid, err := strconv.Atoi(string(pidBytes)); err == nil {
+			daemonPID = pid
+			if proc, err := os.FindProcess(pid); err == nil {
+				pidRunning = proc.Signal(syscall.Signal(0)) == nil
+			}
+		}
+	}
+
+	fmt.Printf("Hustler Daemon Status:\n")
+	if pidRunning {
+		fmt.Printf("  Process: RUNNING (PID %d)\n", daemonPID)
+	} else {
+		fmt.Printf("  Process: NOT RUNNING\n")
+	}
+
+	fmt.Printf("\n📊 Active Jobs:\n")
+	cursor, _ := jobColl.Find(nil, bson.M{"status": "running"})
+	var runningJobs []models.Job
+	cursor.All(nil, &runningJobs)
+	for _, job := range runningJobs {
+		var target models.Target
+		targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+		step := job.CurrentStep
+		if step == "" {
+			elapsed := time.Since(*job.StartedAt)
+			if elapsed < 30*time.Second {
+				step = "🔍 Discovery"
+			} else if elapsed < 5*time.Minute {
+				step = "📄 Analyzing JS"
+			} else {
+				step = "💾 Storing"
+			}
+		}
+		fmt.Printf("  🎯 %s [%s] → %s\n", target.Domain, target.Platform, step)
+	}
+
+	if queuedCount > 0 {
+		fmt.Printf("\n📥 Queued (%d):\n", queuedCount)
+		cursor, _ := jobColl.Find(nil, bson.M{"status": "queued"})
+		var queuedJobs []models.Job
+		cursor.All(nil, &queuedJobs)
+		for _, job := range queuedJobs {
+			var target models.Target
+			targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+			fmt.Printf("  ⏳ %s [%s]\n", target.Domain, target.Platform)
+		}
+	}
+
+	fmt.Printf("\nTargets: %d total\n", totalTargets)
+}
+
+// RunDaemonStop stops the daemon
+func RunDaemonStop() {
+	pidBytes, err := os.ReadFile("/tmp/hustler-daemon.pid")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "daemon PID file not found, is the daemon running?\n")
+		os.Exit(1)
+	}
+
+	pid, err := strconv.Atoi(string(pidBytes))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "invalid PID in file: %v\n", err)
+		os.Exit(1)
+	}
+
+	proc, err := os.FindProcess(pid)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to find process: %v\n", err)
+		os.Exit(1)
+	}
+
+	if err := proc.Signal(syscall.SIGTERM); err != nil {
+		fmt.Fprintf(os.Stderr, "failed to send signal: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Sent SIGTERM to daemon (PID %d). It should stop gracefully.\n", pid)
 }

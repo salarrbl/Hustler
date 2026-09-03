@@ -1,0 +1,12 @@
+[
+  {
+    "library": "jquery-deparam",
+    "max_version": "0.5.4",
+    "cve_id": "CVE-2021-20087",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js"
+  }
+]

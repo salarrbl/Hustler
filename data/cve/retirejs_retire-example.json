@@ -1,0 +1,12 @@
+[
+  {
+    "library": "retire-example",
+    "max_version": "0.0.2",
+    "cve_id": "CVE-XXXX-XXXX",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "bug summary",
+    "source": "retire.js"
+  }
+]
