@@ -71,22 +71,10 @@ var daemonStatusCmd = &cobra.Command{
 
 		// Query job statistics
 		jobColl := mongo.GetCollection("jobs")
-
-		var queuedCount int64
-		queuedCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "queued"})
-
-		var runningCount int64
-		runningCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "running"})
-
-		var doneCount int64
-		doneCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "done"})
-
-		var errorCount int64
-		errorCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "error"})
-
-		var totalTargets int64
 		targetColl := mongo.GetCollection("targets")
-		totalTargets, _ = targetColl.CountDocuments(nil, bson.M{})
+
+		queuedCount, _ := jobColl.CountDocuments(nil, bson.M{"status": "queued"})
+		totalTargets, _ := targetColl.CountDocuments(nil, bson.M{})
 
 		// Get currently running job details
 		cursor, _ := jobColl.Find(nil, bson.M{"status": "running"})
@@ -100,53 +88,33 @@ var daemonStatusCmd = &cobra.Command{
 			color.New(color.FgRed).Printf("  Process: NOT RUNNING\n")
 		}
 
-		fmt.Printf("\nDaemon Function:\n")
-		fmt.Printf("  • Polls MongoDB every 3 seconds for queued hunt jobs\n")
-		fmt.Printf("  • Discovery: Katana (active crawl) + Wayback CDX + Gau (disabled)\n")
-		fmt.Printf("  • Analysis: Secret scanning, Sink analysis, Endpoint extraction, Param extraction\n")
-		fmt.Printf("  • BLH checks, CVE mapping, Library fingerprinting, Sensitive endpoint check (disabled)\n")
-		fmt.Printf("  • Stores findings in MongoDB collections\n")
-
-		fmt.Printf("\nJob Statistics:\n")
-		color.New(color.FgYellow).Printf("  Queued:   %d\n", queuedCount)
-		color.New(color.FgBlue).Printf("  Running:  %d\n", runningCount)
-		color.New(color.FgGreen).Printf("  Completed: %d\n", doneCount)
-		color.New(color.FgRed).Printf("  Errors:   %d\n", errorCount)
-
-		if len(runningJobs) > 0 {
-			fmt.Printf("\nCurrently Processing (%d jobs):\n", len(runningJobs))
-			for _, job := range runningJobs {
-				// Get target domain
-				var target models.Target
-				targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
-				fmt.Printf("  • Job: %s\n", job.ID)
-				fmt.Printf("    Target: %s (%s)\n", target.Domain, target.ID)
-				fmt.Printf("    Started: %s\n", job.StartedAt.Format(time.RFC3339))
-				fmt.Printf("    Phase: ")
-				// Try to infer phase from job start time
+		fmt.Printf("\n📊 Active Jobs:\n")
+		for _, job := range runningJobs {
+			var target models.Target
+			targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+			step := job.CurrentStep
+			if step == "" {
 				elapsed := time.Since(*job.StartedAt)
 				if elapsed < 30*time.Second {
-					fmt.Printf("Discovery (Katana/Wayback/Gau)\n")
+					step = "🔍 Discovery"
 				} else if elapsed < 5*time.Minute {
-					fmt.Printf("Fetching & Analyzing JS files\n")
+					step = "📄 Analyzing JS"
 				} else {
-					fmt.Printf("Finalizing / Storing findings\n")
+					step = "💾 Storing"
 				}
 			}
+			fmt.Printf("  🎯 %s [%s] → %s\n", target.Domain, target.Platform, step)
 		}
 
-		// Show queued jobs
 		if queuedCount > 0 {
+			fmt.Printf("\n📥 Queued (%d):\n", queuedCount)
 			cursor, _ := jobColl.Find(nil, bson.M{"status": "queued"})
 			var queuedJobs []models.Job
 			cursor.All(nil, &queuedJobs)
-			if len(queuedJobs) > 0 {
-				fmt.Printf("\nQueued Jobs (%d):\n", len(queuedJobs))
-				for _, job := range queuedJobs {
-					var target models.Target
-					targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
-					fmt.Printf("  • %s → %s (queued %s)\n", job.ID[:8], target.Domain, job.QueuedAt.Format("15:04:05"))
-				}
+			for _, job := range queuedJobs {
+				var target models.Target
+				targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+				fmt.Printf("  ⏳ %s [%s]\n", target.Domain, target.Platform)
 			}
 		}
 

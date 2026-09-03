@@ -194,6 +194,7 @@ type Job struct {
 	FinishedAt  *time.Time `bson:"finished_at,omitempty" json:"finished_at,omitempty"`
 	Error       string     `bson:"error,omitempty" json:"error,omitempty"`
 	Source      string     `bson:"source" json:"source"` // "manual" or "watchdogs"
+	CurrentStep string     `bson:"current_step,omitempty" json:"current_step,omitempty"`
 }
 
 // DiscoveredURL tracks URLs that have been seen for a target to enable incremental scanning

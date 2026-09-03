@@ -7,6 +7,8 @@ import (
 	"os"
 	"os/signal"
 	"strconv"
+	"strings"
+	"sync/atomic"
 	"syscall"
 	"time"
 
@@ -82,14 +84,17 @@ func runDaemon(cfg *config.FullConfig) {
 	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
 	go func() {
 		<-sigCh
-		log.Info().Msg("Shutdown signal received")
+		fmt.Println("\n🛡️  Shutting down Hustler daemon...")
 		os.Exit(0)
 	}()
 
-	log.Info().Msg("Starting Hustler daemon...")
-	fmt.Println("Daemon started. Add targets with: hustler target add <domain>")
-	fmt.Println("Status: hustler daemon status")
-	fmt.Println("Stop: hustler daemon stop")
+	fmt.Println("🛡️  Hustler Daemon Initializing...")
+	fmt.Println("✅ Connected to MongoDB")
+	fmt.Println("\n⚡ Daemon started. Ready to process hunt jobs.")
+	fmt.Println("   Commands:")
+	fmt.Println("     • Add target:  hustler target add <domain> [--platform hackerone]")
+	fmt.Println("     • Status:      hustler daemon status")
+	fmt.Println("     • Stop:        hustler daemon stop")
 
 	ctx := context.Background()
 	ticker := time.NewTicker(3 * time.Second)
@@ -98,6 +103,18 @@ func runDaemon(cfg *config.FullConfig) {
 	for range ticker.C {
 		processQueuedJobs(ctx, cfg)
 	}
+}
+
+// phaseCounter tracks per-target phase counts for summary display
+type phaseCounter struct {
+	secrets  atomic.Int64
+	sinks    atomic.Int64
+	endpoints atomic.Int64
+	params   atomic.Int64
+	blh      atomic.Int64
+	cves     atomic.Int64
+	fetched  atomic.Int64
+	skipped  atomic.Int64
 }
 
 func processQueuedJobs(ctx context.Context, cfg *config.FullConfig) {
@@ -133,8 +150,6 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 	job.Status = models.JobStatusRunning
 	updateJobStatus(job)
 
-	log.Info().Str("job_id", job.ID).Str("target_id", job.TargetID).Msg("Job started")
-
 	// Get target
 	targetColl := mongo.GetCollection("targets")
 	var target models.Target
@@ -147,9 +162,15 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 		return
 	}
 
-	log.Info().Str("domain", target.Domain).Msg("Starting discovery")
+	startTime := time.Now()
+	pc := &phaseCounter{}
 
-	// Discovery
+	fmt.Printf("\n🎯 Hunt started: %s [%s]\n", target.Domain, target.Platform)
+
+	// Discovery - Katana
+	job.CurrentStep = "discovery.katana"
+	updateJobStatus(job)
+	fmt.Printf("🔍 [katana] Crawling...\n")
 	httpClient := &http.Client{Timeout: 60 * time.Second}
 	discoveryRunner := discovery.NewDiscoveryRunner(cfg.Discovery, httpClient)
 	jsURLs, err := discoveryRunner.DiscoverJSURLs(ctx, &target)
@@ -157,43 +178,73 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("discovery failed: %w", err).Error()
 		updateJobStatus(job)
-		log.Error().Err(err).Str("domain", target.Domain).Msg("Discovery failed")
+		fmt.Printf("❌ [katana] Failed: %v\n", err)
 		return
 	}
+	fmt.Printf("✅ [katana] Found %d JS URLs\n", len(jsURLs))
 
-	log.Info().
-		Str("domain", target.Domain).
-		Int("js_urls_found", len(jsURLs)).
-		Msg("Discovery complete")
+	// Discovery - Wayback CDX
+	job.CurrentStep = "discovery.wayback"
+	updateJobStatus(job)
+	fmt.Printf("🔍 [wayback] Querying CDX...\n")
+	waybackURLs, wbErr := discoveryRunner.DiscoverViaWaybackCDX(ctx, &target)
+	if wbErr != nil {
+		fmt.Printf("❌ [wayback] Failed: %v\n", wbErr)
+	} else {
+		fmt.Printf("✅ [wayback] Found %d JS URLs\n", len(waybackURLs))
+		// Merge URLs
+		jsURLs = append(jsURLs, waybackURLs...)
+	}
 
 	if len(jsURLs) == 0 {
 		job.Status = models.JobStatusDone
 		updateJobStatus(job)
+		elapsed := time.Since(startTime)
+		fmt.Printf("🏁 Hunt complete: %s (no JS URLs found — %.0fs)\n", target.Domain, elapsed.Seconds())
 		return
 	}
 
-	// Analyze
+	// Fetch and analyze
+	job.CurrentStep = "analyzing.js"
+	updateJobStatus(job)
+	fmt.Printf("📥 Fetching %d unique JS files...\n", len(jsURLs))
 	jsModule := js.NewJSModule(cfg.JS, cfg.Sensitive)
-	results, err := jsModule.FetchAndProcess(ctx, &target, jsURLs, nil)
+	results, err := jsModule.FetchAndProcessWithCounter(ctx, &target, jsURLs, nil, pc)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("analysis failed: %w", err).Error()
 		updateJobStatus(job)
-		log.Error().Err(err).Str("domain", target.Domain).Msg("Analysis failed")
+		fmt.Printf("❌ Analysis failed: %v\n", err)
 		return
 	}
 
 	fetched, skipped := summarizeResults(results)
-	log.Info().
-		Str("domain", target.Domain).
-		Int("fetched", fetched).
-		Int("skipped", skipped).
-		Msg("Hunt complete")
+	fmt.Printf("✅ Fetched %d files (%d skipped, already known)\n", fetched, skipped)
 
+	// Phase results
+	secretsCount := pc.secrets.Load()
+	sinksCount := pc.sinks.Load()
+	endpointsCount := pc.endpoints.Load()
+	paramsCount := pc.params.Load()
+	blhCount := pc.blh.Load()
+	cveCount := pc.cves.Load()
+
+	fmt.Printf("🔬 [secrets]   %d findings\n", secretsCount)
+	fmt.Printf("🔬 [sinks]     %d findings\n", sinksCount)
+	fmt.Printf("🔬 [endpoints] %d found\n", endpointsCount)
+	fmt.Printf("🔬 [params]    %d found\n", paramsCount)
+	fmt.Printf("🔬 [blh]       %d candidates\n", blhCount)
+	fmt.Printf("🔬 [cve]       %d matches\n", cveCount)
+
+	// Complete
 	finishedAt := time.Now()
 	job.FinishedAt = &finishedAt
 	job.Status = models.JobStatusDone
+	job.CurrentStep = "complete"
 	updateJobStatus(job)
+
+	elapsed := time.Since(startTime)
+	fmt.Printf("🏁 Hunt complete: %s (%.0fs)\n", target.Domain, elapsed.Seconds())
 
 	targetColl.UpdateOne(ctx,
 		bson.M{"_id": target.ID},
@@ -213,6 +264,9 @@ func updateJobStatus(job *models.Job) {
 	}
 	if job.Error != "" {
 		update["error"] = job.Error
+	}
+	if job.CurrentStep != "" {
+		update["current_step"] = job.CurrentStep
 	}
 	coll.UpdateOne(ctx, bson.M{"_id": job.ID}, bson.M{"$set": update})
 }
@@ -243,8 +297,7 @@ func runDaemonStatus() {
 
 	jobColl := mongo.GetCollection("jobs")
 
-	var queuedCount int64
-	queuedCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "queued"})
+	queuedCount, _ := jobColl.CountDocuments(nil, bson.M{"status": "queued"})
 
 	var runningCount int64
 	runningCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "running"})
@@ -259,9 +312,46 @@ func runDaemonStatus() {
 	}
 
 	fmt.Printf("Hustler Daemon Status:\n")
-	fmt.Printf("  Process: %s\n", map[bool]string{true: "RUNNING", false: "NOT RUNNING"}[pidRunning])
-	fmt.Printf("  Queued jobs: %d\n", queuedCount)
-	fmt.Printf("  Running jobs: %d\n", runningCount)
+	if pidRunning {
+		color.New(color.FgGreen).Printf("  Process: RUNNING (PID %d)\n", daemonPID)
+	} else {
+		color.New(color.FgRed).Printf("  Process: NOT RUNNING\n")
+	}
+
+	fmt.Printf("\n📊 Active Jobs:\n")
+	cursor, _ := jobColl.Find(nil, bson.M{"status": "running"})
+	var runningJobs []models.Job
+	cursor.All(nil, &runningJobs)
+	for _, job := range runningJobs {
+		var target models.Target
+		targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+		step := job.CurrentStep
+		if step == "" {
+			elapsed := time.Since(*job.StartedAt)
+			if elapsed < 30*time.Second {
+				step = "🔍 Discovery"
+			} else if elapsed < 5*time.Minute {
+				step = "📄 Analyzing JS"
+			} else {
+				step = "💾 Storing"
+			}
+		}
+		fmt.Printf("  🎯 %s [%s] → %s\n", target.Domain, target.Platform, step)
+	}
+
+	if queuedCount > 0 {
+		fmt.Printf("\n📥 Queued (%d):\n", queuedCount)
+		cursor, _ := jobColl.Find(nil, bson.M{"status": "queued"})
+		var queuedJobs []models.Job
+		cursor.All(nil, &queuedJobs)
+		for _, job := range queuedJobs {
+			var target models.Target
+			targetColl.FindOne(nil, bson.M{"_id": job.TargetID}).Decode(&target)
+			fmt.Printf("  ⏳ %s [%s]\n", target.Domain, target.Platform)
+		}
+	}
+
+	fmt.Printf("\nTargets: %d total\n", totalTargets)
 }
 
 func runDaemonStop() {
