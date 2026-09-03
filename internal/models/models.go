@@ -2,6 +2,7 @@ package models
 
 import (
 	"time"
+	"sync/atomic"
 
 	"github.com/google/uuid"
 )
@@ -42,6 +43,7 @@ type Target struct {
 	Domain    string       `bson:"domain" json:"domain"`
 	Source    TargetSource `bson:"source" json:"source"`
 	Platform  TargetPlatform `bson:"platform,omitempty" json:"platform,omitempty"`
+	ProgramID string       `bson:"program_id,omitempty" json:"program_id,omitempty"`
 	Status    TargetStatus `bson:"status" json:"status"`
 	AddedAt   time.Time    `bson:"added_at" json:"added_at"`
 	UpdatedAt time.Time    `bson:"updated_at" json:"updated_at"`
@@ -195,6 +197,41 @@ type Job struct {
 	Error       string     `bson:"error,omitempty" json:"error,omitempty"`
 	Source      string     `bson:"source" json:"source"` // "manual" or "watchdogs"
 	CurrentStep string     `bson:"current_step,omitempty" json:"current_step,omitempty"`
+}
+
+// PhaseCounter tracks per-target phase counts for summary display
+type PhaseCounter struct {
+	Secrets     atomic.Int64
+	Sinks       atomic.Int64
+	Endpoints   atomic.Int64
+	Params      atomic.Int64
+	BLH         atomic.Int64
+	Cves        atomic.Int64
+	Fetched     atomic.Int64
+	Skipped     atomic.Int64
+}
+
+// Program represents a bug bounty program under a platform
+type Program struct {
+	ID        string    `bson:"_id" json:"id"`
+	Name      string    `bson:"name" json:"name"`
+	Platform  string    `bson:"platform" json:"platform"`
+	AddedAt   time.Time `bson:"added_at" json:"added_at"`
+}
+
+// TargetTree represents the hierarchical grouping of targets by platform and program
+type TargetTree struct {
+	Platform   string         `json:"platform"`
+	Icon       string         `json:"icon"`
+	Programs   map[string][]Target `json:"programs"`
+	Uncategorized []Target     `json:"uncategorized,omitempty"`
+}
+
+// TargetGroup represents a program with its targets
+type TargetGroup struct {
+	ProgramName string    `json:"program_name"`
+	ProgramID   string    `json:"program_id,omitempty"`
+	Domains     []Target  `json:"domains"`
 }
 
 // DiscoveredURL tracks URLs that have been seen for a target to enable incremental scanning

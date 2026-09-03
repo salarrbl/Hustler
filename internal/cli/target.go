@@ -31,6 +31,7 @@ var targetAddCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		domain := args[0]
 		platform, _ := cmd.Flags().GetString("platform")
+		programName, _ := cmd.Flags().GetString("program")
 		ctx := context.Background()
 
 		// Check if target already exists
@@ -41,19 +42,31 @@ var targetAddCmd = &cobra.Command{
 			return fmt.Errorf("target already exists: %s (ID: %s)", domain, existing.ID)
 		}
 
-		// Default platform to freelance if not specified
-		if platform == "" {
-			platform = string(models.PlatformFreelance)
+		// Require platform and program
+		if platform == "" || programName == "" {
+			fmt.Println("Missing categorization. Specify where this target belongs:")
+			fmt.Println("  hustler target add <domain> --platform hackerone --program walmart")
+			fmt.Println("  hustler target add <domain> --platform freelance --program <client-name>")
+			fmt.Println()
+			fmt.Println("Existing programs: hustler program list")
+			return fmt.Errorf("both --platform and --program are required")
+		}
+
+		// Get or create program
+		programID, err := getOrCreateProgram(ctx, programName, platform)
+		if err != nil {
+			return fmt.Errorf("failed to create program: %w", err)
 		}
 
 		target := models.NewTarget(domain, models.SourceManual)
 		target.Platform = models.TargetPlatform(platform)
+		target.ProgramID = programID
 		_, err = coll.InsertOne(ctx, target)
 		if err != nil {
 			return fmt.Errorf("failed to insert target: %w", err)
 		}
 
-		// Enqueue hunt job (write to MongoDB for daemon to pick up)
+		// Enqueue hunt job
 		jobColl := mongo.GetCollection("jobs")
 		job := &models.Job{
 			ID:       uuid.New().String(),
@@ -71,8 +84,8 @@ var targetAddCmd = &cobra.Command{
 			fmt.Printf("Enqueued hunt job: %s\n", job.ID)
 		}
 
-		log.Info().Str("domain", domain).Str("id", target.ID).Str("platform", platform).Msg("Target added successfully")
-		fmt.Printf("Added target: %s (ID: %s) [Platform: %s]\n", domain, target.ID, platform)
+		log.Info().Str("domain", domain).Str("id", target.ID).Str("platform", platform).Str("program", programName).Msg("Target added successfully")
+		fmt.Printf("Added target: %s (ID: %s) [%s / %s]\n", domain, target.ID, platform, programName)
 		return nil
 	},
 }
@@ -100,14 +113,31 @@ var targetListCmd = &cobra.Command{
 			return nil
 		}
 
-		// Group by platform
+		// Group by platform and program
 		byPlatform := make(map[string][]models.Target)
+		var uncategorized []models.Target
 		for _, t := range targets {
 			platform := string(t.Platform)
 			if platform == "" {
 				platform = string(models.PlatformFreelance)
 			}
-			byPlatform[platform] = append(byPlatform[platform], t)
+			if t.ProgramID == "" {
+				uncategorized = append(uncategorized, t)
+			} else {
+				byPlatform[platform] = append(byPlatform[platform], t)
+			}
+		}
+
+		// Get programs for names
+		programColl := mongo.GetCollection("programs")
+		progCursor, _ := programColl.Find(ctx, bson.M{})
+		var programs []models.Program
+		progCursor.All(ctx, &programs)
+
+		// Build program name lookup
+		programNames := make(map[string]string)
+		for _, p := range programs {
+			programNames[p.ID] = p.Name
 		}
 
 		// Order platforms
@@ -120,24 +150,85 @@ var targetListCmd = &cobra.Command{
 			string(models.PlatformFreelance),
 		}
 
+		// Group by platform and program
+		type platformProgramKey struct {
+			platform string
+			program  string
+		}
+		programTargets := make(map[platformProgramKey][]models.Target)
+
+		for _, t := range targets {
+			platform := string(t.Platform)
+			if platform == "" {
+				platform = string(models.PlatformFreelance)
+			}
+			key := platformProgramKey{platform: platform, program: t.ProgramID}
+			programTargets[key] = append(programTargets[key], t)
+		}
+
 		for _, platform := range platformOrder {
-			targetsInPlatform := byPlatform[platform]
-			if len(targetsInPlatform) == 0 {
+			// Collect programs for this platform (only those with targets)
+			platformProgs := make(map[string]bool)
+			for key := range programTargets {
+				if key.platform == platform && key.program != "" {
+					platformProgs[key.program] = true
+				}
+			}
+
+			// Skip platform if no programs with targets and no uncategorized targets with this platform
+			hasUncatInPlatform := false
+			for _, t := range uncategorized {
+				p := string(t.Platform)
+				if p == "" {
+					p = string(models.PlatformFreelance)
+				}
+				if p == platform {
+					hasUncatInPlatform = true
+					break
+				}
+			}
+
+			if len(platformProgs) == 0 && !hasUncatInPlatform {
 				continue
 			}
 
-			// Platform header
-			fmt.Printf("\n%s %s (%d)\n", color.New(color.FgHiCyan, color.Bold).Sprintf(platformIcon(platform)), platform, len(targetsInPlatform))
+			fmt.Printf("\n%s %s:\n", color.New(color.FgHiCyan, color.Bold).Sprintf(platformIcon(platform)), platform)
 			fmt.Println(strings.Repeat("─", 60))
 
-			for _, t := range targetsInPlatform {
-				sc := statusColor(string(t.Status))
-				src := sourceColor(string(t.Source))
-				fmt.Printf("  %-36s %-20s %-12s %s\n",
-					color.New(color.Faint).Sprintf("%s", t.ID[:8]+"..."),
-					t.Domain,
-					src.Sprintf("%s", t.Source),
-					sc.Sprintf("%s", t.Status))
+			// Print programs
+			for progID := range platformProgs {
+				progName := progID
+				if name, ok := programNames[progID]; ok {
+					progName = name
+				}
+				targs := programTargets[platformProgramKey{platform: platform, program: progID}]
+				fmt.Printf("  %s %s (%d)\n", color.New(color.FgHiWhite).Sprintf("◆"), progName, len(targs))
+				for _, t := range targs {
+					sc := statusColor(string(t.Status))
+					src := sourceColor(string(t.Source))
+					fmt.Printf("    %-36s %-12s %s\n",
+						t.Domain,
+						src.Sprintf("%s", t.Source),
+						sc.Sprintf("%s", t.Status))
+				}
+			}
+
+			// Print uncategorized for THIS platform only
+			platformUncat := []models.Target{}
+			for _, t := range uncategorized {
+				p := string(t.Platform)
+				if p == "" {
+					p = string(models.PlatformFreelance)
+				}
+				if p == platform {
+					platformUncat = append(platformUncat, t)
+				}
+			}
+			if len(platformUncat) > 0 {
+				fmt.Printf("  ⚠ Uncategorized (%d)\n", len(platformUncat))
+				for _, t := range platformUncat {
+					fmt.Printf("    %s\n", t.Domain)
+				}
 			}
 		}
 		return nil
@@ -201,7 +292,18 @@ var targetImportCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		filePath := args[0]
 		platform, _ := cmd.Flags().GetString("platform")
+		programName, _ := cmd.Flags().GetString("program")
 		ctx := context.Background()
+
+		if platform == "" || programName == "" {
+			return fmt.Errorf("both --platform and --program are required for bulk import")
+		}
+
+		// Get or create program
+		programID, err := getOrCreateProgram(ctx, programName, platform)
+		if err != nil {
+			return fmt.Errorf("failed to create program: %w", err)
+		}
 
 		content, err := os.ReadFile(filePath)
 		if err != nil {
@@ -244,6 +346,7 @@ var targetImportCmd = &cobra.Command{
 
 			target := models.NewTarget(domain, models.SourceManual)
 			target.Platform = models.TargetPlatform(platform)
+			target.ProgramID = programID
 			_, err = coll.InsertOne(ctx, target)
 			if err != nil {
 				fmt.Printf("Failed to add %s: %v\n", domain, err)
@@ -276,7 +379,9 @@ func init() {
 
 	// Platform flag for target add
 	targetAddCmd.Flags().StringP("platform", "p", "", "Bug bounty platform (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
+	targetAddCmd.Flags().StringP("program", "", "", "Program name under the platform")
 	targetImportCmd.Flags().StringP("platform", "p", "", "Bug bounty platform for imported targets (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
+	targetImportCmd.Flags().StringP("program", "", "", "Program name under the platform")
 
 	// Shell completion for platform
 	_ = targetAddCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {

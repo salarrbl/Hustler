@@ -7,11 +7,10 @@ import (
 	"os"
 	"os/signal"
 	"strconv"
-	"strings"
-	"sync/atomic"
 	"syscall"
 	"time"
 
+	"github.com/fatih/color"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson"
@@ -105,18 +104,6 @@ func runDaemon(cfg *config.FullConfig) {
 	}
 }
 
-// phaseCounter tracks per-target phase counts for summary display
-type phaseCounter struct {
-	secrets  atomic.Int64
-	sinks    atomic.Int64
-	endpoints atomic.Int64
-	params   atomic.Int64
-	blh      atomic.Int64
-	cves     atomic.Int64
-	fetched  atomic.Int64
-	skipped  atomic.Int64
-}
-
 func processQueuedJobs(ctx context.Context, cfg *config.FullConfig) {
 	jobColl := mongo.GetCollection("jobs")
 	cursor, err := jobColl.Find(ctx, bson.M{"status": string(models.JobStatusQueued)})
@@ -163,7 +150,7 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 	}
 
 	startTime := time.Now()
-	pc := &phaseCounter{}
+	var pc models.PhaseCounter
 
 	fmt.Printf("\n🎯 Hunt started: %s [%s]\n", target.Domain, target.Platform)
 
@@ -187,7 +174,7 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 	job.CurrentStep = "discovery.wayback"
 	updateJobStatus(job)
 	fmt.Printf("🔍 [wayback] Querying CDX...\n")
-	waybackURLs, wbErr := discoveryRunner.DiscoverViaWaybackCDX(ctx, &target)
+	waybackURLs, wbErr := discoveryRunner.DiscoverViaWaybackCDX(ctx, target.Domain)
 	if wbErr != nil {
 		fmt.Printf("❌ [wayback] Failed: %v\n", wbErr)
 	} else {
@@ -209,7 +196,7 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 	updateJobStatus(job)
 	fmt.Printf("📥 Fetching %d unique JS files...\n", len(jsURLs))
 	jsModule := js.NewJSModule(cfg.JS, cfg.Sensitive)
-	results, err := jsModule.FetchAndProcessWithCounter(ctx, &target, jsURLs, nil, pc)
+	results, err := jsModule.FetchAndProcessWithCounter(ctx, &target, jsURLs, nil, &pc)
 	if err != nil {
 		job.Status = models.JobStatusError
 		job.Error = fmt.Errorf("analysis failed: %w", err).Error()
@@ -222,12 +209,12 @@ func processJob(ctx context.Context, job *models.Job, cfg *config.FullConfig) {
 	fmt.Printf("✅ Fetched %d files (%d skipped, already known)\n", fetched, skipped)
 
 	// Phase results
-	secretsCount := pc.secrets.Load()
-	sinksCount := pc.sinks.Load()
-	endpointsCount := pc.endpoints.Load()
-	paramsCount := pc.params.Load()
-	blhCount := pc.blh.Load()
-	cveCount := pc.cves.Load()
+	secretsCount := pc.Secrets.Load()
+	sinksCount := pc.Sinks.Load()
+	endpointsCount := pc.Endpoints.Load()
+	paramsCount := pc.Params.Load()
+	blhCount := pc.BLH.Load()
+	cveCount := pc.Cves.Load()
 
 	fmt.Printf("🔬 [secrets]   %d findings\n", secretsCount)
 	fmt.Printf("🔬 [sinks]     %d findings\n", sinksCount)
@@ -296,15 +283,18 @@ func runDaemonStatus() {
 	defer mongo.Disconnect()
 
 	jobColl := mongo.GetCollection("jobs")
+	targetColl := mongo.GetCollection("targets")
 
 	queuedCount, _ := jobColl.CountDocuments(nil, bson.M{"status": "queued"})
+	totalTargets, _ := targetColl.CountDocuments(nil, bson.M{})
 
-	var runningCount int64
-	runningCount, _ = jobColl.CountDocuments(nil, bson.M{"status": "running"})
+	_, _ = jobColl.CountDocuments(nil, bson.M{"status": "running"}) // unused, kept for API consistency
 
 	pidRunning := false
+	var daemonPID int
 	if pidBytes, err := os.ReadFile("/tmp/hustler-daemon.pid"); err == nil {
 		if pid, err := strconv.Atoi(string(pidBytes)); err == nil {
+			daemonPID = pid
 			if proc, err := os.FindProcess(pid); err == nil {
 				pidRunning = proc.Signal(syscall.Signal(0)) == nil
 			}

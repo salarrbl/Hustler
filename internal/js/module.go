@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/google/uuid"
@@ -50,6 +51,17 @@ func NewJSModule(jsCfg config.JSConfig, sensitiveCfg config.SensitiveEndpointChe
 		sensitiveCfg: sensitiveCfg,
 		httpClient:   client,
 	}
+}
+
+type phaseCounter struct {
+	secrets     atomic.Int64
+	sinks       atomic.Int64
+	endpoints   atomic.Int64
+	params      atomic.Int64
+	blh         atomic.Int64
+	cves        atomic.Int64
+	fetched     atomic.Int64
+	skipped     atomic.Int64
 }
 
 // JSFileResult represents the result of fetching a JS file
@@ -119,7 +131,7 @@ func (m *JSModule) FetchAndProcess(ctx context.Context, target *models.Target, j
 }
 
 // FetchAndProcessWithCounter fetches JS files for a target and runs all analyzers with phase counters
-func (m *JSModule) FetchAndProcessWithCounter(ctx context.Context, target *models.Target, jsURLs []string, htmlContent map[string]string, pc *phaseCounter) ([]JSFileResult, error) {
+func (m *JSModule) FetchAndProcessWithCounter(ctx context.Context, target *models.Target, jsURLs []string, htmlContent map[string]string, pc *models.PhaseCounter) ([]JSFileResult, error) {
 	if len(jsURLs) == 0 {
 		return nil, fmt.Errorf("no JS URLs provided")
 	}
@@ -181,7 +193,7 @@ func (m *JSModule) FetchAndProcessWithCounter(ctx context.Context, target *model
 }
 
 // runAnalyzersWithCounter runs all enabled analyzers on the fetched JS files with phase counters
-func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string, htmlContent map[string]string, pc *phaseCounter) {
+func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string, htmlContent map[string]string, pc *models.PhaseCounter) {
 	log.Info().Int("files", len(jsFiles)).Msg("Running analyzers")
 
 	// 1. Secret scanner
@@ -199,7 +211,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			totalSecrets += len(secrets)
 		}
 	}
-	pc.secrets.Add(int64(totalSecrets))
+	pc.Secrets.Add(int64(totalSecrets))
 
 	// 2. Sink analyzer
 	sinkAnalyzer := analyzers.NewSinkAnalyzer()
@@ -216,7 +228,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			totalSinks += len(sinks)
 		}
 	}
-	pc.sinks.Add(int64(totalSinks))
+	pc.Sinks.Add(int64(totalSinks))
 
 	// 3. Endpoint extractor
 	endpointExtractor := analyzers.NewEndpointExtractor()
@@ -235,7 +247,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			m.storeDiscoveredURLs(ctx, target.ID, endpoints, "extracted_from_js")
 		}
 	}
-	pc.endpoints.Add(int64(totalEndpoints))
+	pc.Endpoints.Add(int64(totalEndpoints))
 
 	// 4. Parameter extractor
 	paramExtractor := analyzers.NewParamExtractor()
@@ -252,7 +264,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			totalParams += len(params)
 		}
 	}
-	pc.params.Add(int64(totalParams))
+	pc.Params.Add(int64(totalParams))
 
 	// 5. BLH analyzer
 	blhAnalyzer := analyzers.NewBLHAnalyzer(m.httpClient)
@@ -260,7 +272,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 	if err != nil {
 		log.Warn().Err(err).Msg("BLH analyzer failed")
 	} else {
-		pc.blh.Add(int64(len(blhCandidates)))
+		pc.BLH.Add(int64(len(blhCandidates)))
 	}
 
 	// 6. Library CVE analyzer
@@ -269,7 +281,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 	if err != nil {
 		log.Warn().Err(err).Msg("Library CVE analyzer failed")
 	} else {
-		pc.cves.Add(int64(len(cveResults)))
+		pc.Cves.Add(int64(len(cveResults)))
 	}
 
 	// 7. Sensitive endpoint check (if enabled)
