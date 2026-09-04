@@ -12,7 +12,7 @@
 | **Endpoint Extractor** | 5 regex groups, API-like filtering, method inference |
 | **Parameter Extractor** | 5 regex groups, context deduction (query/body/form/header/path) |
 | **BLH Analyzer** | DNS + HTTP checks, unclaimed S3/GitHub Pages/Azure, risk scoring |
-| **Library CVE** | Multi-source: retire.js (5000+ JS libs), osv.dev, npm advisories, embedded server tech |
+| **Library CVE** | Multi-source (retire.js ranges, osv.dev, NVD CPE cache, KEV/EPSS): 60+ client signatures, header/body server fingerprinting, exploit verdicts + nuclei |
 | **Sensitive Endpoints** | Active GET checks (disabled by default), configurable paths/patterns |
 
 ## Architecture
@@ -107,8 +107,11 @@ watch -n 5 ./hustler daemon status
 
 # CVE database management
 ./hustler cve update          # download latest (shows NEW CVEs found)
-./hustler cve status          # show database stats
+./hustler cve update --source nvd   # opt-in: server products via NVD CPE cache
+./hustler cve status          # show database stats (per-source + KEV/EPSS age)
 ./hustler cve list --library lodash --limit 0  # filter, unlimited results
+./hustler cve scan --target example.com        # live passive scan, no MongoDB needed
+./hustler cve verify CVE-2021-23337            # ranges, verdict, PoC, nuclei, fix
 
 # Web UI
 ./hustler web                 # http://localhost:8080

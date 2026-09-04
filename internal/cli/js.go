@@ -244,8 +244,23 @@ This is a read-only command - it does not start or re-run scans.`,
 						verColored := color.New(color.FgHiYellow).Sprintf("v%s", c.Version)
 						cveColored := color.New(color.FgHiRed).Sprintf("%s", c.CVEID)
 						sevColored := sev.Sprintf("(%s)", c.Severity)
-						fmt.Printf("  %s %s  %s %s — %s\n",
-							libColored, verColored, cveColored, sevColored, c.Description)
+						extra := ""
+						if c.FixedVersion != "" {
+							extra += color.New(color.FgHiGreen).Sprintf(" fix: >=%s", c.FixedVersion)
+						}
+						switch c.Exploitable {
+						case "confirmed":
+							extra += color.New(color.FgHiRed, color.Bold).Sprintf(" 🎯CONFIRMED")
+						case "likely":
+							extra += color.New(color.FgHiYellow).Sprintf(" ⚠likely")
+						}
+						if c.KEVListed {
+							extra += color.New(color.FgHiRed).Sprintf(" [KEV]")
+						} else if c.EPSS >= 0.5 {
+							extra += color.New(color.FgHiYellow).Sprintf(" [EPSS %.2f]", c.EPSS)
+						}
+						fmt.Printf("  %s %s  %s %s%s — %s\n",
+							libColored, verColored, cveColored, sevColored, extra, c.Description)
 					}
 				}
 

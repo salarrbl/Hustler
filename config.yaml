@@ -49,6 +49,18 @@ logging:
 hustler:
   max_concurrent_hunts: 3
 
+cve:
+  data_dir: "./data/cve"
+  enable_online_lookup: true
+  rate_limit_rps: 2.0
+  update_interval_days: 7
+  min_confidence: 0.5
+  nvd_api_key: ""              # optional: https://nvd.nist.gov/developers/request-an-api-key (50 req/30s vs 5)
+  enable_exploit_checks: true  # passive KEV/EPSS/PoC triage (annotation only)
+  enable_active_probes: false  # keep false: only safe banner re-checks, never payloads
+  # osv_packages: []           # override npm seed list (default: ~60 packages)
+  # server_tech: []            # override NVD product seed (default: apache, nginx, php, ...)
+
 discovery:
   enabled: true
   use_katana: true

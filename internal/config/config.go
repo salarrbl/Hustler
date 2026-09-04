@@ -14,6 +14,7 @@ type FullConfig struct {
 	Logging      LoggingConfig                `mapstructure:"logging"`
 	Hustler      HustlerConfig                `mapstructure:"hustler"`
 	Discovery    DiscoveryConfig              `mapstructure:"discovery"`
+	CVE          CVEConfig                    `mapstructure:"cve"`
 }
 
 // HustlerConfig holds Hustler-specific settings
@@ -97,4 +98,18 @@ type SensitiveEndpointCheckConfig struct {
 type LoggingConfig struct {
 	Level  string `mapstructure:"level"`   // debug, info, warn, error
 	Format string `mapstructure:"format"`  // json, console
+}
+
+// CVEConfig holds CVE module settings
+type CVEConfig struct {
+	DataDir             string   `mapstructure:"data_dir"`
+	EnableOnlineLookup  bool     `mapstructure:"enable_online_lookup"`
+	RateLimitRPS        float64  `mapstructure:"rate_limit_rps"`
+	UpdateIntervalDays  int      `mapstructure:"update_interval_days"`
+	MinConfidence       float64  `mapstructure:"min_confidence"`
+	NVDAPIKey           string   `mapstructure:"nvd_api_key"`
+	EnableExploitChecks bool     `mapstructure:"enable_exploit_checks"`
+	EnableActiveProbes  bool     `mapstructure:"enable_active_probes"`
+	OSVPackages         []string `mapstructure:"osv_packages"`
+	ServerTech          []string `mapstructure:"server_tech"`
 }

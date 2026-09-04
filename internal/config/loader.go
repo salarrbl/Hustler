@@ -122,4 +122,17 @@ func setDefaults(cfg *FullConfig) {
 	if cfg.Hustler.MaxConcurrentHunts == 0 {
 		cfg.Hustler.MaxConcurrentHunts = 3
 	}
+
+	if cfg.CVE.DataDir == "" {
+		cfg.CVE.DataDir = "./data/cve"
+	}
+	if cfg.CVE.RateLimitRPS == 0 {
+		cfg.CVE.RateLimitRPS = 2.0
+	}
+	if cfg.CVE.UpdateIntervalDays == 0 {
+		cfg.CVE.UpdateIntervalDays = 7
+	}
+	if cfg.CVE.MinConfidence == 0 {
+		cfg.CVE.MinConfidence = 0.5
+	}
 }
