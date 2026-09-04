@@ -229,19 +229,50 @@ func (d *Daemon) processJob(ctx context.Context, job *models.Job) {
 	d.updateJobStatus(job)
 	fmt.Printf("🔍 [cve] Analyzing for known vulnerabilities...\n")
 
-	cveModule, err := cve.NewCVEModule(cve.DefaultCVEConfig())
+	// Map app config onto the CVE module (module defaults fill the gaps).
+	cveCfg := cve.DefaultCVEConfig()
+	if d.cfg.CVE.DataDir != "" {
+		cveCfg.DataDir = d.cfg.CVE.DataDir
+	}
+	if d.cfg.CVE.RateLimitRPS > 0 {
+		cveCfg.RateLimitRPS = d.cfg.CVE.RateLimitRPS
+	}
+	if d.cfg.CVE.UpdateIntervalDays > 0 {
+		cveCfg.UpdateIntervalDays = d.cfg.CVE.UpdateIntervalDays
+	}
+	if d.cfg.CVE.MinConfidence > 0 {
+		cveCfg.MinConfidence = d.cfg.CVE.MinConfidence
+	}
+	if d.cfg.CVE.NVDAPIKey != "" {
+		cveCfg.NVDAPIKey = d.cfg.CVE.NVDAPIKey
+	}
+	// Passive exploit triage (KEV/EPSS/PoC) only annotates findings, so it
+	// stays on. Active probes require explicit opt-in via config.
+	cveCfg.EnableExploitChecks = true
+	cveCfg.EnableActiveProbes = d.cfg.CVE.EnableActiveProbes
+	if len(d.cfg.CVE.OSVPackages) > 0 {
+		cveCfg.OSVPackages = d.cfg.CVE.OSVPackages
+	}
+	if len(d.cfg.CVE.ServerTech) > 0 {
+		cveCfg.ServerTechList = d.cfg.CVE.ServerTech
+	}
+	cveModule, err := cve.NewCVEModule(cveCfg)
 	if err != nil {
 		log.Warn().Err(err).Msg("Failed to initialize CVE module, skipping CVE analysis")
 	} else {
-		var jsFiles []*models.JSFile
+		// Server-side pass: fingerprint the homepage (headers + body) and
+		// match versioned tech against the local DB. Client-side libraries
+		// were already handled in the JS phase above (no double counting):
+		// freshly fetched content is analyzed there, so pass nil JS here.
+		homepageClient := &http.Client{Timeout: 15 * time.Second}
 		var httpResponses []cve.HTTPResponse
-		for _, r := range results {
-			if r.JSFile != nil {
-				jsFiles = append(jsFiles, r.JSFile)
-			}
+		if home, herr := cve.FetchHomepage(ctx, homepageClient, target.Domain); herr != nil {
+			log.Warn().Err(herr).Str("domain", target.Domain).Msg("Homepage fetch failed, skipping server-side CVE pass")
+		} else {
+			httpResponses = append(httpResponses, home)
 		}
 
-		cveFindings, err := cveModule.Analyze(ctx, &target, jsFiles, httpResponses)
+		cveFindings, err := cveModule.Analyze(ctx, &target, nil, httpResponses)
 		if err != nil {
 			log.Warn().Err(err).Msg("CVE analysis failed")
 		} else {

@@ -177,6 +177,17 @@ type LibraryCVE struct {
 	Description string    `bson:"description,omitempty" json:"description,omitempty"`
 	Reference   string    `bson:"reference,omitempty" json:"reference,omitempty"`
 	FoundAt     time.Time `bson:"found_at" json:"found_at"`
+	// Enrichment (omitempty keeps old documents readable)
+	CVSS         float64  `bson:"cvss,omitempty" json:"cvss,omitempty"`
+	FixedVersion string   `bson:"fixed_version,omitempty" json:"fixed_version,omitempty"`
+	Source       string   `bson:"source,omitempty" json:"source,omitempty"`
+	Context      string   `bson:"context,omitempty" json:"context,omitempty"`
+	Confidence   float64  `bson:"confidence,omitempty" json:"confidence,omitempty"`
+	EPSS         float64  `bson:"epss,omitempty" json:"epss,omitempty"`
+	KEVListed    bool     `bson:"kev_listed,omitempty" json:"kev_listed,omitempty"`
+	Exploitable  string   `bson:"exploitable,omitempty" json:"exploitable,omitempty"` // confirmed/likely/possible/unknown
+	ExploitNote  string   `bson:"exploit_note,omitempty" json:"exploit_note,omitempty"`
+	References   []string `bson:"references,omitempty" json:"references,omitempty"`
 }
 
 // JobStatus represents the status of a hunt job

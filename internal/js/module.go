@@ -317,8 +317,8 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 		pc.BLH.Add(int64(len(blhCandidates)))
 	}
 
-	// 6. Library CVE analyzer
-	cveAnalyzer := analyzers.NewLibraryCVEAnalyzer()
+	// 6. Library CVE analyzer (range-aware, offline, KEV/EPSS-triaged)
+	cveAnalyzer := analyzers.NewLibraryCVEAnalyzerWithDB("./data/cve")
 	cveResults, err := cveAnalyzer.AnalyzeLibraries(ctx, target, jsFiles, contentMap)
 	if err != nil {
 		log.Warn().Err(err).Msg("Library CVE analyzer failed")

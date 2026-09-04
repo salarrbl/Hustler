@@ -3,86 +3,69 @@ package analyzers
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"os"
-	"regexp"
 	"strings"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
-	"hustler/internal/mongo"
+	"hustler/internal/cve"
 	"hustler/internal/models"
+	"hustler/internal/mongo"
 )
 
-// signatures for library fingerprinting
-type libSignature struct {
-	name string
-	re   *regexp.Regexp
-}
-
-// LibraryCVEAnalyzer fingerprints JS libraries and checks for known CVEs
+// LibraryCVEAnalyzer fingerprints JS libraries and matches known CVEs.
+//
+// Detection (banners, globals, script-URL pins, package.json manifests),
+// range matching ([atOrAbove, below)), KEV/EPSS enrichment and
+// exploitability verdicts are delegated to the cve package (RunScan).
+// This type keeps the pipeline-facing API stable and persists findings.
 type LibraryCVEAnalyzer struct {
-	signatures []libSignature
-	cveMap     map[string][]LibraryCVE
+	dataDir string
+	db      map[string][]cve.LocalCVEEntry
 }
 
-// LibraryCVE represents a CVE match for a library version
-type LibraryCVE struct {
-	CVEID       string
-	Severity    string
-	Description string
-	Reference   string
-}
-
-// NewLibraryCVEAnalyzer creates a new CVE analyzer with known signatures
+// NewLibraryCVEAnalyzer creates an analyzer using ./data/cve.
 func NewLibraryCVEAnalyzer() *LibraryCVEAnalyzer {
-	// Initialize with some common library signatures (could be loaded from file)
-	signatures := []libSignature{
-		{"jQuery", regexp.MustCompile(`jquery\s*[:=]\s*['"]([12]\.\d+\.\d+)['"]`)},
-		{"jQuery", regexp.MustCompile(`jQuery JavaScript Library v?([12]\.\d+\.\d+)`)},
-		{"Bootstrap", regexp.MustCompile(`Bootstrap v?([345]\.\d+\.\d+)`)},
-		{"Vue.js", regexp.MustCompile(`Vue.{0,30}version\s*[:=]\s*['"]([\d.]+)['"]`)},
-		{"React", regexp.MustCompile(`react\s*[:=]\s*['"]([\d.]+)['"]`)},
-		{"Angular", regexp.MustCompile(`angular[^a-z]?([\d.]+)`)},
-		{"Lodash", regexp.MustCompile(`lodash[@/ ]([\d.]+)`)},
-		{"moment.js", regexp.MustCompile(`moment\.version\s*=\s*['"]([\d.]+)['"]`)},
-		{"axios", regexp.MustCompile(`axios[@/ ]([\d.]+)`)},
-	}
-
-	// Known CVEs (simplified - would normally load from retire.js database)
-	cveMap := map[string][]LibraryCVE{
-		"jQuery": {
-			{CVEID: "CVE-2020-11022", Severity: "medium", Description: "XSS via htmlPrefilter", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11022"},
-			{CVEID: "CVE-2020-11023", Severity: "medium", Description: "XSS via DOM manipulation", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11023"},
-		},
-		"Bootstrap": {
-			{CVEID: "CVE-2024-6484", Severity: "medium", Description: "XSS in data-target/tooltip", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-6484"},
-		},
-		"moment.js": {
-			{CVEID: "CVE-2022-24785", Severity: "medium", Description: "Path traversal in locale", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24785"},
-			{CVEID: "CVE-2022-31129", Severity: "low", Description: "ReDoS", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31129"},
-		},
-		"Lodash": {
-			{CVEID: "CVE-2021-23337", Severity: "high", Description: "Prototype Pollution", Reference: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23337"},
-		},
-	}
-
-	return &LibraryCVEAnalyzer{
-		signatures: signatures,
-		cveMap:     cveMap,
-	}
+	return NewLibraryCVEAnalyzerWithDB("./data/cve")
 }
 
-// LoadCVEDatabase loads CVE database from file
+// NewLibraryCVEAnalyzerWithDB creates an analyzer using a custom data dir.
+func NewLibraryCVEAnalyzerWithDB(dataDir string) *LibraryCVEAnalyzer {
+	a := &LibraryCVEAnalyzer{dataDir: dataDir}
+	a.Reload()
+	return a
+}
+
+// Reload (re)loads the local CVE database (call after `cve update`).
+func (l *LibraryCVEAnalyzer) Reload() {
+	db, err := cve.LoadEntriesFromDir(l.dataDir)
+	if err != nil {
+		log.Warn().Err(err).Str("dir", l.dataDir).Msg("CVE local DB unavailable, analyzer will find nothing")
+		db = make(map[string][]cve.LocalCVEEntry)
+	}
+	l.db = db
+}
+
+// LoadCVEDatabase loads extra CVE records from a single JSON file.
+// It accepts the legacy [{library, version, cve_id, ...}] shape as well as
+// []cve.LocalCVEEntry, and merges them into the in-memory database.
 func (l *LibraryCVEAnalyzer) LoadCVEDatabase(path string) error {
 	data, err := os.ReadFile(path)
 	if err != nil {
-		return fmt.Errorf("failed to read CVE database: %w", err)
+		return err
 	}
-
-	// Expected format: JSON array of {library, version, cve_id, severity, description, reference}
-	var cves []struct {
+	// Try the rich shape first.
+	var rich []cve.LocalCVEEntry
+	if err := json.Unmarshal(data, &rich); err == nil && len(rich) > 0 && rich[0].CVEID != "" {
+		for _, e := range rich {
+			l.db[strings.ToLower(e.Library)] = append(l.db[strings.ToLower(e.Library)], e)
+		}
+		log.Info().Int("cves_loaded", len(rich)).Msg("CVE database loaded")
+		return nil
+	}
+	// Fall back to the legacy shape.
+	var legacy []struct {
 		Library     string `json:"library"`
 		Version     string `json:"version"`
 		CVEID       string `json:"cve_id"`
@@ -90,81 +73,75 @@ func (l *LibraryCVEAnalyzer) LoadCVEDatabase(path string) error {
 		Description string `json:"description"`
 		Reference   string `json:"reference"`
 	}
-
-	if err := json.Unmarshal(data, &cves); err != nil {
-		return fmt.Errorf("failed to parse CVE database: %w", err)
+	if err := json.Unmarshal(data, &legacy); err != nil {
+		return err
 	}
-
-	// Build CVE map
-	for _, c := range cves {
-		library := strings.ToLower(c.Library)
-		l.cveMap[library] = append(l.cveMap[library], LibraryCVE{
-			CVEID:       c.CVEID,
-			Severity:    c.Severity,
-			Description: c.Description,
-			Reference:   c.Reference,
-		})
+	for _, item := range legacy {
+		e := cve.LocalCVEEntry{
+			Library:    cve.NormalizeLibName(item.Library),
+			MaxVersion: item.Version,
+			CVEID:      item.CVEID,
+			Severity:   strings.ToUpper(item.Severity),
+			Summary:    item.Description,
+			References: []string{item.Reference},
+			Source:     "custom",
+		}
+		l.db[strings.ToLower(e.Library)] = append(l.db[strings.ToLower(e.Library)], e)
 	}
-
-	log.Info().Int("cves_loaded", len(cves)).Msg("CVE database loaded")
+	log.Info().Int("cves_loaded", len(legacy)).Msg("CVE database loaded")
 	return nil
 }
 
-// AnalyzeLibraries fingerprints JS libraries and checks for CVEs
+// AnalyzeLibraries fingerprints libraries in contentMap and stores matches.
 func (l *LibraryCVEAnalyzer) AnalyzeLibraries(ctx context.Context, target *models.Target, jsFiles []*models.JSFile, contentMap map[string]string) ([]models.LibraryCVE, error) {
-	var allCVEs []models.LibraryCVE
-	seen := make(map[string]bool) // key: library+version
-
+	var sources []cve.JSSource
 	for _, jsFile := range jsFiles {
+		if jsFile == nil {
+			continue
+		}
 		content := contentMap[jsFile.URL]
 		if content == "" {
 			continue
 		}
+		sources = append(sources, cve.JSSource{URL: jsFile.URL, Content: content})
+	}
+	if len(sources) == 0 {
+		return nil, nil
+	}
 
-		for _, sig := range l.signatures {
-			pattern := sig.re
-			matches := pattern.FindAllStringSubmatch(content, -1)
-			for _, match := range matches {
-				if len(match) < 2 {
-					continue
-				}
-				version := match[1]
-				key := sig.name + "|" + version
+	opts := cve.DefaultScanOptions(l.dataDir)
+	// Offline inside the pipeline: no live lookups during hunts.
+	opts.EnableOnlineLookup = false
 
-				if seen[key] {
-					continue
-				}
-				seen[key] = true
-
-				// Check for CVEs
-				for _, cve := range l.cveMap[sig.name] {
-					cveRecord := models.LibraryCVE{
-						ID:          uuid.New().String(),
-						TargetID:    target.ID,
-						JSFileID:    jsFile.ID,
-						LibraryName: sig.name,
-						Version:     version,
-						CVEID:       cve.CVEID,
-						Severity:    cve.Severity,
-						Description: cve.Description,
-						Reference:   cve.Reference,
-						FoundAt:     time.Now(),
-					}
-					allCVEs = append(allCVEs, cveRecord)
-				}
+	// Map URL -> JSFile ID for storage linkage.
+	idByURL := make(map[string]string)
+	for _, jsFile := range jsFiles {
+		if jsFile != nil && jsFile.URL != "" {
+			if _, ok := idByURL[jsFile.URL]; !ok {
+				idByURL[jsFile.URL] = jsFile.ID
 			}
 		}
 	}
 
-	// Store in MongoDB
+	findings := cve.RunScan(ctx, l.db, nil, opts, cve.ScanInput{JSFiles: sources})
+
+	allCVEs := make([]models.LibraryCVE, 0, len(findings))
+	for _, f := range findings {
+		rec := cve.ToLibraryCVE(target.ID, idByURL[f.Context], f)
+		// f.Context is the JS URL here; resolve the stored file ID.
+		rec.JSFileID = idByURL[f.Context]
+		rec.ID = uuid.New().String()
+		rec.FoundAt = time.Now()
+		allCVEs = append(allCVEs, rec)
+	}
+
 	if len(allCVEs) > 0 {
 		coll := mongo.GetCollection("library_cves")
 		docs := make([]interface{}, len(allCVEs))
 		for i, c := range allCVEs {
 			docs[i] = c
 		}
-		_, err := coll.InsertMany(ctx, docs)
-		if err != nil {
+		if _, err := coll.InsertMany(ctx, docs); err != nil {
 			log.Error().Err(err).Msg("Failed to store CVE findings")
 			return allCVEs, err
 		}
