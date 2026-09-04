@@ -34,7 +34,7 @@ var paramPatterns = []*regexp.Regexp{
 }
 
 // ExtractParams scans JS content for parameter names
-func (p *ParamExtractor) ExtractParams(ctx context.Context, target *models.Target, jsFile *models.JSFile, content string) ([]models.Param, error) {
+func (p *ParamExtractor) ExtractParams(ctx context.Context, target *models.Target, jsFile *models.JSFile, content string, foundIn string) ([]models.Param, error) {
 	var params []models.Param
 	seen := make(map[string]bool)
 	lines := strings.Split(content, "\n")
@@ -65,15 +65,15 @@ func (p *ParamExtractor) ExtractParams(ctx context.Context, target *models.Targe
 				contextType := p.deduceContext(line, paramName)
 
 				param := models.Param{
-					ID:        uuid.New().String(),
-					TargetID:  target.ID,
-					JSFileID:  jsFile.ID,
-					ParamName: paramName,
-					Context:   contextType,
-					Location:  contextType,
-					FoundAt:   time.Now(),
-				}
-
+								ID:        uuid.New().String(),
+								TargetID:  target.ID,
+								JSFileID:  jsFile.ID,
+								ParamName: paramName,
+								Context:   contextType,
+								Location:  contextType,
+								FoundIn:   foundIn,
+								FoundAt:   time.Now(),
+							}
 				params = append(params, param)
 			}
 		}

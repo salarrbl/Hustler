@@ -111,21 +111,24 @@ type Endpoint struct {
 	ID        string    `bson:"_id" json:"id"`
 	TargetID  string    `bson:"target_id" json:"target_id"`
 	JSFileID  string    `bson:"js_file_id" json:"js_file_id"`
-	Endpoint  string    `bson:"endpoint" json:"endpoint"`         // the endpoint path/URL
+	Endpoint  string    `bson:"endpoint" json:"endpoint"` // the endpoint path/URL
 	Method    string    `bson:"method,omitempty" json:"method,omitempty"` // GET, POST, etc. if inferable
 	FullURL   string    `bson:"full_url,omitempty" json:"full_url,omitempty"` // resolved full URL
 	Context   string    `bson:"context,omitempty" json:"context,omitempty"` // e.g., "fetch", "axios", "form action"
 	FoundAt   time.Time `bson:"found_at" json:"found_at"`
+	FoundIn   string    `bson:"found_in,omitempty" json:"found_in,omitempty"` // "js_file" or "html_page"
 }
 
+// Param represents a parameter name extracted from JS
 // Param represents a parameter name extracted from JS
 type Param struct {
 	ID        string    `bson:"_id" json:"id"`
 	TargetID  string    `bson:"target_id" json:"target_id"`
 	JSFileID  string    `bson:"js_file_id" json:"js_file_id"`
 	ParamName string    `bson:"param_name" json:"param_name"`
-	Context   string    `bson:"context" json:"context"`           // query, body, form, header, path
+	Context   string    `bson:"context" json:"context"` // query, body, form, header, path
 	Location  string    `bson:"location,omitempty" json:"location,omitempty"` // where in JS (fetch, URLSearchParams, etc.)
+	FoundIn   string    `bson:"found_in,omitempty" json:"found_in,omitempty"` // "js_file" or "html_page"
 	FoundAt   time.Time `bson:"found_at" json:"found_at"`
 }
 

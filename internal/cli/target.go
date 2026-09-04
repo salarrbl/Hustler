@@ -285,7 +285,8 @@ var targetRemoveCmd = &cobra.Command{
 	},
 }
 
-var targetImportCmd = &cobra.Command{
+// TargetImportCmd imports targets from a file
+var TargetImportCmd = &cobra.Command{
 	Use:   "import <file>",
 	Short: "Import multiple targets from a file (one domain per line, or JSON array)",
 	Args:  cobra.ExactArgs(1),
@@ -374,20 +375,20 @@ var targetImportCmd = &cobra.Command{
 }
 
 func init() {
-	targetCmd.AddCommand(targetAddCmd, targetListCmd, targetRemoveCmd, targetImportCmd)
+	targetCmd.AddCommand(targetAddCmd, targetListCmd, targetRemoveCmd, TargetImportCmd)
 	GetRootCmd().AddCommand(targetCmd)
 
 	// Platform flag for target add
 	targetAddCmd.Flags().StringP("platform", "p", "", "Bug bounty platform (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
 	targetAddCmd.Flags().StringP("program", "", "", "Program name under the platform")
-	targetImportCmd.Flags().StringP("platform", "p", "", "Bug bounty platform for imported targets (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
-	targetImportCmd.Flags().StringP("program", "", "", "Program name under the platform")
+	TargetImportCmd.Flags().StringP("platform", "p", "", "Bug bounty platform for imported targets (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
+	TargetImportCmd.Flags().StringP("program", "", "", "Program name under the platform")
 
 	// Shell completion for platform
 	_ = targetAddCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		return []string{"hackerone", "bugcrowd", "intigriti", "yeswehack", "openbugbounty", "freelance"}, cobra.ShellCompDirectiveNoFileComp
 	})
-	_ = targetImportCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+	_ = TargetImportCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		return []string{"hackerone", "bugcrowd", "intigriti", "yeswehack", "openbugbounty", "freelance"}, cobra.ShellCompDirectiveNoFileComp
 	})
 

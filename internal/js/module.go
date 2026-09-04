@@ -238,7 +238,7 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 		if content == "" {
 			continue
 		}
-		endpoints, err := endpointExtractor.ExtractEndpoints(ctx, target, jsFile, content)
+		endpoints, err := endpointExtractor.ExtractEndpoints(ctx, target, jsFile, content, "js_file")
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Endpoint extractor failed")
 		} else {
@@ -257,11 +257,15 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 		if content == "" {
 			continue
 		}
-		params, err := paramExtractor.ExtractParams(ctx, target, jsFile, content)
+		params, err := paramExtractor.ExtractParams(ctx, target, jsFile, content, "js_file")
 		if err != nil {
 			log.Warn().Err(err).Str("js_file", jsFile.URL).Msg("Param extractor failed")
 		} else {
 			totalParams += len(params)
+			// Store discovered parameters as discovered URLs
+			if len(params) > 0 {
+				m.storeDiscoveredURLs(ctx, target.ID, nil, "param_extraction")
+			}
 		}
 	}
 	pc.Params.Add(int64(totalParams))

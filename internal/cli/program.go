@@ -165,6 +165,53 @@ var ProgramAddCmd = &cobra.Command{
 	},
 }
 
+// ProgramRemoveCmd removes a program and all its targets
+var ProgramRemoveCmd = &cobra.Command{
+	Use:   "remove <name> --platform <platform>",
+	Short: "Remove a program and all its targets",
+	Args:  cobra.ExactArgs(1),
+	RunE: func(cmd *cobra.Command, args []string) error {
+		name := args[0]
+		platform, _ := cmd.Flags().GetString("platform")
+
+		if platform == "" {
+			return fmt.Errorf("platform is required (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
+		}
+
+		ctx := context.Background()
+
+		// Find the program
+		programColl := mongo.GetCollection("programs")
+		var program models.Program
+		err := programColl.FindOne(ctx, bson.M{"name": name, "platform": platform}).Decode(&program)
+		if err != nil {
+			return fmt.Errorf("program not found: %s [%s]", name, platform)
+		}
+
+		// First, remove all targets that reference this program
+		targetColl := mongo.GetCollection("targets")
+		filter := bson.M{"program_id": program.ID}
+		result, err := targetColl.DeleteMany(ctx, filter)
+		if err != nil {
+			return fmt.Errorf("failed to remove targets for program: %w", err)
+		}
+		fmt.Printf("Removed %d targets associated with program: %s [%s]\n", result.DeletedCount, name, platform)
+
+		// Now remove the program itself
+		programResult, err := programColl.DeleteOne(ctx, bson.M{"_id": program.ID})
+		if err != nil {
+			return fmt.Errorf("failed to remove program: %w", err)
+		}
+
+		if programResult.DeletedCount == 0 {
+			return fmt.Errorf("program not found: %s [%s]", name, platform)
+		}
+
+		fmt.Printf("Removed program: %s [%s] (ID: %s)\n", name, platform, program.ID)
+		return nil
+	},
+}
+
 // getOrCreateProgram finds or creates a program and returns its ID
 func getOrCreateProgram(ctx context.Context, name, platform string) (string, error) {
 	programColl := mongo.GetCollection("programs")
@@ -264,21 +311,24 @@ func buildTargetTree(ctx context.Context) (map[string]*models.TargetTree, error)
 }
 
 func init() {
-	targetCmd.AddCommand(targetAddCmd, targetListCmd, targetRemoveCmd, targetImportCmd)
-	GetRootCmd().AddCommand(targetCmd)
-
-	// Add program commands
+	// Program commands
 	programCmd := &cobra.Command{
 		Use:   "program",
 		Short: "Manage programs",
-		Long:  `Add and list bug bounty programs grouped by platform.`,
+		Long:  `Add, list, and remove bug bounty programs grouped by platform.`,
 	}
-	programCmd.AddCommand(ProgramListCmd, ProgramAddCmd)
+	programCmd.AddCommand(ProgramListCmd, ProgramAddCmd, ProgramRemoveCmd)
 	GetRootCmd().AddCommand(programCmd)
 
 	// Platform flag for program add
 	ProgramAddCmd.Flags().StringP("platform", "p", "", "Bug bounty platform (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
 	_ = ProgramAddCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+		return []string{"hackerone", "bugcrowd", "intigriti", "yeswehack", "openbugbounty", "freelance"}, cobra.ShellCompDirectiveNoFileComp
+	})
+
+	// Platform flag for program remove
+	ProgramRemoveCmd.Flags().StringP("platform", "p", "", "Bug bounty platform (hackerone, bugcrowd, intigriti, yeswehack, openbugbounty, freelance)")
+	_ = ProgramRemoveCmd.RegisterFlagCompletionFunc("platform", func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
 		return []string{"hackerone", "bugcrowd", "intigriti", "yeswehack", "openbugbounty", "freelance"}, cobra.ShellCompDirectiveNoFileComp
 	})
 }
