@@ -1,730 +1,690 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hustler - Bug Bounty Dashboard</title>
-    <style>
-        :root {
-            --bg-dark: #0a0a0f;
-            --bg-card: #13131a;
-            --bg-hover: #1a1a24;
-            --border: #232330;
-            --text-primary: #e6edf3;
-            --text-secondary: #8b949e;
-            --accent-blue: #58a6ff;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --accent-yellow: #f59e0b;
-            --accent-purple: #a855f7;
-            --accent-pink: #ec4899;
-            --accent-cyan: #39d4c0;
-            --neon-purple: #a855f7;
-            --neon-pink: #ec4899;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-        }
-        
-        .header {
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-            padding: 0.75rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header h1 {
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .header h1 span { color: var(--neon-purple); }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-        }
-        
-        .stat-card .label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.35rem;
-        }
-        
-        .stat-card .value {
-            font-size: 1.75rem;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-        
-        .stat-card.critical .value { color: var(--accent-red); }
-        .stat-card.high .value { color: var(--accent-yellow); }
-        .stat-card.medium .value { color: var(--accent-blue); }
-        .stat-card.success .value { color: var(--accent-green); }
-        
-        .main {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 0;
-            height: calc(100vh - 120px);
-        }
-        
-        .sidebar {
-            background: var(--bg-card);
-            border-right: 1px solid var(--border);
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .sidebar-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .sidebar-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .target-form {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .target-form input {
-            flex: 1;
-            background: var(--bg-dark);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-        }
-        
-        .target-form input:focus {
-            outline: none;
-            border-color: var(--neon-purple);
-        }
-        
-        .target-form button {
-            background: var(--neon-purple);
-            border: none;
-            color: #000;
-            padding: 0.5rem 0.875rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.875rem;
-            transition: opacity 0.2s;
-        }
-        
-        .target-form button:hover { opacity: 0.9; }
-        
-        .platform-section {
-            padding: 0.75rem 1rem 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .platform-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-        }
-        
-        .platform-header:hover .platform-name { color: var(--neon-purple); }
-        
-        .platform-name {
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.2s;
-        }
-        
-        .platform-icon {
-            font-size: 1rem;
-        }
-        
-        .platform-count {
-            font-size: 0.7rem;
-            background: var(--bg-dark);
-            padding: 0.15rem 0.5rem;
-            border-radius: 10px;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        .platform-chevron {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            transition: transform 0.2s;
-        }
-        
-        .platform-section.collapsed .platform-chevron {
-            transform: rotate(-90deg);
-        }
-        
-        .target-list {
-            list-style: none;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .platform-section.collapsed .target-list {
-            max-height: 0;
-            opacity: 0;
-        }
-        
-        .target-item {
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.15s;
-            margin-bottom: 0.25rem;
-        }
-        
-        .target-item:hover, .target-item.active {
-            background: var(--bg-hover);
-        }
-        
-        .target-item .domain {
-            font-weight: 500;
-            font-size: 0.875rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .target-item .domain::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--neon-purple);
-            opacity: 0.6;
-        }
-        
-        .target-item .status {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin-top: 0.2rem;
-            padding-left: 0.75rem;
-        }
-        
-        .target-item .job-badge {
-            font-size: 0.65rem;
-            padding: 0.125rem 0.375rem;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-        
-        .target-item .job-badge.running { 
-            color: var(--accent-blue); 
-            background: rgba(88, 166, 255, 0.15);
-        }
-        .target-item .job-badge.done { 
-            color: var(--accent-green); 
-            background: rgba(16, 185, 129, 0.15);
-        }
-        .target-item .job-badge.error { 
-            color: var(--accent-red); 
-            background: rgba(239, 68, 68, 0.15);
-        }
-        
-        .content {
-            overflow-y: auto;
-            padding: 1.5rem;
-            flex: 1;
-        }
-        
-        .content-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .content-actions button {
-            background: var(--neon-purple);
-            border: none;
-            color: #000;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-left: 0.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        
-        .section-header {
-            padding: 0.875rem 1.25rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .section-header h3 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .section-header .count {
-            background: var(--bg-dark);
-            padding: 0.2rem 0.5rem;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        .section-body {
-            max-height: 450px;
-            overflow-y: auto;
-        }
-        
-        .finding-row {
-            padding: 0.75rem 1.25rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.8125rem;
-        }
-        
-        .finding-row:last-child { border-bottom: none; }
-        .finding-row:hover { background: var(--bg-hover); }
-        
-        .finding-tag {
-            flex-shrink: 0;
-            width: 90px;
-            font-weight: 500;
-            font-size: 0.75rem;
-        }
-        
-        .finding-value {
-            flex: 1;
-            word-break: break-all;
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            font-size: 0.8125rem;
-        }
-        
-        .finding-meta {
-            color: var(--text-secondary);
-            font-size: 0.7rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        
-        .tag-secret { color: var(--accent-yellow); }
-        .tag-sink { color: var(--accent-red); }
-        .tag-blh { color: var(--accent-green); }
-        .tag-cve { color: var(--accent-purple); }
-        
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-secondary);
-        }
-        
-        .empty-state h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-        
-        .refresh-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 0.5rem 0.875rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            transition: background 0.2s, border-color 0.2s;
-        }
-        
-        .refresh-btn:hover { 
-            background: var(--bg-hover); 
-            border-color: var(--neon-purple);
-            color: var(--neon-purple);
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border: 2px solid currentColor;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin { to { transform: rotate(360deg); } }
-        
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hustler // Attack Surface Intelligence</title>
+<style>
+  :root{
+    --bg0:#06080d; --bg1:#0b0f17; --bg2:#0f141f; --bg3:#141a29;
+    --line:#1c2438; --line2:#243049;
+    --txt:#dbe4f3; --mut:#7d8aa5; --dim:#58647f;
+    --neon:#00e5ff; --neon2:#7b5cff; --pink:#ff3d9a;
+    --green:#0fe68c; --yellow:#ffd166; --orange:#ff8a3d; --red:#ff4d6d;
+    --cyan:#4dd0e1;
+    --sev-critical:#ff2d55; --sev-high:#ff9500; --sev-medium:#ffd60a; --sev-low:#32d74b; --sev-other:#8e8e93;
+    --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --radius:14px; --shadow:0 20px 60px -30px rgba(0,0,0,.8);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--sans);background:var(--bg0);color:var(--txt);
+    -webkit-font-smoothing:antialiased;overflow:hidden;
+    background-image:
+      radial-gradient(1200px 700px at 15% -10%, rgba(123,92,255,.10), transparent 60%),
+      radial-gradient(900px 600px at 110% 5%, rgba(0,229,255,.08), transparent 55%),
+      radial-gradient(700px 700px at 50% 120%, rgba(255,61,154,.06), transparent 60%);
+  }
+  a{color:var(--neon);text-decoration:none}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:20px;border:2px solid var(--bg0)}
+  ::-webkit-scrollbar-thumb:hover{background:#2a3a5c}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- LOGIN ---------- */
+  #loginWrap{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);background:rgba(4,6,10,.72);opacity:1;transition:opacity .5s}
+  #loginWrap.hide{opacity:0;pointer-events:none}
+  .login-card{position:relative;width:min(400px,92vw);padding:38px 34px;border-radius:22px;background:linear-gradient(160deg,var(--bg3),var(--bg1));border:1px solid var(--line2);box-shadow:var(--shadow),0 0 80px -20px rgba(123,92,255,.35);overflow:hidden}
+  .login-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--neon),var(--neon2),var(--pink));background-size:200% 100%;animation:scan 6s linear infinite}
+  @keyframes scan{to{background-position:200% 0}}
+  .brand-row{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:linear-gradient(135deg,#1a2440,#2a1a4a);border:1px solid var(--line2);box-shadow:0 0 30px -6px rgba(123,92,255,.6)}
+  .brand-name{font-size:1.35rem;font-weight:800;letter-spacing:.5px;background:linear-gradient(90deg,#fff,#9fb6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .brand-sub{font-size:.72rem;color:var(--mut);letter-spacing:2px;text-transform:uppercase;font-family:var(--mono)}
+  .login-card h2{font-size:1rem;margin:4px 0 20px;color:#c7d3ea}
+  .login-card p.tip{color:var(--dim);font-size:.78rem;margin:-10px 0 18px;line-height:1.5}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.68rem;color:var(--mut);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;font-family:var(--mono)}
+  .field .in{position:relative}
+  .field input{width:100%;background:var(--bg0);border:1px solid var(--line2);color:var(--txt);padding:12px 14px 12px 40px;border-radius:11px;font-size:.92rem;outline:none;transition:.2s;font-family:var(--mono)}
+  .field input:focus{border-color:var(--neon2);box-shadow:0 0 0 3px rgba(123,92,255,.15)}
+  .field .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.55;font-size:1rem}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-weight:700;font-size:.9rem;border-radius:11px;transition:.18s;font-family:var(--sans)}
+  .btn.primary{width:100%;padding:13px;background:linear-gradient(90deg,var(--neon2),var(--neon));color:#04060c;letter-spacing:.3px}
+  .btn.primary:hover{filter:brightness(1.15);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--mut);padding:8px 14px}
+  .btn.ghost:hover{border-color:var(--neon);color:var(--neon)}
+  .err{color:var(--red);font-size:.8rem;min-height:18px;margin:4px 0 8px;font-family:var(--mono)}
+  .lockfoot{margin-top:20px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.66rem;color:var(--dim);font-family:var(--mono)}
+  .hint{background:rgba(0,229,255,.06);border:1px dashed rgba(0,229,255,.3);color:#9adcff;padding:8px 10px;border-radius:8px;font-size:.76rem;font-family:var(--mono);margin-bottom:14px}
+
+  /* ---------- APP LAYOUT ---------- */
+  #app{display:none;height:100vh}
+  #app.on{display:grid;grid-template-columns:270px 1fr;grid-template-rows:56px 1fr}
+  .topbar{grid-column:1/3;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid var(--line);background:rgba(11,15,23,.7);backdrop-filter:blur(8px);z-index:20}
+  .topbar .logo-mini{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:17px;background:linear-gradient(135deg,#1a2440,#2a1a4a);border:1px solid var(--line2)}
+  .topbar .appname{font-weight:800;font-size:1rem;letter-spacing:.5px}
+  .topbar .appname b{color:var(--neon)}
+  .topbar .env{font-size:.6rem;font-family:var(--mono);color:var(--neon);border:1px solid rgba(0,229,255,.4);padding:2px 7px;border-radius:20px;letter-spacing:1px}
+  .topbar .spacer{flex:1}
+  .search{position:relative;display:flex;align-items:center}
+  .search input{background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:7px 12px 7px 30px;color:var(--txt);width:230px;font-size:.82rem;outline:none;font-family:var(--mono)}
+  .search input:focus{border-color:var(--neon2)}
+  .search .ic{position:absolute;left:10px;color:var(--dim);font-size:.8rem}
+  .livepill{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.72rem;color:var(--green);background:rgba(15,230,140,.08);border:1px solid rgba(15,230,140,.25);padding:6px 10px;border-radius:20px}
+  .livepill .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.6s ease-in-out infinite}
+  .livepill.off{color:var(--red);background:rgba(255,77,109,.08);border-color:rgba(255,77,109,.25)}
+  .livepill.off .dot{background:var(--red);animation:none}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .userchip{display:flex;align-items:center;gap:8px;cursor:pointer;padding:5px 8px;border-radius:9px}
+  .userchip:hover{background:var(--bg3)}
+  .avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--neon2),var(--pink));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
+  .logout-btn{font-size:.8rem;color:var(--mut);cursor:pointer;background:none;border:none;font-family:var(--mono)}
+  .logout-btn:hover{color:var(--red)}
+
+  /* sidebar */
+  .side{grid-row:2;border-right:1px solid var(--line);background:rgba(9,13,20,.6);display:flex;flex-direction:column;min-height:0}
+  .side-scroll{overflow-y:auto;flex:1;padding:14px 12px}
+  .nav-label{font-size:.66rem;color:var(--dim);letter-spacing:1.5px;text-transform:uppercase;font-family:var(--mono);margin:16px 6px 8px}
+  .nav-label:first-child{margin-top:2px}
+  .nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;cursor:pointer;color:var(--mut);font-size:.88rem;transition:.15s;margin-bottom:2px}
+  .nav-item:hover{background:var(--bg3);color:var(--txt)}
+  .nav-item.on{background:linear-gradient(90deg,rgba(123,92,255,.16),rgba(0,229,255,.05));color:#fff;border:1px solid rgba(123,92,255,.25)}
+  .nav-item .ic{width:18px;text-align:center}
+  .nav-item .badge{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+  .add-btn{width:100%;margin-top:4px;padding:10px;background:linear-gradient(90deg,rgba(0,229,255,.12),rgba(123,92,255,.14));border:1px dashed rgba(0,229,255,.4);color:var(--neon);border-radius:10px;cursor:pointer;font-weight:600;font-size:.85rem}
+  .add-btn:hover{background:linear-gradient(90deg,rgba(0,229,255,.22),rgba(123,92,255,.24))}
+
+  /* target tree in sidebar */
+  .platform{margin:8px 0}
+  .platform-head{display:flex;align-items:center;gap:8px;padding:6px 8px;cursor:pointer;border-radius:8px;color:#b9c6e0;font-size:.82rem;font-weight:600}
+  .platform-head:hover{background:var(--bg3)}
+  .platform-head .ch{transition:.2s;font-size:.6rem;color:var(--dim)}
+  .platform.open .platform-head .ch{transform:rotate(90deg)}
+  .platform-head .cnt{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--dim);background:var(--bg2);padding:1px 7px;border-radius:10px}
+  .progs{overflow:hidden;max-height:0;transition:max-height .25s}
+  .platform.open .progs{max-height:2000px}
+  .prog{border-left:2px solid var(--line);margin:4px 0 4px 16px;padding-left:8px}
+  .prog-name{font-size:.72rem;color:var(--dim);text-transform:capitalize;padding:2px 0;display:flex;align-items:center;gap:6px;font-family:var(--mono)}
+  .domains{margin:0}
+  .dom{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:7px;cursor:pointer;font-size:.8rem;color:#a9b7d1;font-family:var(--mono)}
+  .dom:hover{background:var(--bg3);color:#fff}
+  .dom.on{background:rgba(0,229,255,.1);color:var(--neon);border:1px solid rgba(0,229,255,.25)}
+  .dom .sdot{width:6px;height:6px;border-radius:50%;flex:none}
+  .sdot.pending{background:var(--dim)}
+  .sdot.active{background:var(--neon);box-shadow:0 0 8px var(--neon);animation:pulse 1.4s infinite}
+  .sdot.completed{background:var(--green)}
+  .sdot.error{background:var(--red)}
+  .dom .domname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dom .ncount{margin-left:auto;font-size:.64rem;color:var(--dim)}
+  .empty-targets{color:var(--dim);font-size:.8rem;text-align:center;padding:20px 6px;line-height:1.6}
+
+  /* main content */
+  .main{grid-row:2;overflow-y:auto;padding:20px 24px 60px;min-height:0}
+  .crumb{display:flex;align-items:center;gap:10px;font-size:.78rem;color:var(--mut);font-family:var(--mono);margin-bottom:14px}
+  .crumb .sep{color:var(--dim)}
+  .crumb .link{cursor:pointer}
+  .crumb .link:hover{color:var(--neon)}
+  .crumb .cur{color:#cdd9f2}
+  .page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+  .page-head h1{font-size:1.5rem;font-weight:800;letter-spacing:.2px}
+  .page-head .desc{color:var(--mut);font-size:.85rem;margin-top:3px}
+  .page-actions{display:flex;gap:8px;align-items:center}
+
+  .grid{display:grid;gap:14px}
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:16px}
+  .kpi{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;position:relative;overflow:hidden}
+  .kpi::after{content:"";position:absolute;right:-30px;top:-30px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,currentColor,transparent 70%);opacity:.10}
+  .kpi .k-label{font-size:.64rem;color:var(--mut);letter-spacing:1.4px;text-transform:uppercase;font-family:var(--mono)}
+  .kpi .k-val{font-size:1.9rem;font-weight:800;margin-top:5px;font-family:var(--mono);line-height:1}
+  .kpi .k-sub{font-size:.7rem;color:var(--dim);margin-top:6px;font-family:var(--mono)}
+  .kpi.c-neon{color:var(--neon)} .kpi.c-neon2{color:var(--neon2)} .kpi.c-pink{color:var(--pink)}
+  .kpi.c-green{color:var(--green)} .kpi.c-yellow{color:var(--yellow)} .kpi.c-red{color:var(--red)}
+  .kpi.c-cyan{color:var(--cyan)} .kpi.c-orange{color:var(--orange)} .kpi.c-mut{color:#9db1d6}
+
+  .panel{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .panel-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:.82rem;font-weight:700}
+  .panel-head .sub{font-weight:500;color:var(--dim);font-size:.72rem;margin-left:auto;font-family:var(--mono)}
+  .panel-body{padding:14px 16px}
+
+  .charts{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:16px}
+  .bars .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+  .bars .bar-row .bl{width:110px;font-size:.72rem;color:var(--mut);text-align:right;font-family:var(--mono);flex:none}
+  .bars .bar-track{flex:1;height:12px;background:var(--bg1);border-radius:20px;overflow:hidden;position:relative}
+  .bars .bar-fill{height:100%;border-radius:20px;transition:width .8s cubic-bezier(.2,.8,.2,1);position:relative}
+  .bars .bar-fill span{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:.6rem;color:#000;font-family:var(--mono);font-weight:800}
+  .bars .bar-row .bv{width:40px;font-size:.78rem;font-family:var(--mono);flex:none}
+
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;justify-content:center}
+  .legend .li{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--mut);font-family:var(--mono)}
+  .legend .sw{width:10px;height:10px;border-radius:3px}
+
+  .segbar{display:flex;height:14px;border-radius:20px;overflow:hidden;background:var(--bg1)}
+  .segbar div{transition:width .6s}
+
+  .donut-wrap{display:flex;align-items:center;justify-content:center;flex-direction:column}
+
+  .tbl{width:100%;border-collapse:collapse;font-size:.82rem}
+  .tbl th{font-size:.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:1.2px;text-align:left;padding:9px 12px;font-family:var(--mono);border-bottom:1px solid var(--line)}
+  .tbl td{padding:9px 12px;border-bottom:1px solid rgba(28,36,56,.5);vertical-align:middle}
+  .tbl tr:hover td{background:rgba(20,26,41,.6)}
+  .tbl tr.click{cursor:pointer}
+  .severity-pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.66rem;font-weight:800;letter-spacing:.5px;font-family:var(--mono);text-transform:uppercase}
+  .sev-critical{color:var(--sev-critical);background:rgba(255,45,85,.12);border:1px solid rgba(255,45,85,.4)}
+  .sev-high{color:var(--sev-high);background:rgba(255,149,0,.12);border:1px solid rgba(255,149,0,.4)}
+  .sev-medium{color:var(--sev-medium);background:rgba(255,214,10,.12);border:1px solid rgba(255,214,10,.4)}
+  .sev-low{color:var(--sev-low);background:rgba(50,215,75,.12);border:1px solid rgba(50,215,75,.4)}
+  .sev-other{color:var(--sev-other);background:rgba(142,142,147,.14);border:1px solid rgba(142,142,147,.4)}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-family:var(--mono);padding:2px 8px;border-radius:20px;letter-spacing:.3px}
+  .chip.running{color:var(--neon);background:rgba(0,229,255,.1)}
+  .chip.queued{color:var(--yellow);background:rgba(255,209,102,.1)}
+  .chip.done,.chip.completed{color:var(--green);background:rgba(15,230,140,.1)}
+  .chip.error{color:var(--red);background:rgba(255,77,109,.1)}
+  .chip.pending,.chip.active{color:var(--cyan);background:rgba(77,208,225,.1)}
+  .score{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;font-weight:800;font-size:.8rem;font-family:var(--mono);border:1px solid}
+
+  .modal{position:fixed;inset:0;z-index:90;background:rgba(4,6,10,.7);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center}
+  .modal.on{display:flex}
+  .modal-card{width:min(460px,94vw);background:linear-gradient(160deg,var(--bg3),var(--bg1));border:1px solid var(--line2);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+  .modal-card h3{font-size:1.05rem;margin-bottom:4px}
+  .modal-card .mdesc{color:var(--mut);font-size:.8rem;margin-bottom:18px}
+  .modal-card .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .modal-card .field input{padding-left:14px}
+  .m-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+
+  /* findings / detail */
+  .det-hero{background:linear-gradient(150deg,#161d31,#0f1522);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:16px;position:relative;overflow:hidden}
+  .det-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.12),transparent 70%)}
+  .det-hero .dom-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .det-hero .big{font-size:1.35rem;font-weight:800;font-family:var(--mono);word-break:break-all}
+  .det-hero .tags{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:16px}
+  .meta-cell{background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:8px 11px}
+  .meta-cell .l{font-size:.6rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase;font-family:var(--mono)}
+  .meta-cell .v{font-size:.85rem;margin-top:2px;font-family:var(--mono);color:#c9d6ef;word-break:break-all}
+  .tabbar{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:14px;overflow-x:auto}
+  .tab{padding:9px 14px;font-size:.8rem;color:var(--mut);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .tab:hover{color:var(--txt)}
+  .tab.on{color:var(--neon);border-bottom-color:var(--neon);font-weight:600}
+  .tab .tn{font-family:var(--mono);font-size:.68rem;color:var(--dim);background:var(--bg2);padding:0 6px;border-radius:10px}
+  .finding-card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:9px;font-size:.8rem}
+  .finding-card .top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .finding-card .fc-title{font-family:var(--mono);color:#dfe8fa;word-break:break-all}
+  .finding-card .fc-ctx{color:var(--mut);font-family:var(--mono);font-size:.72rem;margin-top:5px;word-break:break-all}
+  .codeblock{font-family:var(--mono);font-size:.72rem;color:#bcd0f5;background:var(--bg0);border:1px solid var(--line);border-radius:7px;padding:8px 10px;margin-top:6px;white-space:pre-wrap;word-break:break-word;max-height:150px;overflow:auto}
+  .empty-state{padding:60px 20px;text-align:center;color:var(--mut)}
+  .empty-state .big{font-size:3rem;margin-bottom:10px}
+  .empty-state h3{color:#cdd9f2;margin-bottom:6px;font-size:1.1rem}
+  .empty-state p{font-size:.86rem;line-height:1.7;max-width:520px;margin:0 auto}
+
+  .toasts{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:8px}
+  .toast{min-width:260px;max-width:360px;padding:12px 14px;border-radius:11px;background:var(--bg3);border:1px solid var(--line2);box-shadow:var(--shadow);font-size:.82rem;display:flex;gap:10px;align-items:flex-start;animation:slidein .3s}
+  .toast.good{border-left:3px solid var(--green)} .toast.good .ti{color:var(--green)}
+  .toast.bad{border-left:3px solid var(--red)} .toast.bad .ti{color:var(--red)}
+  .toast.info{border-left:3px solid var(--neon)} .toast.info .ti{color:var(--neon)}
+  @keyframes slidein{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
+  .toast.bye{opacity:0;transform:translateX(20px);transition:.3s}
+  .toast .ti{flex:none}
+
+  @media (max-width:900px){ #app.on{grid-template-columns:1fr} .side{display:none} }
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1><span>⚡</span> Hustler</h1>
-        <button class="refresh-btn" onclick="refreshData()">↻ Refresh</button>
-    </div>
-    
-    <div class="stats" id="stats">
-        <div class="stat-card critical">
-            <div class="label">Critical Secrets</div>
-            <div class="value" id="stat-critical-secrets">-</div>
-        </div>
-        <div class="stat-card high">
-            <div class="label">Risky Sinks</div>
-            <div class="value" id="stat-high-sinks">-</div>
-        </div>
-        <div class="stat-card medium">
-            <div class="label">BLH Vulns</div>
-            <div class="value" id="stat-blh">-</div>
-        </div>
-        <div class="stat-card success">
-            <div class="label">Targets</div>
-            <div class="value" id="stat-targets">-</div>
-        </div>
-    </div>
-    
-    <div class="main">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    Targets
-                    <span id="total-targets">0</span>
-                </div>
-                <div class="target-form">
-                    <input type="text" id="newTargetInput" placeholder="Add target domain..." onkeypress="if(event.key==='Enter') addTarget(this.value)">
-                    <button onclick="addTarget(document.getElementById('newTargetInput').value)">+</button>
-                </div>
-            </div>
-            <div id="platformList">
-                <!-- Platform sections populated by JS -->
-            </div>
-        </div>
-        
-        <div class="content" id="content">
-            <div class="empty-state">
-                <h3>Select a target to view findings</h3>
-                <p>Add a new target or select from the sidebar</p>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        let targetsByPlatform = {};
-        let findings = {};
-        let selectedTarget = null;
-        let expandedPlatforms = {
-            'hackerone': true,
-            'bugcrowd': true,
-            'intigriti': true,
-            'yeswehack': true,
-            'openbugbounty': true,
-            'freelance': true
-        };
-        
-        const platformOrder = ['hackerone', 'bugcrowd', 'intigriti', 'yeswehack', 'openbugbounty', 'freelance'];
-        const platformIcons = {
-            'hackerone': '◆',
-            'bugcrowd': '◇',
-            'intigriti': '⬢',
-            'yeswehack': '⚡',
-            'openbugbounty': '⬟',
-            'freelance': '◆'
-        };
-        
-        // API calls
-        async function api(endpoint, options = {}) {
-            const resp = await fetch(`/api${endpoint}`, {
-                headers: { 'Content-Type': 'application/json' },
-                ...options
-            });
-            return resp.json();
-        }
-        
-        async function loadTargets() {
-            try {
-                const data = await api('/targets');
-                targetsByPlatform = data.by_platform || {};
-                renderTargets();
-            } catch (e) { console.error('Failed to load targets:', e); }
-        }
-        
-        async function loadFindings(targetId) {
-            try {
-                findings[targetId] = await api(`/findings/${targetId}`);
-                renderFindings(targetId);
-            } catch (e) { console.error('Failed to load findings:', e); }
-        }
-        
-        async function addTarget(domain) {
-            if (!domain) return;
-            try {
-                await api('/targets', { method: 'POST', body: JSON.stringify({ domain }) });
-                await loadTargets();
-                document.getElementById('newTargetInput').value = '';
-            } catch (e) { console.error('Failed to add target:', e); }
-        }
-        
-        async function triggerScan(targetId) {
-            try {
-                await api(`/jobs`, { method: 'POST', body: JSON.stringify({ target_id: targetId, source: 'manual' }) });
-                await loadFindings(targetId);
-            } catch (e) { console.error('Failed to trigger scan:', e); }
-        }
-        
-        function renderTargets() {
-            const container = document.getElementById('platformList');
-            let totalCount = 0;
-            
-            container.innerHTML = platformOrder.map(platform => {
-                const targets = targetsByPlatform[platform] || [];
-                const count = targets.length;
-                totalCount += count;
-                const isExpanded = expandedPlatforms[platform] !== false;
-                const icon = platformIcons[platform] || '◆';
-                
-                return `
-                    <div class="platform-section ${isExpanded ? '' : 'collapsed'}" data-platform="${platform}">
-                        <div class="platform-header" onclick="togglePlatform('${platform}')">
-                            <span class="platform-name">
-                                <span class="platform-icon">${icon}</span>
-                                ${platform}
-                            </span>
-                            <span class="platform-count">${count}</span>
-                            <span class="platform-chevron">▼</span>
-                        </div>
-                        <ul class="target-list" id="list-${platform}">
-                            ${targets.map(t => `
-                                <li class="target-item ${selectedTarget?.id === t.id ? 'active' : ''}" onclick="event.stopPropagation(); selectTarget('${t.id}')">
-                                    <div class="domain">${t.domain}</div>
-                                    <div class="status">${t.source} • ${t.status}
-                                        ${t.job_status === 'running' ? '<span class="job-badge running"><span class="spinner"></span></span>' : ''}
-                                        ${t.job_status === 'done' ? '<span class="job-badge done">✓</span>' : ''}
-                                        ${t.job_status === 'error' ? '<span class="job-badge error">✗</span>' : ''}
-                                    </div>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `;
-            }).join('');
-            
-            document.getElementById('total-targets').textContent = totalCount;
-            document.getElementById('stat-targets').textContent = totalCount;
-        }
-        
-        function togglePlatform(platform) {
-            expandedPlatforms[platform] = !expandedPlatforms[platform];
-            const el = document.querySelector(`[data-platform="${platform}"]`);
-            if (el) el.classList.toggle('collapsed');
-        }
-        
-        function selectTarget(id) {
-            // Find target in all platforms
-            for (const platform of platformOrder) {
-                const targets = targetsByPlatform[platform] || [];
-                const found = targets.find(t => t.id === id);
-                if (found) {
-                    selectedTarget = found;
-                    break;
-                }
-            }
-            renderTargets();
-            loadFindings(id);
-        }
-        
-        function renderFindings(targetId) {
-            const f = findings[targetId];
-            if (!f) return;
-            
-            const content = document.getElementById('content');
-            const s = f.secrets || [];
-            const sk = f.sinks || [];
-            const blh = f.blh || [];
-            const cves = f.cves || [];
-            
-            // Update stats
-            const criticalSecrets = s.filter(x => x.confidence >= 0.8).length;
-            const highSinks = sk.filter(x => x.confidence >= 0.75 && !x.has_origin_check).length;
-            const vulnBLH = blh.filter(x => !x.is_target_subdomain && ['unclaimed_s3','github_pages_missing','nxdomain'].includes(x.resolution_status)).length;
-            
-            document.getElementById('stat-critical-secrets').textContent = criticalSecrets;
-            document.getElementById('stat-high-sinks').textContent = highSinks;
-            document.getElementById('stat-blh').textContent = vulnBLH;
-            
-            const header = selectedTarget ? `
-                <div class="content-header">
-                    <h2>${selectedTarget.domain}</h2>
-                    <div class="content-actions">
-                        <button onclick="triggerScan('${targetId}')">▶ Re-run Scan</button>
-                    </div>
-                </div>
-            ` : '';
-            
-            const secretRows = s.slice(0, 50).map(s => `
-                <div class="finding-row">
-                    <div class="finding-tag tag-secret">${s.pattern}</div>
-                    <div class="finding-value">${escapeHtml(s.matched)}</div>
-                    <div class="finding-meta">L${s.line} conf:${s.confidence.toFixed(2)}</div>
-                    <div class="finding-meta">${shortUrl(s.js_file_url)}</div>
-                </div>
-            `).join('');
-            
-            const sinkRows = sk.filter(x => x.confidence >= 0.75 || !x.has_origin_check).slice(0, 50).map(sk => `
-                <div class="finding-row">
-                    <div class="finding-tag tag-sink">${sk.sink_type}</div>
-                    <div class="finding-value">${sk.source_type ? `from ${sk.source_type}` : ''}</div>
-                    <div class="finding-meta">L${sk.line} origin:${sk.has_origin_check ? '✓' : '✗'}</div>
-                    <div class="finding-meta">${shortUrl(sk.js_file_url)}</div>
-                </div>
-            `).join('');
-            
-            const blhRows = blh.filter(x => !x.is_target_subdomain && ['unclaimed_s3','github_pages_missing','nxdomain'].includes(x.resolution_status)).slice(0, 20).map(b => `
-                <div class="finding-row">
-                    <div class="finding-tag tag-blh">${b.resolution_status}</div>
-                    <div class="finding-value">${escapeHtml(b.referenced_domain)}</div>
-                    <div class="finding-meta">${b.evidence}</div>
-                </div>
-            `).join('');
-            
-            const cveRows = cves.slice(0, 20).map(c => `
-                <div class="finding-row">
-                    <div class="finding-tag tag-cve">${c.library_name} v${c.version}</div>
-                    <div class="finding-value">${escapeHtml(c.description)}</div>
-                    <div class="finding-meta">${c.cve_id}</div>
-                </div>
-            `).join('');
-            
-            content.innerHTML = `
-                ${header}
-                ${s.length > 0 ? `
-                <div class="section">
-                    <div class="section-header">
-                        <h3>🔑 Secrets (${s.length})</h3>
-                        <span class="count">${criticalSecrets} high-confidence</span>
-                    </div>
-                    <div class="section-body">${secretRows}${s.length > 50 ? '<div class="empty-state">...and ' + (s.length - 50) + ' more</div>' : ''}</div>
-                </div>` : ''}
-                
-                ${sk.length > 0 ? `
-                <div class="section">
-                    <div class="section-header">
-                        <h3>⚡ Sinks (${sk.length})</h3>
-                        <span class="count">${highSinks} risky</span>
-                    </div>
-                    <div class="section-body">${sinkRows}${sk.length > 50 ? '<div class="empty-state">...and ' + (sk.length - 50) + ' more</div>' : ''}</div>
-                </div>` : ''}
-                
-                ${blhRows.length > 0 ? `
-                <div class="section">
-                    <div class="section-header">
-                        <h3>🌐 BLH Vulnerabilities (${blhRows.length})</h3>
-                    </div>
-                    <div class="section-body">${blhRows}</div>
-                </div>` : ''}
-                
-                ${cves.length > 0 ? `
-                <div class="section">
-                    <div class="section-header">
-                        <h3>📦 Library CVEs (${cves.length})</h3>
-                    </div>
-                    <div class="section-body">${cveRows}</div>
-                </div>` : ''}
-                
-                ${s.length === 0 && sk.length === 0 && blhRows.length === 0 && cves.length === 0 ? `
-                <div class="empty-state">
-                    <h3>No findings yet</h3>
-                    <p>Run a scan to discover vulnerabilities</p>
-                </div>` : ''}
-            `;
-        }
-        
-        function shortUrl(url) {
-            if (!url) return '';
-            try {
-                const u = new URL(url);
-                return u.pathname.split('/').pop() || u.hostname;
-            } catch { return url.slice(-50); }
-        }
-        
-        function escapeHtml(str) {
-            if (!str) return '';
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-        
-        function refreshData() {
-            loadTargets();
-            if (selectedTarget) loadFindings(selectedTarget.id);
-        }
-        
-        // Auto-refresh every 30s
-        setInterval(() => {
-            if (selectedTarget) loadFindings(selectedTarget.id);
-        }, 30000);
-        
-        // Init
-        loadTargets();
-    </script>
+<!-- ============================ LOGIN ============================ -->
+<div id="loginWrap">
+  <div class="login-card">
+    <div class="brand-row">
+      <div class="logo">⚡</div>
+      <div>
+        <div class="brand-name">HUSTLER</div>
+        <div class="brand-sub">Attack Surface Intelligence</div>
+      </div>
+    </div>
+    <h2>Restricted access</h2>
+    <p class="tip">Deep JavaScript security dashboard. Authenticate to view target findings, secrets, sinks, endpoints &amp; CVEs.</p>
+    <div class="hint">session: rebel / crow</div>
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label>Username</label>
+        <div class="in"><span class="ic">👤</span><input id="loginUser" autocomplete="username" placeholder="operator handle" value="rebel"></div>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="in"><span class="ic">🔐</span><input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••" value="crow"></div>
+      </div>
+      <div class="err" id="loginErr"></div>
+      <button class="btn primary" type="submit">Authenticate&nbsp;→</button>
+    </form>
+    <div class="lockfoot"><span>SECURE CHANNEL</span><span>AES·256 / TLS</span></div>
+  </div>
+</div>
+
+<!-- ============================ APP ============================ -->
+<div id="app">
+  <!-- topbar -->
+  <header class="topbar">
+    <div class="logo-mini">⚡</div>
+    <div class="appname">HUSTLER<b>//web</b></div>
+    <span class="env">JS-ANALYZER</span>
+    <div class="spacer"></div>
+    <div class="search"><span class="ic">⌕</span><input id="globalSearch" placeholder="search domains / libraries / endpoints…"></div>
+    <span class="livepill" id="livepill"><span class="dot"></span><span id="liveTxt">LIVE</span></span>
+    <div class="userchip" title="Sign out" onclick="logout()">
+      <div class="avatar" id="avatar">R</div>
+      <button class="logout-btn" id="userName">rebel&nbsp;⎋</button>
+    </div>
+  </header>
+
+  <!-- sidebar -->
+  <aside class="side">
+    <div class="side-scroll">
+      <div class="nav-label">Navigation</div>
+      <div class="nav-item on" data-nav="overview" onclick="navTo('overview')"><span class="ic">▦</span> Overview <span class="badge" id="navTargetCount"></span></div>
+      <div class="nav-label">Command Center</div>
+      <button class="add-btn" onclick="openAddModal()">+ &nbsp;Add Target</button>
+
+      <div class="nav-label">Targets · by platform</div>
+      <div id="treeRoot"><div class="empty-targets">Loading targets…</div></div>
+    </div>
+  </aside>
+
+  <!-- content -->
+  <main class="main" id="main"></main>
+</div>
+
+<!-- add target modal -->
+<div class="modal" id="addModal">
+  <div class="modal-card">
+    <h3>➕ Ingest new target</h3>
+    <p class="mdesc">Registers the domain under a program and enqueues a hunt job.</p>
+    <div class="field"><label>Platform</label><input id="mPlatform" value="hackerone" placeholder="hackerone"></div>
+    <div class="row">
+      <div class="field"><label>Program name</label><input id="mProgram" placeholder="acme"></div>
+      <div class="field"><label>Target domain</label><input id="mDomain" placeholder="shop.example.com"></div>
+    </div>
+    <div class="err" id="addErr"></div>
+    <div class="m-actions">
+      <button class="btn ghost" onclick="closeAddModal()">Cancel</button>
+      <button class="btn primary" onclick="submitAdd()">Ingest + Hunt</button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script>
+/* =====================================================================
+   HUSTLER dashboard SPA
+   ===================================================================== */
+(function(){
+  'use strict';
+  const state = {
+    user:'', pass:'', b64:'',
+    tree: null,             // platform -> tree from /api/targets
+    dash: null,             // /api/dashboard
+    view:'overview',        // overview | target
+    targetId:null,
+    tab:'secrets',
+    findings:{},            // id -> findings payload cache
+    q:''
+  };
+
+  const platformIcons={hackerone:'◆',bugcrowd:'◇',intigriti:'⬢',yeswehack:'⚡',openbugbounty:'⬟',freelance:'◆'};
+  const platformColor={hackerone:'#35d46f',bugcrowd:'#f7c948',intigriti:'#7b5cff',yeswehack:'#ff3d9a',openbugbounty:'#4dd0e1',freelance:'#9db1d6'};
+
+  const $=s=>document.querySelector(s);
+  const el=(id)=>document.getElementById(id);
+
+  /* ---------- small helpers ---------- */
+  function esc(v){ if(v==null) return ''; return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  function n(v){ v=Number(v)||0; return v>=100000? (v/1000).toFixed(1)+'k' : v.toLocaleString(); }
+  function fmtTime(iso){ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return String(iso); return d.toLocaleString(undefined,{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}); }
+  function relTime(iso){ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return '—'; let s=(Date.now()-d.getTime())/1000; if(s<0)s=0; const u=[[60,'s'],[60,'m'],[24,'h'],[7,'d'],[52,'w']]; let i=0,v=s; while(i<u.length-1&&v>=u[i][0]){v/=u[i][0];i++;} return v<u[i][0]&&i>0? (Math.floor(s/Math.pow(60,i)))+''+u[i][1]+' ago' : (Math.floor(v))+' '+u[i][1]+' ago'; }
+  function statusPill(st){ const c=(st||'pending').toLowerCase(); return '<span class="chip '+esc(c)+'">'+esc(st)+'</span>'; }
+  function sevPill(sv){ const k=(sv||'other').toLowerCase(); const valid=['critical','high','medium','low','other']; if(!valid.includes(k)) return '<span class="chip error">'+esc(sv)+'</span>'; return '<span class="sev-pill sev-'+k+'">'+esc(k)+'</span>'; }
+  function riskScore(t){ let s=0; if(t){ s=(t.critical||0)*10+(t.high||0)*6+(t.medium||0)*3+(t.low||0)*1 + Math.min((t.secrets||0),50) + ((t.sinks||0)*1.5) + (t.blh||0)*2; } return Math.round(s); }
+  function riskGrade(s){ if(s>=100)return ['Critical','red','#ff4d6d']; if(s>=50)return ['High','orange','#ff8a3d']; if(s>=20)return ['Medium','yellow','#ffd166']; if(s>=5)return ['Low','green','#0fe68c']; return ['Minimal','cyan','#4dd0e1']; }
+
+  function toast(msg,type){ const t=document.createElement('div'); t.className='toast '+(type||'info'); t.innerHTML='<span class="ti">'+(type==='good'?'✓':type==='bad'?'✕':'ⓘ')+'</span><span>'+esc(msg)+'</span>'; el('toasts').appendChild(t); setTimeout(()=>{t.classList.add('bye');setTimeout(()=>t.remove(),350);},3600); }
+  function setLive(on,msg){ const p=el('livepill'); p.classList.toggle('off',!on); el('liveTxt').textContent=msg||(on?'LIVE':'OFFLINE'); }
+
+  /* ---------- auth helpers ---------- */
+  function getCreds(){ try{ const s=sessionStorage.getItem('hustler_auth'); if(!s) return null; const o=JSON.parse(s); if(o&&o.b64) return o; }catch(e){} return null; }
+  function setCreds(o){ sessionStorage.setItem('hustler_auth',JSON.stringify(o)); }
+  function credHeader(){ const c=getCreds(); return c? c.b64 : (state.b64||''); }
+  function b64(u,p){ try{return btoa(unescape(encodeURIComponent(u+':'+p)));}catch(e){return btoa(u+':'+p);} }
+
+  async function api(path,opts){ opts=opts||{}; const h=opts.headers||{}; if(opts.body) h['Content-Type']='application/json'; if(path!=='/api/session'){ const ch=credHeader(); if(ch) h['Authorization']='Basic '+ch; } const r=await fetch(path,{...opts,headers:h}); return r; }
+
+  function showLogin(msg){ el('loginWrap').classList.remove('hide'); el('loginErr').textContent=msg||''; if(!msg) el('loginErr').textContent=''; }
+  function hideLogin(){ el('loginWrap').classList.add('hide'); }
+
+  /* ---------- views ---------- */
+  function navTo(v){ state.view=v; document.querySelectorAll('.nav-item').forEach(x=>x.classList.toggle('on',x.dataset.nav===v)); if(v==='overview') renderOverview(); else if(v==='target'&&!state.targetId) { state.view='overview'; navTo('overview'); } }
+  function openTarget(id,tab){ state.targetId=id; state.view='target'; if(tab)state.tab=tab; document.querySelectorAll('.nav-item').forEach(x=>x.classList.toggle('on',false)); loadTargetDetail(id); }
+
+  /* ===================================================================
+     DATA LOADING
+     =================================================================== */
+  async function loadDashboard(){ try{ const r=await api('/api/dashboard'); if(r.status===401){sessionUnauth();return null;} if(!r.ok) throw new Error('HTTP '+r.status); state.dash=await r.json(); return state.dash; }catch(e){ setLive(false,'API ERROR'); return null; } }
+  async function loadTree(){ try{ const r=await api('/api/targets'); if(r.status===401){sessionUnauth();return null;} if(!r.ok) throw new Error('HTTP '+r.status); state.tree=await r.json(); renderTree(); return state.tree; }catch(e){ return null; } }
+  async function loadTargetDetail(id){ try{ const r=await api('/api/findings/'+encodeURIComponent(id)); if(r.status===401){sessionUnauth();return;} if(!r.ok) throw new Error('HTTP '+r.status); state.findings[id]=await r.json(); renderTarget(); }catch(e){ toast('Failed to load target detail','bad'); } }
+
+  async function refreshAll(quiet){ const pr=[loadDashboard(),loadTree()]; const res=await Promise.all(pr); if(!quiet&&!res[0]&&!res[1]) setLive(false,'NO DATA'); else setLive(true,'LIVE'); if(state.view==='overview') renderOverview(); else if(state.view==='target'&&state.targetId&&state.findings[state.targetId]) loadTargetDetail(state.targetId); }
+
+  /* ===================================================================
+     RENDER TREE (sidebar)
+     =================================================================== */
+  function renderTree(){
+    const root=el('treeRoot'); const t=state.tree||{}; const keys=Object.keys(t);
+    if(!keys.length){ root.innerHTML='<div class="empty-targets">No targets yet.<br>Add your first one to begin recon.</div>'; el('navTargetCount').textContent=''; return; }
+    let total=0; const plats=keys.sort();
+    const q=(state.q||'').trim().toLowerCase();
+    const platCount=state.dash&&state.dash.platform_counts||{};
+    root.innerHTML=plats.map(p=>{
+      const tree=t[p]||{}; const progs=tree.programs||{}; const uncat=tree.uncategorized||[];
+      const doms=[]; Object.keys(progs).forEach(prog=>{ progs[prog].forEach(d=>{ if(!q||((d.domain||'')+' '+prog).toLowerCase().includes(q)) doms.push({...d,prog}); }); }); uncat.forEach(d=>{ if(!q||(d.domain||'').toLowerCase().includes(q)) doms.push({...d,prog:'uncategorized'}); });
+      if(q&&!doms.length) return '';
+      total+=doms.length;
+      const pc=(q?doms.length:(platCount[p]||doms.length));
+      return '<div class="platform open" data-p="'+esc(p)+'"><div class="platform-head" onclick="this.parentNode.classList.toggle(\'open\')"><span class="ch">▶</span><span style="color:'+(platformColor[p]||'#9db1d6')+'">'+(platformIcons[p]||'◆')+'</span>'+esc(cap(p))+'<span class="cnt">'+pc+'</span></div><div class="progs"><div class="domains">'+doms.map(d=>{
+        const on=(state.view==='target'&&state.targetId===d.id)?' on':'';
+        const risk=(state.dash&&state.dash.targets||[]).find(x=>x.target&&x.target.id===d.id);
+        const dot=risk? (risk.secrets+risk.cves+risk.sinks+risk.blh>0?'completed':(d.job_status==='running'||d.job_status==='queued'?'active':'pending')) : (d.status||'pending');
+        return '<div class="dom'+on+'" onclick="openTarget(\''+esc(d.id)+'\',\''+(state.tab||'secrets')+'\')" title="'+esc(d.domain)+'"><span class="sdot '+esc(dot)+'"></span><span class="domname">'+esc(d.domain)+'</span><span class="ncount">'+(risk?risk.cves+risk.secrets:'0')+'</span></div>';
+      }).join('')+'</div></div></div>';
+    }).join('');
+    el('navTargetCount').textContent=n(total);
+  }
+
+  /* ===================================================================
+     RENDER OVERVIEW
+     =================================================================== */
+  function renderOverview(){
+    const main=el('main'); const d=state.dash;
+    if(!d){ main.innerHTML='<div class="empty-state"><div class="big">📡</div><h3>Connecting to MongoDB…</h3><p>Waiting for the backend API. Make sure the daemon + MongoDB are running, then refresh.</p></div>'; return; }
+    const T=d.totals||{};
+    const noTargets=!T.targets;
+
+    if(noTargets){
+      main.innerHTML=`
+        <div class="crumb"><span class="link" onclick="navTo('overview')">console</span><span class="sep">/</span><span class="cur">overview</span></div>
+        <div class="page-head"><div><h1>Welcome to Hustler</h1><div class="desc">Your JavaScript attack-surface intelligence terminal.</div></div>
+        <div class="page-actions"><button class="btn ghost" onclick="refreshAll()">⟳ Refresh</button><button class="btn primary" style="padding:10px 16px" onclick="openAddModal()">+ Ingest target</button></div></div>
+        <div class="panel"><div class="empty-state"><div class="big">🛰️</div><h3>No targets in scope yet</h3><p>Ingest your first domain to begin automated JavaScript recon — secret scanning, DOM XSS sink analysis, endpoint &amp; parameter extraction, broken-link-hijack and library CVE fingerprinting.</p><br><button class="btn primary" style="padding:11px 20px" onclick="openAddModal()">Add your first target →</button></div></div>`;
+      return;
+    }
+
+    // KPIs
+    const kpis=[
+      ['targets',T.targets,'in-scope targets','c-neon','🎯'],
+      ['js_files',T.js_files,'JS files fetched','c-cyan','📄'],
+      ['secrets',T.secrets,'secrets flagged','c-pink','🔑'],
+      ['sinks',T.sinks,'DOM sinks','c-red','⚡'],
+      ['endpoints',T.endpoints,'endpoints','c-green','🛰️'],
+      ['params',T.params,'parameters','c-yellow','#️⃣'],
+      ['cves',T.cves,'library CVEs','c-orange','🧨'],
+      ['blh',T.blh,'BLH candidates','c-neon2','🔗']
+    ];
+    const kpiHtml=kpis.map(k=>`<div class="kpi ${k[3]}"><div class="k-label">${k[4]} ${k[1]}</div><div class="k-val">${n(k[1])}</div></div>`).join('');
+
+    // findings distribution
+    const fdist=[['secrets',T.secrets,'#ff3d9a'],['sinks',T.sinks,'#ff4d6d'],['endpoints',T.endpoints,'#0fe68c'],['params',T.params,'#ffd166'],['blh',T.blh,'#7b5cff'],['cves',T.cves,'#ff8a3d']].filter(x=>x[1]>0);
+    const maxF=Math.max(1,...fdist.map(x=>x[1]));
+    const barsHtml=fdist.length? fdist.map(x=>`<div class="bar-row"><div class="bl">${x[0]}</div><div class="bar-track"><div class="bar-fill" style="width:0;background:${x[2]}" data-w="${Math.max(2,(x[1]/maxF)*100)}"><span>${n(x[1])}</span></div></div></div>`).join('') : '<div style="color:var(--dim);font-size:.8rem;padding:6px 0">No findings recorded yet.</div>';
+
+    // severity donut
+    const sevC=d.cve_by_severity||{};
+    const sevSeg=[['critical',sevC.critical,'#ff2d55'],['high',sevC.high,'#ff9500'],['medium',sevC.medium,'#ffd60a'],['low',sevC.low,'#32d74b'],['other',sevC.other,'#8e8e93']];
+    const donutHtml=donut(sevSeg,{cx:80,cy:80,r:60,label:'CVEs'});
+
+    // jobs status
+    const jb=d.jobs_by_status||{}; const jobTotal=(jb.queued||0)+(jb.running||0)+(jb.done||0)+(jb.error||0);
+    const jsSeg=[['queued',jb.queued,'#ffd166'],['running',jb.running,'#00e5ff'],['done',jb.done,'#0fe68c'],['error',jb.error,'#ff4d6d']].filter(x=>x[1]>0);
+    const jdonut=donut(jsSeg,{cx:70,cy:70,r:52,label:'Jobs'});
+
+    // target status
+    const ts=d.targets_by_status||{};
+    const tsSeg=[['pending',ts.pending,'#4dd0e1'],['active',ts.active,'#00e5ff'],['completed',ts.completed,'#0fe68c'],['error',ts.error,'#ff4d6d']];
+    const tssum=Math.max(1,(ts.pending||0)+(ts.active||0)+(ts.completed||0)+(ts.error||0));
+    const tsBar=tsSeg.map(x=>{const w=x[1]>0?Math.max(2,(x[1]/tssum)*100):0;return `<div style="width:${w}%;background:${x[2]}" title="${x[0]}: ${x[1]}"></div>`;}).join('');
+
+    // platform bars
+    const pc=d.platform_counts||{}; const pcKeys=Object.keys(pc); const pcMax=Math.max(1,...Object.values(pc));
+    const pcHtml=pcKeys.map(p=>`<div class="bar-row"><div class="bl">${cap(p)}</div><div class="bar-track"><div class="bar-fill" style="width:0;background:${platformColor[p]||'#9db1d6'}" data-w="${Math.max(2,(pc[p]/pcMax)*100)}"><span>${n(pc[p])}</span></div></div></div>`).join('')||'<div style="color:var(--dim);font-size:.8rem">—</div>';
+
+    // target table (searchable)
+    const q=state.q.trim().toLowerCase();
+    const rows=(d.targets||[]).filter(t=>{ if(!q)return true; const hay=(((t.target&&t.target.domain)||'')+' '+(t.program||'')+' '+(t.platform||'')).toLowerCase(); return hay.includes(q); }).slice().sort((a,b)=>riskScore(b)-riskScore(a));
+    const tblBody=rows.length? rows.map(r=>{
+      const tgt=r.target||{}; const s=riskScore(r); const g=riskGrade(s);
+      const ic=tgt.job_status||(r.secrets+r.cves>0?'done':tgt.status);
+      return `<tr class="click" onclick="openTarget('${esc(tgt.id)}','secrets')">
+        <td><div style="display:flex;align-items:center;gap:8px"><span class="sdot ${esc(ic)}" style="flex:none"></span><span class="mono">${esc(tgt.domain)}</span></div></td>
+        <td><span style="color:${platformColor[r.platform]||'#9db1d6'}">${platformIcons[r.platform]||'◆'}</span> <span class="mono">${esc(r.program||'—')}</span></td>
+        <td><span class="score" style="color:${g[2]};border-color:${g[2]};background:${g[2]}1a">${s}</span></td>
+        <td><span class="chip ${(tgt.status||'pending')}">${esc(tgt.status||'—')}</span></td>
+        <td class="mono">${n(r.js_files)}</td><td class="mono">${n(r.secrets)}</td><td class="mono">${n(r.sinks)}</td><td class="mono">${n(r.endpoints)}</td>
+        <td><span class="sev-pill sev-${sevLevel(r.critical,r.high,r.medium,r.low)}">${sevTag(r.critical,r.high,r.medium,r.low)}</span></td>
+        <td class="mono">${n(r.cves)}</td><td class="mono" style="color:var(--dim)">${relTime(tgt.added_at)}</td></tr>`;
+    }).join('') : '<tr><td colspan="11" style="text-align:center;color:var(--dim);padding:24px">No targets yet.</td></tr>';
+
+    main.innerHTML=`
+      <div class="crumb"><span class="link" onclick="navTo('overview')">console</span><span class="sep">/</span><span class="cur">overview</span></div>
+      <div class="page-head"><div><h1>Attack Surface Overview</h1><div class="desc">Aggregated signal across ${n(T.targets)} in-scope target${T.targets===1?'':'s'}.</div></div>
+      <div class="page-actions"><span class="chip done" style="font-size:.78rem">${n(T.high_confidence_secrets||0)} high-conf secrets</span><button class="btn ghost" onclick="refreshAll()">⟳ Refresh</button></div></div>
+
+      <div class="grid kpis">${kpiHtml}</div>
+
+      <div class="grid charts">
+        <div class="panel"><div class="panel-head">📊 Findings by type<span class="sub">aggregate</span></div><div class="panel-body bars">${barsHtml}</div></div>
+        <div class="panel"><div class="panel-head">🧨 CVE severity<span class="sub">library_cves</span></div><div class="panel-body donut-wrap">${donutHtml}</div></div>
+        <div class="panel"><div class="panel-head">🔄 Scan jobs<span class="sub">queue status</span></div><div class="panel-body donut-wrap">${jdonut}</div></div>
+        <div class="panel"><div class="panel-head">🎯 Platforms<span class="sub">target count</span></div><div class="panel-body bars">${pcHtml}</div></div>
+      </div>
+
+      <div class="grid kpis" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:4px">
+        <div class="panel"><div class="panel-head">🚦 Target states</div><div class="panel-body"><div class="segbar">${tsBar}</div><div class="legend">${tsSeg.map(x=>x[1]>0?`<span class="li"><span class="sw" style="background:${x[2]}"></span>${x[0]} · ${n(x[1])}</span>`:'').join('')}</div></div></div>
+        <div class="panel"><div class="panel-head">🔬 Pipeline confidence</div><div class="panel-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div><div style="font-size:.66rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase">High-conf secrets</div><div style="font-size:1.6rem;font-weight:800;color:var(--pink);font-family:var(--mono)">${n(T.high_confidence_secrets)}</div></div>
+            <div><div style="font-size:.66rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase">Sinks w/o origin check</div><div style="font-size:1.6rem;font-weight:800;color:var(--red);font-family:var(--mono)">${n(T.risky_sinks)}</div></div>
+            <div><div style="font-size:.66rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase">Programs</div><div style="font-size:1.6rem;font-weight:800;color:var(--neon);font-family:var(--mono)">${n(T.programs)}</div></div>
+            <div><div style="font-size:.66rem;color:var(--dim);letter-spacing:1px;text-transform:uppercase">Total jobs</div><div style="font-size:1.6rem;font-weight:800;color:var(--neon2);font-family:var(--mono)">${n(T.jobs)}</div></div>
+          </div></div></div>
+      </div>
+
+      <div class="panel" style="margin-top:14px"><div class="panel-head">🎯 In-scope targets · risk ranked<span class="sub">${n(rows.length)} rows</span></div>
+        <div style="overflow-x:auto"><table class="tbl">
+          <thead><tr><th>Target</th><th>Program</th><th>Risk</th><th>State</th><th>JS</th><th>Secrets</th><th>Sinks</th><th>Endpt</th><th>Severity</th><th>CVEs</th><th>Added</th></tr></thead>
+          <tbody>${tblBody}</tbody>
+        </table></div></div>`;
+
+    // animate bars
+    requestAnimationFrame(()=>document.querySelectorAll('.bar-fill[data-w]').forEach(b=>{const w=b.getAttribute('data-w');b.style.width=w+'%';}));
+  }
+
+  function sevLevel(c,h,m,l){ if((c||0)>0)return 'critical'; if((h||0)>0)return 'high'; if((m||0)>0)return 'medium'; if((l||0)>0)return 'low'; return 'other'; }
+  function sevTag(c,h,m,l){ const parts=[]; if(c)parts.push('C:'+c); if(h)parts.push('H:'+h); if(m)parts.push('M:'+m); if(l)parts.push('L:'+l); return parts.length? parts.join(' ') : '—'; }
+
+  function donut(segments,o){
+    const total=segments.reduce((a,s)=>a+((s[1]||0)),0);
+    const C=2*Math.PI*o.r; let acc=0;
+    let segs=''; const used=[];
+    segments.forEach(s=>{ const v=s[1]||0; if(!v)return; const frac=v/total; used.push([s[0],v,s[2]]); const dash=C*frac; const off=C*(1-acc); acc+=frac; segs+=`<circle cx="${o.cx}" cy="${o.cy}" r="${o.r}" fill="none" stroke="${s[2]}" stroke-width="17" stroke-dasharray="${(dash-2)} ${C}" stroke-dashoffset="${off}" transform="rotate(-90 ${o.cx} ${o.cy})" opacity=".95"/>`; });
+    return `<svg width="180" height="180" viewBox="0 0 ${o.cx*2} ${o.cy*2}"><circle cx="${o.cx}" cy="${o.cy}" r="${o.r}" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="17"/>${segs}<text x="${o.cx}" y="${o.cy-6}" text-anchor="middle" fill="#fff" font-size="22" font-weight="800" font-family="var(--mono)">${total}</text><text x="${o.cx}" y="${o.cy+14}" text-anchor="middle" fill="var(--dim)" font-size="9" letter-spacing="2">${o.label}</text></svg><div class="legend">${used.map(s=>`<span class="li"><span class="sw" style="background:${s[2]}"></span>${s[0]} · ${s[1]}</span>`).join('')}</div>`;
+  }
+
+  /* ===================================================================
+     RENDER TARGET DETAIL
+     =================================================================== */
+  function renderTarget(){
+    const id=state.targetId; const f=state.findings[id]; const main=el('main');
+    if(!f){ main.innerHTML='<div class="empty-state"><h3>No data</h3></div>'; return; }
+    const tgt=f.target||{}; const prog=(state.dash&&(state.dash.targets||[]).find(r=>r.target&&r.target.id===id))||null;
+    const s=f.secrets||[]; const sk=f.sinks||[]; const ep=f.endpoints||[]; const pa=f.params||[]; const blh=f.blh||[]; const cv=f.cves||[]; const jsf=f.js_files||[]; const jobs=f.jobs||[];
+    const sevs=cv.reduce((a,c)=>{const k=String(c.severity||'other').toLowerCase(); if(['critical','high','medium','low'].includes(k))a[k]=(a[k]||0)+1; else a.other=(a.other||0)+1; return a;},{critical:0,high:0,medium:0,low:0,other:0});
+
+    const heroRisk=riskScore({critical:sevs.critical,high:sevs.high,medium:sevs.medium,low:sevs.low,secrets:s.length,sinks:sk.length,blh:blh.length});
+    const hg=riskGrade(heroRisk);
+
+    main.innerHTML=`
+      <div class="crumb"><span class="link" onclick="navTo('overview')">console</span><span class="sep">/</span><span class="link" onclick="navTo('overview')">targets</span><span class="sep">/</span><span class="cur mono">${esc(tgt.domain||id)}</span></div>
+
+      <div class="det-hero">
+        <div class="dom-line">
+          <span class="big">${esc(tgt.domain||'unknown')}</span>
+          <div class="tags">
+            <span class="score" style="color:${hg[2]};border-color:${hg[2]};background:${hg[2]}1a;width:44px;height:44px;font-size:.95rem" title="${hg[1]} risk">${heroRisk}</span>
+          </div>
+        </div>
+        <div style="margin-top:6px;font-size:.8rem;color:var(--mut)">${(prog&&prog.program)?'<span style="color:'+(platformColor[(prog.platform)||'']||'#9db1d6')+'">'+(platformIcons[prog.platform]||'◆')+'</span> '+esc(prog.program)+' · ':''}${esc(tgt.id||'')}</div>
+        <div class="meta-grid">
+          <div class="meta-cell"><div class="l">Status</div><div class="v">${statusPill(tgt.status||'pending')}</div></div>
+          <div class="meta-cell"><div class="l">Source</div><div class="v">${esc(tgt.source||'—')}</div></div>
+          <div class="meta-cell"><div class="l">Added</div><div class="v">${fmtTime(tgt.added_at)}</div></div>
+          <div class="meta-cell"><div class="l">JS Files</div><div class="v">${n(jsf.length)}</div></div>
+          <div class="meta-cell"><div class="l">Top risk</div><div class="v" style="color:${hg[2]}">${hg[1]}</div></div>
+          <div class="meta-cell"><div class="l">Latest job</div><div class="v">${latestJobBadge(jobs)}</div></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+          <button class="btn primary" style="padding:9px 16px" onclick="huntNow('${esc(id)}')">⚡ Hunt now</button>
+          <button class="btn ghost" onclick="loadTargetDetail('${esc(id)}')">⟳ Reload findings</button>
+        </div>
+      </div>
+
+      <div class="tabbar">
+        ${tab('secrets','🔑','Secrets',s.length)}${tab('sinks','⚡','Sinks',sk.length)}${tab('endpoints','🛰️','Endpoints',ep.length)}${tab('params','#️⃣','Params',pa.length)}${tab('blh','🔗','BLH',blh.length)}${tab('cves','🧨','CVEs',cv.length)}${tab('js','📄','JS Files',jsf.length)}${tab('jobs','🔄','Jobs',jobs.length)}
+      </div>
+
+      <div id="tabContent">${renderTabBody()}</div>`;
+  }
+
+  function tab(key,ic,label,count){ return `<div class="tab ${state.tab===key?'on':''}" data-tab="${key}" onclick="switchTab('${key}')">${ic} ${label} <span class="tn">${n(count)}</span></div>`; }
+
+  function latestJobBadge(jobs){ if(!jobs.length)return '—'; const j=[...jobs].sort((a,b)=>new Date(b.queued_at||0)-new Date(a.queued_at||0))[0]; return statusPill(j.status)+' <span style="font-size:.7rem;color:var(--dim)">'+relTime(j.queued_at)+'</span>'; }
+
+  function switchTab(key){ state.tab=key; renderTarget(); }
+
+  function renderTabBody(){
+    const id=state.targetId; const f=state.findings[id]; if(!f)return '';
+    const K=state.tab;
+    const s=f.secrets||[]; const sk=f.sinks||[]; const ep=f.endpoints||[]; const pa=f.params||[]; const blh=f.blh||[]; const cv=f.cves||[]; const jsf=f.js_files||[]; const jobs=f.jobs||[];
+    if(K==='secrets'){
+      if(!s.length)return empty('🔑','No secrets','No credential material matched in this target\u2019s JavaScript.');
+      const top=s.filter(x=>x.confidence>=0.8).length;
+      return `<div style="font-size:.74rem;color:var(--dim);margin-bottom:10px;font-family:var(--mono)">${top} high-confidence / ${s.length} total · entropy ≥ ${((s.reduce((a,x)=>a+((x.entropy)||0),0))/Math.max(1,s.length)).toFixed(2)} avg</div>`+
+        s.slice(0,300).map(x=>finding(`<span class="chip done">${esc(x.pattern||'secret')}</span> <span class="fc-title">${esc(x.matched||'')}</span> <span style="color:var(--dim)">conf ${((x.confidence||0)*100).toFixed(0)}%</span>`, ctxS(x), line(x.line))+sevHeat(x.confidence)).join('');
+    }
+    if(K==='sinks'){
+      if(!sk.length)return empty('⚡','No sinks','No DOM XSS source→sink paths found.');
+      const risky=sk.filter(x=>!x.has_origin_check).length;
+      return `<div style="font-size:.74rem;color:var(--dim);margin-bottom:10px;font-family:var(--mono)">${risky} without origin-check / ${sk.length} total</div>`+
+        sk.slice(0,300).map(x=>finding(`<span class="chip error">${esc(x.sink_type||'sink')}</span> <span class="fc-title">src: ${esc(x.source_type||'?')}</span> ${x.has_origin_check?'<span class="chip done">origin-checked ✓</span>':'<span class="chip error">NO origin check</span>'} conf ${Math.round((x.confidence||0)*100)}%`, ctxS(x), line(x.line))).join('');
+    }
+    if(K==='endpoints'){
+      if(!ep.length)return empty('🛰️','No endpoints','No API endpoints extracted yet.');
+      const withM=ep.filter(x=>x.method).length;
+      return `<div style="font-size:.74rem;color:var(--dim);margin-bottom:10px;font-family:var(--mono)">${withM} with inferred method / ${ep.length} total</div>`+
+        ep.slice(0,300).map(x=>{
+          const m=String(x.method||'GET').toUpperCase(); const mc={'GET':'done','POST':'error','PUT':'yellow','DELETE':'error','PATCH':'orange'}[m]||'info';
+          return `<div class="finding-card"><div class="top"><span class="chip ${mc}" style="width:52px;justify-content:center">${esc(m)}</span><span class="fc-title">${esc(x.endpoint||x.full_url||'')}</span><span style="margin-left:auto;color:var(--dim);font-size:.7rem;font-family:var(--mono)">${esc(x.found_in||'js_file')} · ${esc(x.context||'')}</span></div>${x.full_url&&x.full_url!==x.endpoint?`<div class="fc-ctx">${esc(x.full_url)}</div>`:''}</div>`;
+        }).join('');
+    }
+    if(K==='params'){
+      if(!pa.length)return empty('#️⃣','No parameters','No parameter names extracted.');
+      const ctx=[...new Set(pa.map(x=>x.context).filter(Boolean))];
+      return `<div style="font-size:.74rem;color:var(--dim);margin-bottom:10px;font-family:var(--mono)">contexts: ${ctx.join(', ')||'—'} · ${pa.length} params</div>`+
+        pa.slice(0,400).map(x=>`<div class="finding-card"><div class="top"><span class="chip info">${esc(x.context||'query')}</span><span class="fc-title">${esc(x.param_name||'')}</span><span style="margin-left:auto;color:var(--dim);font-size:.7rem;font-family:var(--mono)">${esc(x.location||'')} · ${esc(x.found_in||'')}</span></div></div>`).join('');
+    }
+    if(K==='blh'){
+      if(!blh.length)return empty('🔗','No BLH candidates','No broken-link-hijack candidates found.');
+      return blh.slice(0,300).map(x=>{
+        const risk=String(x.risk_level||'low').toLowerCase(); const col=risk==='high'?'red':risk==='medium'?'yellow':'green';
+        return `<div class="finding-card"><div class="top"><span class="chip ${risk==='high'?'error':risk==='medium'?'yellow':'done'}">${esc(x.resolution_status||'candidate')}</span><span class="fc-title">${esc(x.referenced_domain||'')}</span>${x.cloud_provider?`<span class="chip info">${esc(x.cloud_provider)}</span>`:''}<span style="margin-left:auto;color:var(--dim);font-size:.7rem">risk <b style="color:${col}">${esc(risk)}</b></span></div>${x.evidence?`<div class="fc-ctx">${esc(x.evidence)}</div>`:''}</div>`;
+      }).join('');
+    }
+    if(K==='cves'){
+      if(!cv.length)return empty('🧨','No CVEs','No known-vulnerable libraries fingerprinted.');
+      const sevs=cv.reduce((a,c)=>{const k=String(c.severity||'other').toLowerCase();a[k]=(a[k]||0)+1;return a;},{});
+      return `<div style="font-size:.74rem;color:var(--dim);margin-bottom:10px;font-family:var(--mono)">${(sevs.critical||0)} critical · ${(sevs.high||0)} high · ${(sevs.medium||0)} medium · ${(sevs.low||0)} low</div>`+
+        cv.slice(0,400).map(x=>`<div class="finding-card"><div class="top">${sevPill(x.severity)}<span class="fc-title">${esc(x.library_name||'')} <span style="color:var(--dim)">v${esc(x.version||'')}</span></span><span class="mono" style="color:var(--neon)">${esc(x.cve_id||'')}</span>${x.reference?`<a href="${esc(x.reference)}" target="_blank" rel="noopener" style="margin-left:auto;font-size:.7rem">↗</a>`:''}</div><div class="fc-ctx">${esc(x.description||'')}</div></div>`).join('');
+    }
+    if(K==='js'){
+      if(!jsf.length)return empty('📄','No JS files','No JavaScript files discovered for this target yet.');
+      return jsf.slice(0,300).map(x=>{
+        const code=x.status_code||0; const ok=code>=200&&code<400;
+        return `<div class="finding-card"><div class="top"><span class="chip ${ok?'done':'error'}">${code||'—'}</span><span class="fc-title">${esc(x.url||'')}</span><span style="margin-left:auto;color:var(--dim);font-size:.7rem;font-family:var(--mono)">${esc(x.content_type||'')} · ${n(x.content_length||0)}B</span></div><div class="fc-ctx">hash ${esc((x.js_hash||'').slice(0,16))} · fetched ${relTime(x.fetched_at)}</div></div>`;
+      }).join('');
+    }
+    if(K==='jobs'){
+      if(!jobs.length)return empty('🔄','No jobs','No hunt jobs recorded for this target.');
+      return jobs.slice().sort((a,b)=>new Date(b.queued_at||0)-new Date(a.queued_at||0)).map(x=>`<div class="finding-card"><div class="top">${statusPill(x.status)}<span class="fc-title">job ${esc(x.id||'')}</span><span class="chip info">${esc(x.source||'')}</span><span style="margin-left:auto;color:var(--dim);font-size:.72rem;font-family:var(--mono)">queued ${relTime(x.queued_at)} · step ${esc(x.current_step||'—')}</span></div>${x.error?`<div class="codeblock">${esc(x.error)}</div>`:''}</div>`).join('');
+    }
+    return '';
+  }
+
+  function finding(head,ctx,ln){ return `<div class="finding-card"><div class="top">${head}${ln?`<span style="margin-left:auto;color:var(--dim);font-size:.7rem;font-family:var(--mono)">L${ln}</span>`:''}</div>${ctx?`<div class="fc-ctx">${esc(ctx)}</div>`:''}</div>`; }
+  function sevHeat(c){ c=Number(c)||0; if(c>=0.95)return ''; return ''; }
+  function ctxS(x){ const v=x.context||''; return v.length>300? v.slice(0,300)+'…':v; }
+  function line(l){ return l>0?l:''; }
+  function empty(ic,t,d){ return `<div class="empty-state"><div class="big">${ic}</div><h3>${t}</h3><p>${d}</p></div>`; }
+  function cap(s){ return (s||'').charAt(0).toUpperCase()+String(s).slice(1); }
+
+  /* ===================================================================
+     ACTIONS
+     =================================================================== */
+  async function huntNow(id){ try{ const r=await api('/api/jobs',{method:'POST',body:JSON.stringify({target_id:id,source:'webui'})}); if(r.status===401){sessionUnauth();return;} if(r.ok){ toast('Hunt job queued ✓','good'); setTimeout(()=>refreshAll(),1500); } else toast('Failed to queue job','bad'); }catch(e){ toast('Network error queueing job','bad'); } }
+
+  function openAddModal(){ el('addModal').classList.add('on'); el('addErr').textContent=''; el('mDomain').focus(); }
+  function closeAddModal(){ el('addModal').classList.remove('on'); }
+  async function submitAdd(){
+    const platform=el('mPlatform').value.trim().toLowerCase(); const program=el('mProgram').value.trim(); const domain=el('mDomain').value.trim();
+    el('addErr').textContent='';
+    if(!platform||!program||!domain){ el('addErr').textContent='platform, program and domain are all required'; return; }
+    try{ const r=await api('/api/targets',{method:'POST',body:JSON.stringify({domain,platform,program})}); if(r.status===401){sessionUnauth();return;} if(r.ok||r.status===201){ toast(domain+' ingested — hunt queued','good'); closeAddModal(); refreshAll(); } else { const j=await r.json().catch(()=>null); el('addErr').textContent=(j&&j.error)||('HTTP '+r.status); } }catch(e){ el('addErr').textContent='Network error'; }
+  }
+
+  /* search filters overview + tree */
+  function applySearch(){
+    if(state.view==='overview') renderOverview();
+    renderTree();
+  }
+
+  /* ===================================================================
+     AUTH FLOW
+     =================================================================== */
+  function sessionUnauth(){ state.user='';state.pass='';state.b64=''; sessionStorage.removeItem('hustler_auth'); el('app').classList.remove('on'); showLogin('Session expired — re-authenticate.'); }
+  async function checkSession(){
+    // If stored creds exist, test them.
+    const stored=getCreds();
+    try{ const r=await fetch('/api/session',{headers: stored?{'Authorization':'Basic '+stored.b64}:{}}); const j=await r.json().catch(()=>null); if(j&&j.authenticated){ state.user=j.user||'rebel'; enterApp(stored||null); return true; } }catch(e){ setLive(false,'API DOWN'); }
+    showLogin(); return false;
+  }
+  function enterApp(creds){ if(creds){ state.b64=creds.b64; state.user=creds.user||'rebel'; } el('app').classList.add('on'); hideLogin(); el('avatar').textContent=(state.user||'r').charAt(0).toUpperCase(); el('userName').textContent=state.user+'  ⎋'; refreshAll(true); }
+  function logout(){ sessionStorage.removeItem('hustler_auth'); el('app').classList.remove('on'); showLogin(); }
+
+  /* ---------- event wiring ---------- */
+  document.getElementById('loginForm').addEventListener('submit',async function(e){ e.preventDefault(); const u=el('loginUser').value.trim(); const p=el('loginPass').value; el('loginErr').textContent=''; if(!u||!p){el('loginErr').textContent='Enter both username and password.';return;} const bb=b64(u,p); el('loginErr').textContent='Authenticating…'; try{ const r=await fetch('/api/session',{headers:{'Authorization':'Basic '+bb}}); const j=await r.json().catch(()=>null); if(j&&j.authenticated){ setCreds({user:u,b64:bb}); state.b64=bb; state.user=u; enterApp(null); toast('Welcome back, '+u+' 👋','good'); } else { el('loginErr').textContent='Invalid credentials. Try rebel / crow.'; } }catch(err){ el('loginErr').textContent='Cannot reach API — is the server running?'; } });
+
+  document.getElementById('addModal').addEventListener('click',e=>{ if(e.target.id==='addModal') closeAddModal(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddModal(); });
+  let searchT=null;
+  document.getElementById('globalSearch').addEventListener('input',function(){ clearTimeout(searchT); searchT=setTimeout(()=>{ state.q=this.value; applySearch(); },250); });
+
+  // expose needed fns globally (called from inline onclick)
+  window.navTo=navTo; window.openTarget=openTarget; window.openAddModal=openAddModal; window.closeAddModal=closeAddModal; window.submitAdd=submitAdd; window.huntNow=huntNow; window.switchTab=switchTab; window.refreshAll=refreshAll; window.logout=logout; window.toggleTree=function(p){};
+
+  // polling
+  setInterval(()=>{ if(el('app').classList.contains('on')) refreshAll(true); },20000);
+
+  // boot
+  checkSession();
+})();
+</script>
 </body>
 </html>

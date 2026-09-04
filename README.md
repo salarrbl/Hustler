@@ -112,6 +112,9 @@ watch -n 5 ./hustler daemon status
 
 # Web UI
 ./hustler web                 # http://localhost:8080
+#   Login: rebel / crow  (set internal/cli/auth.go to change)
+#   Protected SPA dashboard: Overview, target explorer, findings tabs.
+#   API: /api/session, /api/dashboard, /api/targets, /api/findings/{id}, /api/jobs
 
 # Program management
 ./hustler program list
