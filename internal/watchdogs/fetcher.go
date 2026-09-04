@@ -22,7 +22,7 @@ type Fetcher struct {
 	client      *wmongo.Client
 	watchdogsDb *wmongo.Database
 	cfg         config.WatchdogsConfig
-	hustlerDb   *mongo.Database
+	hustlerDb   *wmongo.Database
 }
 
 // WatchdogsAsset represents a subdomain/asset from Watchdogs

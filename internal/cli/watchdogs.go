@@ -3,9 +3,7 @@ package cli
 import (
 	"context"
 	"fmt"
-	"os"
 	"strings"
-	"text/tabwriter"
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
