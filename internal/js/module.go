@@ -230,9 +230,10 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 	}
 	pc.Sinks.Add(int64(totalSinks))
 
-	// 3. Endpoint extractor
+	// 3. Endpoint extractor (scan both JS and HTML)
 	endpointExtractor := analyzers.NewEndpointExtractor()
 	totalEndpoints := 0
+	// Scan JS files
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -247,11 +248,30 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			m.storeDiscoveredURLs(ctx, target.ID, endpoints, "extracted_from_js")
 		}
 	}
+	// Scan HTML content
+	for htmlURL, html := range htmlContent {
+		if html == "" {
+			continue
+		}
+		// Create a temporary JSFile for HTML tracking
+		htmlJSFile := &models.JSFile{
+			ID:       uuid.New().String(),
+			TargetID: target.ID,
+			URL:      htmlURL,
+		}
+		endpoints, err := endpointExtractor.ExtractEndpoints(ctx, target, htmlJSFile, html, "html_page")
+		if err != nil {
+			log.Warn().Err(err).Str("html_url", htmlURL).Msg("Endpoint extractor failed on HTML")
+		} else {
+			totalEndpoints += len(endpoints)
+		}
+	}
 	pc.Endpoints.Add(int64(totalEndpoints))
 
-	// 4. Parameter extractor
+	// 4. Parameter extractor (scan both JS and HTML)
 	paramExtractor := analyzers.NewParamExtractor()
 	totalParams := 0
+	// Scan JS files
 	for _, jsFile := range jsFiles {
 		content := contentMap[jsFile.URL]
 		if content == "" {
@@ -266,6 +286,24 @@ func (m *JSModule) runAnalyzersWithCounter(ctx context.Context, target *models.T
 			if len(params) > 0 {
 				m.storeDiscoveredURLs(ctx, target.ID, nil, "param_extraction")
 			}
+		}
+	}
+	// Scan HTML content
+	for htmlURL, html := range htmlContent {
+		if html == "" {
+			continue
+		}
+		// Create a temporary JSFile for HTML tracking
+		htmlJSFile := &models.JSFile{
+			ID:       uuid.New().String(),
+			TargetID: target.ID,
+			URL:      htmlURL,
+		}
+		params, err := paramExtractor.ExtractParams(ctx, target, htmlJSFile, html, "html_page")
+		if err != nil {
+			log.Warn().Err(err).Str("html_url", htmlURL).Msg("Param extractor failed on HTML")
+		} else {
+			totalParams += len(params)
 		}
 	}
 	pc.Params.Add(int64(totalParams))

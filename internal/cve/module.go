@@ -1,6 +1,7 @@
 package cve
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -689,7 +690,7 @@ func (m *CVEModule) analyzeServerTech(ctx context.Context, responses []HTTPRespo
 				continue
 			}
 
-			// Look up in local DB
+			// 1. Look up in local DB
 			if entries, ok := m.localDB[tech]; ok {
 				for _, entry := range entries {
 					if m.versionMatches(version, entry.MaxVersion) {
@@ -710,8 +711,145 @@ func (m *CVEModule) analyzeServerTech(ctx context.Context, responses []HTTPRespo
 					}
 				}
 			}
+
+			// 2. Online lookup if enabled
+			if m.config.EnableOnlineLookup {
+				onlineFindings := m.lookupServerTechOnline(ctx, tech, version)
+				findings = append(findings, onlineFindings...)
+			}
 		}
 	}
+	return findings
+}
+
+// lookupServerTechOnline queries OSV.dev and other APIs for server tech vulnerabilities
+func (m *CVEModule) lookupServerTechOnline(ctx context.Context, tech, version string) []CVEFinding {
+	var findings []CVEFinding
+
+	// Map common server tech names to OSV package names
+	osvPackageMap := map[string]string{
+		"nginx":      "nginx",
+		"apache":     "apache-http-server",
+		"apache http server": "apache-http-server",
+		"openresty":  "openresty",
+		"php":        "php",
+		"openssl":    "openssl",
+		"node.js":    "nodejs",
+		"nodejs":     "nodejs",
+		"iis":        "microsoft-iis",
+		"lighttpd":   "lighttpd",
+		"caddy":      "caddy",
+		"haproxy":    "haproxy",
+		"varnish":    "varnish",
+		"tomcat":     "apache-tomcat",
+		"jetty":      "eclipse-jetty",
+		"wildfly":    "wildfly",
+		"glassfish":  "glassfish",
+		"weblogic":   "oracle-weblogic",
+		"websphere":  "ibm-websphere",
+	}
+
+	osvPkg, ok := osvPackageMap[tech]
+	if !ok {
+		return findings // No mapping for this tech
+	}
+
+	// Query OSV.dev for this package/version
+	url := fmt.Sprintf("%s/v1/query", m.onlineClients.osvBase)
+	payload := map[string]interface{}{
+		"package": map[string]string{
+			"name": osvPkg,
+			"ecosystem": "Linux", // or appropriate ecosystem
+		},
+		"version": version,
+	}
+
+	jsonPayload, _ := json.Marshal(payload)
+	req, err := http.NewRequestWithContext(ctx, "POST", url, bytes.NewBuffer(jsonPayload))
+	if err != nil {
+		return findings
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	// Rate limit
+	if err := m.waitForRateLimit(ctx); err != nil {
+		return findings
+	}
+
+	resp, err := m.onlineClients.httpClient.Do(req)
+	if err != nil {
+		return findings
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return findings
+	}
+
+	var osvResult struct {
+		Vulns []struct {
+			ID        string `json:"id"`
+			Summary   string `json:"summary"`
+			Details   string `json:"details"`
+			Severity  []struct {
+				Type  string  `json:"type"`
+				Score float64 `json:"score"`
+			} `json:"severity"`
+			Affected []struct {
+				Package struct {
+					Name string `json:"name"`
+				} `json:"package"`
+				Ranges []struct {
+					Events []struct {
+						Introduced string `json:"introduced"`
+						Fixed      string `json:"fixed"`
+					} `json:"events"`
+				} `json:"ranges"`
+			} `json:"affected"`
+		} `json:"vulns"`
+	}
+
+	body, _ := io.ReadAll(resp.Body)
+	if err := json.Unmarshal(body, &osvResult); err != nil {
+		return findings
+	}
+
+	for _, v := range osvResult.Vulns {
+		severity := "UNKNOWN"
+		cvss := 0.0
+		fixedVer := ""
+		for _, s := range v.Severity {
+			if s.Type == "CVSS_V3" {
+				cvss = s.Score
+				severity = calcSeverityFromCVSS(s.Score)
+			}
+		}
+		for _, a := range v.Affected {
+			for _, r := range a.Ranges {
+				for _, evt := range r.Events {
+					if evt.Fixed != "" {
+						fixedVer = evt.Fixed
+					}
+				}
+			}
+		}
+
+		findings = append(findings, CVEFinding{
+			CVEID:       v.ID,
+			Library:     tech,
+			DetectedVer: version,
+			FixedVer:    fixedVer,
+			Severity:    severity,
+			CVSS:        cvss,
+			HasPoC:      false,
+			Summary:     v.Summary,
+			Source:      "osv.dev",
+			Confidence:  0.75,
+			MatchType:   "exact",
+			Context:     "header",
+		})
+	}
+
 	return findings
 }
 

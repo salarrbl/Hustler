@@ -11,7 +11,6 @@ import (
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"hustler/internal/mongo"
 	"hustler/internal/models"
 )
@@ -74,60 +73,109 @@ func defaultConfig() *Config {
 	return &Config{Port: "8080"}
 }
 
-// Handle GET /api/targets - list all targets
+// Handle GET /api/targets - list all targets grouped by platform/program
 func (s *Server) handleTargets(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		s.handleTargetsPost(w, r)
 		return
 	}
-	// GET - list targets
+	// GET - list targets grouped by platform and program (same as CLI)
 	ctx := r.Context()
-	coll := mongo.GetCollection("targets")
 	
-	cursor, err := coll.Find(ctx, bson.M{})
+	// Reuse the buildTargetTree logic from CLI
+	targetColl := mongo.GetCollection("targets")
+	programColl := mongo.GetCollection("programs")
+
+	cursor, err := targetColl.Find(ctx, bson.M{})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	defer cursor.Close(ctx)
-	
+
 	var targets []models.Target
 	if err := cursor.All(ctx, &targets); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	
-	// Get latest job status for each target
-	opt := options.FindOne().SetSort(bson.M{"queued_at": -1})
-	for i := range targets {
-		jobColl := mongo.GetCollection("jobs")
-		var job models.Job
-		err := jobColl.FindOne(ctx, bson.M{"target_id": targets[i].ID}, opt).Decode(&job)
-		if err == nil {
-			targets[i].JobStatus = string(job.Status)
-			targets[i].JobStartedAt = job.StartedAt
-			targets[i].JobFinishedAt = job.FinishedAt
+
+	// Get all programs
+	progCursor, _ := programColl.Find(ctx, bson.M{})
+	var programs []models.Program
+	progCursor.All(ctx, &programs)
+
+	// Group by platform and program
+	result := make(map[string]*models.TargetTree)
+
+	// Define platform icons
+	icons := map[string]string{
+		"hackerone":     "◆",
+		"bugcrowd":      "◇",
+		"intigriti":     "⬢",
+		"yeswehack":     "⚡",
+		"openbugbounty": "⬟",
+		"freelance":     "◆",
+	}
+
+	// Build program name lookup
+	programNames := make(map[string]string)
+	for _, p := range programs {
+		programNames[p.ID] = p.Name
+	}
+
+	// Build tree
+	for _, t := range targets {
+		platform := string(t.Platform)
+		if platform == "" {
+			platform = "freelance"
+		}
+
+		if _, ok := result[platform]; !ok {
+			result[platform] = &models.TargetTree{
+				Platform: platform,
+				Icon:     icons[platform],
+				Programs: make(map[string][]models.Target),
+			}
+		}
+
+		tree := result[platform]
+		if t.ProgramID == "" {
+			tree.Uncategorized = append(tree.Uncategorized, t)
+		} else {
+			// Find program name
+			programName := t.ProgramID // fallback to ID if name not found
+			if name, ok := programNames[t.ProgramID]; ok {
+				programName = name
+			}
+			tree.Programs[programName] = append(tree.Programs[programName], t)
 		}
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(targets)
+	json.NewEncoder(w).Encode(result)
 }
 
 // Handle POST /api/targets - add new target
 func (s *Server) handleTargetsPost(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-	
+
 	var req struct {
-		Domain string `json:"domain"`
+		Domain   string `json:"domain"`
+		Platform string `json:"platform"`
+		Program  string `json:"program"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	
+
+	if req.Platform == "" || req.Program == "" {
+		http.Error(w, "platform and program are required", http.StatusBadRequest)
+		return
+	}
+
 	coll := mongo.GetCollection("targets")
-	
+
 	// Check if target exists
 	var existing models.Target
 	err := coll.FindOne(ctx, bson.M{"domain": req.Domain}).Decode(&existing)
@@ -138,27 +186,48 @@ func (s *Server) handleTargetsPost(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(existing)
 		return
 	}
-	
+
+	// Get or create program
+	programColl := mongo.GetCollection("programs")
+	var program models.Program
+	err = programColl.FindOne(ctx, bson.M{"name": req.Program, "platform": req.Platform}).Decode(&program)
+	if err != nil {
+		// Create program
+		program = models.Program{
+			ID:       uuid.New().String(),
+			Name:     req.Program,
+			Platform: req.Platform,
+			AddedAt:  time.Now(),
+		}
+		_, err = programColl.InsertOne(ctx, program)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	}
+
 	// Create new target
 	target := &models.Target{
-		ID:       uuid.New().String(),
-		Domain:   req.Domain,
-		Source:   models.SourceManual,
-		Status:   models.StatusPending,
-		AddedAt:  time.Now(),
+		ID:        uuid.New().String(),
+		Domain:    req.Domain,
+		Source:    models.SourceManual,
+		Platform:  models.TargetPlatform(req.Platform),
+		ProgramID: program.ID,
+		Status:    models.StatusPending,
+		AddedAt:   time.Now(),
 		UpdatedAt: time.Now(),
 	}
-	
+
 	result, err := coll.InsertOne(ctx, target)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	target.ID = result.InsertedID.(string)
-	
+
 	// Enqueue job
 	s.enqueueJob(target.ID, "webui")
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(target)
@@ -180,7 +249,7 @@ func (s *Server) handleTargetsPostOnly(w http.ResponseWriter, r *http.Request) {
 // Handle GET /api/findings/:targetId - get findings for a target
 func (s *Server) handleFindings(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
-	
+
 	// Extract target ID from URL path
 	parts := splitPath(r.URL.Path)
 	if len(parts) < 3 {
@@ -188,7 +257,7 @@ func (s *Server) handleFindings(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	targetID := parts[2]
-	
+
 	// Verify target exists
 	coll := mongo.GetCollection("targets")
 	var target models.Target
@@ -197,50 +266,56 @@ func (s *Server) handleFindings(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Target not found", http.StatusNotFound)
 		return
 	}
-	
+
 	// Collect all findings
 	result := struct {
-		Target       *models.Target          `json:"target"`
-		Jobs         []models.Job            `json:"jobs"`
-		Secrets      []models.Secret         `json:"secrets"`
-		Sinks        []models.Sink           `json:"sinks"`
-		Endpoints    []models.Endpoint       `json:"endpoints"`
-		BLH          []models.BLHCandidate   `json:"blh"`
-		CVEs         []models.LibraryCVE     `json:"cves"`
+		Target    *models.Target          `json:"target"`
+		Jobs      []models.Job            `json:"jobs"`
+		Secrets   []models.Secret         `json:"secrets"`
+		Sinks     []models.Sink           `json:"sinks"`
+		Endpoints []models.Endpoint       `json:"endpoints"`
+		Params    []models.Param          `json:"params"`
+		BLH       []models.BLHCandidate   `json:"blh"`
+		CVEs      []models.LibraryCVE     `json:"cves"`
 	}{
 		Target: &target,
 	}
-	
+
 	// Get jobs
 	jobColl := mongo.GetCollection("jobs")
 	jobCursor, _ := jobColl.Find(ctx, bson.M{"target_id": targetID})
 	jobCursor.All(ctx, &result.Jobs)
-	
+
 	// Get secrets
 	secretColl := mongo.GetCollection("secrets")
 	secretCursor, _ := secretColl.Find(ctx, bson.M{"target_id": targetID})
 	secretCursor.All(ctx, &result.Secrets)
-	
+
 	// Get sinks
 	sinkColl := mongo.GetCollection("sinks")
 	sinkCursor, _ := sinkColl.Find(ctx, bson.M{"target_id": targetID})
 	sinkCursor.All(ctx, &result.Sinks)
-	
+
 	// Get endpoints
 	epColl := mongo.GetCollection("endpoints")
 	epCursor, _ := epColl.Find(ctx, bson.M{"target_id": targetID})
 	epCursor.All(ctx, &result.Endpoints)
-	
+
+	// Get params
+	paramColl := mongo.GetCollection("params")
+	paramCursor, _ := paramColl.Find(ctx, bson.M{"target_id": targetID})
+	paramCursor.All(ctx, &result.Params)
+
 	// Get BLH candidates
 	blhColl := mongo.GetCollection("blh_candidates")
 	blhCursor, _ := blhColl.Find(ctx, bson.M{"target_id": targetID})
 	blhCursor.All(ctx, &result.BLH)
-	
+
 	// Get CVEs
 	cveColl := mongo.GetCollection("library_cves")
 	cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": targetID})
 	cveCursor.All(ctx, &result.CVEs)
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(result)
 }

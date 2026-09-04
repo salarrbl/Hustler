@@ -212,6 +212,24 @@ This is a read-only command - it does not start or re-run scans.`,
 			fmt.Printf("\n%s\n", color.New(color.FgHiGreen).Sprintf("BLH: No takeover vulnerabilities found."))
 		}
 
+		// Print TARGET SUBDOMAINS (internal subdomains referenced in JS/HTML)
+		if len(targetSubdomains) > 0 {
+			fmt.Printf("\n%s\n", color.New(color.FgHiBlue, color.Bold).Sprintf("=== TARGET SUBDOMAINS FOUND (%d) ===", len(targetSubdomains)))
+			for _, b := range targetSubdomains {
+				source := b.FoundIn
+				if source == "" {
+					source = "js_file"
+				}
+				fmt.Printf("  %s  %s %s\n",
+					color.New(color.FgHiCyan).Sprintf("%s", b.ReferencedDomain),
+					color.New(color.FgHiWhite).Sprintf("(%s)", b.ResolutionStatus),
+					color.New(color.FgHiBlack).Sprintf("— %s", b.Evidence))
+				fmt.Printf("    Source: %s | Found in: %s\n", source, b.FoundIn)
+			}
+		} else {
+			fmt.Printf("\n%s\n", color.New(color.FgHiGreen).Sprintf("Target Subdomains: None found."))
+		}
+
 		// Library CVEs
 				cveColl := mongo.GetCollection("library_cves")
 				cveCursor, _ := cveColl.Find(ctx, bson.M{"target_id": target.ID})
