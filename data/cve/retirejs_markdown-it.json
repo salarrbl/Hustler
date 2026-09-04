@@ -7,7 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site Scripting (XSS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-j5p7-jf4q-742q"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-10005"
+    ]
   },
   {
     "library": "markdown-it",
@@ -17,7 +26,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site Scripting (XSS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-3295",
+      "https://github.com/markdown-it/markdown-it/blob/master/CHANGELOG.md",
+      "https://security.snyk.io/vuln/npm:markdown-it:20160912"
+    ]
   },
   {
     "library": "markdown-it",
@@ -27,26 +44,62 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service (ReDoS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-6vfc-qv3f-vr6c"
+    ],
+    "references": [
+      "https://github.com/markdown-it/markdown-it/blob/master/CHANGELOG.md",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-21670",
+      "https://security.snyk.io/vuln/SNYK-JS-MARKDOWNIT-2331914"
+    ]
   },
   {
     "library": "markdown-it",
+    "at_or_above": "13.0.0",
     "max_version": "14.1.1",
     "cve_id": "CVE-2026-2327",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Versions of the package markdown-it from 13.0.0 and before 14.1.1 are vulnerable to Regular Expression Denial of Service (ReDoS) due to the use of the regex /\\*+$/ in the linkify function. An attacker can supply a long sequence of * characters followed by a non-matching character, which triggers excessive backtracking and may lead to a denial-of-service condition.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-38c4-r59v-3vqw"
+    ],
+    "references": [
+      "https://github.com/markdown-it/markdown-it/commit/4b4bbcae5e0990a5b172378e507b33a59012ed26",
+      "https://gist.github.com/ltduc147/c9abecae1b291ede4f692f2ab988c917",
+      "https://github.com/markdown-it/markdown-it/blob/14.1.0/lib/rules_inline/linkify.mjs#L33",
+      "https://security.snyk.io/vuln/SNYK-JS-MARKDOWNIT-10666750"
+    ]
   },
   {
     "library": "markdown-it",
+    "at_or_above": "0",
     "max_version": "14.2.0",
     "cve_id": "CVE-2026-48988",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "markdown-it: Quadratic complexity DoS in smartquotes rule via replaceAt string operations",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-407"
+    ],
+    "aliases": [
+      "GHSA-6v5v-wf23-fmfq"
+    ],
+    "references": [
+      "https://github.com/markdown-it/markdown-it/security/advisories/GHSA-6v5v-wf23-fmfq"
+    ]
   }
 ]

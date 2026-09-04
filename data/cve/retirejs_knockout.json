@@ -7,6 +7,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS injection point in attr name binding for browser IE7 and older",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vcjj-xf2r-mwvc"
+    ],
+    "references": [
+      "https://github.com/knockout/knockout/issues/1244"
+    ]
   }
 ]

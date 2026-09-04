@@ -1,0 +1,91 @@
+[
+  {
+    "library": "webpack",
+    "at_or_above": "5.49.0",
+    "max_version": "5.104.0",
+    "cve_id": "GHSA-38r7-794h-5758",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "webpack buildHttp HttpUriPlugin allowedUris bypass via HTTP redirects → SSRF + cache persistence",
+    "fixed_version": "5.104.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "CVE-2025-68157"
+    ],
+    "references": [
+      "https://github.com/webpack/webpack/security/advisories/GHSA-38r7-794h-5758",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-68157",
+      "https://github.com/webpack/webpack"
+    ]
+  },
+  {
+    "library": "webpack",
+    "at_or_above": "5.0.0-alpha.0",
+    "max_version": "5.94.0",
+    "cve_id": "GHSA-4vvj-4cpr-p986",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Webpack's AutoPublicPathRuntimeModule has a DOM Clobbering Gadget that leads to XSS",
+    "fixed_version": "5.94.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-43788"
+    ],
+    "references": [
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43788",
+      "https://github.com/webpack/webpack/issues/18718#issuecomment-2326296270"
+    ]
+  },
+  {
+    "library": "webpack",
+    "at_or_above": "5.49.0",
+    "max_version": "5.104.1",
+    "cve_id": "GHSA-8fgc-7cc6-rx7x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "webpack buildHttp: allowedUris allow-list bypass via URL userinfo (@) leading to build-time SSRF behavior",
+    "fixed_version": "5.104.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "CVE-2025-68458"
+    ],
+    "references": [
+      "https://github.com/webpack/webpack/security/advisories/GHSA-8fgc-7cc6-rx7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-68458",
+      "https://github.com/webpack/webpack"
+    ]
+  },
+  {
+    "library": "webpack",
+    "at_or_above": "5.0.0",
+    "max_version": "5.76.0",
+    "cve_id": "GHSA-hc6q-2mpp-qw7j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-realm object access in Webpack 5",
+    "fixed_version": "5.76.0",
+    "source": "osv.dev",
+    "aliases": [
+      "CVE-2023-28154"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-28154",
+      "https://github.com/webpack/webpack/pull/16500",
+      "https://github.com/webpack/webpack/compare/v5.75.0...v5.76.0"
+    ]
+  }
+]

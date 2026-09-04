@@ -1,0 +1,330 @@
+[
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.13.0",
+    "cve_id": "GHSA-9gj3-hwp5-pmwc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `altField` option of the Datepicker widget in jquery-ui",
+    "fixed_version": "1.13.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41182",
+      "CVE-2021-41182"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41182",
+      "https://github.com/jquery/jquery-ui/pull/1954/commits/6809ce843e5ac4128108ea4c15cbc100653c2b63"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "7.0.0",
+    "cve_id": "GHSA-9gj3-hwp5-pmwc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `altField` option of the Datepicker widget in jquery-ui",
+    "fixed_version": "7.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41182",
+      "CVE-2021-41182"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41182",
+      "https://github.com/jquery/jquery-ui/pull/1954/commits/6809ce843e5ac4128108ea4c15cbc100653c2b63"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.13.0",
+    "cve_id": "GHSA-gpqq-952q-5327",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `of` option of the `.position()` util in jquery-ui",
+    "fixed_version": "1.13.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41184",
+      "CVE-2021-41184"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41184",
+      "https://github.com/jquery/jquery-ui/commit/effa323f1505f2ce7a324e4f429fa9032c72f280"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "7.0.0",
+    "cve_id": "GHSA-gpqq-952q-5327",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `of` option of the `.position()` util in jquery-ui",
+    "fixed_version": "7.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41184",
+      "CVE-2021-41184"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41184",
+      "https://github.com/jquery/jquery-ui/commit/effa323f1505f2ce7a324e4f429fa9032c72f280"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "8.0.0",
+    "cve_id": "GHSA-h6gj-6jjq-h8g9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery UI vulnerable to XSS when refreshing a checkboxradio with an HTML-like initial text label",
+    "fixed_version": "8.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2022-31160"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-31160",
+      "https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.13.2",
+    "cve_id": "GHSA-h6gj-6jjq-h8g9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery UI vulnerable to XSS when refreshing a checkboxradio with an HTML-like initial text label",
+    "fixed_version": "1.13.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2022-31160"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-31160",
+      "https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "6.0.0",
+    "cve_id": "GHSA-hpcf-8vf9-q4gj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery-UI vulnerable to Cross-site Scripting in dialog closeText",
+    "fixed_version": "6.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2016-7103"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-7103",
+      "https://github.com/jquery/api.jqueryui.com/issues/281",
+      "https://github.com/jquery/jquery-ui/pull/1622"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.12.0",
+    "cve_id": "GHSA-hpcf-8vf9-q4gj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery-UI vulnerable to Cross-site Scripting in dialog closeText",
+    "fixed_version": "1.12.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2016-7103"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-7103",
+      "https://github.com/jquery/api.jqueryui.com/issues/281",
+      "https://github.com/jquery/jquery-ui/pull/1622"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.13.0",
+    "cve_id": "GHSA-j7qv-pgf6-hvh4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in `*Text` options of the Datepicker widget in jquery-ui",
+    "fixed_version": "1.13.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41183",
+      "CVE-2021-41183"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-j7qv-pgf6-hvh4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41183",
+      "https://github.com/jquery/jquery-ui/pull/1953"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "7.0.0",
+    "cve_id": "GHSA-j7qv-pgf6-hvh4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in `*Text` options of the Datepicker widget in jquery-ui",
+    "fixed_version": "7.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41183",
+      "CVE-2021-41183"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-j7qv-pgf6-hvh4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41183",
+      "https://github.com/jquery/jquery-ui/pull/1953"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "1.10.0",
+    "cve_id": "GHSA-qqxp-xp9v-vvx6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jquery-ui Tooltip widget vulnerable to XSS",
+    "fixed_version": "1.10.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2012-6662"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2012-6662",
+      "https://github.com/jquery/jquery/issues/2432",
+      "https://github.com/jquery/jquery-ui/commit/5fee6fd5000072ff32f2d65b6451f39af9e0e39e"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "4.0.0",
+    "cve_id": "GHSA-qqxp-xp9v-vvx6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jquery-ui Tooltip widget vulnerable to XSS",
+    "fixed_version": "4.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2012-6662"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2012-6662",
+      "https://github.com/jquery/jquery/issues/2432",
+      "https://github.com/jquery/jquery-ui/commit/5fee6fd5000072ff32f2d65b6451f39af9e0e39e"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "0",
+    "max_version": "4.0.0",
+    "cve_id": "GHSA-wcm2-9c89-wmfm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting in jquery-ui",
+    "fixed_version": "4.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2010-5312"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2010-5312",
+      "https://github.com/jquery/jquery-ui/commit/7e9060c109b928769a664dbcc2c17bd21231b6f3",
+      "https://www.drupal.org/sa-core-2022-002"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "at_or_above": "1.7.0",
+    "max_version": "1.10.0",
+    "cve_id": "GHSA-wcm2-9c89-wmfm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting in jquery-ui",
+    "fixed_version": "1.10.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2010-5312"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2010-5312",
+      "https://github.com/jquery/jquery-ui/commit/7e9060c109b928769a664dbcc2c17bd21231b6f3",
+      "https://www.drupal.org/sa-core-2022-002"
+    ]
+  }
+]

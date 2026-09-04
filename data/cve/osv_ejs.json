@@ -1,0 +1,118 @@
+[
+  {
+    "library": "ejs",
+    "at_or_above": "0",
+    "max_version": "2.5.5",
+    "cve_id": "GHSA-3w5v-p54c-f74x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ejs is vulnerable to remote code execution due to weak input validation",
+    "fixed_version": "2.5.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000228"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000228",
+      "https://github.com/advisories/GHSA-3w5v-p54c-f74x",
+      "https://snyk.io/vuln/npm:ejs:20161128"
+    ]
+  },
+  {
+    "library": "ejs",
+    "at_or_above": "0",
+    "max_version": "2.5.5",
+    "cve_id": "GHSA-6x77-rpqf-j6mw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ejs vulnerable to DoS due to weak input validation",
+    "fixed_version": "2.5.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000189"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000189",
+      "https://github.com/mde/ejs/commit/49264e0037e313a0a3e033450b5c184112516d8f",
+      "https://github.com/advisories/GHSA-6x77-rpqf-j6mw"
+    ]
+  },
+  {
+    "library": "ejs",
+    "at_or_above": "0",
+    "max_version": "3.1.10",
+    "cve_id": "GHSA-ghr5-ch3p-vcr6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ejs lacks certain pollution protection",
+    "fixed_version": "3.1.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-693"
+    ],
+    "aliases": [
+      "CVE-2024-33883"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-33883",
+      "https://github.com/mde/ejs/commit/e469741dca7df2eb400199e1cdb74621e3f89aa5",
+      "https://github.com/mde/ejs"
+    ]
+  },
+  {
+    "library": "ejs",
+    "at_or_above": "0",
+    "max_version": "2.5.5",
+    "cve_id": "GHSA-hwcf-pp87-7x6p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "mde ejs vulnerable to XSS",
+    "fixed_version": "2.5.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2017-1000188"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000188",
+      "https://github.com/mde/ejs/commit/49264e0037e313a0a3e033450b5c184112516d8f",
+      "https://github.com/advisories/GHSA-hwcf-pp87-7x6p"
+    ]
+  },
+  {
+    "library": "ejs",
+    "at_or_above": "0",
+    "max_version": "3.1.7",
+    "cve_id": "GHSA-phwq-j96m-2c2q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ejs template injection vulnerability",
+    "fixed_version": "3.1.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2022-29078"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-29078",
+      "https://github.com/mde/ejs/commit/15ee698583c98dadc456639d6245580d17a24baf",
+      "https://eslam.io/posts/ejs-server-side-template-injection-rce"
+    ]
+  }
+]

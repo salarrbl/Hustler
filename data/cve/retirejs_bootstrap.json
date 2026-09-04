@@ -1,13 +1,163 @@
 [
   {
     "library": "bootstrap",
+    "at_or_above": "3.0.0",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2016-10735",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS is possible in the data-target attribute.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-4p24-vmcr-4gqj"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-4p24-vmcr-4gqj"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "4.0.0-beta",
+    "max_version": "4.0.0-beta.2",
+    "cve_id": "CVE-2016-10735",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS is possible in the data-target attribute.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-4p24-vmcr-4gqj"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-4p24-vmcr-4gqj"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "2.3.0",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2018-14040",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in collapse data-parent attribute",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-3wqf-4x89-9g79"
+    ],
+    "references": [
+      "https://github.com/twbs/bootstrap/issues/20184"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "4.0.0",
+    "max_version": "4.1.2",
+    "cve_id": "CVE-2018-14040",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in collapse data-parent attribute",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-3wqf-4x89-9g79"
+    ],
+    "references": [
+      "https://github.com/twbs/bootstrap/issues/20184"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "4.0.0",
+    "max_version": "4.1.2",
+    "cve_id": "CVE-2018-14041",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in data-target property of scrollspy",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-pj7m-g53m-7638"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-pj7m-g53m-7638",
+      "https://github.com/twbs/bootstrap/issues/20184"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "4.0.0",
+    "max_version": "4.1.2",
+    "cve_id": "CVE-2018-14042",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in data-container property of tooltip",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-7mvr-5x2g-wfc8"
+    ],
+    "references": [
+      "https://github.com/twbs/bootstrap/issues/20184"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "2.3.0",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2018-14042",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in data-container property of tooltip",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-7mvr-5x2g-wfc8"
+    ],
+    "references": [
+      "https://github.com/twbs/bootstrap/issues/20184"
+    ]
+  },
+  {
+    "library": "bootstrap",
     "max_version": "3.4.0",
     "cve_id": "CVE-2018-20676",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "In Bootstrap before 3.4.0, XSS is possible in the tooltip data-viewport attribute.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-3mgp-fx93-9xv5"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-20676"
+    ]
   },
   {
     "library": "bootstrap",
@@ -17,116 +167,101 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "In Bootstrap before 3.4.0, XSS is possible in the affix configuration target property.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-ph58-4vrj-w6hr"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-ph58-4vrj-w6hr"
+    ]
   },
   {
     "library": "bootstrap",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2018-14040",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in collapse data-parent attribute",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2018-14042",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in data-container property of tooltip",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2016-10735",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS is possible in the data-target attribute.",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "3.4.1",
-    "cve_id": "CVE-2019-8331",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in data-template, data-content and data-title properties of tooltip/popover",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "3.4.2",
-    "cve_id": "CVE-2024-6485",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Bootstrap Cross-Site Scripting (XSS) vulnerability for data-* attributes",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "3.4.2",
-    "cve_id": "CVE-2025-1647",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Bootstrap allows Cross-Site Scripting (XSS). This issue affects Bootstrap version 3.4.1. At time of publication, there is no publicly available patched version.",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "4.0.0-beta.2",
-    "cve_id": "CVE-2016-10735",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS is possible in the data-target attribute.",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "4.1.2",
-    "cve_id": "CVE-2018-14040",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in collapse data-parent attribute",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "4.1.2",
-    "cve_id": "CVE-2018-14042",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in data-container property of tooltip",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
-    "max_version": "4.1.2",
-    "cve_id": "CVE-2018-14041",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in data-target property of scrollspy",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap",
+    "at_or_above": "4.0.0",
     "max_version": "4.3.1",
     "cve_id": "CVE-2019-8331",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS in data-template, data-content and data-title properties of tooltip/popover",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9v3m-8fp8-mj99"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-9v3m-8fp8-mj99",
+      "https://github.com/twbs/bootstrap/issues/28236"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "3.0.0",
+    "max_version": "3.4.1",
+    "cve_id": "CVE-2019-8331",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in data-template, data-content and data-title properties of tooltip/popover",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9v3m-8fp8-mj99"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-9v3m-8fp8-mj99",
+      "https://github.com/twbs/bootstrap/issues/28236"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "1.4.0",
+    "max_version": "3.4.2",
+    "cve_id": "CVE-2024-6485",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Bootstrap Cross-Site Scripting (XSS) vulnerability for data-* attributes",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vxmc-5x29-h64v"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-vxmc-5x29-h64v",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-6485",
+      "https://github.com/twbs/bootstrap",
+      "https://www.herodevs.com/vulnerability-directory/cve-2024-6485"
+    ]
+  },
+  {
+    "library": "bootstrap",
+    "at_or_above": "3.4.1",
+    "max_version": "3.4.2",
+    "cve_id": "CVE-2025-1647",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Bootstrap allows Cross-Site Scripting (XSS). This issue affects Bootstrap version 3.4.1. At time of publication, there is no publicly available patched version.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-q58r-hwc8-rm9j"
+    ],
+    "references": [
+      "https://lists.debian.org/debian-lts-announce/2025/06/msg00001.html",
+      "https://www.herodevs.com/vulnerability-directory/cve-2025-1647"
+    ]
   }
 ]

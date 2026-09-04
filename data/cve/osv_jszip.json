@@ -1,0 +1,71 @@
+[
+  {
+    "library": "jszip",
+    "at_or_above": "0",
+    "max_version": "3.8.0",
+    "cve_id": "GHSA-36fh-84j7-cv5h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "JSZip contains Path Traversal via loadAsync",
+    "fixed_version": "3.8.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2022-48285"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-48285",
+      "https://github.com/Stuk/jszip/commit/2edab366119c9ee948357c02f1206c28566cdf15",
+      "https://exchange.xforce.ibmcloud.com/vulnerabilities/244499"
+    ]
+  },
+  {
+    "library": "jszip",
+    "at_or_above": "0",
+    "max_version": "2.7.0",
+    "cve_id": "GHSA-jg8v-48h5-wgxg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jszip Vulnerable to Prototype Pollution",
+    "fixed_version": "2.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2021-23413"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23413",
+      "https://github.com/Stuk/jszip/pull/766",
+      "https://github.com/Stuk/jszip/commit/22357494f424178cb416cdb7d93b26dd4f824b36"
+    ]
+  },
+  {
+    "library": "jszip",
+    "at_or_above": "3.0.0",
+    "max_version": "3.7.0",
+    "cve_id": "GHSA-jg8v-48h5-wgxg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jszip Vulnerable to Prototype Pollution",
+    "fixed_version": "3.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2021-23413"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23413",
+      "https://github.com/Stuk/jszip/pull/766",
+      "https://github.com/Stuk/jszip/commit/22357494f424178cb416cdb7d93b26dd4f824b36"
+    ]
+  }
+]

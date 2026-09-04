@@ -1,0 +1,551 @@
+[
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "3.35.1",
+    "cve_id": "GHSA-2598-2f59-rmhq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "3.35.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10749",
+      "SNYK-JS-SEQUELIZE-450222"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10749",
+      "https://github.com/sequelize/sequelize/commit/ee4017379db0059566ecb5424274ad4e2d66bc68",
+      "https://snyk.io/vuln/SNYK-JS-SEQUELIZE-450222"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "5.0.0",
+    "max_version": "5.3.0",
+    "cve_id": "GHSA-2777-2vq8-c4v4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "5.3.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2019-11069"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11069",
+      "https://github.com/sequelize/sequelize/pull/10746",
+      "https://github.com/sequelize/sequelize/pull/10746/files"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-2v7q-2xqx-f4q5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential SQL Injection in sequelize",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2016-10553"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10553",
+      "https://github.com/advisories/GHSA-2v7q-2xqx-f4q5",
+      "https://github.com/sequelize/sequelize/blob/master/changelog.md#300"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "3.4.0",
+    "max_version": "3.23.6",
+    "cve_id": "GHSA-5v9h-q3gj-c32x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection via GeoJSON in sequelize",
+    "fixed_version": "3.23.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2016-1000225"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-1000225",
+      "https://github.com/sequelize/sequelize/issues/6194",
+      "https://github.com/sequelize/sequelize/pull/6302"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "6.0.0-beta.1",
+    "max_version": "6.37.8",
+    "cve_id": "GHSA-6457-6jrx-69cr",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize v6 Vulnerable to SQL Injection via JSON Column Cast Type",
+    "fixed_version": "6.37.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2026-30951"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-6457-6jrx-69cr",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-30951",
+      "https://github.com/sequelize/sequelize"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "7.0.0-alpha.20",
+    "cve_id": "GHSA-8c25-f3mj-v6h8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize information disclosure vulnerability",
+    "fixed_version": "7.0.0-alpha.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2023-22580"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22580",
+      "https://github.com/sequelize/sequelize/pull/15375",
+      "https://github.com/sequelize/sequelize/pull/15699"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "6.28.1",
+    "cve_id": "GHSA-8c25-f3mj-v6h8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize information disclosure vulnerability",
+    "fixed_version": "6.28.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2023-22580"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22580",
+      "https://github.com/sequelize/sequelize/pull/15375",
+      "https://github.com/sequelize/sequelize/pull/15699"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "3.17.0",
+    "cve_id": "GHSA-98pq-pmw9-4gpm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "3.17.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2016-10550"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10550",
+      "https://github.com/sequelize/sequelize/pull/5167/commits/f282d85e60e3df5e57ecdb82adccb4eaef404f03",
+      "https://github.com/advisories/GHSA-98pq-pmw9-4gpm"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "3.20.0",
+    "cve_id": "GHSA-9c2p-jw8p-f84v",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "3.20.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2016-10556"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10556",
+      "https://github.com/sequelize/sequelize/issues/5671",
+      "https://github.com/sequelize/sequelize/commit/23952a2b020cc3571f090e67dae7feb084e1be71"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "6.29.0",
+    "cve_id": "GHSA-f598-mfpv-gmfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize - Default support for “raw attributes” when using parentheses",
+    "fixed_version": "6.29.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-790"
+    ],
+    "aliases": [
+      "CVE-2023-22578"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-f598-mfpv-gmfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22578",
+      "https://github.com/sequelize/sequelize/pull/15710"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "7.0.0-alpha.20",
+    "cve_id": "GHSA-f598-mfpv-gmfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize - Default support for “raw attributes” when using parentheses",
+    "fixed_version": "7.0.0-alpha.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-790"
+    ],
+    "aliases": [
+      "CVE-2023-22578"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-f598-mfpv-gmfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22578",
+      "https://github.com/sequelize/sequelize/pull/15710"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "4.44.4",
+    "cve_id": "GHSA-fw4p-36j9-rrj3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service in sequelize",
+    "fixed_version": "4.44.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-248"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/pull/11877",
+      "https://www.npmjs.com/advisories/1142"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "4.0.0",
+    "max_version": "4.44.3",
+    "cve_id": "GHSA-j9xp-92vc-559j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "4.44.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10748",
+      "SNYK-JS-SEQUELIZE-450221"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10748",
+      "https://github.com/sequelize/sequelize/pull/11089,",
+      "https://github.com/sequelize/sequelize/commit/a72a3f5,"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "5.0.0",
+    "max_version": "5.8.11",
+    "cve_id": "GHSA-j9xp-92vc-559j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "5.8.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10748",
+      "SNYK-JS-SEQUELIZE-450221"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10748",
+      "https://github.com/sequelize/sequelize/pull/11089,",
+      "https://github.com/sequelize/sequelize/commit/a72a3f5,"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "3.35.1",
+    "cve_id": "GHSA-j9xp-92vc-559j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "3.35.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10748",
+      "SNYK-JS-SEQUELIZE-450221"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10748",
+      "https://github.com/sequelize/sequelize/pull/11089,",
+      "https://github.com/sequelize/sequelize/commit/a72a3f5,"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "4.44.3",
+    "cve_id": "GHSA-m9jw-237r-gvfv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "4.44.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10752"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10752",
+      "https://github.com/sequelize/sequelize/pull/11329",
+      "https://github.com/sequelize/sequelize/commit/9bd0bc1,"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "5.0.0",
+    "max_version": "5.15.1",
+    "cve_id": "GHSA-m9jw-237r-gvfv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "5.15.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2019-10752"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10752",
+      "https://github.com/sequelize/sequelize/pull/11329",
+      "https://github.com/sequelize/sequelize/commit/9bd0bc1,"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "6.37.4",
+    "cve_id": "GHSA-v8fg-2rw7-q452",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize: SQL Injection (Oracle DB)",
+    "fixed_version": "6.37.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2026-69240"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-v8fg-2rw7-q452",
+      "https://github.com/sequelize/sequelize/commit/5deadd2410ae9136a21fb652db206d27bb715f26",
+      "https://github.com/sequelize/sequelize"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "6.28.1",
+    "cve_id": "GHSA-vqfx-gj96-3w95",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unsafe fall-through in getWhereConditions",
+    "fixed_version": "6.28.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-843"
+    ],
+    "aliases": [
+      "CVE-2023-22579"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-vqfx-gj96-3w95",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22579",
+      "https://github.com/sequelize/sequelize/pull/15375"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "7.0.0-alpha.20",
+    "cve_id": "GHSA-vqfx-gj96-3w95",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unsafe fall-through in getWhereConditions",
+    "fixed_version": "7.0.0-alpha.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-843"
+    ],
+    "aliases": [
+      "CVE-2023-22579"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-vqfx-gj96-3w95",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-22579",
+      "https://github.com/sequelize/sequelize/pull/15375"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "4.12.0",
+    "cve_id": "GHSA-wfp9-vr4j-f49j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "NoSQL Injection in sequelize",
+    "fixed_version": "4.12.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/issues/7310",
+      "https://github.com/sequelize/sequelize/pull/8240",
+      "https://github.com/sequelize/sequelize/commit/ccb99daedb69e8750a241436415ccac8abef358d"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "6.19.1",
+    "cve_id": "GHSA-wrh9-cjv3-2hpw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sequelize vulnerable to SQL Injection via replacements",
+    "fixed_version": "6.19.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2023-25813"
+    ],
+    "references": [
+      "https://github.com/sequelize/sequelize/security/advisories/GHSA-wrh9-cjv3-2hpw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-25813",
+      "https://github.com/sequelize/sequelize/issues/14519"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "1.7.0",
+    "cve_id": "GHSA-x2jc-pwfj-h9p3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "1.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2016-10554"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10554",
+      "https://github.com/sequelize/sequelize/commit/c876192aa6ce1f67e22b26a4d175b8478615f42d",
+      "https://github.com/advisories/GHSA-x2jc-pwfj-h9p3"
+    ]
+  },
+  {
+    "library": "sequelize",
+    "at_or_above": "0",
+    "max_version": "2.0.0-rc8",
+    "cve_id": "GHSA-xqg8-cv3h-xppv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "SQL Injection in sequelize",
+    "fixed_version": "2.0.0-rc8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-89"
+    ],
+    "aliases": [
+      "CVE-2015-1369"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-1369",
+      "https://github.com/sequelize/sequelize/issues/2906",
+      "https://github.com/sequelize/sequelize/pull/2919"
+    ]
+  }
+]

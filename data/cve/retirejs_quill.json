@@ -1,22 +1,47 @@
 [
   {
     "library": "quill",
+    "at_or_above": "0",
     "max_version": "1.3.8",
     "cve_id": "CVE-2021-3163",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A stored Cross-Site Scripting (XSS) vulnerability in Quill's HTML editor allows an attacker to execute arbitrary JavaScript by inserting a crafted onloadstart attribute on an IMG element. The behavior is disputed as potentially intentional browser behavior rather than a product vulnerability.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-4943-9vgg-gr5r"
+    ],
+    "references": [
+      "https://github.com/quilljs/quill/issues/3273",
+      "https://github.com/quilljs/quill/issues/3359",
+      "https://github.com/quilljs/quill/issues/3364",
+      "https://burninatorsec.blogspot.com/2021/04/cve-2021-3163-xss-slab-quill-js.html",
+      "https://quilljs.com"
+    ]
   },
   {
     "library": "quill",
+    "at_or_above": "2.0.3",
     "max_version": "2.0.4",
     "cve_id": "CVE-2025-15056",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "Quill 2.0.3 is vulnerable to Cross-Site Scripting (XSS) via insufficient data validation in the HTML export feature, allowing injected HTML content to execute in the browser.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-74",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v3m3-f69x-jf25"
+    ],
+    "references": [
+      "https://fluidattacks.com/advisories/diomedes"
+    ]
   }
 ]

@@ -1,0 +1,302 @@
+[
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "1.4.3",
+    "cve_id": "GHSA-3j7m-hmh3-9jmp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in sanitize-html",
+    "fixed_version": "1.4.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2016-1000237"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-1000237",
+      "https://github.com/apostrophecms/sanitize-html/issues/29",
+      "https://github.com/punkave/sanitize-html/issues/29"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "2.17.2",
+    "max_version": "2.17.3",
+    "cve_id": "GHSA-9mrh-v2v3-xpfm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "sanitize-html allowedTags Bypass via Entity-Decoded Text in nonTextTags Elements",
+    "fixed_version": "2.17.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-40186"
+    ],
+    "references": [
+      "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-9mrh-v2v3-xpfm",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-40186",
+      "https://github.com/apostrophecms/apostrophe/commit/7ca2d16237c72718ef7e5c7ae0458e6027ac4f64"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.7.1",
+    "cve_id": "GHSA-cgfm-xwp7-2cvr",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sanitize-html Vulnerable To REDoS Attacks",
+    "fixed_version": "2.7.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2022-25887"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-25887",
+      "https://github.com/apostrophecms/sanitize-html/pull/557",
+      "https://github.com/apostrophecms/sanitize-html/commit/b4682c12fd30e12e82fa2d9b766de91d7d2cd23c"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "1.9.0",
+    "max_version": "2.17.7",
+    "cve_id": "GHSA-g8qq-57p8-ggw5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ApostropheCMS: Stored XSS via SVG SMIL URI-list scheme-policy bypass",
+    "fixed_version": "2.17.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-84371"
+    ],
+    "references": [
+      "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-g8qq-57p8-ggw5",
+      "https://github.com/apostrophecms/apostrophe/pull/5552",
+      "https://github.com/apostrophecms/apostrophe/commit/1135516a1a4a8f9638641c460488a43d8af20081"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.17.6",
+    "cve_id": "GHSA-jxwj-j7wr-gfrw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ApostropheCMS: Mutation-XSS / allowedTags bypass via literal `\u003c/textarea/\u003e` solidus close",
+    "fixed_version": "2.17.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-63670"
+    ],
+    "references": [
+      "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-jxwj-j7wr-gfrw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-63670",
+      "https://github.com/apostrophecms/apostrophe/pull/5501"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.3.2",
+    "cve_id": "GHSA-mjxr-4v3x-q3m4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Input Validation in sanitize-html",
+    "fixed_version": "2.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2021-26540"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-26540",
+      "https://github.com/apostrophecms/sanitize-html/pull/460",
+      "https://advisory.checkmarx.net/advisory/CX-2021-4309"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.0.0-beta",
+    "cve_id": "GHSA-qhxp-v273-g94h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "sanitize-html is vulnerable to XSS through incomprehensive sanitization",
+    "fixed_version": "2.0.0-beta",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-25225"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-25225",
+      "https://github.com/apostrophecms/sanitize-html/issues/293",
+      "https://github.com/apostrophecms/sanitize-html/pull/156"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.3.1",
+    "cve_id": "GHSA-rjqq-98f6-6j3r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Input Validation in sanitize-html",
+    "fixed_version": "2.3.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2021-26539"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-26539",
+      "https://github.com/apostrophecms/sanitize-html/pull/458",
+      "https://github.com/apostrophecms/sanitize-html/commit/bdf7836ef8f0e5b21f9a1aab0623ae8fcd09c1da"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "2.12.1",
+    "cve_id": "GHSA-rm97-x556-q36h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "sanitize-html Information Exposure vulnerability",
+    "fixed_version": "2.12.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-538"
+    ],
+    "aliases": [
+      "CVE-2024-21501"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-21501",
+      "https://github.com/apostrophecms/sanitize-html/pull/650",
+      "https://github.com/apostrophecms/sanitize-html/commit/c5dbdf77fe8b836d3bf4554ea39edb45281ec0b4"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "2.17.3",
+    "max_version": "2.17.4",
+    "cve_id": "GHSA-rpr9-rxv7-x643",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Apostrophe has default XSS via `xmp` raw-text passthrough in `sanitize-html`",
+    "fixed_version": "2.17.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-44990"
+    ],
+    "references": [
+      "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-rpr9-rxv7-x643",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-44990",
+      "https://github.com/apostrophecms/apostrophe/issues/5418"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "1.18.0",
+    "max_version": "2.17.5",
+    "cve_id": "GHSA-vccv-cmxp-4j9h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "sanitize-html has incomplete URI scheme validation in that allows javascript: URIs through action, formaction, data, poster, and background attributes",
+    "fixed_version": "2.17.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-53606"
+    ],
+    "references": [
+      "https://github.com/apostrophecms/apostrophe/security/advisories/GHSA-vccv-cmxp-4j9h",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-53606",
+      "https://github.com/apostrophecms/apostrophe/pull/5464"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "1.2.3",
+    "cve_id": "GHSA-wg96-3933-j2w5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in sanitize-html",
+    "fixed_version": "1.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2017-16017"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16017",
+      "https://github.com/punkave/sanitize-html/issues/19",
+      "https://github.com/punkave/sanitize-html/pull/20"
+    ]
+  },
+  {
+    "library": "sanitize-html",
+    "at_or_above": "0",
+    "max_version": "1.11.4",
+    "cve_id": "GHSA-xc6g-ggrc-qq4r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in sanitize-html",
+    "fixed_version": "1.11.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2017-16016"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16016",
+      "https://github.com/punkave/sanitize-html/issues/100",
+      "https://github.com/punkave/sanitize-html/commit/5d205a1005ba0df80e21d8c64a15bb3accdb2403"
+    ]
+  }
+]

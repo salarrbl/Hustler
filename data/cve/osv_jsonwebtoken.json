@@ -1,0 +1,97 @@
+[
+  {
+    "library": "jsonwebtoken",
+    "at_or_above": "0",
+    "max_version": "9.0.0",
+    "cve_id": "GHSA-8cf7-32gw-wr33",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jsonwebtoken unrestricted key type could lead to legacy keys usage ",
+    "fixed_version": "9.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-327"
+    ],
+    "aliases": [
+      "CVE-2022-23539"
+    ],
+    "references": [
+      "https://github.com/auth0/node-jsonwebtoken/security/advisories/GHSA-8cf7-32gw-wr33",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-23539",
+      "https://github.com/auth0/node-jsonwebtoken/commit/e1fa9dcc12054a8681db4e6373da1b30cf7016e3"
+    ]
+  },
+  {
+    "library": "jsonwebtoken",
+    "at_or_above": "0",
+    "max_version": "4.2.2",
+    "cve_id": "GHSA-c7hr-j4mj-j2w6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Verification Bypass in jsonwebtoken",
+    "fixed_version": "4.2.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2015-9235"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-9235",
+      "https://github.com/auth0/node-jsonwebtoken/commit/1bb584bc382295eeb7ee8c4452a673a77a68b687",
+      "https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries"
+    ]
+  },
+  {
+    "library": "jsonwebtoken",
+    "at_or_above": "0",
+    "max_version": "9.0.0",
+    "cve_id": "GHSA-hjrf-2m68-5959",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jsonwebtoken's insecure implementation of key retrieval function could lead to Forgeable Public/Private Tokens from RSA to HMAC",
+    "fixed_version": "9.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1259",
+      "CWE-287"
+    ],
+    "aliases": [
+      "CVE-2022-23541"
+    ],
+    "references": [
+      "https://github.com/auth0/node-jsonwebtoken/security/advisories/GHSA-hjrf-2m68-5959",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-23541",
+      "https://github.com/auth0/node-jsonwebtoken/commit/e1fa9dcc12054a8681db4e6373da1b30cf7016e3"
+    ]
+  },
+  {
+    "library": "jsonwebtoken",
+    "at_or_above": "0",
+    "max_version": "9.0.0",
+    "cve_id": "GHSA-qwph-4952-7xr6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jsonwebtoken vulnerable to signature validation bypass due to insecure default algorithm in jwt.verify()",
+    "fixed_version": "9.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-287",
+      "CWE-327",
+      "CWE-347"
+    ],
+    "aliases": [
+      "CVE-2022-23540"
+    ],
+    "references": [
+      "https://github.com/auth0/node-jsonwebtoken/security/advisories/GHSA-qwph-4952-7xr6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-23540",
+      "https://github.com/auth0/node-jsonwebtoken/commit/e1fa9dcc12054a8681db4e6373da1b30cf7016e3"
+    ]
+  }
+]

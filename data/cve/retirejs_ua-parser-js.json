@@ -1,102 +1,226 @@
 [
   {
     "library": "ua-parser-js",
+    "at_or_above": "0",
     "max_version": "0.7.22",
     "cve_id": "CVE-2020-7733",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service in ua-parser-js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-662x-fhqg-9p8v"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-662x-fhqg-9p8v",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7733",
+      "https://github.com/faisalman/ua-parser-js/commit/233d3bae22a795153a7e6638887ce159c63e557d",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBFAISALMAN-674666",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-674665",
+      "https://snyk.io/vuln/SNYK-JS-UAPARSERJS-610226",
+      "https://www.oracle.com//security-alerts/cpujul2021.html"
+    ]
   },
   {
     "library": "ua-parser-js",
-    "max_version": "0.7.22",
-    "cve_id": "CVE-2020-7733",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Regular Expression Denial of Service in ua-parser-js",
-    "source": "retire.js"
-  },
-  {
-    "library": "ua-parser-js",
+    "at_or_above": "0",
     "max_version": "0.7.23",
     "cve_id": "CVE-2020-7793",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "ua-parser-js Regular Expression Denial of Service vulnerability",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-394c-5j6w-4xmx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-394c-5j6w-4xmx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7793",
+      "https://github.com/faisalman/ua-parser-js/commit/6d1f26df051ba681463ef109d36c9cf0f7e32b18",
+      "https://cert-portal.siemens.com/productcert/pdf/ssa-637483.pdf",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBFAISALMAN-1050388",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1050387",
+      "https://snyk.io/vuln/SNYK-JS-UAPARSERJS-1023599"
+    ]
   },
   {
     "library": "ua-parser-js",
+    "at_or_above": "0.7.14",
     "max_version": "0.7.24",
     "cve_id": "CVE-2021-27292",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service (ReDoS) in ua-parser-js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-78cj-fxph-m83p"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-78cj-fxph-m83p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-27292",
+      "https://github.com/faisalman/ua-parser-js/commit/809439e20e273ce0d25c1d04e111dcf6011eb566",
+      "https://github.com/pygments/pygments/commit/2e7e8c4a7b318f4032493773732754e418279a14",
+      "https://gist.github.com/b-c-ds/6941d80d6b4e694df4bc269493b7be76"
+    ]
   },
   {
     "library": "ua-parser-js",
+    "at_or_above": "0.7.29",
     "max_version": "0.7.30",
     "cve_id": "CVE-2021-4229",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Embedded malware in ua-parser-js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-506",
+      "CWE-912"
+    ],
+    "aliases": [
+      "GHSA-pjwm-rvh2-c87w"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-pjwm-rvh2-c87w",
+      "https://github.com/faisalman/ua-parser-js/issues/536",
+      "https://github.com/faisalman/ua-parser-js/issues/536#issuecomment-949772496",
+      "https://github.com/faisalman/ua-parser-js",
+      "https://www.npmjs.com/package/ua-parser-js"
+    ]
   },
   {
     "library": "ua-parser-js",
-    "max_version": "0.7.33",
-    "cve_id": "CVE-2022-25927",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "ReDoS Vulnerability in ua-parser-js version",
-    "source": "retire.js"
-  },
-  {
-    "library": "ua-parser-js",
+    "at_or_above": "0.8.0",
     "max_version": "0.8.1",
     "cve_id": "CVE-2021-4229",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Embedded malware in ua-parser-js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-506",
+      "CWE-912"
+    ],
+    "aliases": [
+      "GHSA-pjwm-rvh2-c87w"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-pjwm-rvh2-c87w",
+      "https://github.com/faisalman/ua-parser-js/issues/536",
+      "https://github.com/faisalman/ua-parser-js/issues/536#issuecomment-949772496",
+      "https://github.com/faisalman/ua-parser-js",
+      "https://www.npmjs.com/package/ua-parser-js"
+    ]
   },
   {
     "library": "ua-parser-js",
+    "at_or_above": "1.0.0",
     "max_version": "1.0.1",
     "cve_id": "CVE-2021-4229",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Embedded malware in ua-parser-js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-506",
+      "CWE-912"
+    ],
+    "aliases": [
+      "GHSA-pjwm-rvh2-c87w"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-pjwm-rvh2-c87w",
+      "https://github.com/faisalman/ua-parser-js/issues/536",
+      "https://github.com/faisalman/ua-parser-js/issues/536#issuecomment-949772496",
+      "https://github.com/faisalman/ua-parser-js",
+      "https://www.npmjs.com/package/ua-parser-js"
+    ]
   },
   {
     "library": "ua-parser-js",
+    "at_or_above": "0.8.0",
     "max_version": "1.0.33",
     "cve_id": "CVE-2022-25927",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "ReDoS Vulnerability in ua-parser-js version",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-fhg7-m89q-25r3"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-fhg7-m89q-25r3",
+      "https://github.com/faisalman/ua-parser-js/security/advisories/GHSA-fhg7-m89q-25r3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-25927",
+      "https://github.com/faisalman/ua-parser-js/commit/a6140a17dd0300a35cfc9cff999545f267889411",
+      "https://github.com/faisalman/ua-parser-js",
+      "https://security.snyk.io/vuln/SNYK-JS-UAPARSERJS-3244450"
+    ]
   },
   {
     "library": "ua-parser-js",
+    "at_or_above": "0.7.30",
+    "max_version": "0.7.33",
+    "cve_id": "CVE-2022-25927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ReDoS Vulnerability in ua-parser-js version",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-fhg7-m89q-25r3"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-fhg7-m89q-25r3",
+      "https://github.com/faisalman/ua-parser-js/security/advisories/GHSA-fhg7-m89q-25r3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-25927",
+      "https://github.com/faisalman/ua-parser-js/commit/a6140a17dd0300a35cfc9cff999545f267889411",
+      "https://github.com/faisalman/ua-parser-js",
+      "https://security.snyk.io/vuln/SNYK-JS-UAPARSERJS-3244450"
+    ]
+  },
+  {
+    "library": "ua-parser-js",
+    "at_or_above": "2.0.1",
     "max_version": "2.0.10",
     "cve_id": "CVE-2026-48125",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "UAParser.js: Unbounded `Sec-CH-UA-Model` parsing can trigger ReDoS in `withClientHints()`",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-9h5v-pfqq-x599"
+    ],
+    "references": [
+      "https://github.com/faisalman/ua-parser-js/security/advisories/GHSA-9h5v-pfqq-x599"
+    ]
   }
 ]

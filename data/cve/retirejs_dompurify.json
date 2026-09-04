@@ -1,312 +1,691 @@
 [
   {
-    "library": "DOMPurify",
-    "max_version": "1.0.11",
-    "cve_id": "CVE-2019-25155",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify Open Redirect vulnerability",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
     "max_version": "2.0.3",
     "cve_id": "CVE-2019-16728",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Fixed an mXSS-based bypass caused by nested forms inside MathML",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-chqj-j4fh-rw7m"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/releases"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "1.0.11",
+    "cve_id": "CVE-2019-25155",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify Open Redirect vulnerability",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-601"
+    ],
+    "aliases": [
+      "GHSA-8hgg-xxm5-3873"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-8hgg-xxm5-3873",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-25155",
+      "https://github.com/cure53/DOMPurify/pull/337",
+      "https://github.com/cure53/DOMPurify/commit/7601c33a57e029cce51d910eda5179a3f1b51c83",
+      "https://github.com/cure53/DOMPurify",
+      "https://github.com/cure53/DOMPurify/compare/1.0.10...1.0.11"
+    ]
+  },
+  {
+    "library": "dompurify",
     "max_version": "2.0.17",
     "cve_id": "CVE-2020-26870",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Fixed another bypass causing mXSS by using MathML",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-63q7-h895-m982"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/releases"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "2.4.2",
-    "cve_id": "CVE-2024-48910",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify vulnerable to tampering by prototype polution",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "2.5.0",
-    "cve_id": "CVE-2024-47875",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMpurify has a nesting-based mXSS",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "2.5.4",
     "cve_id": "CVE-2024-45801",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify allows tampering by prototype pollution",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-mmhx-hmjr-r674"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-mmhx-hmjr-r674",
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mmhx-hmjr-r674",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45801",
+      "https://github.com/cure53/DOMPurify/commit/1e520262bf4c66b5efda49e2316d6d1246ca7b21",
+      "https://github.com/cure53/DOMPurify/commit/26e1d69ca7f769f5c558619d644d90dd8bf26ebc",
+      "https://github.com/cure53/DOMPurify"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "2.5.9",
-    "cve_id": "CVE-2026-0540",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify 3.1.3-3.3.1 and 2.5.3-2.5.8 contain a cross-site scripting vulnerability allowing bypass of attribute sanitization via five missing rawtext elements in the SAFE_FOR_XML regex.",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "2.5.9",
-    "cve_id": "CVE-2025-15599",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify 3.1.3 through 3.2.6 and 2.5.3 through 2.5.8 contain a cross-site scripting vulnerability that allows attackers to bypass attribute sanitization by exploiting missing textarea rawtext element validation in the SAFE_FOR_XML regex. Attackers can include closing rawtext tags like \u003c/textarea\u003e in attribute values to break out of rawtext contexts and execute JavaScript when sanitized output is placed inside rawtext elements. The 3.x branch was fixed in 3.2.7; the 2.x branch was never patched.",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "3.1.3",
-    "cve_id": "CVE-2024-47875",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMpurify has a nesting-based mXSS",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "3.0.0",
     "max_version": "3.1.3",
     "cve_id": "CVE-2024-45801",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify allows tampering by prototype pollution",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-mmhx-hmjr-r674"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-mmhx-hmjr-r674",
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-mmhx-hmjr-r674",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45801",
+      "https://github.com/cure53/DOMPurify/commit/1e520262bf4c66b5efda49e2316d6d1246ca7b21",
+      "https://github.com/cure53/DOMPurify/commit/26e1d69ca7f769f5c558619d644d90dd8bf26ebc",
+      "https://github.com/cure53/DOMPurify"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.2.4",
-    "cve_id": "CVE-2025-26791",
-    "severity": "MEDIUM",
+    "library": "dompurify",
+    "at_or_above": "3.0.0",
+    "max_version": "3.1.3",
+    "cve_id": "CVE-2024-47875",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "DOMPurify allows Cross-site Scripting (XSS)",
-    "source": "retire.js"
+    "summary": "DOMpurify has a nesting-based mXSS",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gx9m-whjm-85jf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gx9m-whjm-85jf",
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-gx9m-whjm-85jf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-47875",
+      "https://github.com/cure53/DOMPurify/commit/0ef5e537a514f904b6aa1d7ad9e749e365d7185f",
+      "https://github.com/cure53/DOMPurify/commit/6ea80cd8b47640c20f2f230c7920b1f4ce4fdf7a",
+      "https://github.com/cure53/DOMPurify",
+      "https://github.com/cure53/DOMPurify/blob/0ef5e537a514f904b6aa1d7ad9e749e365d7185f/test/test-suite.js#L2098"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "2.5.0",
+    "cve_id": "CVE-2024-47875",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMpurify has a nesting-based mXSS",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gx9m-whjm-85jf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gx9m-whjm-85jf",
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-gx9m-whjm-85jf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-47875",
+      "https://github.com/cure53/DOMPurify/commit/0ef5e537a514f904b6aa1d7ad9e749e365d7185f",
+      "https://github.com/cure53/DOMPurify/commit/6ea80cd8b47640c20f2f230c7920b1f4ce4fdf7a",
+      "https://github.com/cure53/DOMPurify",
+      "https://github.com/cure53/DOMPurify/blob/0ef5e537a514f904b6aa1d7ad9e749e365d7185f/test/test-suite.js#L2098"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "2.4.2",
+    "cve_id": "CVE-2024-48910",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify vulnerable to tampering by prototype polution",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-p3vf-v8qc-cwcr"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-p3vf-v8qc-cwcr",
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-p3vf-v8qc-cwcr",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-48910",
+      "https://github.com/cure53/DOMPurify/commit/d1dd0374caef2b4c56c3bd09fe1988c3479166dc",
+      "https://github.com/cure53/DOMPurify"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "3.1.3",
     "max_version": "3.2.7",
     "cve_id": "CVE-2025-15599",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify 3.1.3 through 3.2.6 and 2.5.3 through 2.5.8 contain a cross-site scripting vulnerability that allows attackers to bypass attribute sanitization by exploiting missing textarea rawtext element validation in the SAFE_FOR_XML regex. Attackers can include closing rawtext tags like \u003c/textarea\u003e in attribute values to break out of rawtext contexts and execute JavaScript when sanitized output is placed inside rawtext elements. The 3.x branch was fixed in 3.2.7; the 2.x branch was never patched.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v8jm-5vwx-cfxm"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/commit/c861f5a83fb8d90800f1680f855fee551161ac2b",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safe-for-xml",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safeforxml"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.3.2",
-    "cve_id": "CVE-2026-65913",
+    "library": "dompurify",
+    "at_or_above": "2.5.3",
+    "max_version": "2.5.9",
+    "cve_id": "CVE-2025-15599",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "When USE_PROFILES is enabled, DOMPurify rebuilds ALLOWED_ATTR as a plain array whose properties are looked up by name, making it susceptible to prototype pollution. If Array.prototype has been polluted with an event handler attribute name (e.g. onclick), DOMPurify will allow that event handler to survive sanitization, resulting in DOM-based XSS.",
-    "source": "retire.js"
+    "summary": "DOMPurify 3.1.3 through 3.2.6 and 2.5.3 through 2.5.8 contain a cross-site scripting vulnerability that allows attackers to bypass attribute sanitization by exploiting missing textarea rawtext element validation in the SAFE_FOR_XML regex. Attackers can include closing rawtext tags like \u003c/textarea\u003e in attribute values to break out of rawtext contexts and execute JavaScript when sanitized output is placed inside rawtext elements. The 3.x branch was fixed in 3.2.7; the 2.x branch was never patched.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v8jm-5vwx-cfxm"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/commit/c861f5a83fb8d90800f1680f855fee551161ac2b",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safe-for-xml",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safeforxml"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.3.2",
-    "cve_id": "CVE-2026-65912",
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.2.4",
+    "cve_id": "CVE-2025-26791",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "DOMPurify's ADD_ATTR predicate function mechanism (via EXTRA_ELEMENT_HANDLING.attributeCheck) short-circuits URI validation when the predicate returns true. This allows unsafe protocols such as javascript: to survive sanitization in href and similar attributes, enabling DOM-based XSS when such links are activated.",
-    "source": "retire.js"
+    "summary": "DOMPurify allows Cross-site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vhxf-7vqr-mrjg"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-vhxf-7vqr-mrjg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-26791",
+      "https://github.com/cure53/DOMPurify/commit/d18ffcb554e0001748865da03ac75dd7829f0f02",
+      "https://ensy.zip/posts/dompurify-323-bypass",
+      "https://github.com/cure53/DOMPurify",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.2.4",
+      "https://nsysean.github.io/posts/dompurify-323-bypass"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.3.2",
-    "cve_id": "CVE-2026-65914",
+    "library": "dompurify",
+    "at_or_above": "2.5.3",
+    "max_version": "2.5.9",
+    "cve_id": "CVE-2026-0540",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "DOMPurify is vulnerable to mutation-XSS (mXSS) when sanitized HTML is embedded into special raw-text wrapper elements such as xmp, script, iframe, noembed, noframes, or noscript before being assigned via innerHTML. Attacker-controlled sequences like \u003c/xmp\u003e inside attribute values close the raw-text context during the second parse, causing the sanitized output to mutate into executable markup.",
-    "source": "retire.js"
+    "summary": "DOMPurify 3.1.3-3.3.1 and 2.5.3-2.5.8 contain a cross-site scripting vulnerability allowing bypass of attribute sanitization via five missing rawtext elements in the SAFE_FOR_XML regex.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v2wj-7wpq-c8vv"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/commit/fca0a938b4261ddc9c0293a289935a9029c049f5",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safe-for-xml",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safeforxml"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "3.1.3",
     "max_version": "3.3.2",
     "cve_id": "CVE-2026-0540",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify 3.1.3-3.3.1 and 2.5.3-2.5.8 contain a cross-site scripting vulnerability allowing bypass of attribute sanitization via five missing rawtext elements in the SAFE_FOR_XML regex.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v2wj-7wpq-c8vv"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/commit/fca0a938b4261ddc9c0293a289935a9029c049f5",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safe-for-xml",
+      "https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safeforxml"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2026-65903",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify has a logic inconsistency where FORBID_TAGS is not checked when a function-based ADD_TAGS (tagCheck) returns true. Due to short-circuit evaluation, the FORBID_TAGS check is never evaluated, allowing explicitly forbidden elements to pass through sanitization when EXTRA_ELEMENT_HANDLING.tagCheck is configured.",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2026-41240",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify has an asymmetric security inconsistency where FORBID_TAGS does not win over a function-based ADD_TAGS predicate, while FORBID_ATTR correctly wins over ADD_ATTR. When ADD_TAGS is provided as a function that returns true, explicitly forbidden tags such as iframe and form pass through sanitization with their attributes intact.",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "3.4.0",
-    "cve_id": "CVE-2026-41239",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify's SAFE_FOR_TEMPLATES feature fails to strip Mustache/template expressions when RETURN_DOM or RETURN_DOM_FRAGMENT is used. The final string-scrubbing pass that removes expressions like {{...}} is skipped in DOM-return mode, and split text nodes (e.g. from removed intermediate tags) can rejoin to form a complete expression that template-evaluating frameworks like Vue 2 will execute.",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "3.0.1",
     "max_version": "3.4.0",
     "cve_id": "CVE-2026-41238",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify versions 3.0.1 through 3.3.3 are vulnerable to an XSS bypass via prototype pollution. When no CUSTOM_ELEMENT_HANDLING is specified, the fallback plain object inherits from Object.prototype; if an attacker has polluted Object.prototype.tagNameCheck and Object.prototype.attributeNameCheck with permissive regexes, DOMPurify allows arbitrary custom elements with event handler attributes through sanitization.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v9jr-rg53-9pgp"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-v9jr-rg53-9pgp",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.4.0"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "1.0.10",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2026-41239",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify's SAFE_FOR_TEMPLATES feature fails to strip Mustache/template expressions when RETURN_DOM or RETURN_DOM_FRAGMENT is used. The final string-scrubbing pass that removes expressions like {{...}} is skipped in DOM-return mode, and split text nodes (e.g. from removed intermediate tags) can rejoin to form a complete expression that template-evaluating frameworks like Vue 2 will execute.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1289",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-crv5-9vww-q3g8"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-crv5-9vww-q3g8",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.4.0"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2026-41240",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify has an asymmetric security inconsistency where FORBID_TAGS does not win over a function-based ADD_TAGS predicate, while FORBID_ATTR correctly wins over ADD_ATTR. When ADD_TAGS is provided as a function that returns true, explicitly forbidden tags such as iframe and form pass through sanitization with their attributes intact.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-183",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-h7mw-gpvr-xq4m"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-h7mw-gpvr-xq4m",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.4.0"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "3.4.4",
     "max_version": "3.4.5",
     "cve_id": "CVE-2026-47423",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify XSS via selectedcontent re-clone",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-87xg-pxx2-7hvx"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-87xg-pxx2-7hvx"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.6",
     "cve_id": "CVE-2026-49458",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify: Cross-realm IN_PLACE sanitization leaves executable markup intact via realm-bound `instanceof` checks",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-501",
+      "CWE-693"
+    ],
+    "aliases": [
+      "GHSA-hpcv-96wg-7vj8"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-hpcv-96wg-7vj8"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.6",
     "cve_id": "CVE-2026-49459",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify: IN_PLACE mode preserves attributes of a clobbered root element, allowing XSS via attacker-controlled root DOM",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-693",
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-r47g-fvhr-h676"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-r47g-fvhr-h676"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.4.7",
-    "cve_id": "CVE-2026-65902",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify: Hook mutation of `data.allowedTags` / `data.allowedAttributes` permanently pollutes `DEFAULT_ALLOWED_TAGS` / `DEFAULT_ALLOWED_ATTR`",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.7",
     "cve_id": "CVE-2026-49978",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify IN_PLACE Sanitization Bypass via Attached Shadow Root Inside \u003ctemplate\u003e.content",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-rp9w-3fw7-7cwq"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-rp9w-3fw7-7cwq"
+    ]
   },
   {
-    "library": "DOMPurify",
-    "max_version": "3.4.7",
-    "cve_id": "CVE-2026-65901",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify: `IN_PLACE` mode trusts attacker-controlled `nodeName` on live non-form nodes, allowing script retention and XSS via attacker-supplied DOM objects",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "3.4.8",
-    "cve_id": "CVE-2026-65900",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify: SAFE_FOR_TEMPLATES bypass - template expressions survive sanitization inside \u003ctemplate\u003e content when using DOM output modes",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
-    "max_version": "3.4.9",
-    "cve_id": "CVE-2026-65899",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "DOMPurify: Trusted Types policy survives `clearConfig()` and can poison later `RETURN_TRUSTED_TYPE` output",
-    "source": "retire.js"
-  },
-  {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.11",
     "cve_id": "CVE-2026-65898",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify: Permanent `ALLOWED_ATTR` pollution via `setConfig()` bypassing the hook clone-guard (incomplete fix of the 3.4.7 hook-pollution patch)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-471",
+      "CWE-665",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-cmwh-pvxp-8882"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cmwh-pvxp-8882"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.4.9",
+    "cve_id": "CVE-2026-65899",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify: Trusted Types policy survives `clearConfig()` and can poison later `RETURN_TRUSTED_TYPE` output",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-693"
+    ],
+    "aliases": [
+      "GHSA-vxr8-fq34-vvx9"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-vxr8-fq34-vvx9"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "3.0.0",
+    "max_version": "3.4.8",
+    "cve_id": "CVE-2026-65900",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify: SAFE_FOR_TEMPLATES bypass - template expressions survive sanitization inside \u003ctemplate\u003e content when using DOM output modes",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gvmj-g25r-r7wr"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-gvmj-g25r-r7wr"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.4.7",
+    "cve_id": "CVE-2026-65901",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify: `IN_PLACE` mode trusts attacker-controlled `nodeName` on live non-form nodes, allowing script retention and XSS via attacker-supplied DOM objects",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-x4vx-rjvf-j5p4"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-x4vx-rjvf-j5p4"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.4.7",
+    "cve_id": "CVE-2026-65902",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify: Hook mutation of `data.allowedTags` / `data.allowedAttributes` permanently pollutes `DEFAULT_ALLOWED_TAGS` / `DEFAULT_ALLOWED_ATTR`",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-501",
+      "CWE-693"
+    ],
+    "aliases": [
+      "GHSA-76mc-f452-cxcm"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-76mc-f452-cxcm"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.4.0",
+    "cve_id": "CVE-2026-65903",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify has a logic inconsistency where FORBID_TAGS is not checked when a function-based ADD_TAGS (tagCheck) returns true. Due to short-circuit evaluation, the FORBID_TAGS check is never evaluated, allowing explicitly forbidden elements to pass through sanitization when EXTRA_ELEMENT_HANDLING.tagCheck is configured.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-783"
+    ],
+    "aliases": [
+      "GHSA-39q2-94rc-95cp"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-39q2-94rc-95cp"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.3.2",
+    "cve_id": "CVE-2026-65912",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify's ADD_ATTR predicate function mechanism (via EXTRA_ELEMENT_HANDLING.attributeCheck) short-circuits URI validation when the predicate returns true. This allows unsafe protocols such as javascript: to survive sanitization in href and similar attributes, enabling DOM-based XSS when such links are activated.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-183"
+    ],
+    "aliases": [
+      "GHSA-cjmm-f4jc-qw8r"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cjmm-f4jc-qw8r",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.3.2"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.3.2",
+    "cve_id": "CVE-2026-65913",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "When USE_PROFILES is enabled, DOMPurify rebuilds ALLOWED_ATTR as a plain array whose properties are looked up by name, making it susceptible to prototype pollution. If Array.prototype has been polluted with an event handler attribute name (e.g. onclick), DOMPurify will allow that event handler to survive sanitization, resulting in DOM-based XSS.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-cj63-jhhr-wcxv"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cj63-jhhr-wcxv",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.3.2"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
+    "max_version": "3.3.2",
+    "cve_id": "CVE-2026-65914",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "DOMPurify is vulnerable to mutation-XSS (mXSS) when sanitized HTML is embedded into special raw-text wrapper elements such as xmp, script, iframe, noembed, noframes, or noscript before being assigned via innerHTML. Attacker-controlled sequences like \u003c/xmp\u003e inside attribute values close the raw-text context during the second parse, causing the sanitized output to mutate into executable markup.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-h8r8-wccr-v5f2"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-h8r8-wccr-v5f2",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.3.2"
+    ]
+  },
+  {
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.12",
     "cve_id": "CVE-2026-66010",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify: `CUSTOM_ELEMENT_HANDLING` bypasses `afterSanitizeElements` for allowed custom elements.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-184",
+      "CWE-693",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c2j3-45gr-mqc4"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-c2j3-45gr-mqc4",
+      "https://github.com/cure53/DOMPurify/pull/1537",
+      "https://github.com/cure53/DOMPurify/commit/a9ca1e537422319a557a9a2aa61f003b23b4a197",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.4.12"
+    ]
   },
   {
-    "library": "DOMPurify",
+    "library": "dompurify",
+    "at_or_above": "0",
     "max_version": "3.4.13",
     "cve_id": "CVE-2026-75838",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOMPurify: IN_PLACE hook removal leaves a detached subtree executable, causing XSS",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-55q2-fjhq-7xh7"
+    ],
+    "references": [
+      "https://github.com/cure53/DOMPurify/security/advisories/GHSA-55q2-fjhq-7xh7",
+      "https://github.com/cure53/DOMPurify/pull/1557",
+      "https://github.com/cure53/DOMPurify/commit/3067f7746769",
+      "https://github.com/cure53/DOMPurify/releases/tag/3.4.13"
+    ]
   }
 ]

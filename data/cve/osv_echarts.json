@@ -1,0 +1,25 @@
+[
+  {
+    "library": "echarts",
+    "at_or_above": "0",
+    "max_version": "6.1.0",
+    "cve_id": "GHSA-fgmj-fm8m-jvvx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Apache ECharts has a cross-site scripting (XSS) vulnerability",
+    "fixed_version": "6.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-45249"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-45249",
+      "https://github.com/apache/echarts/pull/21608",
+      "https://github.com/apache/echarts/commit/1e39b00eedda0e4a0b048e099c0e13ce7149d90f"
+    ]
+  }
+]

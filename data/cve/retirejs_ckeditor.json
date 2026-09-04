@@ -1,13 +1,24 @@
 [
   {
     "library": "ckeditor",
+    "at_or_above": "4.0.0",
     "max_version": "4.11.0",
     "cve_id": "CVE-2018-17960",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerability in the HTML parser",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g68x-vvqq-pvw3"
+    ],
+    "references": [
+      "https://ckeditor.com/blog/CKEditor-4.11-with-emoji-dropdown-and-auto-link-on-typing-released/",
+      "https://snyk.io/vuln/SNYK-JS-CKEDITOR-72618"
+    ]
   },
   {
     "library": "ckeditor",
@@ -17,7 +28,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerability in the Widget plugin",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-6226-h7ff-ch6c"
+    ]
   },
   {
     "library": "ckeditor",
@@ -27,7 +44,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerability in the Clipboard plugin",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7889-rm5j-hpgg"
+    ]
   },
   {
     "library": "ckeditor",
@@ -37,7 +60,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerability in the Fake Objects plugin",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-m94c-37g6-cjhc"
+    ]
   },
   {
     "library": "ckeditor",
@@ -47,7 +76,14 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerabilities in the core module",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7h26-63m7-qhf2",
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-pvmx-g8h5-cprj"
+    ]
   },
   {
     "library": "ckeditor",
@@ -57,7 +93,14 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerabilities in the core module",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7h26-63m7-qhf2",
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-pvmx-g8h5-cprj"
+    ]
   },
   {
     "library": "ckeditor",
@@ -67,7 +110,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Inject malformed URL to bypass content sanitization for XSS",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-f6rf-9m92-x2hh"
+    ]
   },
   {
     "library": "ckeditor",
@@ -77,6 +126,14 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "cross-site scripting vulnerability has been discovered affecting Iframe Dialog and Media Embed packages. The vulnerability may trigger a JavaScript code",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28439",
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-vh5c-xwqv-cv9g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-28439"
+    ]
   }
 ]

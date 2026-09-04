@@ -1,42 +1,118 @@
 [
   {
     "library": "pdf.js",
-    "max_version": "1.10.100",
-    "cve_id": "CVE-2018-5158",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
-    "source": "retire.js"
-  },
-  {
-    "library": "pdf.js",
+    "at_or_above": "2.0.0",
     "max_version": "2.0.550",
     "cve_id": "CVE-2018-5158",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-7jg2-jgv3-fmr4"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7jg2-jgv3-fmr4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-5158",
+      "https://github.com/mozilla/pdf.js/pull/9659",
+      "https://github.com/mozilla/pdf.js/commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97",
+      "https://access.redhat.com/errata/RHSA-2018:1414",
+      "https://access.redhat.com/errata/RHSA-2018:1415",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=1452075",
+      "https://github.com/mozilla/pdf.js",
+      "https://lists.debian.org/debian-lts-announce/2018/05/msg00007.html",
+      "https://security.gentoo.org/glsa/201810-01",
+      "https://usn.ubuntu.com/3645-1",
+      "https://www.debian.org/security/2018/dsa-4199",
+      "https://www.mozilla.org/security/advisories/mfsa2018-11",
+      "https://www.mozilla.org/security/advisories/mfsa2018-12",
+      "http://www.securityfocus.com/bid/104136",
+      "http://www.securitytracker.com/id/1040896"
+    ]
   },
   {
     "library": "pdf.js",
+    "at_or_above": "0",
+    "max_version": "1.10.100",
+    "cve_id": "CVE-2018-5158",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-7jg2-jgv3-fmr4"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7jg2-jgv3-fmr4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-5158",
+      "https://github.com/mozilla/pdf.js/pull/9659",
+      "https://github.com/mozilla/pdf.js/commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97",
+      "https://access.redhat.com/errata/RHSA-2018:1414",
+      "https://access.redhat.com/errata/RHSA-2018:1415",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=1452075",
+      "https://github.com/mozilla/pdf.js",
+      "https://lists.debian.org/debian-lts-announce/2018/05/msg00007.html",
+      "https://security.gentoo.org/glsa/201810-01",
+      "https://usn.ubuntu.com/3645-1",
+      "https://www.debian.org/security/2018/dsa-4199",
+      "https://www.mozilla.org/security/advisories/mfsa2018-11",
+      "https://www.mozilla.org/security/advisories/mfsa2018-12",
+      "http://www.securityfocus.com/bid/104136",
+      "http://www.securitytracker.com/id/1040896"
+    ]
+  },
+  {
+    "library": "pdf.js",
+    "at_or_above": "0",
     "max_version": "4.2.67",
     "cve_id": "CVE-2024-4367",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "PDF.js vulnerable to arbitrary JavaScript execution upon opening a malicious PDF",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-754"
+    ],
+    "aliases": [
+      "GHSA-wgrm-67xf-hhpq"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-wgrm-67xf-hhpq",
+      "https://github.com/mozilla/pdf.js/security/advisories/GHSA-wgrm-67xf-hhpq",
+      "https://github.com/mozilla/pdf.js/pull/18015",
+      "https://github.com/mozilla/pdf.js/commit/85e64b5c16c9aaef738f421733c12911a441cec6",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=1893645",
+      "https://github.com/mozilla/pdf.js"
+    ]
   },
   {
     "library": "pdf.js",
+    "at_or_above": "5.6.83",
     "max_version": "6.2.108",
     "cve_id": "CVE-2026-16633",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "PDF.js: Arbitrary JavaScript execution upon opening a malicious PDF ",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-hq66-cqwq-w95j"
+    ],
+    "references": [
+      "https://github.com/mozilla/pdf.js/security/advisories/GHSA-hq66-cqwq-w95j",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=2055885"
+    ]
   }
 ]

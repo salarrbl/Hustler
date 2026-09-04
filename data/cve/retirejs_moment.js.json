@@ -7,7 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "reDOS - regular expression denial of service",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-87vv-r9j6-g5qv"
+    ],
+    "references": [
+      "https://github.com/moment/moment/issues/2936"
+    ]
   },
   {
     "library": "moment.js",
@@ -17,7 +26,19 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service (ReDoS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-446m-mv8f-q348"
+    ],
+    "references": [
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18214",
+      "https://github.com/moment/moment/issues/4163",
+      "https://security.snyk.io/vuln/npm:moment:20170905"
+    ]
   },
   {
     "library": "moment.js",
@@ -27,16 +48,38 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "This vulnerability impacts npm (server) users of moment.js, especially if user provided locale string, eg fr is directly used to switch moment locale.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-22",
+      "CWE-27"
+    ],
+    "aliases": [
+      "GHSA-8hfj-j24r-96c4"
+    ],
+    "references": [
+      "https://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4"
+    ]
   },
   {
     "library": "moment.js",
+    "at_or_above": "2.18.0",
     "max_version": "2.29.4",
     "cve_id": "CVE-2022-31129",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service (ReDoS), Affecting moment package, versions \u003e=2.18.0 \u003c2.29.4",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-wc69-rhjr-hc9g"
+    ],
+    "references": [
+      "https://github.com/moment/moment/security/advisories/GHSA-wc69-rhjr-hc9g",
+      "https://security.snyk.io/vuln/SNYK-JS-MOMENT-2944238"
+    ]
   }
 ]

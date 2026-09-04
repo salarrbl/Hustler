@@ -7,6 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "weakness in HTML escaping",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-w3w8-37jv-2c58"
+    ],
+    "references": [
+      "https://github.com/janl/mustache.js/pull/530",
+      "https://github.com/janl/mustache.js/releases/tag/v2.2.1"
+    ]
   }
 ]

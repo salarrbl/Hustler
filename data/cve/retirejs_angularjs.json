@@ -1,23 +1,45 @@
 [
   {
     "library": "angularjs",
-    "max_version": "1.5.0-beta.1",
-    "cve_id": "CVE-2019-14863",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS through xlink:href attributes",
-    "source": "retire.js"
-  },
-  {
-    "library": "angularjs",
     "max_version": "1.7.9",
     "cve_id": "CVE-2019-10768",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Prototype pollution",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-20",
+      "CWE-915"
+    ],
+    "aliases": [
+      "GHSA-89mq-4x47-5v83"
+    ],
+    "references": [
+      "https://github.com/angular/angular.js/blob/master/CHANGELOG.md#179-pollution-eradication-2019-11-19",
+      "https://github.com/angular/angular.js/commit/726f49dcf6c23106ddaf5cfd5e2e592841db743a"
+    ]
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.5.0-beta.1",
+    "cve_id": "CVE-2019-14863",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS through xlink:href attributes",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-r5fx-8r73-v86c"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-r5fx-8r73-v86c",
+      "https://github.com/angular/angular.js/blob/master/CHANGELOG.md#150-beta1-dense-dispersion-2015-09-29"
+    ]
   },
   {
     "library": "angularjs",
@@ -27,27 +49,38 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS may be triggered in AngularJS applications that sanitize user-controlled HTML snippets before passing them to JQLite methods like JQLite.prepend, JQLite.after, JQLite.append, JQLite.replaceWith, JQLite.append, new JQLite and angular.element.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-mhp6-pxh8-r675"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-5cp4-xmrw-59wf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7676"
+    ]
   },
   {
     "library": "angularjs",
-    "max_version": "1.8.4",
-    "cve_id": "CVE-2023-26117",
+    "at_or_above": "1.7.0",
+    "max_version": "999.999.999",
+    "cve_id": "CVE-2022-25844",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "angular vulnerable to regular expression denial of service via the $resource service",
-    "source": "retire.js"
-  },
-  {
-    "library": "angularjs",
-    "max_version": "1.8.4",
-    "cve_id": "CVE-2023-26116",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "angular vulnerable to regular expression denial of service via the angular.copy() utility",
-    "source": "retire.js"
+    "summary": "angular vulnerable to regular expression denial of service (ReDoS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-m2h2-264f-f486"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-m2h2-264f-f486"
+    ]
   },
   {
     "library": "angularjs",
@@ -57,7 +90,54 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Angular (deprecated package) Cross-site Scripting",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prc3-vjfx-vhm9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-prc3-vjfx-vhm9"
+    ]
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2023-26116",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service via the angular.copy() utility",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-2vrf-hf26-jrp5"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-2vrf-hf26-jrp5"
+    ]
+  },
+  {
+    "library": "angularjs",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2023-26117",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "angular vulnerable to regular expression denial of service via the $resource service",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-2qqx-w9hr-q5gx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-2qqx-w9hr-q5gx"
+    ]
   },
   {
     "library": "angularjs",
@@ -67,86 +147,187 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "angular vulnerable to regular expression denial of service via the \u003cinput type=\"url\"\u003e element",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-qwqh-hm9m-p5hr"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-qwqh-hm9m-p5hr"
+    ]
   },
   {
     "library": "angularjs",
-    "max_version": "1.8.4",
-    "cve_id": "CVE-2025-0716",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "AngularJS improperly sanitizes SVG elements",
-    "source": "retire.js"
-  },
-  {
-    "library": "angularjs",
-    "max_version": "1.8.4",
-    "cve_id": "CVE-2024-8373",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "AngularJS allows attackers to bypass common image source restrictions",
-    "source": "retire.js"
-  },
-  {
-    "library": "angularjs",
-    "max_version": "1.8.4",
-    "cve_id": "CVE-2026-11998",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Angular's deprecated package has a Cross-Site Scripting issue",
-    "source": "retire.js"
-  },
-  {
-    "library": "angularjs",
+    "at_or_above": "1.3.0",
     "max_version": "1.8.4",
     "cve_id": "CVE-2024-21490",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "angular vulnerable to super-linear runtime due to backtracking",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-4w4v-5hc9-xrr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-4w4v-5hc9-xrr2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-21490",
+      "https://github.com/angular/angular.js",
+      "https://security.snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-6241746",
+      "https://security.snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-6241747",
+      "https://security.snyk.io/vuln/SNYK-JS-ANGULAR-6091113",
+      "https://stackblitz.com/edit/angularjs-vulnerability-ng-srcset-redos"
+    ]
   },
   {
     "library": "angularjs",
+    "at_or_above": "1.3.0-rc.4",
     "max_version": "1.8.4",
     "cve_id": "CVE-2024-8372",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "AngularJS allows attackers to bypass common image source restrictions",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1289"
+    ],
+    "aliases": [
+      "GHSA-m9gf-397r-hwpg"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-m9gf-397r-hwpg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-8372",
+      "https://codepen.io/herodevs/full/xxoQRNL/0072e627abe03e9cda373bc75b4c1017",
+      "https://github.com/angular/angular.js",
+      "https://www.herodevs.com/vulnerability-directory/cve-2024-8372"
+    ]
   },
   {
     "library": "angularjs",
+    "at_or_above": "0",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2024-8373",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS allows attackers to bypass common image source restrictions",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-791"
+    ],
+    "aliases": [
+      "GHSA-mqm9-c95h-x2p6"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-mqm9-c95h-x2p6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-8373",
+      "https://codepen.io/herodevs/full/bGPQgMp/8da9ce87e99403ee13a295c305ebfa0b",
+      "https://github.com/angular/angular.js",
+      "https://www.herodevs.com/vulnerability-directory/cve-2024-8373"
+    ]
+  },
+  {
+    "library": "angularjs",
+    "at_or_above": "0",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2025-0716",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "AngularJS improperly sanitizes SVG elements",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-791"
+    ],
+    "aliases": [
+      "GHSA-j58c-ww9w-pwp5"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-j58c-ww9w-pwp5",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-0716",
+      "https://codepen.io/herodevs/pen/qEWQmpd/a86a0d29310e12c7a3756768e6c7b915",
+      "https://github.com/angular/angular.js",
+      "https://www.herodevs.com/vulnerability-directory/cve-2025-0716"
+    ]
+  },
+  {
+    "library": "angularjs",
+    "at_or_above": "1.3.1",
     "max_version": "1.8.4",
     "cve_id": "CVE-2025-2336",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "AngularJS Incomplete Filtering of Special Elements vulnerability",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-791"
+    ],
+    "aliases": [
+      "GHSA-4p4w-6hg8-63wx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-4p4w-6hg8-63wx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-2336",
+      "https://codepen.io/herodevs/pen/bNGYaXx/412a3a4218387479898912f60c269c6c",
+      "https://github.com/angular/angular.js",
+      "https://www.herodevs.com/vulnerability-directory/cve-2025-2336"
+    ]
   },
   {
     "library": "angularjs",
+    "at_or_above": "0",
     "max_version": "1.9.9",
     "cve_id": "CVE-2025-4690",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "AngularJS Regular expression Denial of Service (ReDoS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-hfff-63hg-f47j"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-hfff-63hg-f47j",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-4690",
+      "https://codepen.io/herodevs/pen/RNNEPzP/751b91eab7730dff277523f3d50e4b77",
+      "https://github.com/angular/angular.js",
+      "https://www.herodevs.com/vulnerability-directory/cve-2025-4690"
+    ]
   },
   {
     "library": "angularjs",
-    "max_version": "999.999.999",
-    "cve_id": "CVE-2022-25844",
-    "severity": "MEDIUM",
+    "at_or_above": "1.2.0-rc.3",
+    "max_version": "1.8.4",
+    "cve_id": "CVE-2026-11998",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "angular vulnerable to regular expression denial of service (ReDoS)",
-    "source": "retire.js"
+    "summary": "Angular's deprecated package has a Cross-Site Scripting issue",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-791"
+    ],
+    "aliases": [
+      "GHSA-7x27-g8rg-x87w"
+    ],
+    "references": [
+      "https://access.redhat.com/security/cve/CVE-2026-11998",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2492579",
+      "https://codepen.io/herodevs/pen/JobQdmz/5b3896f56fab66f20cd25e698cf3faa8",
+      "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-11998.json",
+      "https://www.herodevs.com/vulnerability-directory/cve-2026-11998",
+      "https://www.herodevs.com/vulnerability-directory/cve-2026-11998?nes-for-angularjs"
+    ]
   }
 ]

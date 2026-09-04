@@ -7,7 +7,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/DataTables/DataTablesSrc/commit/ccf86dc5982bd8e16d",
+      "https://github.com/advisories/GHSA-4mv4-gmmf-q382",
+      "https://www.invicti.com/web-applications-advisories/cve-2015-6384-xss-vulnerability-identified-in-datatables/"
+    ]
   },
   {
     "library": "jquery.datatables",
@@ -17,7 +25,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "datatables.net vulnerable to Prototype Pollution due to incomplete fix",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-m7j4-fhg6-xf5v"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-m7j4-fhg6-xf5v"
+    ]
   },
   {
     "library": "jquery.datatables",
@@ -27,6 +44,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross site scripting in datatables.net",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-h73q-5wmj-q8pj"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-h73q-5wmj-q8pj"
+    ]
   }
 ]

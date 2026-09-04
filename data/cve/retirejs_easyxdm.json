@@ -1,22 +1,36 @@
 [
   {
-    "library": "easyXDM",
+    "library": "easyxdm",
     "max_version": "2.4.18",
     "cve_id": "CVE-2013-5212",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://blog.kotowicz.net/2013/09/exploiting-easyxdm-part-1-not-usual.html",
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5212"
+    ]
   },
   {
-    "library": "easyXDM",
+    "library": "easyxdm",
     "max_version": "2.4.19",
     "cve_id": "CVE-2014-1403",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://blog.kotowicz.net/2014/01/xssing-with-shakespeare-name-calling.html",
+      "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1403"
+    ]
   }
 ]

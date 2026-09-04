@@ -1,73 +1,124 @@
 [
   {
     "library": "handlebars",
-    "max_version": "3.0.8",
-    "cve_id": "CVE-2019-20920",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).",
-    "source": "retire.js"
-  },
-  {
-    "library": "handlebars",
-    "max_version": "3.0.8",
-    "cve_id": "CVE-2019-19919",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Disallow calling helperMissing and blockHelperMissing directly",
-    "source": "retire.js"
-  },
-  {
-    "library": "handlebars",
     "max_version": "4.0.0",
     "cve_id": "CVE-2015-8861",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Quoteless attributes in templates can lead to XSS",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9prh-257w-9277"
+    ],
+    "references": [
+      "https://github.com/wycats/handlebars.js/pull/1083"
+    ]
   },
   {
     "library": "handlebars",
+    "max_version": "3.0.8",
+    "cve_id": "CVE-2019-19919",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Disallow calling helperMissing and blockHelperMissing directly",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74"
+    ],
+    "aliases": [
+      "GHSA-w457-6q6x-cgp9"
+    ],
+    "references": [
+      "https://github.com/wycats/handlebars.js/blob/master/release-notes.md#v430---september-24th-2019"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.3.0",
     "cve_id": "CVE-2019-19919",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Disallow calling helperMissing and blockHelperMissing directly",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74"
+    ],
+    "aliases": [
+      "GHSA-w457-6q6x-cgp9"
+    ],
+    "references": [
+      "https://github.com/wycats/handlebars.js/blob/master/release-notes.md#v430---september-24th-2019"
+    ]
   },
   {
     "library": "handlebars",
-    "max_version": "4.4.5",
-    "cve_id": "CVE-2019-20922",
+    "max_version": "3.0.8",
+    "cve_id": "CVE-2019-20920",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Regular Expression Denial of Service in Handlebars",
-    "source": "retire.js"
+    "summary": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-3cqr-58rm-57f8"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-3cqr-58rm-57f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20920"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.5.3",
     "cve_id": "CVE-2019-20920",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars before 3.0.8 and 4.x before 4.5.3 is vulnerable to Arbitrary Code Execution. The lookup helper fails to properly validate templates, allowing attackers to submit templates that execute arbitrary JavaScript. This can be used to run arbitrary code on a server processing Handlebars templates or in a victim's browser (effectively serving as XSS).",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-3cqr-58rm-57f8"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-3cqr-58rm-57f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20920"
+    ]
   },
   {
     "library": "handlebars",
-    "max_version": "4.7.7",
-    "cve_id": "CVE-2021-23383",
+    "at_or_above": "4.0.0",
+    "max_version": "4.4.5",
+    "cve_id": "CVE-2019-20922",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Prototype Pollution in handlebars",
-    "source": "retire.js"
+    "summary": "Regular Expression Denial of Service in Handlebars",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-62gr-4qp9-h98f"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20922"
+    ]
   },
   {
     "library": "handlebars",
@@ -77,66 +128,172 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Remote code execution in handlebars when compiling templates",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-f2jv-r9rf-7988"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23369"
+    ]
   },
   {
     "library": "handlebars",
+    "max_version": "4.7.7",
+    "cve_id": "CVE-2021-23383",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-765h-qjxv-5f44"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23383"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33916",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars is vulnerable to XSS via prototype pollution: the resolvePartial() function looks up partial names with an unguarded property access that traverses the prototype chain. If Object.prototype has been polluted with a string value matching a partial name, the polluted content is rendered unescaped, allowing cross-site scripting.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-2qvq-rjwj-gvw9"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2qvq-rjwj-gvw9",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33937",
     "severity": "CRITICAL",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars is vulnerable to Remote Code Execution when Handlebars.compile() is passed an attacker-controlled pre-parsed AST object. The value field of a NumberLiteral AST node is emitted directly into the generated JavaScript without sanitization, allowing code injection that executes on the server.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-2w6w-674q-4c4q"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2w6w-674q-4c4q",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33938",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars is vulnerable to Remote Code Execution via the @partial-block mechanism. When a helper with write access to the template data context overwrites @partial-block with a crafted Handlebars AST, subsequent invocation of that partial causes the runtime to dynamically compile the AST, executing arbitrary JavaScript on the server.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-3mfm-83xf-c92r"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-3mfm-83xf-c92r",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33939",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars is vulnerable to Denial of Service via unregistered decorator syntax. When a template contains a decorator reference to an unregistered decorator (e.g. {{*n}}), the compiled template attempts to invoke undefined as a function, causing an unhandled TypeError that crashes the Node.js process.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-754"
+    ],
+    "aliases": [
+      "GHSA-9cx6-37pm-9jff"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-9cx6-37pm-9jff",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33940",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Handlebars is vulnerable to Remote Code Execution through dynamic partial lookups. A crafted object with call: true placed in the template context bypasses resolvePartial() guards and causes the runtime to compile the object as a Handlebars AST via env.compile(), executing injected JavaScript on the server.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-xhpv-hc6g-r9c6"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xhpv-hc6g-r9c6",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   },
   {
     "library": "handlebars",
+    "at_or_above": "4.0.0",
     "max_version": "4.7.9",
     "cve_id": "CVE-2026-33941",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "The Handlebars CLI precompiler is vulnerable to code injection through multiple unsanitized inputs: template file names, the namespace (-n), CommonJS path (-c), and AMD path (-h) options are all interpolated into generated JavaScript without escaping. An attacker who controls these values can inject arbitrary JavaScript that executes when the generated bundle is loaded.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-116",
+      "CWE-79",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-xjpj-3mr7-gcpf"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xjpj-3mr7-gcpf",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js/releases/tag/v4.7.9"
+    ]
   }
 ]

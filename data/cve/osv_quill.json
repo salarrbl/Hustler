@@ -1,0 +1,66 @@
+[
+  {
+    "library": "quill",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-4943-9vgg-gr5r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting in quill",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2021-3163"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-3163",
+      "https://github.com/quilljs/quill/issues/3273",
+      "https://github.com/quilljs/quill/issues/3359"
+    ]
+  },
+  {
+    "library": "quill",
+    "at_or_above": "0",
+    "max_version": "1.3.7",
+    "cve_id": "GHSA-588m-9qg5-35pq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Reverse Tabnabbing in quill",
+    "fixed_version": "1.3.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1022"
+    ],
+    "references": [
+      "https://github.com/quilljs/quill/issues/2438",
+      "https://github.com/quilljs/quill/pull/2674",
+      "https://github.com/quilljs/quill"
+    ]
+  },
+  {
+    "library": "quill",
+    "max_version": "",
+    "cve_id": "GHSA-v3m3-f69x-jf25",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Quill is vulnerable to XSS via HTML export feature",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-74",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2025-15056"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-15056",
+      "https://fluidattacks.com/advisories/diomedes",
+      "https://github.com/slab/quill"
+    ]
+  }
+]

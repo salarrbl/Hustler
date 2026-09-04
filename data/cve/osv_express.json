@@ -1,0 +1,188 @@
+[
+  {
+    "library": "express",
+    "at_or_above": "0",
+    "max_version": "4.0.0-rc1",
+    "cve_id": "GHSA-cm5g-3pgc-8rg4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Express ressource injection",
+    "fixed_version": "4.0.0-rc1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2024-10491"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-10491",
+      "https://github.com/expressjs/express/issues/6222",
+      "https://github.com/expressjs/express"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "0",
+    "max_version": "3.11.0",
+    "cve_id": "GHSA-gpvr-g6gh-9mc2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "No Charset in Content-Type Header in express",
+    "fixed_version": "3.11.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2014-6393"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-6393",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1203190",
+      "https://github.com/advisories/GHSA-gpvr-g6gh-9mc2"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.0",
+    "cve_id": "GHSA-gpvr-g6gh-9mc2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "No Charset in Content-Type Header in express",
+    "fixed_version": "4.5.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2014-6393"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-6393",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1203190",
+      "https://github.com/advisories/GHSA-gpvr-g6gh-9mc2"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "3.4.5",
+    "max_version": "4.0.0-rc1",
+    "cve_id": "GHSA-jj78-5fmv-mv28",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Express Open Redirect vulnerability",
+    "fixed_version": "4.0.0-rc1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-601"
+    ],
+    "aliases": [
+      "CVE-2024-9266"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-9266",
+      "https://github.com/expressjs/express",
+      "https://github.com/expressjs/express/compare/3.4.4...3.4.5"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "0",
+    "max_version": "4.20.0",
+    "cve_id": "GHSA-qw6h-vgh9-j6wx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "express vulnerable to XSS via response.redirect()",
+    "fixed_version": "4.20.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-43796"
+    ],
+    "references": [
+      "https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43796",
+      "https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "5.0.0-alpha.1",
+    "max_version": "5.0.0",
+    "cve_id": "GHSA-qw6h-vgh9-j6wx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "express vulnerable to XSS via response.redirect()",
+    "fixed_version": "5.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-43796"
+    ],
+    "references": [
+      "https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43796",
+      "https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "0",
+    "max_version": "4.19.2",
+    "cve_id": "GHSA-rv95-896h-c2vc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Express.js Open Redirect in malformed URLs",
+    "fixed_version": "4.19.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1286",
+      "CWE-601"
+    ],
+    "aliases": [
+      "CVE-2024-29041"
+    ],
+    "references": [
+      "https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29041",
+      "https://github.com/koajs/koa/issues/1800"
+    ]
+  },
+  {
+    "library": "express",
+    "at_or_above": "5.0.0-alpha.1",
+    "max_version": "5.0.0-beta.3",
+    "cve_id": "GHSA-rv95-896h-c2vc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Express.js Open Redirect in malformed URLs",
+    "fixed_version": "5.0.0-beta.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1286",
+      "CWE-601"
+    ],
+    "aliases": [
+      "CVE-2024-29041"
+    ],
+    "references": [
+      "https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29041",
+      "https://github.com/koajs/koa/issues/1800"
+    ]
+  }
+]

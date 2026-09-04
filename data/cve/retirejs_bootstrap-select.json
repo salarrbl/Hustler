@@ -7,16 +7,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site Scripting (XSS) via title and data-content",
-    "source": "retire.js"
-  },
-  {
-    "library": "bootstrap-select",
-    "max_version": "1.13.6",
-    "cve_id": "CVE-2019-20921",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Cross-Site Scripting in bootstrap-select",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-7c82-mp33-r854"
+    ],
+    "references": [
+      "https://github.com/snapappointments/bootstrap-select/issues/2199#issuecomment-701806876"
+    ]
   }
 ]

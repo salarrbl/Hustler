@@ -1,0 +1,295 @@
+[
+  {
+    "library": "marked",
+    "at_or_above": "1.1.1",
+    "max_version": "2.0.0",
+    "cve_id": "GHSA-4r62-v4vq-hr96",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (REDoS) in Marked",
+    "fixed_version": "2.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2021-21306"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-4r62-v4vq-hr96",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-21306",
+      "https://github.com/markedjs/marked/issues/1927"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "4.0.10",
+    "cve_id": "GHSA-5v2h-r2cx-5xgj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inefficient Regular Expression Complexity in marked",
+    "fixed_version": "4.0.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2022-21681"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-5v2h-r2cx-5xgj",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-21681",
+      "https://github.com/markedjs/marked/commit/8f806573a3f6c6b7a39b8cdb66ab5ebb8d55a5f5"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "18.0.0",
+    "max_version": "18.0.2",
+    "cve_id": "GHSA-6v9c-7cg6-27q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Marked Vulnerable to OOM Denial of Service via Infinite Recursion in marked Tokenizer",
+    "fixed_version": "18.0.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400",
+      "CWE-674",
+      "CWE-835"
+    ],
+    "aliases": [
+      "CVE-2026-41680"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-6v9c-7cg6-27q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-41680",
+      "https://github.com/markedjs/marked"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.7",
+    "cve_id": "GHSA-7px7-7xjx-hxm8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Marked vulnerable to XSS from data URIs",
+    "fixed_version": "0.3.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2017-1000427"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000427",
+      "https://github.com/advisories/GHSA-7px7-7xjx-hxm8",
+      "https://github.com/markedjs/marked"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.1",
+    "cve_id": "GHSA-9cw2-jqp5-7x39",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Multiple Content Injection Vulnerabilities in marked",
+    "fixed_version": "0.3.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2014-3743"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-1850",
+      "https://www.npmjs.com/advisories/22"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.3",
+    "cve_id": "GHSA-cfjh-p3g4-3q2f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "VBScript Content Injection in marked",
+    "fixed_version": "0.3.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2015-1370"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-1370",
+      "https://github.com/chjj/marked/issues/492",
+      "https://github.com/markedjs/marked/issues/492"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0.4.0",
+    "max_version": "0.7.0",
+    "cve_id": "GHSA-ch52-vgq2-943f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in marked",
+    "fixed_version": "0.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1076"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.4",
+    "cve_id": "GHSA-hjcp-j389-59ff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in marked",
+    "fixed_version": "0.3.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2015-8854"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-8854",
+      "https://github.com/chjj/marked/issues/497",
+      "https://github.com/advisories/GHSA-hjcp-j389-59ff"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.17",
+    "cve_id": "GHSA-p9wx-2529-fp83",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Marked allows Regular Expression Denial of Service (ReDoS) attacks",
+    "fixed_version": "0.3.17",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2018-25110"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-25110",
+      "https://github.com/markedjs/marked/issues/1070",
+      "https://github.com/markedjs/marked/pull/1083"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "4.0.10",
+    "cve_id": "GHSA-rrrm-qjm4-v8hf",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inefficient Regular Expression Complexity in marked",
+    "fixed_version": "4.0.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2022-21680"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-rrrm-qjm4-v8hf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-21680",
+      "https://github.com/markedjs/marked/commit/c4a3ccd344b6929afa8a1d50ac54a721e57012c0"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.6",
+    "cve_id": "GHSA-vfvf-mqq8-rwqc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Sanitization bypass using HTML Entities in marked",
+    "fixed_version": "0.3.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2016-10531"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10531",
+      "https://github.com/chjj/marked/pull/592",
+      "https://github.com/chjj/marked/pull/592/commits/2cff85979be8e7a026a9aca35542c470cf5da523"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0",
+    "max_version": "0.3.9",
+    "cve_id": "GHSA-x5pg-88wf-qq4p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in marked",
+    "fixed_version": "0.3.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-16114"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16114",
+      "https://github.com/chjj/marked/issues/937",
+      "https://github.com/advisories/GHSA-x5pg-88wf-qq4p"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "0.3.14",
+    "max_version": "0.6.2",
+    "cve_id": "GHSA-xf5p-87ch-gxw2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Marked ReDoS due to email addresses being evaluated in quadratic time",
+    "fixed_version": "0.6.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/pull/1460",
+      "https://github.com/markedjs/marked/commit/b15e42b67cec9ded8505e9d68bb8741ad7a9590d",
+      "https://github.com/markedjs/marked"
+    ]
+  }
+]

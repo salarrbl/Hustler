@@ -1,0 +1,124 @@
+[
+  {
+    "library": "node-fetch",
+    "at_or_above": "3.0.0",
+    "max_version": "3.1.1",
+    "cve_id": "GHSA-r683-j2x4-v87g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-fetch forwards secure headers to untrusted sites",
+    "fixed_version": "3.1.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-173",
+      "CWE-200",
+      "CWE-601"
+    ],
+    "aliases": [
+      "CVE-2022-0235"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-0235",
+      "https://github.com/node-fetch/node-fetch/pull/1449/commits/5c32f002fdd65b1c6a8f1e3620210813d45c7e60",
+      "https://github.com/node-fetch/node-fetch/pull/1453"
+    ]
+  },
+  {
+    "library": "node-fetch",
+    "at_or_above": "0",
+    "max_version": "2.6.7",
+    "cve_id": "GHSA-r683-j2x4-v87g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-fetch forwards secure headers to untrusted sites",
+    "fixed_version": "2.6.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-173",
+      "CWE-200",
+      "CWE-601"
+    ],
+    "aliases": [
+      "CVE-2022-0235"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-0235",
+      "https://github.com/node-fetch/node-fetch/pull/1449/commits/5c32f002fdd65b1c6a8f1e3620210813d45c7e60",
+      "https://github.com/node-fetch/node-fetch/pull/1453"
+    ]
+  },
+  {
+    "library": "node-fetch",
+    "at_or_above": "3.0.0",
+    "max_version": "3.2.10",
+    "cve_id": "GHSA-vp56-6g26-6827",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-fetch Inefficient Regular Expression Complexity ",
+    "fixed_version": "3.2.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2022-2596"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-2596",
+      "https://github.com/node-fetch/node-fetch/pull/1611",
+      "https://github.com/node-fetch/node-fetch/commit/28802387292baee467e042e168d92597b5bbbe3d"
+    ]
+  },
+  {
+    "library": "node-fetch",
+    "at_or_above": "2.0.0",
+    "max_version": "2.6.1",
+    "cve_id": "GHSA-w7rc-rwvf-8q5r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The `size` option isn't honored after following a redirect in node-fetch",
+    "fixed_version": "2.6.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-15168"
+    ],
+    "references": [
+      "https://github.com/node-fetch/node-fetch/security/advisories/GHSA-w7rc-rwvf-8q5r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-15168",
+      "https://github.com/node-fetch/node-fetch/commit/2358a6c2563d1730a0cdaccc197c611949f6a334"
+    ]
+  },
+  {
+    "library": "node-fetch",
+    "at_or_above": "3.0.0-beta.1",
+    "max_version": "3.0.0-beta.9",
+    "cve_id": "GHSA-w7rc-rwvf-8q5r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The `size` option isn't honored after following a redirect in node-fetch",
+    "fixed_version": "3.0.0-beta.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-15168"
+    ],
+    "references": [
+      "https://github.com/node-fetch/node-fetch/security/advisories/GHSA-w7rc-rwvf-8q5r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-15168",
+      "https://github.com/node-fetch/node-fetch/commit/2358a6c2563d1730a0cdaccc197c611949f6a334"
+    ]
+  }
+]

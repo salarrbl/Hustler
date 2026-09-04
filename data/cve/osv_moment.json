@@ -1,0 +1,96 @@
+[
+  {
+    "library": "moment",
+    "at_or_above": "0",
+    "max_version": "2.19.3",
+    "cve_id": "GHSA-446m-mv8f-q348",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in moment",
+    "fixed_version": "2.19.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-18214"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-18214",
+      "https://github.com/moment/moment/issues/4163",
+      "https://github.com/moment/moment/pull/4326"
+    ]
+  },
+  {
+    "library": "moment",
+    "at_or_above": "0",
+    "max_version": "2.11.2",
+    "cve_id": "GHSA-87vv-r9j6-g5qv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in moment",
+    "fixed_version": "2.11.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2016-4055"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-4055",
+      "https://github.com/advisories/GHSA-87vv-r9j6-g5qv",
+      "https://github.com/moment/moment"
+    ]
+  },
+  {
+    "library": "moment",
+    "at_or_above": "0",
+    "max_version": "2.29.2",
+    "cve_id": "GHSA-8hfj-j24r-96c4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Path Traversal: 'dir/../../filename' in moment.locale",
+    "fixed_version": "2.29.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-27"
+    ],
+    "aliases": [
+      "CVE-2022-24785"
+    ],
+    "references": [
+      "https://github.com/moment/moment/security/advisories/GHSA-8hfj-j24r-96c4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24785",
+      "https://github.com/moment/moment/commit/4211bfc8f15746be4019bba557e29a7ba83d54c5"
+    ]
+  },
+  {
+    "library": "moment",
+    "at_or_above": "2.18.0",
+    "max_version": "2.29.4",
+    "cve_id": "GHSA-wc69-rhjr-hc9g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Moment.js vulnerable to Inefficient Regular Expression Complexity",
+    "fixed_version": "2.29.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2022-31129"
+    ],
+    "references": [
+      "https://github.com/moment/moment/security/advisories/GHSA-wc69-rhjr-hc9g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-31129",
+      "https://github.com/moment/moment/pull/6015#issuecomment-1152961973"
+    ]
+  }
+]

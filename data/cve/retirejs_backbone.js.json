@@ -1,12 +1,22 @@
 [
   {
     "library": "backbone.js",
+    "at_or_above": "0.3.3",
     "max_version": "0.5.0",
     "cve_id": "CVE-2016-10537",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "cross-site scripting vulnerability",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-j6p2-cx3w-6jcp"
+    ],
+    "references": [
+      "http://backbonejs.org/#changelog"
+    ]
   }
 ]

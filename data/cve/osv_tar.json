@@ -1,0 +1,801 @@
+[
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.19",
+    "cve_id": "GHSA-23hp-3jrh-7fpw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar: Decompression/parse DoS via unlimited input",
+    "fixed_version": "7.5.19",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2026-59873"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-23hp-3jrh-7fpw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-59873",
+      "https://github.com/isaacs/node-tar/commit/2812e9338665659b183aa7226518c307044957d3"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "7.5.1",
+    "max_version": "7.5.2",
+    "cve_id": "GHSA-29xp-372q-xqph",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar has a race condition leading to uninitialized memory exposure",
+    "fixed_version": "7.5.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-362"
+    ],
+    "aliases": [
+      "CVE-2025-64118"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-29xp-372q-xqph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-64118",
+      "https://github.com/isaacs/node-tar/issues/445"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.7",
+    "cve_id": "GHSA-34x7-hfp2-rc4v",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+    "fixed_version": "7.5.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2026-24842"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-34x7-hfp2-rc4v",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-24842",
+      "https://github.com/isaacs/node-tar/commit/f4a7aa9bc3d717c987fdf1480ff7a64e87ffdb46"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.1",
+    "cve_id": "GHSA-3jfq-g458-7qm9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite due to insufficient absolute path sanitization",
+    "fixed_version": "6.1.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-32804"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-3jfq-g458-7qm9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32804",
+      "https://github.com/npm/node-tar/commit/1f036ca23f64a547bdd6c79c1a44bc62e8115da4"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "4.0.0",
+    "max_version": "4.4.14",
+    "cve_id": "GHSA-3jfq-g458-7qm9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite due to insufficient absolute path sanitization",
+    "fixed_version": "4.4.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-32804"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-3jfq-g458-7qm9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32804",
+      "https://github.com/npm/node-tar/commit/1f036ca23f64a547bdd6c79c1a44bc62e8115da4"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "3.2.2",
+    "cve_id": "GHSA-3jfq-g458-7qm9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite due to insufficient absolute path sanitization",
+    "fixed_version": "3.2.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-32804"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-3jfq-g458-7qm9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32804",
+      "https://github.com/npm/node-tar/commit/1f036ca23f64a547bdd6c79c1a44bc62e8115da4"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.6",
+    "cve_id": "GHSA-3jfq-g458-7qm9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite due to insufficient absolute path sanitization",
+    "fixed_version": "5.0.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-32804"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-3jfq-g458-7qm9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32804",
+      "https://github.com/npm/node-tar/commit/1f036ca23f64a547bdd6c79c1a44bc62e8115da4"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.9",
+    "cve_id": "GHSA-5955-9wpr-37jh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite on Windows via insufficient relative path sanitization",
+    "fixed_version": "6.1.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-37713"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-5955-9wpr-37jh",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37713",
+      "https://github.com/isaacs/node-tar/commit/52b09e309bcae0c741a7eb79a17ef36e7828b946"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "4.4.18",
+    "cve_id": "GHSA-5955-9wpr-37jh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite on Windows via insufficient relative path sanitization",
+    "fixed_version": "4.4.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-37713"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-5955-9wpr-37jh",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37713",
+      "https://github.com/isaacs/node-tar/commit/52b09e309bcae0c741a7eb79a17ef36e7828b946"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.10",
+    "cve_id": "GHSA-5955-9wpr-37jh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite on Windows via insufficient relative path sanitization",
+    "fixed_version": "5.0.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2021-37713"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-5955-9wpr-37jh",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37713",
+      "https://github.com/isaacs/node-tar/commit/52b09e309bcae0c741a7eb79a17ef36e7828b946"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.8",
+    "cve_id": "GHSA-83g3-92jg-28cx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+    "fixed_version": "7.5.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-26960"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-83g3-92jg-28cx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-26960",
+      "https://github.com/isaacs/node-tar/commit/2cb1120bcefe28d7ecc719b41441ade59c52e384"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.3",
+    "cve_id": "GHSA-8qq5-rm4j-mr97",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+    "fixed_version": "7.5.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-23745"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-8qq5-rm4j-mr97",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-23745",
+      "https://github.com/isaacs/node-tar/commit/340eb285b6d986e91969a1170d7fe9b0face405e"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.18",
+    "cve_id": "GHSA-8x88-c5mf-7j5w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+    "fixed_version": "7.5.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-835"
+    ],
+    "aliases": [
+      "CVE-2026-59874"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-8x88-c5mf-7j5w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-59874",
+      "https://github.com/isaacs/node-tar/commit/9e78bf058b2c22dd4d52e00d8922d5c06fc2f7b5"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.11",
+    "cve_id": "GHSA-9ppj-qmqm-q256",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+    "fixed_version": "7.5.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-31802"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-9ppj-qmqm-q256",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-31802",
+      "https://github.com/isaacs/node-tar/commit/f48b5fa3b7985ddab96dc0f2125a4ffc9911b6ad"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "3.0.0",
+    "max_version": "4.4.16",
+    "cve_id": "GHSA-9r2w-394v-53qc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "4.4.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37701"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-9r2w-394v-53qc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37701",
+      "https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.7",
+    "cve_id": "GHSA-9r2w-394v-53qc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "6.1.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37701"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-9r2w-394v-53qc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37701",
+      "https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.8",
+    "cve_id": "GHSA-9r2w-394v-53qc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "5.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37701"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-9r2w-394v-53qc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37701",
+      "https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "6.2.1",
+    "cve_id": "GHSA-f5x3-32g6-xq36",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of service while parsing a tar file due to lack of folders count validation",
+    "fixed_version": "6.2.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2024-28863"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-f5x3-32g6-xq36",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-28863",
+      "https://github.com/isaacs/node-tar/commit/fe8cd57da5686f8695415414bda49206a545f7f7"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "2.0.0",
+    "cve_id": "GHSA-gfjr-3jmm-4g9v",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Symlink Arbitrary File Overwrite in tar",
+    "fixed_version": "2.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2015-8860"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-8860",
+      "https://github.com/advisories/GHSA-gfjr-3jmm-4g9v",
+      "https://github.com/npm/npm"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.17",
+    "cve_id": "GHSA-gvwx-54wh-qm9j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+    "fixed_version": "7.5.17",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-248"
+    ],
+    "aliases": [
+      "CVE-2026-59875"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-gvwx-54wh-qm9j",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-59875",
+      "https://github.com/isaacs/node-tar/commit/7a635c29f5edbf083557374d43984273ecfed5b3"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "2.2.2",
+    "cve_id": "GHSA-j44m-qm6p-hp7m",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Overwrite in tar",
+    "fixed_version": "2.2.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2018-20834"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-20834",
+      "https://github.com/npm/node-tar/commit/7ecef07da6a9e72cc0c4d0c9c6a8e85b6b52395d",
+      "https://github.com/npm/node-tar/commit/b0c58433c22f5e7fe8b1c76373f27e3f81dcd4c8"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "3.0.0",
+    "max_version": "4.4.2",
+    "cve_id": "GHSA-j44m-qm6p-hp7m",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Overwrite in tar",
+    "fixed_version": "4.4.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2018-20834"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-20834",
+      "https://github.com/npm/node-tar/commit/7ecef07da6a9e72cc0c4d0c9c6a8e85b6b52395d",
+      "https://github.com/npm/node-tar/commit/b0c58433c22f5e7fe8b1c76373f27e3f81dcd4c8"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.10",
+    "cve_id": "GHSA-qffp-2rhf-9h96",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+    "fixed_version": "7.5.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2026-29786"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-qffp-2rhf-9h96",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-29786",
+      "https://github.com/isaacs/node-tar/commit/7bc755dd85e623c0279e08eb3784909e6d7e4b9f"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.9",
+    "cve_id": "GHSA-qq89-hq3f-393p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "6.1.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37712"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-qq89-hq3f-393p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37712",
+      "https://github.com/isaacs/node-tar/commit/1739408d3122af897caefd09662bce2ea477533b"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.10",
+    "cve_id": "GHSA-qq89-hq3f-393p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "5.0.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37712"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-qq89-hq3f-393p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37712",
+      "https://github.com/isaacs/node-tar/commit/1739408d3122af897caefd09662bce2ea477533b"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "3.0.0",
+    "max_version": "4.4.18",
+    "cve_id": "GHSA-qq89-hq3f-393p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning using symbolic links",
+    "fixed_version": "4.4.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-37712"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-qq89-hq3f-393p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37712",
+      "https://github.com/isaacs/node-tar/commit/1739408d3122af897caefd09662bce2ea477533b"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.21",
+    "cve_id": "GHSA-r292-9mhp-454m",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+    "fixed_version": "7.5.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400",
+      "CWE-674"
+    ],
+    "aliases": [
+      "CVE-2026-73566"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-r292-9mhp-454m",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-73566",
+      "https://github.com/isaacs/node-tar/commit/631ae59121bf8fc8a22bbae35f074cb9b789cd4a"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.7",
+    "cve_id": "GHSA-r628-mhmh-qjhw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning",
+    "fixed_version": "5.0.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-23",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-32803"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-r628-mhmh-qjhw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32803",
+      "https://github.com/isaacs/node-tar/commit/46fe35083e2676e31c4e0a81639dce6da7aaa356"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "3.0.0",
+    "max_version": "3.2.3",
+    "cve_id": "GHSA-r628-mhmh-qjhw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning",
+    "fixed_version": "3.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-23",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-32803"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-r628-mhmh-qjhw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32803",
+      "https://github.com/isaacs/node-tar/commit/46fe35083e2676e31c4e0a81639dce6da7aaa356"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.2",
+    "cve_id": "GHSA-r628-mhmh-qjhw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning",
+    "fixed_version": "6.1.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-23",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-32803"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-r628-mhmh-qjhw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32803",
+      "https://github.com/isaacs/node-tar/commit/46fe35083e2676e31c4e0a81639dce6da7aaa356"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "4.0.0",
+    "max_version": "4.4.15",
+    "cve_id": "GHSA-r628-mhmh-qjhw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary File Creation/Overwrite via insufficient symlink protection due to directory cache poisoning",
+    "fixed_version": "4.4.15",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22",
+      "CWE-23",
+      "CWE-59"
+    ],
+    "aliases": [
+      "CVE-2021-32803"
+    ],
+    "references": [
+      "https://github.com/npm/node-tar/security/advisories/GHSA-r628-mhmh-qjhw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32803",
+      "https://github.com/isaacs/node-tar/commit/46fe35083e2676e31c4e0a81639dce6da7aaa356"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.4",
+    "cve_id": "GHSA-r6q2-hw4h-h46w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+    "fixed_version": "7.5.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-176",
+      "CWE-367"
+    ],
+    "aliases": [
+      "CVE-2026-23950"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-r6q2-hw4h-h46w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-23950",
+      "https://github.com/isaacs/node-tar/commit/3b1abfae650056edfabcbe0a0df5954d390521e6"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.16",
+    "cve_id": "GHSA-vmf3-w455-68vh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+    "fixed_version": "7.5.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-436"
+    ],
+    "aliases": [
+      "CVE-2026-53655"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-vmf3-w455-68vh",
+      "https://github.com/isaacs/node-tar"
+    ]
+  },
+  {
+    "library": "tar",
+    "at_or_above": "0",
+    "max_version": "7.5.18",
+    "cve_id": "GHSA-w8wr-v893-vjvp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "node-tar: Process crash via PAX numeric path type confusion",
+    "fixed_version": "7.5.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-704"
+    ],
+    "aliases": [
+      "CVE-2026-59871"
+    ],
+    "references": [
+      "https://github.com/isaacs/node-tar/security/advisories/GHSA-w8wr-v893-vjvp",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-59871",
+      "https://github.com/isaacs/node-tar/commit/e02a4e9e013c4be95302e2eb2047a942b883c27b"
+    ]
+  }
+]

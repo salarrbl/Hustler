@@ -1,0 +1,578 @@
+[
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.2",
+    "cve_id": "GHSA-2cf5-4w76-r9qv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in handlebars",
+    "fixed_version": "4.5.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1316"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.8",
+    "cve_id": "GHSA-2cf5-4w76-r9qv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in handlebars",
+    "fixed_version": "3.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1316"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-2qvq-rjwj-gvw9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has Prototype Pollution Leading to XSS through Partial Template Injection",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-33916"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2qvq-rjwj-gvw9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23369",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23383"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-2w6w-674q-4c4q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has JavaScript Injection via AST Type Confusion",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2026-33937"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-2w6w-674q-4c4q",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-33937",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.8",
+    "cve_id": "GHSA-3cqr-58rm-57f8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in Handlebars",
+    "fixed_version": "3.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2019-20920",
+      "SNYK-JS-HANDLEBARS-534478"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20920",
+      "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee",
+      "https://github.com/handlebars-lang/handlebars.js/commit/d54137810a49939fd2ad01a91a34e182ece4528e"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.3",
+    "cve_id": "GHSA-3cqr-58rm-57f8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in Handlebars",
+    "fixed_version": "4.5.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2019-20920",
+      "SNYK-JS-HANDLEBARS-534478"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20920",
+      "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee",
+      "https://github.com/handlebars-lang/handlebars.js/commit/d54137810a49939fd2ad01a91a34e182ece4528e"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-3mfm-83xf-c92r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has JavaScript Injection via AST Type Confusion by tampering @partial-block",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2026-33938"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-3mfm-83xf-c92r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-33938",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-442j-39wm-28r2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has a Property Access Validation Bypass in container.lookup",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-367"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-442j-39wm-28r2",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2",
+      "https://github.com/handlebars-lang/handlebars.js"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.4.5",
+    "cve_id": "GHSA-62gr-4qp9-h98f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in Handlebars",
+    "fixed_version": "4.4.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2019-20922",
+      "SNYK-JS-HANDLEBARS-480388"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-20922",
+      "https://github.com/handlebars-lang/handlebars.js/commit/8d5530ee2c3ea9f0aee3fde310b9f36887d00b8b",
+      "https://snyk.io/vuln/SNYK-JS-HANDLEBARS-480388"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "4.7.7",
+    "cve_id": "GHSA-765h-qjxv-5f44",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "4.7.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2021-23383"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23383",
+      "https://github.com/handlebars-lang/handlebars.js/commit/f0589701698268578199be25285b2ebea1c1e427",
+      "https://github.com/handlebars-lang/handlebars.js"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.6.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-7rx3-28cr-v5wh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has a Prototype Method Access Control Gap via Missing __lookupSetter__ Blocklist Entry",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-7rx3-28cr-v5wh",
+      "https://github.com/advisories/GHSA-765h-qjxv-5f44",
+      "https://github.com/handlebars-lang/handlebars.js"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-9cx6-37pm-9jff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has Denial of Service via Malformed Decorator Syntax in Template Compilation",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-754"
+    ],
+    "aliases": [
+      "CVE-2026-33939"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-9cx6-37pm-9jff",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-33939",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "4.0.0",
+    "cve_id": "GHSA-9prh-257w-9277",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in handlebars",
+    "fixed_version": "4.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2015-8861"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-8861",
+      "https://github.com/wycats/handlebars.js/pull/1083",
+      "https://blog.srcclr.com/handlebars_vulnerability_research_findings"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "4.7.7",
+    "cve_id": "GHSA-f2jv-r9rf-7988",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Remote code execution in handlebars when compiling templates",
+    "fixed_version": "4.7.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-23369"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23369",
+      "https://github.com/handlebars-lang/handlebars.js/commit/b6d3de7123eebba603e321f04afdbae608e8fea8",
+      "https://github.com/handlebars-lang/handlebars.js/commit/f0589701698268578199be25285b2ebea1c1e427"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.4.5",
+    "cve_id": "GHSA-f52g-6jhx-586p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service in handlebars",
+    "fixed_version": "4.4.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1300"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.3",
+    "cve_id": "GHSA-g9r4-xpmj-mj65",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "4.5.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1325"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.8",
+    "cve_id": "GHSA-g9r4-xpmj-mj65",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "3.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/1325"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.3",
+    "cve_id": "GHSA-q2c6-c6pm-g3gh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in handlebars",
+    "fixed_version": "4.5.3",
+    "source": "osv.dev",
+    "references": [
+      "https://www.npmjs.com/advisories/1324"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.8",
+    "cve_id": "GHSA-q2c6-c6pm-g3gh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in handlebars",
+    "fixed_version": "3.0.8",
+    "source": "osv.dev",
+    "references": [
+      "https://www.npmjs.com/advisories/1324"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.1.0",
+    "max_version": "4.1.2",
+    "cve_id": "GHSA-q42p-pg8m-cqh6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "4.1.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-471"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/issues/1495",
+      "https://github.com/handlebars-lang/handlebars.js/commit/0d6d8c335ad81bad1b672fc56b6a44f6aa472dac",
+      "https://github.com/handlebars-lang/handlebars.js/commit/7372d4e9dffc9d70c09671aa28b9392a1577fd86"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.7",
+    "cve_id": "GHSA-q42p-pg8m-cqh6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "3.0.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-471"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/issues/1495",
+      "https://github.com/handlebars-lang/handlebars.js/commit/0d6d8c335ad81bad1b672fc56b6a44f6aa472dac",
+      "https://github.com/handlebars-lang/handlebars.js/commit/7372d4e9dffc9d70c09671aa28b9392a1577fd86"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.0.14",
+    "cve_id": "GHSA-q42p-pg8m-cqh6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "4.0.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-471"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/issues/1495",
+      "https://github.com/handlebars-lang/handlebars.js/commit/0d6d8c335ad81bad1b672fc56b6a44f6aa472dac",
+      "https://github.com/handlebars-lang/handlebars.js/commit/7372d4e9dffc9d70c09671aa28b9392a1577fd86"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0",
+    "max_version": "3.0.8",
+    "cve_id": "GHSA-w457-6q6x-cgp9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "3.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2019-19919"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-19919",
+      "https://github.com/wycats/handlebars.js/issues/1558",
+      "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "0.3.3.5",
+    "max_version": "",
+    "cve_id": "GHSA-w457-6q6x-cgp9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2019-19919"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-19919",
+      "https://github.com/wycats/handlebars.js/issues/1558",
+      "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.3.0",
+    "cve_id": "GHSA-w457-6q6x-cgp9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in handlebars",
+    "fixed_version": "4.3.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2019-19919"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-19919",
+      "https://github.com/wycats/handlebars.js/issues/1558",
+      "https://github.com/handlebars-lang/handlebars.js/commit/156061eb7707575293613d7fdf90e2bdaac029ee"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-xhpv-hc6g-r9c6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has JavaScript Injection via AST Type Confusion when passing an object as dynamic partial",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-843",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2026-33940"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xhpv-hc6g-r9c6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-33940",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2"
+    ]
+  },
+  {
+    "library": "handlebars",
+    "at_or_above": "4.0.0",
+    "max_version": "4.7.9",
+    "cve_id": "GHSA-xjpj-3mr7-gcpf",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Handlebars.js has JavaScript Injection in CLI Precompiler via Unescaped Names and Options",
+    "fixed_version": "4.7.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-116",
+      "CWE-79",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2026-33941"
+    ],
+    "references": [
+      "https://github.com/handlebars-lang/handlebars.js/security/advisories/GHSA-xjpj-3mr7-gcpf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-33941",
+      "https://github.com/handlebars-lang/handlebars.js/commit/68d8df5a88e0a26fe9e6084c5c6aaebe67b07da2"
+    ]
+  }
+]

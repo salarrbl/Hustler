@@ -7,6 +7,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "There is a cross-site scripting vulnerability with default `onCellHtmlData`",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-j636-crp3-m584"
+    ],
+    "references": [
+      "https://github.com/hhurz/tableexport.jquery.plugin/commit/dcbaee23cf98328397a153e71556f75202988ec9"
+    ]
   }
 ]

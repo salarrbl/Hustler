@@ -1,0 +1,26 @@
+[
+  {
+    "library": "chart.js",
+    "at_or_above": "0",
+    "max_version": "2.9.4",
+    "cve_id": "GHSA-h68q-55jf-x68w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in chart.js",
+    "fixed_version": "2.9.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-915"
+    ],
+    "aliases": [
+      "CVE-2020-7746"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7746",
+      "https://github.com/chartjs/Chart.js/pull/7920",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-1019375"
+    ]
+  }
+]

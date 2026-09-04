@@ -1,0 +1,26 @@
+[
+  {
+    "library": "passport",
+    "at_or_above": "0",
+    "max_version": "0.6.0",
+    "cve_id": "GHSA-v923-w3x8-wh69",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Passport vulnerable to session regeneration when a users logs in or out",
+    "fixed_version": "0.6.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-384"
+    ],
+    "aliases": [
+      "CVE-2022-25896",
+      "SNYK-JS-PASSPORT-2840631"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-25896",
+      "https://github.com/jaredhanson/passport/pull/900",
+      "https://github.com/jaredhanson/passport/commit/7e9b9cf4d7be02428e963fc729496a45baeea608"
+    ]
+  }
+]

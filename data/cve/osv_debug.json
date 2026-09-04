@@ -1,0 +1,185 @@
+[
+  {
+    "library": "debug",
+    "at_or_above": "4.4.2",
+    "max_version": "4.4.3",
+    "cve_id": "GHSA-4x49-vf9v-38px",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "debug@4.4.2 contains malware after npm account takeover",
+    "fixed_version": "4.4.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-506"
+    ],
+    "aliases": [
+      "CVE-2025-59144",
+      "GHSA-8mgj-vmr8-frr6",
+      "MAL-2025-46974"
+    ],
+    "references": [
+      "https://github.com/debug-js/debug/security/advisories/GHSA-4x49-vf9v-38px",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-59144",
+      "https://github.com/debug-js/debug/issues/1005"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "3.0.0",
+    "max_version": "3.1.0",
+    "cve_id": "GHSA-9vvw-cc9w-f27h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "debug Inefficient Regular Expression Complexity vulnerability",
+    "fixed_version": "3.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2017-20165"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-20165",
+      "https://github.com/debug-js/debug/pull/504",
+      "https://github.com/debug-js/debug/commit/c38a0166c266a679c8de012d4eaccec3f944e685"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "0",
+    "max_version": "2.6.9",
+    "cve_id": "GHSA-9vvw-cc9w-f27h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "debug Inefficient Regular Expression Complexity vulnerability",
+    "fixed_version": "2.6.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2017-20165"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-20165",
+      "https://github.com/debug-js/debug/pull/504",
+      "https://github.com/debug-js/debug/commit/c38a0166c266a679c8de012d4eaccec3f944e685"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "0",
+    "max_version": "2.6.9",
+    "cve_id": "GHSA-gxpj-cx7g-858c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in debug",
+    "fixed_version": "2.6.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-16137"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16137",
+      "https://github.com/debug-js/debug/issues/797",
+      "https://github.com/visionmedia/debug/issues/501"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "3.0.0",
+    "max_version": "3.1.0",
+    "cve_id": "GHSA-gxpj-cx7g-858c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in debug",
+    "fixed_version": "3.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-16137"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16137",
+      "https://github.com/debug-js/debug/issues/797",
+      "https://github.com/visionmedia/debug/issues/501"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "3.2.0",
+    "max_version": "3.2.7",
+    "cve_id": "GHSA-gxpj-cx7g-858c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in debug",
+    "fixed_version": "3.2.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-16137"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16137",
+      "https://github.com/debug-js/debug/issues/797",
+      "https://github.com/visionmedia/debug/issues/501"
+    ]
+  },
+  {
+    "library": "debug",
+    "at_or_above": "4.0.0",
+    "max_version": "4.3.1",
+    "cve_id": "GHSA-gxpj-cx7g-858c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in debug",
+    "fixed_version": "4.3.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2017-16137"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16137",
+      "https://github.com/debug-js/debug/issues/797",
+      "https://github.com/visionmedia/debug/issues/501"
+    ]
+  },
+  {
+    "library": "debug",
+    "max_version": "",
+    "cve_id": "MAL-2025-46974",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious code in debug (npm)",
+    "source": "osv.dev",
+    "aliases": [
+      "CVE-2025-59144",
+      "GHSA-4x49-vf9v-38px",
+      "GHSA-8mgj-vmr8-frr6"
+    ],
+    "references": [
+      "https://www.aikido.dev/blog/npm-debug-and-chalk-packages-compromised",
+      "https://www.bleepingcomputer.com/news/security/hackers-hijack-npm-packages-with-2-billion-weekly-downloads-in-supply-chain-attack/",
+      "https://github.com/github/advisory-database/issues/6099"
+    ]
+  }
+]

@@ -7,17 +7,32 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-942"
+    ],
+    "references": [
+      "http://prototypejs.org/2008/01/25/prototype-1-6-0-2-bug-fixes-performance-improvements-and-security/",
+      "http://www.cvedetails.com/cve/CVE-2008-7220/"
+    ]
   },
   {
     "library": "prototypejs",
+    "at_or_above": "1.6.0",
     "max_version": "1.6.0.2",
     "cve_id": "CVE-2008-7220",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-942"
+    ],
+    "references": [
+      "http://prototypejs.org/2008/01/25/prototype-1-6-0-2-bug-fixes-performance-improvements-and-security/",
+      "http://www.cvedetails.com/cve/CVE-2008-7220/"
+    ]
   },
   {
     "library": "prototypejs",
@@ -27,6 +42,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "An issue was discovered in the stripTags and unescapeHTML components in Prototype 1.7.3 where an attacker can cause a Regular Expression Denial of Service (ReDOS) through stripping crafted HTML tags.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-27511",
+      "https://github.com/prototypejs/prototype/issues/355"
+    ]
   }
 ]

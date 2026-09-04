@@ -7,17 +7,17 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS in the `altField` option of the Datepicker widget",
-    "source": "retire.js"
-  },
-  {
-    "library": "jquery-ui",
-    "max_version": "1.13.0",
-    "cve_id": "CVE-2021-41184",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "XSS in the `of` option of the `.position()` util",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9gj3-hwp5-pmwc"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41182"
+    ]
   },
   {
     "library": "jquery-ui",
@@ -27,7 +27,37 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS Vulnerability on text options of jQuery UI datepicker",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-j7qv-pgf6-hvh4"
+    ],
+    "references": [
+      "https://bugs.jqueryui.com/ticket/15284",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41183"
+    ]
+  },
+  {
+    "library": "jquery-ui",
+    "max_version": "1.13.0",
+    "cve_id": "CVE-2021-41184",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in the `of` option of the `.position()` util",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gpqq-952q-5327"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41184"
+    ]
   },
   {
     "library": "jquery-ui",
@@ -37,6 +67,18 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS when refreshing a checkboxradio with an HTML-like initial text label ",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-h6gj-6jjq-h8g9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-h6gj-6jjq-h8g9",
+      "https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9",
+      "https://github.com/jquery/jquery-ui/issues/2101",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-31160"
+    ]
   }
 ]

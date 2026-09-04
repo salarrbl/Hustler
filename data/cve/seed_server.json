@@ -1,0 +1,145 @@
+[
+  {
+    "library": "apache",
+    "at_or_above": "2.4.49",
+    "max_version": "2.4.49",
+    "cve_id": "CVE-2021-41773",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "Path traversal and RCE in Apache HTTP Server 2.4.49 (CGI). Actively exploited.",
+    "fixed_version": "2.4.49",
+    "source": "seed",
+    "references": [
+      "https://httpd.apache.org/security/vulnerabilities_24.html"
+    ]
+  },
+  {
+    "library": "apache",
+    "at_or_above": "2.4.50",
+    "max_version": "2.4.50",
+    "cve_id": "CVE-2021-42013",
+    "severity": "CRITICAL",
+    "cvss": 9.8,
+    "has_poc": false,
+    "summary": "Path traversal and RCE in Apache HTTP Server 2.4.50. Actively exploited.",
+    "fixed_version": "2.4.50",
+    "source": "seed",
+    "references": [
+      "https://httpd.apache.org/security/vulnerabilities_24.html"
+    ]
+  },
+  {
+    "library": "nginx",
+    "max_version": "1.20.1",
+    "cve_id": "CVE-2021-23017",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "Nginx resolver cache poisoning (1-byte memory overwrite).",
+    "fixed_version": "1.20.1",
+    "source": "seed",
+    "references": [
+      "https://nginx.org/en/security_advisories.html"
+    ],
+    "range_approx": true
+  },
+  {
+    "library": "php",
+    "at_or_above": "7.1.0",
+    "max_version": "7.1.33",
+    "cve_id": "CVE-2019-11043",
+    "severity": "CRITICAL",
+    "cvss": 9.8,
+    "has_poc": false,
+    "summary": "PHP-FPM remote code execution via path_info poisoning (nginx).",
+    "fixed_version": "7.1.33",
+    "source": "seed",
+    "references": [
+      "https://bugs.php.net/bug.php?id=78599"
+    ],
+    "range_approx": true
+  },
+  {
+    "library": "openssl",
+    "at_or_above": "1.0.1",
+    "max_version": "1.0.1g",
+    "cve_id": "CVE-2014-0160",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "Heartbleed: TLS heartbeat memory disclosure.",
+    "fixed_version": "1.0.1g",
+    "source": "seed",
+    "references": [
+      "https://heartbleed.com/"
+    ]
+  },
+  {
+    "library": "tomcat",
+    "max_version": "9.0.31",
+    "cve_id": "CVE-2020-1938",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "Ghostcat: AJP file read / potential RCE.",
+    "fixed_version": "9.0.31",
+    "source": "seed",
+    "references": [
+      "https://tomcat.apache.org/security-9.html"
+    ],
+    "range_approx": true
+  },
+  {
+    "library": "iis",
+    "at_or_above": "6.0",
+    "max_version": "6.0",
+    "cve_id": "CVE-2017-7269",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "IIS 6.0 WebDAV buffer overflow (exploited in the wild).",
+    "fixed_version": "6.0",
+    "source": "seed",
+    "references": [
+      "https://github.com/rapid7/metasploit-framework/pull/8113"
+    ]
+  },
+  {
+    "library": "wordpress",
+    "max_version": "5.7.2",
+    "cve_id": "CVE-2021-29447",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "WordPress XXE in media library (author+).",
+    "fixed_version": "5.7.2",
+    "source": "seed",
+    "range_approx": true
+  },
+  {
+    "library": "drupal",
+    "at_or_above": "9.0.0",
+    "max_version": "9.1.7",
+    "cve_id": "CVE-2021-33829",
+    "severity": "MEDIUM",
+    "cvss": 5.4,
+    "has_poc": false,
+    "summary": "CKEditor XSS filter bypass bundled in Drupal core.",
+    "fixed_version": "9.1.7",
+    "source": "seed",
+    "range_approx": true
+  },
+  {
+    "library": "nodejs",
+    "max_version": "16.4.1",
+    "cve_id": "CVE-2021-22931",
+    "severity": "HIGH",
+    "cvss": 7.5,
+    "has_poc": false,
+    "summary": "Node.js HTTP request smuggling via invalid names (llhttp).",
+    "fixed_version": "16.4.1",
+    "source": "seed",
+    "range_approx": true
+  }
+]

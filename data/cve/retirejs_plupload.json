@@ -7,7 +7,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2012-2401/"
+    ]
   },
   {
     "library": "plupload",
@@ -17,7 +23,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2013-0237/"
+    ]
   },
   {
     "library": "plupload",
@@ -27,7 +39,13 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/moxiecode/plupload/releases"
+    ]
   },
   {
     "library": "plupload",
@@ -37,6 +55,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Fixed another case of html entities not being encoded that could be exploded by uploading a file name with html in it.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-434",
+      "CWE-75"
+    ],
+    "aliases": [
+      "GHSA-rp2c-jrgp-cvr8"
+    ],
+    "references": [
+      "https://github.com/moxiecode/plupload/releases/tag/v2.3.9"
+    ]
   }
 ]

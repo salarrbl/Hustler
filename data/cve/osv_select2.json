@@ -1,0 +1,25 @@
+[
+  {
+    "library": "select2",
+    "at_or_above": "0",
+    "max_version": "4.0.6",
+    "cve_id": "GHSA-rf66-hmqf-q3fc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Neutralization of Input During Web Page Generation in Select2",
+    "fixed_version": "4.0.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2016-10744"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10744",
+      "https://github.com/select2/select2/issues/4587",
+      "https://github.com/snipe/snipe-it/pull/6831"
+    ]
+  }
+]

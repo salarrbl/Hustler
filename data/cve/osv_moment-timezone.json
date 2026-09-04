@@ -1,0 +1,39 @@
+[
+  {
+    "library": "moment-timezone",
+    "at_or_above": "0.1.0",
+    "max_version": "0.5.35",
+    "cve_id": "GHSA-56x4-j7p9-fcf9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Command Injection in moment-timezone",
+    "fixed_version": "0.5.35",
+    "source": "osv.dev",
+    "references": [
+      "https://github.com/moment/moment-timezone/security/advisories/GHSA-56x4-j7p9-fcf9",
+      "https://github.com/moment/moment-timezone/commit/ce955a301ff372e8e9fb3a5b516620c60e7a082a",
+      "https://github.com/moment/moment-timezone"
+    ]
+  },
+  {
+    "library": "moment-timezone",
+    "at_or_above": "0.1.0",
+    "max_version": "0.5.35",
+    "cve_id": "GHSA-v78c-4p63-2j6c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cleartext Transmission of Sensitive Information in moment-timezone",
+    "fixed_version": "0.5.35",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-319"
+    ],
+    "references": [
+      "https://github.com/moment/moment-timezone/security/advisories/GHSA-v78c-4p63-2j6c",
+      "https://github.com/moment/moment-timezone/commit/7915ac567ab19700e44ad6b5d8ef0b85e48a9e75",
+      "https://github.com/moment/moment-timezone"
+    ]
+  }
+]

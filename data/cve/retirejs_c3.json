@@ -7,6 +7,21 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-Site Scripting in c3",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gvg7-pp82-cff3"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gvg7-pp82-cff3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-1000240",
+      "https://github.com/c3js/c3/issues/1536",
+      "https://github.com/c3js/c3/pull/1675",
+      "https://github.com/c3js/c3/commit/de3864650300488a63d0541620e9828b00e94b42",
+      "https://github.com/c3js/c3",
+      "https://www.npmjs.com/advisories/138"
+    ]
   }
 ]

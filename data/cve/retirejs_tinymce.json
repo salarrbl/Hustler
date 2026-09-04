@@ -1,362 +1,819 @@
 [
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
     "max_version": "1.4.2",
     "cve_id": "CVE-2011-4825",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Static code injection vulnerability in inc/function.base.php",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-94"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2011-4825/"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "4.9.7",
-    "cve_id": "CVE-2020-17480",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "The vulnerability allowed arbitrary JavaScript execution when inserting a specially crafted piece of content into the editor via the clipboard or APIs",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "4.9.10",
-    "cve_id": "CVE-2019-1010091",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "cross-site scripting (XSS) vulnerability was discovered in: the core parser and `media` plugin. ",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "4.9.11",
-    "cve_id": "CVE-2020-12648",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Cross-site scripting vulnerability in TinyMCE",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.1.4",
-    "cve_id": "CVE-2020-17480",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "The vulnerability allowed arbitrary JavaScript execution when inserting a specially crafted piece of content into the editor via the clipboard or APIs",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
     "max_version": "5.2.2",
     "cve_id": "CVE-2019-1010091",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "cross-site scripting (XSS) vulnerability was discovered in: the core parser and `media` plugin. ",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c78w-2gw7-gjv3"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c78w-2gw7-gjv3",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "max_version": "4.9.10",
+    "cve_id": "CVE-2019-1010091",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "cross-site scripting (XSS) vulnerability was discovered in: the core parser and `media` plugin. ",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c78w-2gw7-gjv3"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c78w-2gw7-gjv3",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
     "max_version": "5.4.1",
     "cve_id": "CVE-2020-12648",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site scripting vulnerability in TinyMCE",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vrv8-v4w8-f95h"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-vrv8-v4w8-f95h",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "5.6.0",
-    "cve_id": "CVE-2024-21911",
+    "library": "tinymce",
+    "max_version": "4.9.11",
+    "cve_id": "CVE-2020-12648",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "security issue where URLs in attributes weren’t correctly sanitized. security issue in the codesample plugin",
-    "source": "retire.js"
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vrv8-v4w8-f95h"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-vrv8-v4w8-f95h",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "5.9.0",
-    "cve_id": "CVE-2024-21908",
-    "severity": "MEDIUM",
+    "library": "tinymce",
+    "max_version": "4.9.7",
+    "cve_id": "CVE-2020-17480",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Inserting certain HTML content into the editor could result in invalid HTML once parsed. This caused a medium severity Cross Site Scripting (XSS) vulnerability",
-    "source": "retire.js"
+    "summary": "The vulnerability allowed arbitrary JavaScript execution when inserting a specially crafted piece of content into the editor via the clipboard or APIs",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-27gm-ghr9-4v95"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-27gm-ghr9-4v95",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-27gm-ghr9-4v95"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "5.10.0",
-    "cve_id": "CVE-2024-21910",
-    "severity": "MEDIUM",
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
+    "max_version": "5.1.4",
+    "cve_id": "CVE-2020-17480",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "URLs not cleaned correctly in some cases in the link and image plugins",
-    "source": "retire.js"
+    "summary": "The vulnerability allowed arbitrary JavaScript execution when inserting a specially crafted piece of content into the editor via the clipboard or APIs",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-27gm-ghr9-4v95"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-27gm-ghr9-4v95",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-27gm-ghr9-4v95"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
     "max_version": "5.10.7",
     "cve_id": "CVE-2022-23494",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A cross-site scripting (XSS) vulnerability in TinyMCE alerts which allowed arbitrary JavaScript execution was found and fixed.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gg8r-xjwq-4w92"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gg8r-xjwq-4w92",
+      "https://www.cve.org/CVERecord?id=CVE-2022-23494",
+      "https://www.tiny.cloud/docs/changelog/#5107-2022-12-06"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "5.10.8",
-    "cve_id": "CVE-2023-45819",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.10.8",
-    "cve_id": "CVE-2023-45818",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE mXSS vulnerability in undo/redo, getContent API, resetContent API, and Autosave plugin",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.10.9",
-    "cve_id": "CVE-2023-48219",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.10.10",
-    "cve_id": "CVE-2026-47759",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.10.10",
-    "cve_id": "CVE-2026-47762",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.10.10",
-    "cve_id": "CVE-2026-47761",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.11.0",
-    "cve_id": "CVE-2024-38356",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "5.11.0",
-    "cve_id": "CVE-2024-38357",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
     "max_version": "6.3.1",
     "cve_id": "CVE-2022-23494",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A cross-site scripting (XSS) vulnerability in TinyMCE alerts which allowed arbitrary JavaScript execution was found and fixed.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gg8r-xjwq-4w92"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gg8r-xjwq-4w92",
+      "https://www.cve.org/CVERecord?id=CVE-2022-23494",
+      "https://www.tiny.cloud/docs/changelog/#5107-2022-12-06"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "6.7.1",
-    "cve_id": "CVE-2023-45819",
+    "library": "tinymce",
+    "max_version": "5.10.8",
+    "cve_id": "CVE-2023-45818",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
-    "source": "retire.js"
+    "summary": "TinyMCE mXSS vulnerability in undo/redo, getContent API, resetContent API, and Autosave plugin",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v65r-p3vv-jjfv"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-v65r-p3vv-jjfv"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
     "max_version": "6.7.1",
     "cve_id": "CVE-2023-45818",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE mXSS vulnerability in undo/redo, getContent API, resetContent API, and Autosave plugin",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v65r-p3vv-jjfv"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-v65r-p3vv-jjfv"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.7.1",
+    "cve_id": "CVE-2023-45819",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-hgqx-r2hp-jr38"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-hgqx-r2hp-jr38",
+      "https://www.cve.org/CVERecord?id=CVE-2022-23494",
+      "https://www.tiny.cloud/docs/changelog/#5107-2022-12-06"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "max_version": "5.10.8",
+    "cve_id": "CVE-2023-45819",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-hgqx-r2hp-jr38"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-hgqx-r2hp-jr38",
+      "https://www.cve.org/CVERecord?id=CVE-2022-23494",
+      "https://www.tiny.cloud/docs/changelog/#5107-2022-12-06"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.9",
+    "cve_id": "CVE-2023-48219",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v626-r774-j7f8"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-v626-r774-j7f8",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v626-r774-j7f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-48219",
+      "https://github.com/tinymce/tinymce",
+      "https://github.com/tinymce/tinymce/releases/tag/5.10.9",
+      "https://github.com/tinymce/tinymce/releases/tag/6.7.3",
+      "https://tiny.cloud/docs/release-notes/release-notes5109/",
+      "https://tiny.cloud/docs/tinymce/6/6.7.3-release-notes/"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
     "max_version": "6.7.3",
     "cve_id": "CVE-2023-48219",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v626-r774-j7f8"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-v626-r774-j7f8",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v626-r774-j7f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-48219",
+      "https://github.com/tinymce/tinymce",
+      "https://github.com/tinymce/tinymce/releases/tag/5.10.9",
+      "https://github.com/tinymce/tinymce/releases/tag/6.7.3",
+      "https://tiny.cloud/docs/release-notes/release-notes5109/",
+      "https://tiny.cloud/docs/tinymce/6/6.7.3-release-notes/"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "max_version": "5.9.0",
+    "cve_id": "CVE-2024-21908",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inserting certain HTML content into the editor could result in invalid HTML once parsed. This caused a medium severity Cross Site Scripting (XSS) vulnerability",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-5h9g-x5rv-25wg"
+    ],
+    "references": [
+      "https://www.tiny.cloud/docs/release-notes/release-notes59/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "max_version": "5.10.0",
+    "cve_id": "CVE-2024-21910",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "URLs not cleaned correctly in some cases in the link and image plugins",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-64",
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-r8hm-w5f7-wj39"
+    ],
+    "references": [
+      "https://www.tiny.cloud/docs/release-notes/release-notes510/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "max_version": "5.6.0",
+    "cve_id": "CVE-2024-21911",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "security issue where URLs in attributes weren’t correctly sanitized. security issue in the codesample plugin",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-w7jx-j77m-wp65"
+    ],
+    "references": [
+      "https://www.tiny.cloud/docs/release-notes/release-notes56/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
     "max_version": "6.8.1",
     "cve_id": "CVE-2024-29203",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability in handling iframes",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-438c-3975-5x3f"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-438c-3975-5x3f",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-438c-3975-5x3f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29203",
+      "https://github.com/tinymce/tinymce/commit/bcdea2ad14e3c2cea40743fb48c63bba067ae6d1",
+      "https://github.com/tinymce/tinymce",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.1-release-notes/#new-convert_unsafe_embeds-option-that-controls-whether-object-and-embed-elements-will-be-converted-to-more-restrictive-alternatives-namely-img-for-image-mime-types-video-for-video-mime-types-audio-audio-mime-types-or-iframe-for-other-or-unspecified-mime-types",
+      "https://www.tiny.cloud/docs/tinymce/7/7.0-release-notes/#sandbox_iframes-editor-option-is-now-defaulted-to-true"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "6.8.4",
-    "cve_id": "CVE-2024-38356",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "6.8.4",
-    "cve_id": "CVE-2024-38357",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "0",
     "max_version": "7.0.0",
     "cve_id": "CVE-2024-29881",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability in handling external SVG files through Object or Embed elements",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-5359-pvf2-pw78"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-5359-pvf2-pw78",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-5359-pvf2-pw78",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29881",
+      "https://github.com/tinymce/tinymce/commit/bcdea2ad14e3c2cea40743fb48c63bba067ae6d1",
+      "https://github.com/tinymce/tinymce",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.1-release-notes/#new-convert_unsafe_embeds-option-that-controls-whether-object-and-embed-elements-will-be-converted-to-more-restrictive-alternatives-namely-img-for-image-mime-types-video-for-video-mime-types-audio-audio-mime-types-or-iframe-for-other-or-unspecified-mime-types",
+      "https://www.tiny.cloud/docs/tinymce/7/7.0-release-notes/#convert_unsafe_embeds-editor-option-is-now-defaulted-to-true"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "7.1.0",
-    "cve_id": "CVE-2026-47760",
-    "severity": "HIGH",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.8.4",
+    "cve_id": "CVE-2024-38356",
+    "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using sanitization bypass through nested SVGs",
-    "source": "retire.js"
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9hcv-j9pv-qmph"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/latest/7.2-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.11.0",
+    "cve_id": "CVE-2024-38356",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9hcv-j9pv-qmph"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/latest/7.2-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "7.0.0",
     "max_version": "7.2.0",
     "cve_id": "CVE-2024-38356",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9hcv-j9pv-qmph"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/latest/7.2-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.8.4",
+    "cve_id": "CVE-2024-38357",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-w9jx-4g6g-rp7x"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.11.0",
+    "cve_id": "CVE-2024-38357",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-w9jx-4g6g-rp7x"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "7.0.0",
     "max_version": "7.2.0",
     "cve_id": "CVE-2024-38357",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-w9jx-4g6g-rp7x"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d",
+      "https://github.com/tinymce/tinymce/commit/a9fb858509f86dacfa8b01cfd34653b408983ac0",
+      "https://github.com/tinymce/tinymce",
+      "https://owasp.org/www-community/attacks/xss",
+      "https://www.tiny.cloud/docs/tinymce/6/6.8.4-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/7/7.2-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
     "max_version": "7.9.3",
     "cve_id": "CVE-2026-47759",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-q742-qvgc-gc2f"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "7.9.3",
-    "cve_id": "CVE-2026-47762",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
-    "max_version": "7.9.3",
-    "cve_id": "CVE-2026-47761",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
-    "source": "retire.js"
-  },
-  {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
     "max_version": "8.5.1",
     "cve_id": "CVE-2026-47759",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-q742-qvgc-gc2f"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
-    "max_version": "8.5.1",
-    "cve_id": "CVE-2026-47762",
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.10",
+    "cve_id": "CVE-2026-47759",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
-    "source": "retire.js"
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-q742-qvgc-gc2f"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
   },
   {
-    "library": "tinyMCE",
+    "library": "tinymce",
+    "at_or_above": "6.8.0",
+    "max_version": "7.1.0",
+    "cve_id": "CVE-2026-47760",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using sanitization bypass through nested SVGs",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-mh5m-5hw4-5c69"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-mh5m-5hw4-5c69"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
     "max_version": "8.5.1",
     "cve_id": "CVE-2026-47761",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vg35-5wq7-3x7w"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "7.9.3",
+    "cve_id": "CVE-2026-47761",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vg35-5wq7-3x7w"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.10",
+    "cve_id": "CVE-2026-47761",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vg35-5wq7-3x7w"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
+    "max_version": "8.5.1",
+    "cve_id": "CVE-2026-47762",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v98h-vmpc-fpqv"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.10",
+    "cve_id": "CVE-2026-47762",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v98h-vmpc-fpqv"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "7.9.3",
+    "cve_id": "CVE-2026-47762",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-v98h-vmpc-fpqv"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://www.tiny.cloud/docs/tinymce/7/7.9.3-release-notes/#overview",
+      "https://www.tiny.cloud/docs/tinymce/8/8.5.1-release-notes/#overview"
+    ]
   }
 ]

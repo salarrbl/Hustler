@@ -1,12 +1,25 @@
 [
   {
     "library": "vue",
+    "at_or_above": "2.0.0-alpha.1",
     "max_version": "3.0.0-alpha.0",
     "cve_id": "CVE-2024-9506",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "ReDoS vulnerability in vue package that is exploitable through inefficient regex evaluation in the parseHTML function",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-5j4c-8p2g-v4jx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-5j4c-8p2g-v4jx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-9506",
+      "https://github.com/vuejs/core",
+      "https://www.herodevs.com/vulnerability-directory/cve-2024-9506"
+    ]
   }
 ]

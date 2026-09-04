@@ -1,12 +1,25 @@
 [
   {
     "library": "threejs",
+    "at_or_above": "0",
     "max_version": "0.125.0",
     "cve_id": "CVE-2020-28496",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Versions of three.js before 0.125.0 are vulnerable to Regular Expression Denial of Service (ReDoS) when handling rgb or hsl color strings. Specially crafted color strings with large amounts of whitespace cause catastrophic backtracking in the color parsing regex, allowing an attacker to block the event loop.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-fq6p-x6j3-cmmq"
+    ],
+    "references": [
+      "https://github.com/mrdoob/three.js/issues/21132",
+      "https://github.com/mrdoob/three.js/pull/21143/commits/4a582355216b620176a291ff319d740e619d583e",
+      "https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1065972",
+      "https://snyk.io/vuln/SNYK-JS-THREE-1064931"
+    ]
   }
 ]

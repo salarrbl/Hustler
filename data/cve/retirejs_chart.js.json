@@ -7,6 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Prototype pollution in chart.js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-915"
+    ],
+    "aliases": [
+      "GHSA-h68q-55jf-x68w"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-h68q-55jf-x68w"
+    ]
   }
 ]

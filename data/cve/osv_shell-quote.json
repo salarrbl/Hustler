@@ -1,0 +1,96 @@
+[
+  {
+    "library": "shell-quote",
+    "at_or_above": "0",
+    "max_version": "1.9.0",
+    "cve_id": "GHSA-395f-4hp3-45gv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "shell-quote: Quadratic-complexity Denial of Service in `parse()` (CWE-407)",
+    "fixed_version": "1.9.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-407"
+    ],
+    "aliases": [
+      "CVE-2026-13311"
+    ],
+    "references": [
+      "https://github.com/ljharb/shell-quote/security/advisories/GHSA-395f-4hp3-45gv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-13311",
+      "https://github.com/ljharb/shell-quote/commit/7ff5488599d01c323514f02f5efb74088dd134ec"
+    ]
+  },
+  {
+    "library": "shell-quote",
+    "at_or_above": "1.6.3",
+    "max_version": "1.7.3",
+    "cve_id": "GHSA-g4rg-993r-mgx7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Neutralization of Special Elements used in a Command in Shell-quote",
+    "fixed_version": "1.7.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77"
+    ],
+    "aliases": [
+      "CVE-2021-42740"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-42740",
+      "https://github.com/ljharb/shell-quote/commit/5799416ed454aa4ec9afafc895b4e31760ea1abe",
+      "https://github.com/ljharb/shell-quote"
+    ]
+  },
+  {
+    "library": "shell-quote",
+    "at_or_above": "0",
+    "max_version": "1.6.1",
+    "cve_id": "GHSA-qg8p-v9q4-gh34",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential Command Injection in shell-quote",
+    "fixed_version": "1.6.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-78",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2016-10541"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10541",
+      "https://github.com/advisories/GHSA-qg8p-v9q4-gh34",
+      "https://www.npmjs.com/advisories/117"
+    ]
+  },
+  {
+    "library": "shell-quote",
+    "at_or_above": "1.1.0",
+    "max_version": "1.8.4",
+    "cve_id": "GHSA-w7jw-789q-3m8p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "shell-quote quote() does not escape newlines in object .op values",
+    "fixed_version": "1.8.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77",
+      "CWE-78"
+    ],
+    "aliases": [
+      "CVE-2026-9277"
+    ],
+    "references": [
+      "https://github.com/ljharb/shell-quote/security/advisories/GHSA-w7jw-789q-3m8p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-9277",
+      "https://github.com/ljharb/shell-quote/commit/1518179"
+    ]
+  }
+]

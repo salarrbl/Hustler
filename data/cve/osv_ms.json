@@ -1,0 +1,49 @@
+[
+  {
+    "library": "ms",
+    "at_or_above": "0",
+    "max_version": "0.7.1",
+    "cve_id": "GHSA-3fx5-fwvr-xrjg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in ms",
+    "fixed_version": "0.7.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2015-8315"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-8315",
+      "https://github.com/unshiftio/millisecond",
+      "https://nodesecurity.io/advisories/46"
+    ]
+  },
+  {
+    "library": "ms",
+    "at_or_above": "0",
+    "max_version": "2.0.0",
+    "cve_id": "GHSA-w9mr-4mfr-499f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vercel ms Inefficient Regular Expression Complexity vulnerability",
+    "fixed_version": "2.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2017-20162"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-20162",
+      "https://github.com/vercel/ms/pull/89",
+      "https://github.com/vercel/ms/commit/caae2988ba2a37765d055c4eee63d383320ee662"
+    ]
+  }
+]

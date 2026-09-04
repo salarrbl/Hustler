@@ -1,52 +1,85 @@
 [
   {
-    "library": "DWR",
+    "library": "dwr",
     "max_version": "1.1.4",
     "cve_id": "CVE-2007-01-09",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2014-5326/",
+      "http://www.cvedetails.com/cve/CVE-2014-5326/"
+    ]
   },
   {
-    "library": "DWR",
-    "max_version": "2.0.11",
-    "cve_id": "CVE-2014-5326",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "",
-    "source": "retire.js"
-  },
-  {
-    "library": "DWR",
-    "max_version": "2.0.11",
-    "cve_id": "CVE-2014-5325",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "",
-    "source": "retire.js"
-  },
-  {
-    "library": "DWR",
-    "max_version": "3.0.RC3",
-    "cve_id": "CVE-2014-5326",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "",
-    "source": "retire.js"
-  },
-  {
-    "library": "DWR",
+    "library": "dwr",
+    "at_or_above": "3",
     "max_version": "3.0.RC3",
     "cve_id": "CVE-2014-5325",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2014-5326/"
+    ]
+  },
+  {
+    "library": "dwr",
+    "max_version": "2.0.11",
+    "cve_id": "CVE-2014-5325",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2014-5326/"
+    ]
+  },
+  {
+    "library": "dwr",
+    "at_or_above": "3",
+    "max_version": "3.0.RC3",
+    "cve_id": "CVE-2014-5326",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2014-5326/"
+    ]
+  },
+  {
+    "library": "dwr",
+    "max_version": "2.0.11",
+    "cve_id": "CVE-2014-5326",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2014-5326/"
+    ]
   }
 ]

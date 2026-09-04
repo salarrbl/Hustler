@@ -1,0 +1,668 @@
+[
+  {
+    "library": "core",
+    "at_or_above": "11.1.0-next.0",
+    "max_version": "11.1.0-next.3",
+    "cve_id": "CVE-2021-4231",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross site scripting in Angular",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c75v-2vq8-878f"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c75v-2vq8-878f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-4231",
+      "https://github.com/angular/angular/issues/40136",
+      "https://github.com/angular/angular/commit/0aa220bc0000fc4d1651ec388975bbf5baa1da36",
+      "https://github.com/angular/angular/commit/47d9b6d72dab9d60c96bc1c3604219f6385649ea",
+      "https://github.com/angular/angular/commit/ba8da742e3b243e8f43d4c63aa842b44e14f2b09",
+      "https://github.com/angular/angular",
+      "https://security.snyk.io/vuln/SNYK-JS-ANGULARCORE-1070902",
+      "https://vuldb.com/?id.181356"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "11.0.0",
+    "max_version": "11.0.5",
+    "cve_id": "CVE-2021-4231",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross site scripting in Angular",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c75v-2vq8-878f"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c75v-2vq8-878f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-4231",
+      "https://github.com/angular/angular/issues/40136",
+      "https://github.com/angular/angular/commit/0aa220bc0000fc4d1651ec388975bbf5baa1da36",
+      "https://github.com/angular/angular/commit/47d9b6d72dab9d60c96bc1c3604219f6385649ea",
+      "https://github.com/angular/angular/commit/ba8da742e3b243e8f43d4c63aa842b44e14f2b09",
+      "https://github.com/angular/angular",
+      "https://security.snyk.io/vuln/SNYK-JS-ANGULARCORE-1070902",
+      "https://vuldb.com/?id.181356"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "0",
+    "max_version": "10.2.5",
+    "cve_id": "CVE-2021-4231",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross site scripting in Angular",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-c75v-2vq8-878f"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c75v-2vq8-878f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-4231",
+      "https://github.com/angular/angular/issues/40136",
+      "https://github.com/angular/angular/commit/0aa220bc0000fc4d1651ec388975bbf5baa1da36",
+      "https://github.com/angular/angular/commit/47d9b6d72dab9d60c96bc1c3604219f6385649ea",
+      "https://github.com/angular/angular/commit/ba8da742e3b243e8f43d4c63aa842b44e14f2b09",
+      "https://github.com/angular/angular",
+      "https://security.snyk.io/vuln/SNYK-JS-ANGULARCORE-1070902",
+      "https://vuldb.com/?id.181356"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "0",
+    "max_version": "18.2.15",
+    "cve_id": "CVE-2026-27970",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's internationalization (i18n) pipeline where HTML from translated ICU messages is not properly sanitized. If an attacker can compromise a translation file, malicious content can be injected into the application and execute arbitrary JavaScript in the user's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prjf-86w9-mfqv"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-prjf-86w9-mfqv",
+      "https://github.com/angular/angular/pull/67183",
+      "https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d",
+      "https://github.com/angular/angular/commit/7d58b798c626bb0e4e5f89ca8affdce4f352b232",
+      "https://github.com/angular/angular/commit/b85830953281ff3a1a77bbfe69019d352d509c93",
+      "https://angular.dev/best-practices/security#enforcing-trusted-types",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.2.0-next.0",
+    "max_version": "21.2.0",
+    "cve_id": "CVE-2026-27970",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's internationalization (i18n) pipeline where HTML from translated ICU messages is not properly sanitized. If an attacker can compromise a translation file, malicious content can be injected into the application and execute arbitrary JavaScript in the user's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prjf-86w9-mfqv"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-prjf-86w9-mfqv",
+      "https://github.com/angular/angular/pull/67183",
+      "https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d",
+      "https://github.com/angular/angular/commit/7d58b798c626bb0e4e5f89ca8affdce4f352b232",
+      "https://github.com/angular/angular/commit/b85830953281ff3a1a77bbfe69019d352d509c93",
+      "https://angular.dev/best-practices/security#enforcing-trusted-types",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "19.0.0-next.0",
+    "max_version": "19.2.19",
+    "cve_id": "CVE-2026-27970",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's internationalization (i18n) pipeline where HTML from translated ICU messages is not properly sanitized. If an attacker can compromise a translation file, malicious content can be injected into the application and execute arbitrary JavaScript in the user's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prjf-86w9-mfqv"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-prjf-86w9-mfqv",
+      "https://github.com/angular/angular/pull/67183",
+      "https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d",
+      "https://github.com/angular/angular/commit/7d58b798c626bb0e4e5f89ca8affdce4f352b232",
+      "https://github.com/angular/angular/commit/b85830953281ff3a1a77bbfe69019d352d509c93",
+      "https://angular.dev/best-practices/security#enforcing-trusted-types",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "20.0.0-next.0",
+    "max_version": "20.3.17",
+    "cve_id": "CVE-2026-27970",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's internationalization (i18n) pipeline where HTML from translated ICU messages is not properly sanitized. If an attacker can compromise a translation file, malicious content can be injected into the application and execute arbitrary JavaScript in the user's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prjf-86w9-mfqv"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-prjf-86w9-mfqv",
+      "https://github.com/angular/angular/pull/67183",
+      "https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d",
+      "https://github.com/angular/angular/commit/7d58b798c626bb0e4e5f89ca8affdce4f352b232",
+      "https://github.com/angular/angular/commit/b85830953281ff3a1a77bbfe69019d352d509c93",
+      "https://angular.dev/best-practices/security#enforcing-trusted-types",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.0.0-next.0",
+    "max_version": "21.1.6",
+    "cve_id": "CVE-2026-27970",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's internationalization (i18n) pipeline where HTML from translated ICU messages is not properly sanitized. If an attacker can compromise a translation file, malicious content can be injected into the application and execute arbitrary JavaScript in the user's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-prjf-86w9-mfqv"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-prjf-86w9-mfqv",
+      "https://github.com/angular/angular/pull/67183",
+      "https://github.com/angular/angular/commit/306f367899dfc2e04238fecd3455547b5d54075d",
+      "https://github.com/angular/angular/commit/7d58b798c626bb0e4e5f89ca8affdce4f352b232",
+      "https://github.com/angular/angular/commit/b85830953281ff3a1a77bbfe69019d352d509c93",
+      "https://angular.dev/best-practices/security#enforcing-trusted-types",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "19.0.0-next.0",
+    "max_version": "19.2.20",
+    "cve_id": "CVE-2026-32635",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's runtime and compiler when security-sensitive attributes (such as href) are marked for internationalization with i18n-\u003cattribute\u003e. This combination bypasses Angular's built-in sanitization, allowing attacker-controlled data bound to those attributes to inject and execute malicious JavaScript.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g93w-mfhg-p222"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-g93w-mfhg-p222",
+      "https://github.com/angular/angular/pull/67541",
+      "https://github.com/angular/angular/pull/67561",
+      "https://github.com/angular/angular/commit/224e60ecb1b90115baa702f1c06edc1d64d86187",
+      "https://github.com/angular/angular/commit/78dea55351fb305b33a919c43a6b363137eca166",
+      "https://github.com/angular/angular/commit/8630319f74c9575a21693d875cc7d5252516146d",
+      "https://github.com/angular/angular/commit/ed2d324f9cc12aab6cfa0569ef10b73243a62c65"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "22.0.0-next.0",
+    "max_version": "22.0.0-next.3",
+    "cve_id": "CVE-2026-32635",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's runtime and compiler when security-sensitive attributes (such as href) are marked for internationalization with i18n-\u003cattribute\u003e. This combination bypasses Angular's built-in sanitization, allowing attacker-controlled data bound to those attributes to inject and execute malicious JavaScript.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g93w-mfhg-p222"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-g93w-mfhg-p222",
+      "https://github.com/angular/angular/pull/67541",
+      "https://github.com/angular/angular/pull/67561",
+      "https://github.com/angular/angular/commit/224e60ecb1b90115baa702f1c06edc1d64d86187",
+      "https://github.com/angular/angular/commit/78dea55351fb305b33a919c43a6b363137eca166",
+      "https://github.com/angular/angular/commit/8630319f74c9575a21693d875cc7d5252516146d",
+      "https://github.com/angular/angular/commit/ed2d324f9cc12aab6cfa0569ef10b73243a62c65"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "20.0.0-next.0.0.0",
+    "max_version": "20.3.18",
+    "cve_id": "CVE-2026-32635",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's runtime and compiler when security-sensitive attributes (such as href) are marked for internationalization with i18n-\u003cattribute\u003e. This combination bypasses Angular's built-in sanitization, allowing attacker-controlled data bound to those attributes to inject and execute malicious JavaScript.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g93w-mfhg-p222"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-g93w-mfhg-p222",
+      "https://github.com/angular/angular/pull/67541",
+      "https://github.com/angular/angular/pull/67561",
+      "https://github.com/angular/angular/commit/224e60ecb1b90115baa702f1c06edc1d64d86187",
+      "https://github.com/angular/angular/commit/78dea55351fb305b33a919c43a6b363137eca166",
+      "https://github.com/angular/angular/commit/8630319f74c9575a21693d875cc7d5252516146d",
+      "https://github.com/angular/angular/commit/ed2d324f9cc12aab6cfa0569ef10b73243a62c65"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.0.0-next.0",
+    "max_version": "21.2.4",
+    "cve_id": "CVE-2026-32635",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's runtime and compiler when security-sensitive attributes (such as href) are marked for internationalization with i18n-\u003cattribute\u003e. This combination bypasses Angular's built-in sanitization, allowing attacker-controlled data bound to those attributes to inject and execute malicious JavaScript.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g93w-mfhg-p222"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-g93w-mfhg-p222",
+      "https://github.com/angular/angular/pull/67541",
+      "https://github.com/angular/angular/pull/67561",
+      "https://github.com/angular/angular/commit/224e60ecb1b90115baa702f1c06edc1d64d86187",
+      "https://github.com/angular/angular/commit/78dea55351fb305b33a919c43a6b363137eca166",
+      "https://github.com/angular/angular/commit/8630319f74c9575a21693d875cc7d5252516146d",
+      "https://github.com/angular/angular/commit/ed2d324f9cc12aab6cfa0569ef10b73243a62c65"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "17.0.0-next.0",
+    "max_version": "18.2.15",
+    "cve_id": "CVE-2026-32635",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Cross-Site Scripting (XSS) vulnerability exists in Angular's runtime and compiler when security-sensitive attributes (such as href) are marked for internationalization with i18n-\u003cattribute\u003e. This combination bypasses Angular's built-in sanitization, allowing attacker-controlled data bound to those attributes to inject and execute malicious JavaScript.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-g93w-mfhg-p222"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-g93w-mfhg-p222",
+      "https://github.com/angular/angular/pull/67541",
+      "https://github.com/angular/angular/pull/67561",
+      "https://github.com/angular/angular/commit/224e60ecb1b90115baa702f1c06edc1d64d86187",
+      "https://github.com/angular/angular/commit/78dea55351fb305b33a919c43a6b363137eca166",
+      "https://github.com/angular/angular/commit/8630319f74c9575a21693d875cc7d5252516146d",
+      "https://github.com/angular/angular/commit/ed2d324f9cc12aab6cfa0569ef10b73243a62c65"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "0",
+    "max_version": "18.2.15",
+    "cve_id": "CVE-2026-50557",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular: Template and Attribute Namespace Sanitization Bypass (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-f3m7-gqxr-g87x"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-f3m7-gqxr-g87x",
+      "https://github.com/angular/angular/pull/68689",
+      "https://github.com/angular/angular/pull/68868"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "22.0.0-next.0",
+    "max_version": "22.0.0-rc.2",
+    "cve_id": "CVE-2026-50557",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular: Template and Attribute Namespace Sanitization Bypass (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-f3m7-gqxr-g87x"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-f3m7-gqxr-g87x",
+      "https://github.com/angular/angular/pull/68689",
+      "https://github.com/angular/angular/pull/68868"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.0.0-next.0",
+    "max_version": "21.2.15",
+    "cve_id": "CVE-2026-50557",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular: Template and Attribute Namespace Sanitization Bypass (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-f3m7-gqxr-g87x"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-f3m7-gqxr-g87x",
+      "https://github.com/angular/angular/pull/68689",
+      "https://github.com/angular/angular/pull/68868"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "19.0.0-next.0",
+    "max_version": "19.2.22",
+    "cve_id": "CVE-2026-50557",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular: Template and Attribute Namespace Sanitization Bypass (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-f3m7-gqxr-g87x"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-f3m7-gqxr-g87x",
+      "https://github.com/angular/angular/pull/68689",
+      "https://github.com/angular/angular/pull/68868"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "20.0.0-next.0",
+    "max_version": "20.3.22",
+    "cve_id": "CVE-2026-50557",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular: Template and Attribute Namespace Sanitization Bypass (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-f3m7-gqxr-g87x"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-f3m7-gqxr-g87x",
+      "https://github.com/angular/angular/pull/68689",
+      "https://github.com/angular/angular/pull/68868"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "22.0.0-next.0",
+    "max_version": "22.0.0-rc.2",
+    "cve_id": "CVE-2026-52725",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "@angular/core: Angular Template and Dynamic Component Namespace Bypass leading to Cross-Site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-692r-grfm-v8x7"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-692r-grfm-v8x7",
+      "https://github.com/angular/angular/pull/68686",
+      "https://github.com/angular/angular/pull/68713"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.0.0-next.0",
+    "max_version": "21.2.15",
+    "cve_id": "CVE-2026-52725",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "@angular/core: Angular Template and Dynamic Component Namespace Bypass leading to Cross-Site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-692r-grfm-v8x7"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-692r-grfm-v8x7",
+      "https://github.com/angular/angular/pull/68686",
+      "https://github.com/angular/angular/pull/68713"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "19.0.0-next.0",
+    "max_version": "19.2.23",
+    "cve_id": "CVE-2026-52725",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "@angular/core: Angular Template and Dynamic Component Namespace Bypass leading to Cross-Site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-692r-grfm-v8x7"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-692r-grfm-v8x7",
+      "https://github.com/angular/angular/pull/68686",
+      "https://github.com/angular/angular/pull/68713"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "0",
+    "max_version": "18.2.15",
+    "cve_id": "CVE-2026-52725",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "@angular/core: Angular Template and Dynamic Component Namespace Bypass leading to Cross-Site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-692r-grfm-v8x7"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-692r-grfm-v8x7",
+      "https://github.com/angular/angular/pull/68686",
+      "https://github.com/angular/angular/pull/68713"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "20.0.0-next.0",
+    "max_version": "20.3.22",
+    "cve_id": "CVE-2026-52725",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "@angular/core: Angular Template and Dynamic Component Namespace Bypass leading to Cross-Site Scripting (XSS)",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-692r-grfm-v8x7"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-692r-grfm-v8x7",
+      "https://github.com/angular/angular/pull/68686",
+      "https://github.com/angular/angular/pull/68713"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "21.0.0-next.0",
+    "max_version": "21.2.17",
+    "cve_id": "CVE-2026-54267",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular Client Hydration DOM Clobbering \u0026 Response-Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-rgjc-h3x7-9mwg"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-rgjc-h3x7-9mwg",
+      "https://github.com/angular/angular/pull/69064",
+      "https://github.com/angular/angular/commit/6bde84fa8e6a5770b54040fbbc9bf10d5d0386fa"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "22.0.0-next.0",
+    "max_version": "22.0.1",
+    "cve_id": "CVE-2026-54267",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular Client Hydration DOM Clobbering \u0026 Response-Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-rgjc-h3x7-9mwg"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-rgjc-h3x7-9mwg",
+      "https://github.com/angular/angular/pull/69064",
+      "https://github.com/angular/angular/commit/6bde84fa8e6a5770b54040fbbc9bf10d5d0386fa"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "0",
+    "max_version": "19.2.26",
+    "cve_id": "CVE-2026-54267",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular Client Hydration DOM Clobbering \u0026 Response-Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-rgjc-h3x7-9mwg"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-rgjc-h3x7-9mwg",
+      "https://github.com/angular/angular/pull/69064",
+      "https://github.com/angular/angular/commit/6bde84fa8e6a5770b54040fbbc9bf10d5d0386fa"
+    ]
+  },
+  {
+    "library": "core",
+    "at_or_above": "20.0.0-next.0",
+    "max_version": "20.3.25",
+    "cve_id": "CVE-2026-54267",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Angular Client Hydration DOM Clobbering \u0026 Response-Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79",
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-rgjc-h3x7-9mwg"
+    ],
+    "references": [
+      "https://github.com/angular/angular/security/advisories/GHSA-rgjc-h3x7-9mwg",
+      "https://github.com/angular/angular/pull/69064",
+      "https://github.com/angular/angular/commit/6bde84fa8e6a5770b54040fbbc9bf10d5d0386fa"
+    ]
+  }
+]

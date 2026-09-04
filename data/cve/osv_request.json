@@ -1,0 +1,93 @@
+[
+  {
+    "library": "request",
+    "at_or_above": "2.49.0",
+    "max_version": "2.68.0",
+    "cve_id": "GHSA-7xfp-9c55-5vqj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Remote Memory Exposure in request",
+    "fixed_version": "2.68.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-201"
+    ],
+    "aliases": [
+      "CVE-2017-16026"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16026",
+      "https://github.com/request/request/issues/1904",
+      "https://github.com/request/request/pull/2018"
+    ]
+  },
+  {
+    "library": "request",
+    "at_or_above": "2.2.6",
+    "max_version": "2.68.0",
+    "cve_id": "GHSA-7xfp-9c55-5vqj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Remote Memory Exposure in request",
+    "fixed_version": "2.68.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-201"
+    ],
+    "aliases": [
+      "CVE-2017-16026"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16026",
+      "https://github.com/request/request/issues/1904",
+      "https://github.com/request/request/pull/2018"
+    ]
+  },
+  {
+    "library": "request",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-p8p7-x288-28g6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Server-Side Request Forgery in Request",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "CVE-2023-28155"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-28155",
+      "https://github.com/request/request/issues/3442",
+      "https://github.com/cypress-io/request/pull/28"
+    ]
+  },
+  {
+    "library": "request",
+    "at_or_above": "0",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-p8p7-x288-28g6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Server-Side Request Forgery in Request",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "CVE-2023-28155"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-28155",
+      "https://github.com/request/request/issues/3442",
+      "https://github.com/cypress-io/request/pull/28"
+    ]
+  }
+]

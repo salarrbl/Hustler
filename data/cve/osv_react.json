@@ -1,0 +1,68 @@
+[
+  {
+    "library": "react",
+    "at_or_above": "0.4.0",
+    "max_version": "0.4.2",
+    "cve_id": "GHSA-g53w-52xc-2j85",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react",
+    "fixed_version": "0.4.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7035"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7035",
+      "https://github.com/facebook/react/commit/393a889aaceb761f058b09a701f889fa8f8b4e64",
+      "https://github.com/facebook/react/commit/94a9a3e752fe089ab23f3a90c26d20d46d62ab10"
+    ]
+  },
+  {
+    "library": "react",
+    "at_or_above": "0.5.0",
+    "max_version": "0.5.2",
+    "cve_id": "GHSA-g53w-52xc-2j85",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react",
+    "fixed_version": "0.5.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7035"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7035",
+      "https://github.com/facebook/react/commit/393a889aaceb761f058b09a701f889fa8f8b4e64",
+      "https://github.com/facebook/react/commit/94a9a3e752fe089ab23f3a90c26d20d46d62ab10"
+    ]
+  },
+  {
+    "library": "react",
+    "at_or_above": "0.0.1",
+    "max_version": "0.14.0",
+    "cve_id": "GHSA-hg79-j56m-fxgv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react",
+    "fixed_version": "0.14.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/facebook/react",
+      "https://reactjs.org/blog/2015/10/07/react-v0.14.html#notable-enhancements",
+      "https://reactjs.org/blog/2019/10/22/react-release-channels.html#experimental-channel"
+    ]
+  }
+]

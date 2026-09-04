@@ -1,0 +1,229 @@
+[
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "1.1.0",
+    "cve_id": "GHSA-552w-rqg8-gxxm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Moderate severity vulnerability that affects validator",
+    "fixed_version": "1.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7453"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7453",
+      "https://github.com/advisories/GHSA-552w-rqg8-gxxm",
+      "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "2.0.0",
+    "cve_id": "GHSA-79mx-88w7-8f7q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS Filter Bypass via Encoded URL in validator",
+    "fixed_version": "2.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2014-9772"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-9772",
+      "https://github.com/chriso/validator.js/issues/181",
+      "https://github.com/advisories/GHSA-79mx-88w7-8f7q"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "13.15.20",
+    "cve_id": "GHSA-9965-vmph-33xx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "validator.js has a URL validation bypass vulnerability in its isURL function",
+    "fixed_version": "13.15.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2025-56200"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-56200",
+      "https://github.com/validatorjs/validator.js/issues/2600",
+      "https://github.com/validatorjs/validator.js/pull/2608"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "3.22.1",
+    "cve_id": "GHSA-f5w6-r7rg-mcgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service in validator",
+    "fixed_version": "3.22.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2014-8882"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-8882",
+      "https://github.com/chriso/validator.js/issues/152#issuecomment-48107184",
+      "https://github.com/chriso/validator.js"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "1.1.0",
+    "cve_id": "GHSA-q4qq-fm7q-cwp5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Multiple XSS Filter Bypasses in validator",
+    "fixed_version": "1.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7454"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7454",
+      "https://github.com/advisories/GHSA-q4qq-fm7q-cwp5",
+      "https://nealpoole.com/blog/2013/07/xss-filter-bypass-in-validator-nodejs-module"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "13.7.0",
+    "cve_id": "GHSA-qgmg-gppg-76g5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inefficient Regular Expression Complexity in validator.js",
+    "fixed_version": "13.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2021-3765"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-3765",
+      "https://github.com/validatorjs/validator.js/commit/496fc8b2a7f5997acaaec33cc44d0b8dba5fb5e1",
+      "https://github.com/validatorjs/validator.js"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "1.1.0",
+    "cve_id": "GHSA-qpjp-7rp2-9c3f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Moderate severity vulnerability that affects validator",
+    "fixed_version": "1.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7451"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7451",
+      "https://github.com/advisories/GHSA-qpjp-7rp2-9c3f",
+      "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "1.1.0",
+    "cve_id": "GHSA-rh6c-q938-3r9q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Moderate severity vulnerability that affects validator",
+    "fixed_version": "1.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2013-7452"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2013-7452",
+      "https://github.com/advisories/GHSA-rh6c-q938-3r9q"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "0",
+    "max_version": "13.15.22",
+    "cve_id": "GHSA-vghf-hv5q-vc2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Validator is Vulnerable to Incomplete Filtering of One or More Instances of Special Elements",
+    "fixed_version": "13.15.22",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-172",
+      "CWE-792"
+    ],
+    "aliases": [
+      "CVE-2025-12758"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-12758",
+      "https://github.com/validatorjs/validator.js/pull/2616",
+      "https://github.com/validatorjs/validator.js/commit/d457ecaf55b0f3d8bd379d82757425d0d13dd382"
+    ]
+  },
+  {
+    "library": "validator",
+    "at_or_above": "11.1.0",
+    "max_version": "13.7.0",
+    "cve_id": "GHSA-xx4c-jj58-r7x6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inefficient Regular Expression Complexity in Validator.js",
+    "fixed_version": "13.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "references": [
+      "https://github.com/validatorjs/validator.js/security/advisories/GHSA-xx4c-jj58-r7x6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-3765",
+      "https://github.com/validatorjs/validator.js/issues/1599"
+    ]
+  }
+]

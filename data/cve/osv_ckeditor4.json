@@ -1,0 +1,481 @@
+[
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.18.0",
+    "cve_id": "GHSA-4fc4-4p5g-6w89",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site Scripting in CKEditor4",
+    "fixed_version": "4.18.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2022-24728",
+      "BIT-drupal-2022-24729",
+      "CVE-2022-24728",
+      "CVE-2022-24729",
+      "DRUPAL-CORE-2022-005",
+      "GHSA-f6rf-9m92-x2hh"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-4fc4-4p5g-6w89",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24728",
+      "https://github.com/ckeditor/ckeditor4/commit/d158413449692d920a778503502dcb22881bc949"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.15.1",
+    "cve_id": "GHSA-4m44-5j2g-xf64",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Improper Neutralization of Input During Web Page Generation in CKEditor4",
+    "fixed_version": "4.15.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-27193"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-27193",
+      "https://ckeditor.com/blog/CKEditor-4.15.1-with-a-security-patch-released",
+      "https://ckeditor.com/cke4/release/CKEditor-4.15.1"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "4.13.0",
+    "max_version": "4.16.2",
+    "cve_id": "GHSA-6226-h7ff-ch6c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Widget feature vulnerability allowing to execute JavaScript code using undo functionality",
+    "fixed_version": "4.16.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2021-32808"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-6226-h7ff-ch6c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32808",
+      "https://github.com/ckeditor/ckeditor4"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "4.22.0",
+    "max_version": "4.25.0",
+    "cve_id": "GHSA-6v96-m24v-f58j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor4 low-risk cross-site scripting (XSS) vulnerability linked to potential domain takeover",
+    "fixed_version": "4.25.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-43411"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-6v96-m24v-f58j",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43411",
+      "https://github.com/ckeditor/ckeditor4/commit/b5069c9cb769ea22eae1cbd7200f22b1cf2e3a7f"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "4.5.2",
+    "max_version": "4.16.2",
+    "cve_id": "GHSA-7889-rm5j-hpgg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Clipboard feature vulnerability allowing to inject arbitrary HTML into the editor using paste functionality",
+    "fixed_version": "4.16.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-32809"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7889-rm5j-hpgg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32809",
+      "https://github.com/ckeditor/ckeditor4"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.17.0",
+    "cve_id": "GHSA-7h26-63m7-qhf2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "HTML comments vulnerability allowing to execute JavaScript code",
+    "fixed_version": "4.17.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41165",
+      "CVE-2021-41165"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7h26-63m7-qhf2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41165",
+      "https://github.com/ckeditor/ckeditor4"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.25.0",
+    "cve_id": "GHSA-7r32-vfj5-c2jv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Code Snippet GeSHi plugin in CKEditor 4 has reflected cross-site scripting (XSS) vulnerability",
+    "fixed_version": "4.25.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-43407"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-7r32-vfj5-c2jv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43407",
+      "https://github.com/ckeditor/ckeditor4/commit/71072c9f7f263329841bd38e7e5309074c82ef94"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.24.0-lts",
+    "cve_id": "GHSA-fq6h-4g8v-qqvm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor4 Cross-site Scripting vulnerability caused by incorrect CDATA detection",
+    "fixed_version": "4.24.0-lts",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-24815"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-fq6h-4g8v-qqvm",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-24815",
+      "https://github.com/ckeditor/ckeditor4/commit/8ed1a3c93d0ae5f49f4ecff5738ab8a2972194cb"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.24.0",
+    "cve_id": "GHSA-fq6h-4g8v-qqvm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor4 Cross-site Scripting vulnerability caused by incorrect CDATA detection",
+    "fixed_version": "4.24.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-24815"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-fq6h-4g8v-qqvm",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-24815",
+      "https://github.com/ckeditor/ckeditor4/commit/8ed1a3c93d0ae5f49f4ecff5738ab8a2972194cb"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.16.2",
+    "cve_id": "GHSA-m94c-37g6-cjhc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Fake objects feature vulnerability allowing to execute JavaScript code using malformed HTML.",
+    "fixed_version": "4.16.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2021-37695"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-m94c-37g6-cjhc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-37695",
+      "https://github.com/ckeditor/ckeditor4/commit/de3c001540715f9c3801aaa38a1917de46cfcf58"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.24.0-lts",
+    "cve_id": "GHSA-mw2c-vx6j-mg76",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor4 Cross-site Scripting vulnerability in samples with enabled the preview feature",
+    "fixed_version": "4.24.0-lts",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-24816"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-mw2c-vx6j-mg76",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-24816",
+      "https://github.com/ckeditor/ckeditor4/commit/8ed1a3c93d0ae5f49f4ecff5738ab8a2972194cb"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.17.0",
+    "cve_id": "GHSA-pvmx-g8h5-cprj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Advanced Content Filter (ACF) vulnerability allowing to execute JavaScript code using malformed HTML",
+    "fixed_version": "4.17.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-41164",
+      "CVE-2021-41164"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-pvmx-g8h5-cprj",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-41164",
+      "https://github.com/ckeditor/ckeditor4"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "9.0.0",
+    "max_version": "9.0.14",
+    "cve_id": "GHSA-rgx6-rjj4-c388",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ckeditor4 vulnerable to cross-site scripting",
+    "fixed_version": "9.0.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-33829",
+      "CVE-2021-33829",
+      "DRUPAL-CORE-2021-003"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-33829",
+      "https://ckeditor.com/blog/ckeditor-4.16.1-with-accessibility-enhancements/#improvements-for-comments-in-html-parser",
+      "https://github.com/FriendsOfPHP/security-advisories/blob/master/drupal/core/CVE-2021-33829.yaml"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "8.0.0",
+    "max_version": "8.9.16",
+    "cve_id": "GHSA-rgx6-rjj4-c388",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ckeditor4 vulnerable to cross-site scripting",
+    "fixed_version": "8.9.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-33829",
+      "CVE-2021-33829",
+      "DRUPAL-CORE-2021-003"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-33829",
+      "https://ckeditor.com/blog/ckeditor-4.16.1-with-accessibility-enhancements/#improvements-for-comments-in-html-parser",
+      "https://github.com/FriendsOfPHP/security-advisories/blob/master/drupal/core/CVE-2021-33829.yaml"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "9.1.0",
+    "max_version": "9.1.9",
+    "cve_id": "GHSA-rgx6-rjj4-c388",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ckeditor4 vulnerable to cross-site scripting",
+    "fixed_version": "9.1.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-33829",
+      "CVE-2021-33829",
+      "DRUPAL-CORE-2021-003"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-33829",
+      "https://ckeditor.com/blog/ckeditor-4.16.1-with-accessibility-enhancements/#improvements-for-comments-in-html-parser",
+      "https://github.com/FriendsOfPHP/security-advisories/blob/master/drupal/core/CVE-2021-33829.yaml"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "4.14.0",
+    "max_version": "4.16.1",
+    "cve_id": "GHSA-rgx6-rjj4-c388",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ckeditor4 vulnerable to cross-site scripting",
+    "fixed_version": "4.16.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-33829",
+      "CVE-2021-33829",
+      "DRUPAL-CORE-2021-003"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-33829",
+      "https://ckeditor.com/blog/ckeditor-4.16.1-with-accessibility-enhancements/#improvements-for-comments-in-html-parser",
+      "https://github.com/FriendsOfPHP/security-advisories/blob/master/drupal/core/CVE-2021-33829.yaml"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "7.0.0",
+    "max_version": "7.80",
+    "cve_id": "GHSA-rgx6-rjj4-c388",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "ckeditor4 vulnerable to cross-site scripting",
+    "fixed_version": "7.80",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2021-33829",
+      "CVE-2021-33829",
+      "DRUPAL-CORE-2021-003"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-33829",
+      "https://ckeditor.com/blog/ckeditor-4.16.1-with-accessibility-enhancements/#improvements-for-comments-in-html-parser",
+      "https://github.com/FriendsOfPHP/security-advisories/blob/master/drupal/core/CVE-2021-33829.yaml"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.14.0",
+    "cve_id": "GHSA-vcjf-mgcg-jxjq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor 4.0 vulnerability in the HTML Data Processor",
+    "fixed_version": "4.14.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-9281",
+      "CVE-2020-9281"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-9281",
+      "https://github.com/ckeditor/ckeditor4",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7OJ4BSS3VEAEXPNSOOUAXX6RDNECGZNO"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.24.0-lts",
+    "cve_id": "GHSA-wh5w-82f3-wrxh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CKEditor cross-site scripting vulnerability in AJAX sample",
+    "fixed_version": "4.24.0-lts",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-4771"
+    ],
+    "references": [
+      "https://github.com/ckeditor/ckeditor4/security/advisories/GHSA-wh5w-82f3-wrxh",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-4771",
+      "https://github.com/ckeditor/ckeditor4/commit/8ed1a3c93d0ae5f49f4ecff5738ab8a2972194cb"
+    ]
+  },
+  {
+    "library": "ckeditor4",
+    "at_or_above": "0",
+    "max_version": "4.16.0",
+    "cve_id": "GHSA-wpvm-wqr4-p7cw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Inclusion of Functionality from Untrusted Control Sphere in CKEditor 4",
+    "fixed_version": "4.16.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-829"
+    ],
+    "aliases": [
+      "CVE-2021-26272"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-26272",
+      "https://ckeditor.com/blog/CKEditor-4.16-with-improved-image-pasting-High-Contrast-support-and-a-new-color-API/#security-comes-first",
+      "https://github.com/ckeditor/ckeditor4"
+    ]
+  }
+]

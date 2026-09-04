@@ -1,1092 +1,2526 @@
 [
   {
     "library": "nextjs",
+    "at_or_above": "1.0.0",
     "max_version": "2.4.1",
     "cve_id": "CVE-2017-16877",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Directory Traversal Vulnerability",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "GHSA-3f5c-4qxj-vmpf"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3f5c-4qxj-vmpf"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "4.2.3",
-    "cve_id": "CVE-2018-6184",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Directory traversal vulnerability in Next.js",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "7.0.0",
     "max_version": "7.0.2",
     "cve_id": "CVE-2018-18282",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js has cross site scripting (XSS) vulnerability via the 404 or 500 /_error page",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-qw96-mm2g-c8m7"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-qw96-mm2g-c8m7"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "9.3.2",
-    "cve_id": "CVE-2020-5284",
-    "severity": "MEDIUM",
+    "at_or_above": "1.0.0",
+    "max_version": "4.2.3",
+    "cve_id": "CVE-2018-6184",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Directory Traversal in Next.js",
-    "source": "retire.js"
+    "summary": "Directory traversal vulnerability in Next.js",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "GHSA-m34x-wgrh-g897"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-m34x-wgrh-g897"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "9.5.0",
     "max_version": "9.5.4",
     "cve_id": "CVE-2020-15242",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Open Redirect in Next.js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-601"
+    ],
+    "aliases": [
+      "GHSA-x56p-c8cg-q435"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-x56p-c8cg-q435"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "9.3.2",
+    "cve_id": "CVE-2020-5284",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Directory Traversal in Next.js",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-23"
+    ],
+    "aliases": [
+      "GHSA-fq77-7p7r-83rj"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-fq77-7p7r-83rj"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "0.9.9",
     "max_version": "11.1.0",
     "cve_id": "CVE-2021-37699",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Open Redirect in Next.js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-601"
+    ],
+    "aliases": [
+      "GHSA-vxf5-wxwp-m7g9"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-vxf5-wxwp-m7g9"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "10.0.0",
     "max_version": "11.1.1",
     "cve_id": "CVE-2021-39178",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS in Image Optimization API",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9gr3-7897-pp7m"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-9gr3-7897-pp7m"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "11.1.3",
-    "cve_id": "CVE-2021-43803",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Unexpected server crash in Next.js versions",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "12.0.0",
     "max_version": "12.0.5",
     "cve_id": "CVE-2021-43803",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Unexpected server crash in Next.js versions",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "GHSA-25mp-g6fv-mqxx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-25mp-g6fv-mqxx",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-25mp-g6fv-mqxx"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "11.1.3",
+    "cve_id": "CVE-2021-43803",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Unexpected server crash in Next.js versions",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "GHSA-25mp-g6fv-mqxx"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-25mp-g6fv-mqxx",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-25mp-g6fv-mqxx"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "12.0.0",
     "max_version": "12.0.9",
     "cve_id": "CVE-2022-21721",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "DOS Vulnerability for self-hosted next.js apps",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-20",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-wr66-vrwm-5g5x"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-wr66-vrwm-5g5x"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "10.0.0",
     "max_version": "12.1.0",
     "cve_id": "CVE-2022-23646",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Improper CSP in Image Optimization API",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-451"
+    ],
+    "aliases": [
+      "GHSA-fmvm-x8mv-47mj"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-fmvm-x8mv-47mj"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "12.2.3",
     "max_version": "12.2.4",
     "cve_id": "CVE-2022-36046",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Unexpected server crash in Next.js",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-248",
+      "CWE-754"
+    ],
+    "aliases": [
+      "GHSA-wff4-fpwg-qqv3"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-wff4-fpwg-qqv3"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "12.3.5",
-    "cve_id": "CVE-2025-29927",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Authorization Bypass in Next.js Middleware",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "12.3.6",
-    "cve_id": "CVE-2025-30218",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "0.9.9",
     "max_version": "13.4.20-canary.13",
     "cve_id": "CVE-2023-46298",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js missing cache-control header may lead to CDN caching empty reply",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-525"
+    ],
+    "aliases": [
+      "GHSA-c59h-r6p8-q9wc"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-c59h-r6p8-q9wc"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "13.5.0",
-    "cve_id": "CVE-2024-39693",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Denial of Service (DoS) condition",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "13.4.0",
     "max_version": "13.5.1",
     "cve_id": "CVE-2024-34350",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Vulnerable to HTTP Request Smuggling",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-444"
+    ],
+    "aliases": [
+      "GHSA-77r5-gw3j-2mpf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-77r5-gw3j-2mpf",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-77r5-gw3j-2mpf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-34350",
+      "https://github.com/vercel/next.js/commit/44eba020c615f0d9efe431f84ada67b81576f3f5",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/compare/v13.5.0...v13.5.1"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "13.5.7",
-    "cve_id": "CVE-2024-46982",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Cache Poisoning",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "13.5.8",
-    "cve_id": "CVE-2024-56332",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "13.5.9",
-    "cve_id": "CVE-2025-29927",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Authorization Bypass in Next.js Middleware",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "13.5.10",
-    "cve_id": "CVE-2025-30218",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "13.4.0",
     "max_version": "14.1.1",
     "cve_id": "CVE-2024-34351",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Server-Side Request Forgery in Server Actions",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-fr5h-rqp8-mj6g"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-fr5h-rqp8-mj6g",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-fr5h-rqp8-mj6g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-34351",
+      "https://github.com/vercel/next.js/pull/62561",
+      "https://github.com/vercel/next.js/commit/8f7a6ca7d21a97bc9f7a1bbe10427b5ad74b9085",
+      "https://github.com/vercel/next.js"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "14.2.7",
-    "cve_id": "CVE-2024-47831",
-    "severity": "MEDIUM",
+    "at_or_above": "13.3.1",
+    "max_version": "13.5.0",
+    "cve_id": "CVE-2024-39693",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Denial of Service condition in Next.js image optimization",
-    "source": "retire.js"
+    "summary": "Next.js Denial of Service (DoS) condition",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-fq54-2j52-jc42"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-fq54-2j52-jc42",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-fq54-2j52-jc42",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-39693",
+      "https://github.com/vercel/next.js"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "14.0.0",
     "max_version": "14.2.10",
     "cve_id": "CVE-2024-46982",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Cache Poisoning",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-349",
+      "CWE-639"
+    ],
+    "aliases": [
+      "GHSA-gp8f-8m3g-qvj9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gp8f-8m3g-qvj9",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-gp8f-8m3g-qvj9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-46982",
+      "https://github.com/vercel/next.js/commit/7ed7f125e07ef0517a331009ed7e32691ba403d3",
+      "https://github.com/vercel/next.js/commit/bd164d53af259c05f1ab434004bcfdd3837d7cda",
+      "https://github.com/vercel/next.js"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "13.5.1",
+    "max_version": "13.5.7",
+    "cve_id": "CVE-2024-46982",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-349",
+      "CWE-639"
+    ],
+    "aliases": [
+      "GHSA-gp8f-8m3g-qvj9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-gp8f-8m3g-qvj9",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-gp8f-8m3g-qvj9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-46982",
+      "https://github.com/vercel/next.js/commit/7ed7f125e07ef0517a331009ed7e32691ba403d3",
+      "https://github.com/vercel/next.js/commit/bd164d53af259c05f1ab434004bcfdd3837d7cda",
+      "https://github.com/vercel/next.js"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "10.0.0",
+    "max_version": "14.2.7",
+    "cve_id": "CVE-2024-47831",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service condition in Next.js image optimization",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-674"
+    ],
+    "aliases": [
+      "GHSA-g77x-44xx-532m"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-g77x-44xx-532m",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-g77x-44xx-532m",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-47831",
+      "https://github.com/vercel/next.js/commit/d11cbc9ff0b1aaefabcba9afe1e562e0b1fde65a",
+      "https://github.com/vercel/next.js"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "9.5.5",
     "max_version": "14.2.15",
     "cve_id": "CVE-2024-51479",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js authorization bypass vulnerability",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285",
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-7gfc-8cq8-jh5f"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7gfc-8cq8-jh5f",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-7gfc-8cq8-jh5f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-51479",
+      "https://github.com/vercel/next.js/commit/1c8234eb20bc8afd396b89999a00f06b61d72d7b",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/releases/tag/v14.2.15"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "14.2.21",
-    "cve_id": "CVE-2024-56332",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.24",
-    "cve_id": "CVE-2025-32421",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Race Condition to Cache Poisoning",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.25",
-    "cve_id": "CVE-2025-29927",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Authorization Bypass in Next.js Middleware",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.26",
-    "cve_id": "CVE-2025-30218",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.30",
-    "cve_id": "CVE-2025-48068",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.31",
-    "cve_id": "CVE-2025-57752",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.31",
-    "cve_id": "CVE-2025-55173",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A vulnerability in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) allowed attacker-controlled external image sources to trigger file downloads with arbitrary content and filenames, enabling phishing or malicious file delivery.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "14.2.32",
-    "cve_id": "CVE-2025-57822",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Server-Side Request Forgery (SSRF) vulnerability in Next.js Middleware (fixed in v14.2.32 and v15.4.7) allowed sensitive request headers to be reflected back when passed directly into NextResponse.next() in self-hosted applications.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.0.0-canary.206",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.0.1-canary.4",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.0.2-canary.12",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.0.3-canary.10",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.0.4-canary.53",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.1.1-canary.28",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "15.0.0",
     "max_version": "15.1.2",
     "cve_id": "CVE-2024-56332",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-7m27-7ghc-44w9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7m27-7ghc-44w9",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-7m27-7ghc-44w9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-56332",
+      "https://github.com/vercel/next.js"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.1.6",
-    "cve_id": "CVE-2025-32421",
-    "severity": "LOW",
+    "at_or_above": "13.0.0",
+    "max_version": "13.5.8",
+    "cve_id": "CVE-2024-56332",
+    "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js Race Condition to Cache Poisoning",
-    "source": "retire.js"
+    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-7m27-7ghc-44w9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7m27-7ghc-44w9",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-7m27-7ghc-44w9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-56332",
+      "https://github.com/vercel/next.js"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.1.8",
-    "cve_id": "CVE-2025-49826",
+    "at_or_above": "14.0.0",
+    "max_version": "14.2.21",
+    "cve_id": "CVE-2024-56332",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Allows a Denial of Service (DoS) with Server Actions",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-7m27-7ghc-44w9"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-7m27-7ghc-44w9",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-7m27-7ghc-44w9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-56332",
+      "https://github.com/vercel/next.js"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "12.0.0",
+    "max_version": "12.3.5",
+    "cve_id": "CVE-2025-29927",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A cache poisoning bug in Next.js (versions 15.0.4 through 15.1.8) could cause an HTTP 204 response to be cached for static pages and subsequently served to all visitors, resulting in a Denial of Service condition for those pages.",
-    "source": "retire.js"
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285",
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-f82v-jwr5-mffw"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-f82v-jwr5-mffw",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-29927",
+      "https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2",
+      "https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/releases/tag/v12.3.5",
+      "https://github.com/vercel/next.js/releases/tag/v13.5.9",
+      "https://security.netapp.com/advisory/ntap-20250328-0002",
+      "https://vercel.com/changelog/vercel-firewall-proactively-protects-against-vulnerability-with-middleware",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/3",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/4"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.2.0-canary.78",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
+    "at_or_above": "14.0.0",
+    "max_version": "14.2.25",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285",
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-f82v-jwr5-mffw"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-f82v-jwr5-mffw",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-29927",
+      "https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2",
+      "https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/releases/tag/v12.3.5",
+      "https://github.com/vercel/next.js/releases/tag/v13.5.9",
+      "https://security.netapp.com/advisory/ntap-20250328-0002",
+      "https://vercel.com/changelog/vercel-firewall-proactively-protects-against-vulnerability-with-middleware",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/3",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/4"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.2.1-canary.7",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.2.2",
-    "cve_id": "CVE-2025-48068",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.2.2-canary.8",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "15.0.0",
     "max_version": "15.2.3",
     "cve_id": "CVE-2025-29927",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Authorization Bypass in Next.js Middleware",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285",
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-f82v-jwr5-mffw"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-f82v-jwr5-mffw",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-29927",
+      "https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2",
+      "https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/releases/tag/v12.3.5",
+      "https://github.com/vercel/next.js/releases/tag/v13.5.9",
+      "https://security.netapp.com/advisory/ntap-20250328-0002",
+      "https://vercel.com/changelog/vercel-firewall-proactively-protects-against-vulnerability-with-middleware",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/3",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/4"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "13.5.9",
+    "cve_id": "CVE-2025-29927",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Authorization Bypass in Next.js Middleware",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285",
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-f82v-jwr5-mffw"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-f82v-jwr5-mffw",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-29927",
+      "https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2",
+      "https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48",
+      "https://github.com/vercel/next.js",
+      "https://github.com/vercel/next.js/releases/tag/v12.3.5",
+      "https://github.com/vercel/next.js/releases/tag/v13.5.9",
+      "https://security.netapp.com/advisory/ntap-20250328-0002",
+      "https://vercel.com/changelog/vercel-firewall-proactively-protects-against-vulnerability-with-middleware",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/3",
+      "http://www.openwall.com/lists/oss-security/2025/03/23/4"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.5.9",
+    "max_version": "13.5.10",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "GHSA-223j-4rm8-mrmf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-223j-4rm8-mrmf",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-223j-4rm8-mrmf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30218",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-30218-5DREmEH765PoeAsrNNQj3O"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.2.3",
     "max_version": "15.2.4",
     "cve_id": "CVE-2025-30218",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "GHSA-223j-4rm8-mrmf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-223j-4rm8-mrmf",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-223j-4rm8-mrmf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30218",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-30218-5DREmEH765PoeAsrNNQj3O"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.3.0-canary.47",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
+    "at_or_above": "14.2.25",
+    "max_version": "14.2.26",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "GHSA-223j-4rm8-mrmf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-223j-4rm8-mrmf",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-223j-4rm8-mrmf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30218",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-30218-5DREmEH765PoeAsrNNQj3O"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.3.1-canary.16",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
+    "at_or_above": "12.3.5",
+    "max_version": "12.3.6",
+    "cve_id": "CVE-2025-30218",
+    "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
+    "summary": "Next.js may leak x-middleware-subrequest-id to external hosts",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "GHSA-223j-4rm8-mrmf"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-223j-4rm8-mrmf",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-223j-4rm8-mrmf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30218",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-30218-5DREmEH765PoeAsrNNQj3O"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "15.0.0",
+    "max_version": "15.1.6",
+    "cve_id": "CVE-2025-32421",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Race Condition to Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-362"
+    ],
+    "aliases": [
+      "GHSA-qpjv-v59x-3qc4"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-qpjv-v59x-3qc4",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-qpjv-v59x-3qc4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32421",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-32421"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "14.2.24",
+    "cve_id": "CVE-2025-32421",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Race Condition to Cache Poisoning",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-362"
+    ],
+    "aliases": [
+      "GHSA-qpjv-v59x-3qc4"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-qpjv-v59x-3qc4",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-qpjv-v59x-3qc4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32421",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-32421"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.0",
+    "max_version": "15.2.2",
+    "cve_id": "CVE-2025-48068",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1385"
+    ],
+    "aliases": [
+      "GHSA-3h52-269p-cp9r"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-3h52-269p-cp9r",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3h52-269p-cp9r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-48068",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-48068"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0",
+    "max_version": "14.2.30",
+    "cve_id": "CVE-2025-48068",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Information exposure in Next.js dev server due to lack of origin verification",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1385"
+    ],
+    "aliases": [
+      "GHSA-3h52-269p-cp9r"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-3h52-269p-cp9r",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3h52-269p-cp9r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-48068",
+      "https://github.com/vercel/next.js",
+      "https://vercel.com/changelog/cve-2025-48068"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.3.0",
     "max_version": "15.3.3",
     "cve_id": "CVE-2025-49005",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "A cache poisoning issue in Next.js App Router (\u003e=15.3.0 and \u003c15.3.3) may have allowed RSC payloads to be cached and served in place of HTML under specific conditions involving middleware and redirects, causing incorrect responses for affected pages.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-444"
+    ],
+    "aliases": [
+      "GHSA-r2fc-ccr8-96c4"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-r2fc-ccr8-96c4",
+      "https://github.com/vercel/next.js/issues/79346",
+      "https://github.com/vercel/next.js/pull/79939",
+      "https://github.com/vercel/next.js/commit/ec202eccf05820b60c6126d6411fe16766ecc066",
+      "https://github.com/vercel/next.js/releases/tag/v15.3.3",
+      "https://vercel.com/changelog/cve-2025-49005"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.4.0-canary.131",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
+    "at_or_above": "15.0.4-canary.51",
+    "max_version": "15.1.8",
+    "cve_id": "CVE-2025-49826",
+    "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
+    "summary": "A cache poisoning bug in Next.js (versions 15.0.4 through 15.1.8) could cause an HTTP 204 response to be cached for static pages and subsequently served to all visitors, resulting in a Denial of Service condition for those pages.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-444"
+    ],
+    "aliases": [
+      "GHSA-67rr-84xm-4c7r"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-67rr-84xm-4c7r",
+      "https://github.com/vercel/next.js/commit/16bfce64ef2157f2c1dfedcfdb7771bc63103fd2",
+      "https://github.com/vercel/next.js/commit/a15b974ed707d63ad4da5b74c1441f5b7b120e93",
+      "https://github.com/vercel/next.js/releases/tag/v15.1.8",
+      "https://vercel.com/changelog/cve-2025-49826"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.4.2-canary.57",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.4.5",
-    "cve_id": "CVE-2025-57752",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "15.0.0",
     "max_version": "15.4.5",
     "cve_id": "CVE-2025-55173",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A vulnerability in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) allowed attacker-controlled external image sources to trigger file downloads with arbitrary content and filenames, enabling phishing or malicious file delivery.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "GHSA-xv57-4mr9-wg8v"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-xv57-4mr9-wg8v",
+      "https://github.com/vercel/next.js/commit/6b12c60c61ee80cb0443ccd20de82ca9b4422ddd",
+      "https://vercel.com/changelog/cve-2025-55173",
+      "http://vercel.com/changelog/cve-2025-55173"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "14.2.31",
+    "cve_id": "CVE-2025-55173",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A vulnerability in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) allowed attacker-controlled external image sources to trigger file downloads with arbitrary content and filenames, enabling phishing or malicious file delivery.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "GHSA-xv57-4mr9-wg8v"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-xv57-4mr9-wg8v",
+      "https://github.com/vercel/next.js/commit/6b12c60c61ee80cb0443ccd20de82ca9b4422ddd",
+      "https://vercel.com/changelog/cve-2025-55173",
+      "http://vercel.com/changelog/cve-2025-55173"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.0",
+    "max_version": "15.4.5",
+    "cve_id": "CVE-2025-57752",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-524"
+    ],
+    "aliases": [
+      "GHSA-g5qg-72qw-gw5v"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-g5qg-72qw-gw5v",
+      "https://github.com/vercel/next.js/pull/82114",
+      "https://github.com/vercel/next.js/commit/6b12c60c61ee80cb0443ccd20de82ca9b4422ddd",
+      "https://vercel.com/changelog/cve-2025-57752"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "14.2.31",
+    "cve_id": "CVE-2025-57752",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A cache key confusion bug in Next.js Image Optimization (fixed in v15.4.5 and v14.2.31) caused images served from API routes that vary on request headers like Cookie or Authorization to be incorrectly cached and potentially served to unauthorized users.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-524"
+    ],
+    "aliases": [
+      "GHSA-g5qg-72qw-gw5v"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-g5qg-72qw-gw5v",
+      "https://github.com/vercel/next.js/pull/82114",
+      "https://github.com/vercel/next.js/commit/6b12c60c61ee80cb0443ccd20de82ca9b4422ddd",
+      "https://vercel.com/changelog/cve-2025-57752"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "0.9.9",
+    "max_version": "14.2.32",
+    "cve_id": "CVE-2025-57822",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Server-Side Request Forgery (SSRF) vulnerability in Next.js Middleware (fixed in v14.2.32 and v15.4.7) allowed sensitive request headers to be reflected back when passed directly into NextResponse.next() in self-hosted applications.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-4342-x723-ch2f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4342-x723-ch2f",
+      "https://github.com/vercel/next.js/commit/9c9aaed5bb9338ef31b0517ccf0ab4414f2093d8",
+      "https://vercel.com/changelog/cve-2025-57822"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.0-canary.0",
     "max_version": "15.4.7",
     "cve_id": "CVE-2025-57822",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A Server-Side Request Forgery (SSRF) vulnerability in Next.js Middleware (fixed in v14.2.32 and v15.4.7) allowed sensitive request headers to be reflected back when passed directly into NextResponse.next() in self-hosted applications.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-4342-x723-ch2f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4342-x723-ch2f",
+      "https://github.com/vercel/next.js/commit/9c9aaed5bb9338ef31b0517ccf0ab4414f2093d8",
+      "https://vercel.com/changelog/cve-2025-57822"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.5.1-canary.40",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "10.0.0",
     "max_version": "15.5.10",
     "cve_id": "CVE-2025-59471",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A Denial of Service vulnerability exists in self-hosted Next.js applications with remotePatterns configured for the Image Optimizer. The /_next/image endpoint loads external images entirely into memory without a size limit, allowing an attacker to exhaust server memory by requesting optimization of arbitrarily large images from allowed domains.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-9g9p-9gw9-jx7f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-9g9p-9gw9-jx7f",
+      "https://github.com/vercel/next.js/commit/500ec83743639addceaede95e95913398975156c",
+      "https://github.com/vercel/next.js/commit/e5b834d208fe0edf64aa26b5d76dcf6a176500ec",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.10",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.5"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "15.5.13",
-    "cve_id": "CVE-2026-29057",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.14",
-    "cve_id": "CVE-2026-27980",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44577",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44573",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44572",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js is vulnerable to cache poisoning and Denial of Service via the x-nextjs-data request header. An external client sending this header on a request to a redirect-returning middleware path causes the standard Location header to be replaced with the internal x-nextjs-redirect header, which browsers do not follow; if a CDN caches the malformed response, all subsequent visitors to that path receive a broken redirect.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44580",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44581",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44582",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44578",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44576",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js App Router applications using React Server Components are vulnerable to cache poisoning when shared caches do not correctly partition response variants. An attacker can cause RSC payloads to be served from the original URL and poison shared cache entries so subsequent visitors receive component payloads instead of the expected HTML.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44579",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44575",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.16",
-    "cve_id": "CVE-2026-44574",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js App Router applications relying on middleware to protect dynamic routes are vulnerable to authorization bypass via crafted query parameters. Specially crafted parameters can alter the dynamic route value seen by the page rendering logic while leaving the visible URL path unchanged, causing middleware to match a different route than the page actually renders.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.18",
-    "cve_id": "CVE-2026-45109",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "The fix for CVE-2026-44575 (middleware authorization bypass) was not applied to middleware.ts when using Turbopack. Applications using Turbopack for compilation remain vulnerable to the same middleware bypass as described in that advisory.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64645",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64647",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64646",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64648",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64643",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64641",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Denial of Service in App Router using Server Actions",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64649",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.5.21",
-    "cve_id": "CVE-2026-64644",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "15.6.0-canary.61",
-    "cve_id": "CVE-2025-59472",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "15.6.0-canary.0",
     "max_version": "16.1.5",
     "cve_id": "CVE-2025-59471",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A Denial of Service vulnerability exists in self-hosted Next.js applications with remotePatterns configured for the Image Optimizer. The /_next/image endpoint loads external images entirely into memory without a size limit, allowing an attacker to exhaust server memory by requesting optimization of arbitrarily large images from allowed domains.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-9g9p-9gw9-jx7f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-9g9p-9gw9-jx7f",
+      "https://github.com/vercel/next.js/commit/500ec83743639addceaede95e95913398975156c",
+      "https://github.com/vercel/next.js/commit/e5b834d208fe0edf64aa26b5d76dcf6a176500ec",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.10",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.5"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "15.3.1-canary.0",
+    "max_version": "15.3.1-canary.16",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.4-canary.0",
+    "max_version": "15.0.4-canary.53",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.2.2-canary.0",
+    "max_version": "15.2.2-canary.8",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.4.0-canary.0",
+    "max_version": "15.4.0-canary.131",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.6.0-canary.0",
+    "max_version": "15.6.0-canary.61",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.4.2-canary.0",
+    "max_version": "15.4.2-canary.57",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.1-canary.0",
+    "max_version": "15.0.1-canary.4",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.2-canary.0",
+    "max_version": "15.0.2-canary.12",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.2.1-canary.0",
+    "max_version": "15.2.1-canary.7",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.3.0-canary.0",
+    "max_version": "15.3.0-canary.47",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.1.1-canary.0",
+    "max_version": "15.1.1-canary.28",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.3-canary.0",
+    "max_version": "15.0.3-canary.10",
+    "cve_id": "CVE-2025-59472",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0-beta.0",
     "max_version": "16.1.5",
     "cve_id": "CVE-2025-59472",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.1.7",
-    "cve_id": "CVE-2026-27980",
+    "at_or_above": "15.2.0-canary.0",
+    "max_version": "15.2.0-canary.78",
+    "cve_id": "CVE-2025-59472",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
-    "source": "retire.js"
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.1.7",
-    "cve_id": "CVE-2026-29057",
+    "at_or_above": "15.0.0-canary.0",
+    "max_version": "15.0.0-canary.206",
+    "cve_id": "CVE-2025-59472",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
-    "source": "retire.js"
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.1.7",
-    "cve_id": "CVE-2026-27979",
+    "at_or_above": "15.5.1-canary.0",
+    "max_version": "15.5.1-canary.40",
+    "cve_id": "CVE-2025-59472",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "A Denial of Service vulnerability in Next.js App Router with Partial Prerendering enabled allows attackers to send oversized next-resume POST payloads in non-minimal deployments. The previous mitigation only covered minimal-mode deployments, leaving equivalent non-minimal deployments vulnerable to unbounded request body buffering and excessive memory consumption.",
-    "source": "retire.js"
+    "summary": "A Denial of Service vulnerability in Next.js affects applications with Partial Prerendering (PPR) enabled in minimal mode. The unauthenticated PPR resume endpoint accepts arbitrary POST requests without enforcing size limits on the request body or decompressed payload size, allowing an attacker to exhaust server memory via large payloads or zipbomb attacks and crash the Node.js process.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-409",
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-5f7q-jpqc-wp7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-5f7q-jpqc-wp7h",
+      "https://vercel.com/changelog/summaries-of-cve-2025-59471-and-cve-2025-59472"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "16.0.1",
     "max_version": "16.1.7",
     "cve_id": "CVE-2026-27977",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "In Next.js development mode (next dev), cross-site protection for internal WebSocket endpoints treated Origin: null as a bypass case even when allowedDevOrigins was configured. This allows opaque/sandboxed contexts to connect to the HMR WebSocket channel if the dev server is reachable from attacker-controlled content.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1385"
+    ],
+    "aliases": [
+      "GHSA-jcc7-9wpm-mj36"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-jcc7-9wpm-mj36",
+      "https://github.com/vercel/next.js/commit/862f9b9bb41d235e0d8cf44aa811e7fd118cee2a",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "16.0.1",
     "max_version": "16.1.7",
     "cve_id": "CVE-2026-27978",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js Server Action CSRF validation treated the string origin value 'null' as a missing origin rather than a cross-origin request. Attackers could exploit this by inducing victims to submit Server Actions from sandboxed iframe contexts, bypassing origin verification and potentially executing state-changing actions with victim credentials.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-352"
+    ],
+    "aliases": [
+      "GHSA-mq59-m269-xvcx"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-mq59-m269-xvcx",
+      "https://github.com/vercel/next.js/commit/a27a11d78e748a8c7ccfd14b7759ad2b9bf097d8",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44575",
-    "severity": "HIGH",
+    "at_or_above": "16.0.1",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27979",
+    "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
-    "source": "retire.js"
+    "summary": "A Denial of Service vulnerability in Next.js App Router with Partial Prerendering enabled allows attackers to send oversized next-resume POST payloads in non-minimal deployments. The previous mitigation only covered minimal-mode deployments, leaving equivalent non-minimal deployments vulnerable to unbounded request body buffering and excessive memory consumption.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-h27x-g6w4-24gq"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-h27x-g6w4-24gq",
+      "https://github.com/vercel/next.js/commit/c885d4825f800dd1e49ead37274dcd08cdd6f3f1",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44573",
-    "severity": "HIGH",
+    "at_or_above": "16.0.0-beta.0",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-27980",
+    "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
-    "source": "retire.js"
+    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-3x4c-7xq6-9pq8"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3x4c-7xq6-9pq8",
+      "https://github.com/vercel/next.js/commit/39eb8e0ac498b48855a0430fbf4c22276a73b4bd",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "10.0.0",
+    "max_version": "15.5.14",
+    "cve_id": "CVE-2026-27980",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The Next.js image optimization disk cache had no configurable upper bound, allowing unbounded growth. An attacker could generate many unique image optimization variants to exhaust disk space and cause Denial of Service, fixed by adding an LRU-backed disk cache with configurable maximum size.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-3x4c-7xq6-9pq8"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3x4c-7xq6-9pq8",
+      "https://github.com/vercel/next.js/commit/39eb8e0ac498b48855a0430fbf4c22276a73b4bd",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0-beta.0",
+    "max_version": "16.1.7",
+    "cve_id": "CVE-2026-29057",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-444"
+    ],
+    "aliases": [
+      "GHSA-ggv3-7p47-pfv8"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-ggv3-7p47-pfv8",
+      "https://github.com/vercel/next.js/commit/dc98c04f376c6a1df76ec3e0a2d07edf4abdabd6",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.13",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "9.5.0",
+    "max_version": "15.5.13",
+    "cve_id": "CVE-2026-29057",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to HTTP request smuggling when proxying traffic through rewrites. A crafted DELETE or OPTIONS request using Transfer-Encoding: chunked can trigger request boundary disagreement between the Next.js proxy and the backend, allowing an attacker to smuggle requests to unintended backend routes including internal or admin endpoints.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-444"
+    ],
+    "aliases": [
+      "GHSA-ggv3-7p47-pfv8"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-ggv3-7p47-pfv8",
+      "https://github.com/vercel/next.js/commit/dc98c04f376c6a1df76ec3e0a2d07edf4abdabd6",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.13",
+      "https://github.com/vercel/next.js/releases/tag/v16.1.7"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.5",
     "cve_id": "CVE-2026-44572",
     "severity": "LOW",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js is vulnerable to cache poisoning and Denial of Service via the x-nextjs-data request header. An external client sending this header on a request to a redirect-returning middleware path causes the standard Location header to be replaced with the internal x-nextjs-redirect header, which browsers do not follow; if a CDN caches the malformed response, all subsequent visitors to that path receive a broken redirect.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-349"
+    ],
+    "aliases": [
+      "GHSA-3g8h-86w9-wvmq"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3g8h-86w9-wvmq",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "12.2.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44572",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to cache poisoning and Denial of Service via the x-nextjs-data request header. An external client sending this header on a request to a redirect-returning middleware path causes the standard Location header to be replaced with the internal x-nextjs-redirect header, which browsers do not follow; if a CDN caches the malformed response, all subsequent visitors to that path receive a broken redirect.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-349"
+    ],
+    "aliases": [
+      "GHSA-3g8h-86w9-wvmq"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-3g8h-86w9-wvmq",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "12.2.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44573",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-36qx-fr4f-26g5"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-36qx-fr4f-26g5",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44573",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js Pages Router applications with i18n configured are vulnerable to middleware authorization bypass. Locale-less /_next/data/\u003cbuildId\u003e/\u003cpage\u003e.json requests do not trigger middleware execution, allowing attackers to retrieve server-side rendered JSON for protected pages without passing authorization checks.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-863"
+    ],
+    "aliases": [
+      "GHSA-36qx-fr4f-26g5"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-36qx-fr4f-26g5",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.4.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44574",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications relying on middleware to protect dynamic routes are vulnerable to authorization bypass via crafted query parameters. Specially crafted parameters can alter the dynamic route value seen by the page rendering logic while leaving the visible URL path unchanged, causing middleware to match a different route than the page actually renders.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-492v-c6pp-mqqv"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-492v-c6pp-mqqv",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.5",
     "cve_id": "CVE-2026-44574",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js App Router applications relying on middleware to protect dynamic routes are vulnerable to authorization bypass via crafted query parameters. Specially crafted parameters can alter the dynamic route value seen by the page rendering logic while leaving the visible URL path unchanged, causing middleware to match a different route than the page actually renders.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-492v-c6pp-mqqv"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-492v-c6pp-mqqv",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44578",
+    "cve_id": "CVE-2026-44575",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
-    "source": "retire.js"
+    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-267c-6grr-h53f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-267c-6grr-h53f",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44581",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44580",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44577",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44579",
+    "at_or_above": "15.2.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44575",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
-    "source": "retire.js"
+    "summary": "Next.js App Router applications using middleware for authorization are vulnerable to bypass via transport-specific route variants used for segment prefetching. Specially crafted .rsc and segment-prefetch URLs resolve to the same page without triggering middleware matching rules, allowing protected content to be accessed without authorization checks.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-267c-6grr-h53f"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-267c-6grr-h53f",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.5",
-    "cve_id": "CVE-2026-44582",
-    "severity": "LOW",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.5",
     "cve_id": "CVE-2026-44576",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js App Router applications using React Server Components are vulnerable to cache poisoning when shared caches do not correctly partition response variants. An attacker can cause RSC payloads to be served from the original URL and poison shared cache entries so subsequent visitors receive component payloads instead of the expected HTML.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-436"
+    ],
+    "aliases": [
+      "GHSA-wfc6-r584-vfw7"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-wfc6-r584-vfw7",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "14.2.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44576",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using React Server Components are vulnerable to cache poisoning when shared caches do not correctly partition response variants. An attacker can cause RSC payloads to be served from the original URL and poison shared cache entries so subsequent visitors receive component payloads instead of the expected HTML.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-436"
+    ],
+    "aliases": [
+      "GHSA-wfc6-r584-vfw7"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-wfc6-r584-vfw7",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44577",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-h64f-5h5j-jqjh"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-h64f-5h5j-jqjh",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "10.0.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44577",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Denial of Service via the Image Optimization API for local images. The /_next/image endpoint fetches local images entirely into memory without enforcing a maximum response size, allowing an attacker to cause out-of-memory conditions by requesting large local assets matching the configured localPatterns.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-h64f-5h5j-jqjh"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-h64f-5h5j-jqjh",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44578",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-c4j6-fc7j-m34r"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-c4j6-fc7j-m34r",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.4.13",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44578",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Self-hosted Next.js applications are vulnerable to Server-Side Request Forgery (SSRF) via crafted WebSocket upgrade requests. An attacker can cause the built-in Node.js server to proxy WebSocket connections to arbitrary internal or external destinations, potentially exposing internal services or cloud metadata endpoints.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-c4j6-fc7j-m34r"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-c4j6-fc7j-m34r",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44579",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-mg66-mrh9-m8jx"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-mg66-mrh9-m8jx",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.0.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44579",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js applications using Partial Prerendering via the Cache Components feature are vulnerable to connection exhaustion Denial of Service. Crafted POST requests to a server action with the Next-Resume header can trigger a request-body handling deadlock that keeps connections open indefinitely, consuming file descriptors until legitimate users are denied service.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-mg66-mrh9-m8jx"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-mg66-mrh9-m8jx",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44580",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gx5p-jg67-6x7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-gx5p-jg67-6x7h",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44580",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js is vulnerable to Cross-Site Scripting when beforeInteractive scripts are used with untrusted content. Serialized script content was not HTML-escaped before embedding into the document, allowing attacker-controlled input to break out of the inline script context and execute arbitrary JavaScript in visitors' browsers.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-gx5p-jg67-6x7h"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-gx5p-jg67-6x7h",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.4.0",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44581",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-ffhc-5mcf-pf4q"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-ffhc-5mcf-pf4q",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44581",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js App Router applications using CSP nonces are vulnerable to stored Cross-Site Scripting when deployed behind shared caches. Malformed nonce values derived from request headers can be reflected into rendered HTML unsafely, allowing cache poisoning that causes script execution for subsequent visitors.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-ffhc-5mcf-pf4q"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-ffhc-5mcf-pf4q",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.4.6",
+    "max_version": "15.5.16",
+    "cve_id": "CVE-2026-44582",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-328"
+    ],
+    "aliases": [
+      "GHSA-vfv6-92ff-j949"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-vfv6-92ff-j949",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.5",
+    "cve_id": "CVE-2026-44582",
+    "severity": "LOW",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "React Server Component responses in Next.js are vulnerable to cache poisoning when deployed with shared caches that have insufficient response partitioning. Collisions in the _rsc cache-busting value can allow an attacker to poison cache entries so users receive incorrect response variants for given URLs.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-328"
+    ],
+    "aliases": [
+      "GHSA-vfv6-92ff-j949"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-vfv6-92ff-j949",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.16",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.5"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.2.0",
+    "max_version": "15.5.18",
+    "cve_id": "CVE-2026-45109",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "The fix for CVE-2026-44575 (middleware authorization bypass) was not applied to middleware.ts when using Turbopack. Applications using Turbopack for compilation remain vulnerable to the same middleware bypass as described in that advisory.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-26hh-7cqf-hhc6"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-267c-6grr-h53f",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-26hh-7cqf-hhc6",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.18",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.6"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.6",
     "cve_id": "CVE-2026-45109",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "The fix for CVE-2026-44575 (middleware authorization bypass) was not applied to middleware.ts when using Turbopack. Applications using Turbopack for compilation remain vulnerable to the same middleware bypass as described in that advisory.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-288"
+    ],
+    "aliases": [
+      "GHSA-26hh-7cqf-hhc6"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-267c-6grr-h53f",
+      "https://github.com/vercel/next.js/security/advisories/GHSA-26hh-7cqf-hhc6",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.18",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.6"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64647",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64646",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64648",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64642",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64649",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64643",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
-    "source": "retire.js"
-  },
-  {
-    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.11",
     "cve_id": "CVE-2026-64641",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js: Denial of Service in App Router using Server Actions",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-834"
+    ],
+    "aliases": [
+      "GHSA-m99w-x7hq-7vfj"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-m99w-x7hq-7vfj",
+      "https://github.com/vercel/next.js/pull/96013",
+      "https://github.com/vercel/next.js/commit/019628571641dec57aaf349ba0c360e3964e6f12",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
   },
   {
     "library": "nextjs",
-    "max_version": "16.2.11",
-    "cve_id": "CVE-2026-64645",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64641",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
-    "source": "retire.js"
+    "summary": "Next.js: Denial of Service in App Router using Server Actions",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-834"
+    ],
+    "aliases": [
+      "GHSA-m99w-x7hq-7vfj"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-m99w-x7hq-7vfj",
+      "https://github.com/vercel/next.js/pull/96013",
+      "https://github.com/vercel/next.js/commit/019628571641dec57aaf349ba0c360e3964e6f12",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
   },
   {
     "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64642",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Middleware / Proxy bypass in App Router applications using Turbopack and single locale",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-285"
+    ],
+    "aliases": [
+      "GHSA-6gpp-xcg3-4w24"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-6gpp-xcg3-4w24",
+      "https://github.com/vercel/next.js/pull/96014",
+      "https://github.com/vercel/next.js/commit/6bf4df14508ad6c0cd46af50c6051ee42f2d9151",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64643",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-201"
+    ],
+    "aliases": [
+      "GHSA-955p-x3mx-jcvp"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-955p-x3mx-jcvp",
+      "https://github.com/vercel/next.js/commit/1b0c3ae912a3ad925c60065cc8d55b070fa8bcd3",
+      "https://github.com/vercel/next.js/commit/ff12a6124e1504f17b62de948b8a553fdecaef7b",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64643",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unauthenticated disclosure of internal Server Function endpoints",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-201"
+    ],
+    "aliases": [
+      "GHSA-955p-x3mx-jcvp"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-955p-x3mx-jcvp",
+      "https://github.com/vercel/next.js/commit/1b0c3ae912a3ad925c60065cc8d55b070fa8bcd3",
+      "https://github.com/vercel/next.js/commit/ff12a6124e1504f17b62de948b8a553fdecaef7b",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "15.5.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64644",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-407"
+    ],
+    "aliases": [
+      "GHSA-q8wf-6r8g-63ch"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-q8wf-6r8g-63ch",
+      "https://github.com/vercel/next.js/pull/96006",
+      "https://github.com/vercel/next.js/commit/93cb90891402fa4c47798d03cb9e05c13233766c",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
     "max_version": "16.2.11",
     "cve_id": "CVE-2026-64644",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Next.js: Denial of Service in the Image Optimization API using SVGs",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-407"
+    ],
+    "aliases": [
+      "GHSA-q8wf-6r8g-63ch"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-q8wf-6r8g-63ch",
+      "https://github.com/vercel/next.js/pull/96006",
+      "https://github.com/vercel/next.js/commit/93cb90891402fa4c47798d03cb9e05c13233766c",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64645",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-p9j2-gv94-2wf4"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-p9j2-gv94-2wf4",
+      "https://github.com/vercel/next.js/commit/35f501357e9b0fe7c950b0d6aa8fcf5343f707e9",
+      "https://github.com/vercel/next.js/commit/d3033266c6dff23f7be71e19341fe3a8c6e2c599",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "12.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64645",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in rewrites via attacker-controlled destination hostname",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-p9j2-gv94-2wf4"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-p9j2-gv94-2wf4",
+      "https://github.com/vercel/next.js/commit/35f501357e9b0fe7c950b0d6aa8fcf5343f707e9",
+      "https://github.com/vercel/next.js/commit/d3033266c6dff23f7be71e19341fe3a8c6e2c599",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64646",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-4c39-4ccg-62r3"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4c39-4ccg-62r3",
+      "https://github.com/vercel/next.js/commit/57c31f724d746e86a9e8b92aa8be538a922446a4",
+      "https://github.com/vercel/next.js/commit/9a4651e754f70b12e397694ffc41f44c3ba8cc17",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64646",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Unbounded Server Action payload in Edge runtime",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "GHSA-4c39-4ccg-62r3"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4c39-4ccg-62r3",
+      "https://github.com/vercel/next.js/commit/57c31f724d746e86a9e8b92aa8be538a922446a4",
+      "https://github.com/vercel/next.js/commit/9a4651e754f70b12e397694ffc41f44c3ba8cc17",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64647",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-116"
+    ],
+    "aliases": [
+      "GHSA-4633-3j49-mh5q"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4633-3j49-mh5q",
+      "https://github.com/vercel/next.js/pull/96008",
+      "https://github.com/vercel/next.js/commit/025bf4a5f7b47fb7758c4ebf1c931a61c451c082",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64647",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies containing invalid UTF-8 byte sequences",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-116"
+    ],
+    "aliases": [
+      "GHSA-4633-3j49-mh5q"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-4633-3j49-mh5q",
+      "https://github.com/vercel/next.js/pull/96008",
+      "https://github.com/vercel/next.js/commit/025bf4a5f7b47fb7758c4ebf1c931a61c451c082",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "13.0.0",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64648",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-524"
+    ],
+    "aliases": [
+      "GHSA-68g3-v927-f742"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-68g3-v927-f742",
+      "https://github.com/vercel/next.js/commit/062f66700b52a5d6bba2c0605d55577ab7ad262c",
+      "https://github.com/vercel/next.js/commit/73b94872bc343d09494b50394d8c08eb9fc8e56a",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64648",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Cache confusion of response bodies for requests with bodies",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-524"
+    ],
+    "aliases": [
+      "GHSA-68g3-v927-f742"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-68g3-v927-f742",
+      "https://github.com/vercel/next.js/commit/062f66700b52a5d6bba2c0605d55577ab7ad262c",
+      "https://github.com/vercel/next.js/commit/73b94872bc343d09494b50394d8c08eb9fc8e56a",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "16.0.0",
+    "max_version": "16.2.11",
+    "cve_id": "CVE-2026-64649",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-89xv-2m56-2m9x"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-89xv-2m56-2m9x",
+      "https://github.com/vercel/next.js/commit/b51206321854193208c0805ba42acc49287f942b",
+      "https://github.com/vercel/next.js/commit/e3e5666ccead3a15162793d697af5e48b7cc0498",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
+  },
+  {
+    "library": "nextjs",
+    "at_or_above": "14.1.1",
+    "max_version": "15.5.21",
+    "cve_id": "CVE-2026-64649",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Next.js: Server-Side Request Forgery in Server Actions on custom servers",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-918"
+    ],
+    "aliases": [
+      "GHSA-89xv-2m56-2m9x"
+    ],
+    "references": [
+      "https://github.com/vercel/next.js/security/advisories/GHSA-89xv-2m56-2m9x",
+      "https://github.com/vercel/next.js/commit/b51206321854193208c0805ba42acc49287f942b",
+      "https://github.com/vercel/next.js/commit/e3e5666ccead3a15162793d697af5e48b7cc0498",
+      "https://github.com/vercel/next.js/releases/tag/v15.5.21",
+      "https://github.com/vercel/next.js/releases/tag/v16.2.11"
+    ]
   }
 ]

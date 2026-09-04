@@ -1,12 +1,23 @@
 [
   {
     "library": "jquery-ui-tooltip",
+    "at_or_above": "1.9.2",
     "max_version": "1.10.0",
     "cve_id": "CVE-2012-6662",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site scripting (XSS) vulnerability in the default content option in jquery.ui.tooltip",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-qqxp-xp9v-vvx6"
+    ],
+    "references": [
+      "http://bugs.jqueryui.com/ticket/8859",
+      "https://nvd.nist.gov/vuln/detail/CVE-2012-6662"
+    ]
   }
 ]

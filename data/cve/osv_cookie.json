@@ -1,0 +1,25 @@
+[
+  {
+    "library": "cookie",
+    "at_or_above": "0",
+    "max_version": "0.7.0",
+    "cve_id": "GHSA-pxg6-pf52-xh8x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "cookie accepts cookie name, path, and domain with out of bounds characters",
+    "fixed_version": "0.7.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-74"
+    ],
+    "aliases": [
+      "CVE-2024-47764"
+    ],
+    "references": [
+      "https://github.com/jshttp/cookie/security/advisories/GHSA-pxg6-pf52-xh8x",
+      "https://github.com/jshttp/cookie/pull/167",
+      "https://github.com/jshttp/cookie/commit/e10042845354fea83bd8f34af72475eed1dadf5c"
+    ]
+  }
+]

@@ -7,6 +7,12 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "bug summary",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-477"
+    ],
+    "references": [
+      "http://github.com/eoftedal/retire.js/"
+    ]
   }
 ]

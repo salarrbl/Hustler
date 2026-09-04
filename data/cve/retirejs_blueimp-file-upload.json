@@ -7,6 +7,24 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Unrestricted Upload of File with Dangerous Type in blueimp-file-upload",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-434"
+    ],
+    "aliases": [
+      "GHSA-4cj8-g9cp-v5wr"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-4cj8-g9cp-v5wr",
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-9206",
+      "https://github.com/advisories/GHSA-4cj8-g9cp-v5wr",
+      "https://wpvulndb.com/vulnerabilities/9136",
+      "https://www.exploit-db.com/exploits/45790/",
+      "https://www.exploit-db.com/exploits/46182/",
+      "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html",
+      "http://www.securityfocus.com/bid/105679",
+      "http://www.securityfocus.com/bid/106629",
+      "http://www.vapidlabs.com/advisory.php?v=204"
+    ]
   }
 ]

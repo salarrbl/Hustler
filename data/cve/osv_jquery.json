@@ -1,0 +1,540 @@
+[
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "2.2.0",
+    "cve_id": "GHSA-2pqj-h3vj-pqgw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in jquery",
+    "fixed_version": "2.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-64",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2012-6708"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16011",
+      "https://nvd.nist.gov/vuln/detail/CVE-2012-6708",
+      "https://github.com/jquery/jquery/commit/05531fc4080ae24070930d15ae0cea7ae056457d"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.9.0",
+    "cve_id": "GHSA-2pqj-h3vj-pqgw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in jquery",
+    "fixed_version": "1.9.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-64",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2012-6708"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16011",
+      "https://nvd.nist.gov/vuln/detail/CVE-2012-6708",
+      "https://github.com/jquery/jquery/commit/05531fc4080ae24070930d15ae0cea7ae056457d"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.0.16",
+    "cve_id": "GHSA-579v-mp3v-rrw5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery vulnerable to Cross-Site Scripting (XSS)",
+    "fixed_version": "1.0.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2011-4969"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2011-4969",
+      "https://github.com/jquery/jquery/commit/db9e023e62c1ff5d8f21ed9868ab6878da2005e9",
+      "https://github.com/jquery/jquery"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.6.3",
+    "cve_id": "GHSA-579v-mp3v-rrw5",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "jQuery vulnerable to Cross-Site Scripting (XSS)",
+    "fixed_version": "1.6.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2011-4969"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2011-4969",
+      "https://github.com/jquery/jquery/commit/db9e023e62c1ff5d8f21ed9868ab6878da2005e9",
+      "https://github.com/jquery/jquery"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.19.0",
+    "cve_id": "GHSA-6c3j-c64m-qhgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "fixed_version": "1.19.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-11358",
+      "DRUPAL-CORE-2019-006",
+      "PYSEC-2026-628",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11358",
+      "https://github.com/maximebf/php-debugbar/issues/447",
+      "https://github.com/jquery/jquery/pull/4333"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "2.2a1",
+    "max_version": "2.2.2",
+    "cve_id": "GHSA-6c3j-c64m-qhgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "fixed_version": "2.2.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-11358",
+      "DRUPAL-CORE-2019-006",
+      "PYSEC-2026-628",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11358",
+      "https://github.com/maximebf/php-debugbar/issues/447",
+      "https://github.com/jquery/jquery/pull/4333"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "2.0a1",
+    "max_version": "2.1.9",
+    "cve_id": "GHSA-6c3j-c64m-qhgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "fixed_version": "2.1.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-11358",
+      "DRUPAL-CORE-2019-006",
+      "PYSEC-2026-628",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11358",
+      "https://github.com/maximebf/php-debugbar/issues/447",
+      "https://github.com/jquery/jquery/pull/4333"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "4.3.4",
+    "cve_id": "GHSA-6c3j-c64m-qhgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "fixed_version": "4.3.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-11358",
+      "DRUPAL-CORE-2019-006",
+      "PYSEC-2026-628",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11358",
+      "https://github.com/maximebf/php-debugbar/issues/447",
+      "https://github.com/jquery/jquery/pull/4333"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "1.1.4",
+    "max_version": "3.4.0",
+    "cve_id": "GHSA-6c3j-c64m-qhgq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+    "fixed_version": "3.4.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-11358",
+      "DRUPAL-CORE-2019-006",
+      "PYSEC-2026-628",
+      "SNYK-JS-JQUERY-174006"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-11358",
+      "https://github.com/maximebf/php-debugbar/issues/447",
+      "https://github.com/jquery/jquery/pull/4333"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "4.0.1",
+    "cve_id": "GHSA-gxr4-xjj5-5px2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "4.0.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11022",
+      "CVE-2020-11022"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11022",
+      "https://github.com/maximebf/php-debugbar/issues/447"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.19.0",
+    "cve_id": "GHSA-gxr4-xjj5-5px2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "1.19.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11022",
+      "CVE-2020-11022"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11022",
+      "https://github.com/maximebf/php-debugbar/issues/447"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "4.4.0",
+    "cve_id": "GHSA-gxr4-xjj5-5px2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "4.4.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11022",
+      "CVE-2020-11022"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11022",
+      "https://github.com/maximebf/php-debugbar/issues/447"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "1.12.0",
+    "max_version": "3.5.0",
+    "cve_id": "GHSA-gxr4-xjj5-5px2",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "3.5.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11022",
+      "CVE-2020-11022"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11022",
+      "https://github.com/maximebf/php-debugbar/issues/447"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "1.0.3",
+    "max_version": "3.5.0",
+    "cve_id": "GHSA-jpcq-cgw6-v4j6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "3.5.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11023",
+      "CVE-2020-11023"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11023",
+      "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "4.4.0",
+    "cve_id": "GHSA-jpcq-cgw6-v4j6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Potential XSS vulnerability in jQuery",
+    "fixed_version": "4.4.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "BIT-drupal-2020-11023",
+      "CVE-2020-11023"
+    ],
+    "references": [
+      "https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-11023",
+      "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "3.0.0-rc.1",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-mhpp-875w-9cpv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service in jquery",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400",
+      "CWE-674"
+    ],
+    "aliases": [
+      "CVE-2016-10707"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10707",
+      "https://github.com/jquery/jquery/issues/3133",
+      "https://github.com/jquery/jquery/issues/3133#issuecomment-358978489"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "3.0.0-rc1",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-mhpp-875w-9cpv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial of Service in jquery",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400",
+      "CWE-674"
+    ],
+    "aliases": [
+      "CVE-2016-10707"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2016-10707",
+      "https://github.com/jquery/jquery/issues/3133",
+      "https://github.com/jquery/jquery/issues/3133#issuecomment-358978489"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "1.2.1",
+    "max_version": "1.9.0",
+    "cve_id": "GHSA-q4m3-2j7h-f7xw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in jquery",
+    "fixed_version": "1.9.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-7656",
+      "SNYK-JS-JQUERY-569619"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7656",
+      "https://github.com/jquery/jquery/commit/05531fc4080ae24070930d15ae0cea7ae056457d",
+      "https://github.com/jquery/jquery/commit/606b863edaff29035960e4d813b45d63b8d92876"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "2.2.0",
+    "cve_id": "GHSA-q4m3-2j7h-f7xw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in jquery",
+    "fixed_version": "2.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-7656",
+      "SNYK-JS-JQUERY-569619"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7656",
+      "https://github.com/jquery/jquery/commit/05531fc4080ae24070930d15ae0cea7ae056457d",
+      "https://github.com/jquery/jquery/commit/606b863edaff29035960e4d813b45d63b8d92876"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "1.12.2",
+    "cve_id": "GHSA-rmxg-73gg-4p98",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting (XSS) in jquery",
+    "fixed_version": "1.12.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2015-9251"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-9251",
+      "https://github.com/jquery/jquery/issues/2432",
+      "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "1.12.3",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-rmxg-73gg-4p98",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting (XSS) in jquery",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2015-9251"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-9251",
+      "https://github.com/jquery/jquery/issues/2432",
+      "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+    ]
+  },
+  {
+    "library": "jquery",
+    "at_or_above": "0",
+    "max_version": "4.2.0",
+    "cve_id": "GHSA-rmxg-73gg-4p98",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting (XSS) in jquery",
+    "fixed_version": "4.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2015-9251"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-9251",
+      "https://github.com/jquery/jquery/issues/2432",
+      "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+    ]
+  }
+]

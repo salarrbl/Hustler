@@ -7,27 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "DOM-based cross-site scripting in Froala Editor",
-    "source": "retire.js"
-  },
-  {
-    "library": "froala",
-    "max_version": "3.2.7",
-    "cve_id": "CVE-2021-28114",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Froala WYSIWYG Editor 3.2.6-1 is affected by XSS due to a namespace confusion during parsing.",
-    "source": "retire.js"
-  },
-  {
-    "library": "froala",
-    "max_version": "3.2.7",
-    "cve_id": "CVE-2021-30109",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Froala WYSIWYG Editor 3.2.6 is affected by Cross Site Scripting (XSS). Under certain conditions, a base64 crafted string leads to persistent XSS.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-h236-g5gh-vq6c"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-h236-g5gh-vq6c"
+    ]
   },
   {
     "library": "froala",
@@ -37,26 +26,94 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "XSS vulnerability in [insert video]",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-97x5-cc53-cv4v"
+    ],
+    "references": [
+      "https://github.com/froala/wysiwyg-editor/releases/tag/v4.0.11"
+    ]
   },
   {
     "library": "froala",
+    "max_version": "3.2.7",
+    "cve_id": "CVE-2021-28114",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala WYSIWYG Editor 3.2.6-1 is affected by XSS due to a namespace confusion during parsing.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://bishopfox.com/blog/froala-editor-v3-2-6-advisory"
+    ]
+  },
+  {
+    "library": "froala",
+    "max_version": "3.2.7",
+    "cve_id": "CVE-2021-30109",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Froala WYSIWYG Editor 3.2.6 is affected by Cross Site Scripting (XSS). Under certain conditions, a base64 crafted string leads to persistent XSS.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-cq6w-w5rj-p9x8"
+    ],
+    "references": [
+      "https://github.com/froala/wysiwyg-editor/releases/tag/v4.0.11"
+    ]
+  },
+  {
+    "library": "froala",
+    "at_or_above": "4.0.1",
     "max_version": "4.1.4",
     "cve_id": "CVE-2023-41592",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Froala Editor v4.0.1 to v4.1.1 was discovered to contain a cross-site scripting (XSS) vulnerability.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-hvpq-7vcc-5hj5"
+    ],
+    "references": [
+      "https://froala.com/wysiwyg-editor/changelog/#4.1.4",
+      "https://github.com/advisories/GHSA-hvpq-7vcc-5hj5"
+    ]
   },
   {
     "library": "froala",
+    "at_or_above": "0",
     "max_version": "4.3.1",
     "cve_id": "CVE-2024-51434",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Froala WYSIWYG editor allows cross-site scripting (XSS)",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-549p-5c7f-c5p4"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-549p-5c7f-c5p4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-51434",
+      "https://georgyg.com/home/froala-wysiwyg-editor---xss-cve-2024-51434",
+      "https://github.com/froala/wysiwyg-editor"
+    ]
   }
 ]

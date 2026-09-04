@@ -1,0 +1,27 @@
+{
+  "updated_at": "2026-09-04T16:58:40+03:30",
+  "sources": {
+    "epss": {
+      "libraries": 0,
+      "entries": 0,
+      "updated_at": "2026-09-04T16:58:40+03:30"
+    },
+    "kev": {
+      "libraries": 0,
+      "entries": 0,
+      "updated_at": "2026-09-04T16:58:39+03:30"
+    },
+    "osv": {
+      "libraries": 59,
+      "entries": 808,
+      "updated_at": "2026-09-04T16:58:37+03:30"
+    },
+    "retirejs": {
+      "libraries": 45,
+      "entries": 466,
+      "updated_at": "2026-09-04T16:55:11+03:30"
+    }
+  },
+  "libraries": 107,
+  "entries": 1391
+}

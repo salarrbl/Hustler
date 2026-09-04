@@ -1,0 +1,94 @@
+[
+  {
+    "library": "minimist",
+    "at_or_above": "0",
+    "max_version": "0.2.1",
+    "cve_id": "GHSA-vh95-rmgr-6w4m",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in minimist",
+    "fixed_version": "0.2.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2020-7598"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7598",
+      "https://github.com/minimistjs/minimist/commit/10bd4cdf49d9686d48214be9d579a9cdfda37c68",
+      "https://github.com/minimistjs/minimist/commit/38a4d1caead72ef99e824bb420a2528eec03d9ab"
+    ]
+  },
+  {
+    "library": "minimist",
+    "at_or_above": "1.0.0",
+    "max_version": "1.2.3",
+    "cve_id": "GHSA-vh95-rmgr-6w4m",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in minimist",
+    "fixed_version": "1.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2020-7598"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-7598",
+      "https://github.com/minimistjs/minimist/commit/10bd4cdf49d9686d48214be9d579a9cdfda37c68",
+      "https://github.com/minimistjs/minimist/commit/38a4d1caead72ef99e824bb420a2528eec03d9ab"
+    ]
+  },
+  {
+    "library": "minimist",
+    "at_or_above": "1.0.0",
+    "max_version": "1.2.6",
+    "cve_id": "GHSA-xvch-5gv4-984h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in minimist",
+    "fixed_version": "1.2.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2021-44906"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-44906",
+      "https://github.com/minimistjs/minimist/issues/11",
+      "https://github.com/substack/minimist/issues/164"
+    ]
+  },
+  {
+    "library": "minimist",
+    "at_or_above": "0",
+    "max_version": "0.2.4",
+    "cve_id": "GHSA-xvch-5gv4-984h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in minimist",
+    "fixed_version": "0.2.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2021-44906"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-44906",
+      "https://github.com/minimistjs/minimist/issues/11",
+      "https://github.com/substack/minimist/issues/164"
+    ]
+  }
+]

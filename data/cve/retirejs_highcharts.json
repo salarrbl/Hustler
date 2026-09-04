@@ -7,7 +7,16 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Regular Expression Denial of Service in highcharts",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-xmc8-cjfr-phx3"
+    ],
+    "references": [
+      "https://security.snyk.io/vuln/SNYK-JS-HIGHCHARTS-1290057"
+    ]
   },
   {
     "library": "highcharts",
@@ -17,6 +26,15 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site Scripting (XSS) and Prototype Pollution in Highcharts \u003c 9.0.0",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-8j65-4pcq-xq95"
+    ],
+    "references": [
+      "https://security.snyk.io/vuln/SNYK-JS-HIGHCHARTS-1290057"
+    ]
   }
 ]

@@ -1,0 +1,94 @@
+[
+  {
+    "library": "body-parser",
+    "at_or_above": "0",
+    "max_version": "1.20.3",
+    "cve_id": "GHSA-qwcr-r2fm-qrc7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "body-parser vulnerable to denial of service when url encoding is enabled",
+    "fixed_version": "1.20.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-405"
+    ],
+    "aliases": [
+      "CVE-2024-45590"
+    ],
+    "references": [
+      "https://github.com/expressjs/body-parser/security/advisories/GHSA-qwcr-r2fm-qrc7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45590",
+      "https://github.com/expressjs/body-parser/commit/b2695c4450f06ba3b0ccf48d872a229bb41c9bce"
+    ]
+  },
+  {
+    "library": "body-parser",
+    "at_or_above": "0",
+    "max_version": "1.20.6",
+    "cve_id": "GHSA-v422-hmwv-36x6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+    "fixed_version": "1.20.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2026-12590"
+    ],
+    "references": [
+      "https://github.com/expressjs/body-parser/security/advisories/GHSA-v422-hmwv-36x6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-12590",
+      "https://github.com/expressjs/body-parser/pull/698"
+    ]
+  },
+  {
+    "library": "body-parser",
+    "at_or_above": "2.0.0",
+    "max_version": "2.3.0",
+    "cve_id": "GHSA-v422-hmwv-36x6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+    "fixed_version": "2.3.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2026-12590"
+    ],
+    "references": [
+      "https://github.com/expressjs/body-parser/security/advisories/GHSA-v422-hmwv-36x6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-12590",
+      "https://github.com/expressjs/body-parser/pull/698"
+    ]
+  },
+  {
+    "library": "body-parser",
+    "at_or_above": "2.2.0",
+    "max_version": "2.2.1",
+    "cve_id": "GHSA-wqch-xfxh-vrr4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "body-parser is vulnerable to denial of service when url encoding is used",
+    "fixed_version": "2.2.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2025-13466"
+    ],
+    "references": [
+      "https://github.com/expressjs/body-parser/security/advisories/GHSA-wqch-xfxh-vrr4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-13466",
+      "https://github.com/expressjs/body-parser/commit/b204886a6744b0b6d297cd0e849d75de836f3b63"
+    ]
+  }
+]

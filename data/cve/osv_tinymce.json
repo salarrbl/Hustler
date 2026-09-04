@@ -1,0 +1,923 @@
+[
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "4.9.7",
+    "cve_id": "GHSA-27gm-ghr9-4v95",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "4.9.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-17480"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-27gm-ghr9-4v95",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-17480",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
+    "max_version": "5.1.4",
+    "cve_id": "GHSA-27gm-ghr9-4v95",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "5.1.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-17480"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-27gm-ghr9-4v95",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-17480",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "6.8.1",
+    "cve_id": "GHSA-438c-3975-5x3f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability in handling iframes",
+    "fixed_version": "6.8.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-29203"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-438c-3975-5x3f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29203",
+      "https://github.com/tinymce/tinymce/commit/bcdea2ad14e3c2cea40743fb48c63bba067ae6d1"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "7.0.0",
+    "cve_id": "GHSA-5359-pvf2-pw78",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability in handling external SVG files through Object or Embed elements",
+    "fixed_version": "7.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-29881"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-5359-pvf2-pw78",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-29881",
+      "https://github.com/tinymce/tinymce/commit/bcdea2ad14e3c2cea40743fb48c63bba067ae6d1"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.9.0",
+    "cve_id": "GHSA-5h9g-x5rv-25wg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "5.9.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-21908"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-5h9g-x5rv-25wg",
+      "https://github.com/tinymce/tinymce",
+      "https://www.tiny.cloud/docs/release-notes/release-notes59/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.7.1",
+    "cve_id": "GHSA-5vm8-hhgr-jcjp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "5.7.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-5vm8-hhgr-jcjp"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "4.1.0",
+    "cve_id": "GHSA-9hcv-j9pv-qmph",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "fixed_version": "4.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38356",
+      "PYSEC-2026-1301"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "7.0.0",
+    "max_version": "7.2.0",
+    "cve_id": "GHSA-9hcv-j9pv-qmph",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "fixed_version": "7.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38356",
+      "PYSEC-2026-1301"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.8.4",
+    "cve_id": "GHSA-9hcv-j9pv-qmph",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "fixed_version": "6.8.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38356",
+      "PYSEC-2026-1301"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.11.0",
+    "cve_id": "GHSA-9hcv-j9pv-qmph",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noneditable_regexp option",
+    "fixed_version": "5.11.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38356",
+      "PYSEC-2026-1301"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-9hcv-j9pv-qmph",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38356",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "4.9.10",
+    "cve_id": "GHSA-c78w-2gw7-gjv3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in TinyMCE",
+    "fixed_version": "4.9.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-1010091"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-c78w-2gw7-gjv3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-1010091",
+      "https://github.com/tinymce/tinymce/issues/4394"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
+    "max_version": "5.2.2",
+    "cve_id": "GHSA-c78w-2gw7-gjv3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "XSS in TinyMCE",
+    "fixed_version": "5.2.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2019-1010091"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-c78w-2gw7-gjv3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-1010091",
+      "https://github.com/tinymce/tinymce/issues/4394"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.3.1",
+    "cve_id": "GHSA-gg8r-xjwq-4w92",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE alerts",
+    "fixed_version": "6.3.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2022-23494"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-gg8r-xjwq-4w92",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-23494",
+      "https://github.com/tinymce/tinymce/commit/6923d85eba6de3e08ebc9c5a387b5abdaa21150e"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.7",
+    "cve_id": "GHSA-gg8r-xjwq-4w92",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE alerts",
+    "fixed_version": "5.10.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2022-23494"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-gg8r-xjwq-4w92",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-23494",
+      "https://github.com/tinymce/tinymce/commit/6923d85eba6de3e08ebc9c5a387b5abdaa21150e"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.6.0",
+    "cve_id": "GHSA-h96f-fc7c-9r55",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regex denial of service vulnerability in codesample plugin",
+    "fixed_version": "5.6.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-h96f-fc7c-9r55",
+      "https://www.npmjs.com/package/tinymce",
+      "https://www.tiny.cloud/docs/release-notes/release-notes56/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.8",
+    "cve_id": "GHSA-hgqx-r2hp-jr38",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
+    "fixed_version": "5.10.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-45819"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-hgqx-r2hp-jr38",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-45819",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.7.1",
+    "cve_id": "GHSA-hgqx-r2hp-jr38",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE XSS vulnerability in notificationManager.open API",
+    "fixed_version": "6.7.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-45819"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-hgqx-r2hp-jr38",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-45819",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.8.0",
+    "max_version": "7.1.0",
+    "cve_id": "GHSA-mh5m-5hw4-5c69",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using sanitization bypass through nested SVGs",
+    "fixed_version": "7.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47760"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-mh5m-5hw4-5c69",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47760",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-q742-qvgc-gc2f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47759"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47759",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
+    "max_version": "8.5.1",
+    "cve_id": "GHSA-q742-qvgc-gc2f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
+    "fixed_version": "8.5.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47759"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47759",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "7.9.3",
+    "cve_id": "GHSA-q742-qvgc-gc2f",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using through data-mce- prefixed src, href, style attributes",
+    "fixed_version": "7.9.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47759"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-q742-qvgc-gc2f",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47759",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "3.4.0",
+    "cve_id": "GHSA-r8hm-w5f7-wj39",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE plugins",
+    "fixed_version": "3.4.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-64",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-21910",
+      "PYSEC-2026-632"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-r8hm-w5f7-wj39",
+      "https://github.com/jazzband/django-tinymce/issues/366",
+      "https://github.com/jazzband/django-tinymce/releases/tag/3.4.0"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.0",
+    "cve_id": "GHSA-r8hm-w5f7-wj39",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE plugins",
+    "fixed_version": "5.10.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-64",
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-21910",
+      "PYSEC-2026-632"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-r8hm-w5f7-wj39",
+      "https://github.com/jazzband/django-tinymce/issues/366",
+      "https://github.com/jazzband/django-tinymce/releases/tag/3.4.0"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.9",
+    "cve_id": "GHSA-v626-r774-j7f8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes",
+    "fixed_version": "5.10.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-48219"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v626-r774-j7f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-48219",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.7.3",
+    "cve_id": "GHSA-v626-r774-j7f8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE vulnerable to mutation Cross-site Scripting via special characters in unescaped text nodes",
+    "fixed_version": "6.7.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-48219"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v626-r774-j7f8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-48219",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.10.8",
+    "cve_id": "GHSA-v65r-p3vv-jjfv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE mXSS vulnerability in undo/redo, getContent API, resetContent API, and Autosave plugin",
+    "fixed_version": "5.10.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-45818"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v65r-p3vv-jjfv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-45818",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.7.1",
+    "cve_id": "GHSA-v65r-p3vv-jjfv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE mXSS vulnerability in undo/redo, getContent API, resetContent API, and Autosave plugin",
+    "fixed_version": "6.7.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-45818"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v65r-p3vv-jjfv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-45818",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-v98h-vmpc-fpqv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47762"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47762",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "7.9.3",
+    "cve_id": "GHSA-v98h-vmpc-fpqv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "fixed_version": "7.9.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47762"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47762",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
+    "max_version": "8.5.1",
+    "cve_id": "GHSA-v98h-vmpc-fpqv",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability through `mce:protected` comments",
+    "fixed_version": "8.5.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47762"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-v98h-vmpc-fpqv",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47762",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "8.0.0",
+    "max_version": "8.5.1",
+    "cve_id": "GHSA-vg35-5wq7-3x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
+    "fixed_version": "8.5.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47761"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47761",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "7.9.3",
+    "cve_id": "GHSA-vg35-5wq7-3x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
+    "fixed_version": "7.9.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47761"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47761",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-vg35-5wq7-3x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using media plugin `data-mce-object` injection",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-47761"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vg35-5wq7-3x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-47761",
+      "https://github.com/tinymce/tinymce"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.1",
+    "cve_id": "GHSA-vrv8-v4w8-f95h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "5.4.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-12648"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h",
+      "https://github.com/tinymce/tinymce/pull/5843",
+      "https://github.com/tinymce/tinymce/commit/2b71c922214d388838d930806207a66c14e80f63"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "4.9.11",
+    "cve_id": "GHSA-vrv8-v4w8-f95h",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "4.9.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2020-12648"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-vrv8-v4w8-f95h",
+      "https://github.com/tinymce/tinymce/pull/5843",
+      "https://github.com/tinymce/tinymce/commit/2b71c922214d388838d930806207a66c14e80f63"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.6.0",
+    "cve_id": "GHSA-w7jx-j77m-wp65",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-site scripting vulnerability in TinyMCE",
+    "fixed_version": "5.6.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-21911"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w7jx-j77m-wp65",
+      "https://www.npmjs.com/package/tinymce",
+      "https://www.tiny.cloud/docs/release-notes/release-notes56/#securityfixes"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "7.0.0",
+    "max_version": "7.2.0",
+    "cve_id": "GHSA-w9jx-4g6g-rp7x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "fixed_version": "7.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38357",
+      "PYSEC-2026-1302"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "6.0.0",
+    "max_version": "6.8.4",
+    "cve_id": "GHSA-w9jx-4g6g-rp7x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "fixed_version": "6.8.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38357",
+      "PYSEC-2026-1302"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "5.11.0",
+    "cve_id": "GHSA-w9jx-4g6g-rp7x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "fixed_version": "5.11.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38357",
+      "PYSEC-2026-1302"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  },
+  {
+    "library": "tinymce",
+    "at_or_above": "0",
+    "max_version": "4.1.0",
+    "cve_id": "GHSA-w9jx-4g6g-rp7x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "TinyMCE Cross-Site Scripting (XSS) vulnerability using noscript elements",
+    "fixed_version": "4.1.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-38357",
+      "PYSEC-2026-1302"
+    ],
+    "references": [
+      "https://github.com/tinymce/tinymce/security/advisories/GHSA-w9jx-4g6g-rp7x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38357",
+      "https://github.com/tinymce/tinymce/commit/5acb741665a98e83d62b91713c800abbff43b00d"
+    ]
+  }
+]

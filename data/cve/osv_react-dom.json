@@ -1,0 +1,117 @@
+[
+  {
+    "library": "react-dom",
+    "at_or_above": "16.0.0",
+    "max_version": "16.0.1",
+    "cve_id": "GHSA-mvjj-gqq2-p4hw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react-dom",
+    "fixed_version": "16.0.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2018-6341"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-6341",
+      "https://github.com/advisories/GHSA-mvjj-gqq2-p4hw",
+      "https://reactjs.org/blog/2018/08/01/react-v-16-4-2.html"
+    ]
+  },
+  {
+    "library": "react-dom",
+    "at_or_above": "16.1.0",
+    "max_version": "16.1.2",
+    "cve_id": "GHSA-mvjj-gqq2-p4hw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react-dom",
+    "fixed_version": "16.1.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2018-6341"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-6341",
+      "https://github.com/advisories/GHSA-mvjj-gqq2-p4hw",
+      "https://reactjs.org/blog/2018/08/01/react-v-16-4-2.html"
+    ]
+  },
+  {
+    "library": "react-dom",
+    "at_or_above": "16.2.0",
+    "max_version": "16.2.1",
+    "cve_id": "GHSA-mvjj-gqq2-p4hw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react-dom",
+    "fixed_version": "16.2.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2018-6341"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-6341",
+      "https://github.com/advisories/GHSA-mvjj-gqq2-p4hw",
+      "https://reactjs.org/blog/2018/08/01/react-v-16-4-2.html"
+    ]
+  },
+  {
+    "library": "react-dom",
+    "at_or_above": "16.3.0",
+    "max_version": "16.3.3",
+    "cve_id": "GHSA-mvjj-gqq2-p4hw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react-dom",
+    "fixed_version": "16.3.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2018-6341"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-6341",
+      "https://github.com/advisories/GHSA-mvjj-gqq2-p4hw",
+      "https://reactjs.org/blog/2018/08/01/react-v-16-4-2.html"
+    ]
+  },
+  {
+    "library": "react-dom",
+    "at_or_above": "16.4.0",
+    "max_version": "16.4.2",
+    "cve_id": "GHSA-mvjj-gqq2-p4hw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross-Site Scripting in react-dom",
+    "fixed_version": "16.4.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2018-6341"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-6341",
+      "https://github.com/advisories/GHSA-mvjj-gqq2-p4hw",
+      "https://reactjs.org/blog/2018/08/01/react-v-16-4-2.html"
+    ]
+  }
+]

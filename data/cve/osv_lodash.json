@@ -1,0 +1,507 @@
+[
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "",
+    "cve_id": "GHSA-29mw-wpgm-hmr9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2020-28500"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-28500",
+      "https://github.com/github/advisory-database/pull/6139",
+      "https://github.com/lodash/lodash/pull/5065"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "4.17.21",
+    "cve_id": "GHSA-29mw-wpgm-hmr9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+    "fixed_version": "4.17.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2020-28500"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-28500",
+      "https://github.com/github/advisory-database/pull/6139",
+      "https://github.com/lodash/lodash/pull/5065"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.21",
+    "cve_id": "GHSA-35jh-r3h4-6jhm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Command Injection in lodash",
+    "fixed_version": "4.17.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-23337",
+      "CVE-2026-4800",
+      "GHSA-r5fr-rjxr-66jc"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23337",
+      "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c",
+      "https://www.oracle.com/security-alerts/cpuoct2021.html"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-35jh-r3h4-6jhm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Command Injection in lodash",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77",
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-23337",
+      "CVE-2026-4800",
+      "GHSA-r5fr-rjxr-66jc"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23337",
+      "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c",
+      "https://www.oracle.com/security-alerts/cpuoct2021.html"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.11",
+    "cve_id": "GHSA-4xc9-xhrj-v574",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2018-16487"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-16487",
+      "https://github.com/lodash/lodash/commit/90e6199a161b6445b01454517b40ef65ebecd2ad",
+      "https://hackerone.com/reports/380873"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.18.0",
+    "cve_id": "GHSA-f23m-r3pf-42rh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+    "fixed_version": "4.18.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2025-13465",
+      "CVE-2026-2950",
+      "GHSA-xxjr-mmjv-4gpg"
+    ],
+    "references": [
+      "https://github.com/lodash/lodash/security/advisories/GHSA-f23m-r3pf-42rh",
+      "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-2950"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "4.18.0",
+    "cve_id": "GHSA-f23m-r3pf-42rh",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`",
+    "fixed_version": "4.18.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2025-13465",
+      "CVE-2026-2950",
+      "GHSA-xxjr-mmjv-4gpg"
+    ],
+    "references": [
+      "https://github.com/lodash/lodash/security/advisories/GHSA-f23m-r3pf-42rh",
+      "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-2950"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.5",
+    "cve_id": "GHSA-fvqr-27wr-82fm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-471"
+    ],
+    "aliases": [
+      "CVE-2018-3721"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-3721",
+      "https://github.com/lodash/lodash/commit/d8e069cc3410082e44eb18fcf8e7f3d08ebe1d4a",
+      "https://hackerone.com/reports/310443"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.14",
+    "cve_id": "GHSA-jf85-cpcp-j695",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2019-10744"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10744",
+      "https://github.com/lodash/lodash/pull/4336",
+      "https://access.redhat.com/errata/RHSA-2019:3024"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.13",
+    "cve_id": "GHSA-jf85-cpcp-j695",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.13",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2019-10744"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10744",
+      "https://github.com/lodash/lodash/pull/4336",
+      "https://access.redhat.com/errata/RHSA-2019:3024"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.6.1",
+    "cve_id": "GHSA-jf85-cpcp-j695",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.6.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2019-10744"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10744",
+      "https://github.com/lodash/lodash/pull/4336",
+      "https://access.redhat.com/errata/RHSA-2019:3024"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "4.17.12",
+    "cve_id": "GHSA-jf85-cpcp-j695",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2019-10744"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-10744",
+      "https://github.com/lodash/lodash/pull/4336",
+      "https://access.redhat.com/errata/RHSA-2019:3024"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "0",
+    "max_version": "",
+    "cve_id": "GHSA-p6mc-m468-83gw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-8203"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+      "https://github.com/lodash/lodash/issues/4744",
+      "https://github.com/lodash/lodash/issues/4874"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "3.7.0",
+    "max_version": "",
+    "cve_id": "GHSA-p6mc-m468-83gw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-8203"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+      "https://github.com/lodash/lodash/issues/4744",
+      "https://github.com/lodash/lodash/issues/4874"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "3.7.0",
+    "max_version": "4.17.20",
+    "cve_id": "GHSA-p6mc-m468-83gw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-8203"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+      "https://github.com/lodash/lodash/issues/4744",
+      "https://github.com/lodash/lodash/issues/4874"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "",
+    "cve_id": "GHSA-p6mc-m468-83gw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-8203"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+      "https://github.com/lodash/lodash/issues/4744",
+      "https://github.com/lodash/lodash/issues/4874"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "3.7.0",
+    "max_version": "4.17.19",
+    "cve_id": "GHSA-p6mc-m468-83gw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution in lodash",
+    "fixed_version": "4.17.19",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2020-8203"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-8203",
+      "https://github.com/lodash/lodash/issues/4744",
+      "https://github.com/lodash/lodash/issues/4874"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "4.18.0",
+    "cve_id": "GHSA-r5fr-rjxr-66jc",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "lodash vulnerable to Code Injection via `_.template` imports key names",
+    "fixed_version": "4.18.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-23337",
+      "CVE-2026-4800",
+      "GHSA-35jh-r3h4-6jhm"
+    ],
+    "references": [
+      "https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-4800",
+      "https://github.com/lodash/lodash/commit/3469357cff396a26c363f8c1b5a91dde28ba4b1c"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.7.0",
+    "max_version": "4.17.11",
+    "cve_id": "GHSA-x5rq-j2xg-h7qm",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Regular Expression Denial of Service (ReDoS) in lodash",
+    "fixed_version": "4.17.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2019-1010266"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-1010266",
+      "https://github.com/lodash/lodash/issues/3359",
+      "https://github.com/github/advisory-database/pull/6138"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "",
+    "cve_id": "GHSA-xxjr-mmjv-4gpg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2025-13465",
+      "CVE-2026-2950",
+      "GHSA-f23m-r3pf-42rh"
+    ],
+    "references": [
+      "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-13465",
+      "https://github.com/lodash/lodash/commit/edadd452146f7e4bad4ea684e955708931d84d81"
+    ]
+  },
+  {
+    "library": "lodash",
+    "at_or_above": "4.0.0",
+    "max_version": "4.17.23",
+    "cve_id": "GHSA-xxjr-mmjv-4gpg",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+    "fixed_version": "4.17.23",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2025-13465",
+      "CVE-2026-2950",
+      "GHSA-f23m-r3pf-42rh"
+    ],
+    "references": [
+      "https://github.com/lodash/lodash/security/advisories/GHSA-xxjr-mmjv-4gpg",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-13465",
+      "https://github.com/lodash/lodash/commit/edadd452146f7e4bad4ea684e955708931d84d81"
+    ]
+  }
+]

@@ -1,22 +1,52 @@
 [
   {
     "library": "highlightjs",
+    "at_or_above": "0",
     "max_version": "9.18.2",
     "cve_id": "CVE-2020-26237",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Affected versions of highlight.js are vulnerable to Prototype Pollution. A malicious HTML code block with a crafted language name can pollute the base object's prototype during syntax highlighting, potentially causing application instability or crashes (Denial of Service) in applications that render user-provided code blocks.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-vfrc-7r7c-w9mx"
+    ],
+    "references": [
+      "https://github.com/highlightjs/highlight.js/security/advisories/GHSA-vfrc-7r7c-w9mx",
+      "https://github.com/highlightjs/highlight.js/pull/2636",
+      "https://github.com/highlightjs/highlight.js/commit/7241013ae011a585983e176ddc0489a7a52f6bb0",
+      "https://lists.debian.org/debian-lts-announce/2020/12/msg00041.html",
+      "https://www.npmjs.com/package/highlight.js",
+      "https://www.oracle.com/security-alerts/cpujul2022.html"
+    ]
   },
   {
     "library": "highlightjs",
+    "at_or_above": "10.0.0",
     "max_version": "10.1.2",
     "cve_id": "CVE-2020-26237",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Affected versions of highlight.js are vulnerable to Prototype Pollution. A malicious HTML code block with a crafted language name can pollute the base object's prototype during syntax highlighting, potentially causing application instability or crashes (Denial of Service) in applications that render user-provided code blocks.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-471"
+    ],
+    "aliases": [
+      "GHSA-vfrc-7r7c-w9mx"
+    ],
+    "references": [
+      "https://github.com/highlightjs/highlight.js/security/advisories/GHSA-vfrc-7r7c-w9mx",
+      "https://github.com/highlightjs/highlight.js/pull/2636",
+      "https://github.com/highlightjs/highlight.js/commit/7241013ae011a585983e176ddc0489a7a52f6bb0",
+      "https://lists.debian.org/debian-lts-announce/2020/12/msg00041.html",
+      "https://www.npmjs.com/package/highlight.js",
+      "https://www.oracle.com/security-alerts/cpujul2022.html"
+    ]
   }
 ]

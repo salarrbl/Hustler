@@ -1,0 +1,95 @@
+[
+  {
+    "library": "markdown-it",
+    "at_or_above": "13.0.0",
+    "max_version": "14.1.1",
+    "cve_id": "GHSA-38c4-r59v-3vqw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "markdown-it is has a Regular Expression Denial of Service (ReDoS)",
+    "fixed_version": "14.1.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2026-2327"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-2327",
+      "https://github.com/markdown-it/markdown-it/commit/4b4bbcae5e0990a5b172378e507b33a59012ed26",
+      "https://gist.github.com/ltduc147/c9abecae1b291ede4f692f2ab988c917"
+    ]
+  },
+  {
+    "library": "markdown-it",
+    "at_or_above": "0",
+    "max_version": "14.2.0",
+    "cve_id": "GHSA-6v5v-wf23-fmfq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "markdown-it: Quadratic complexity DoS in smartquotes rule via replaceAt string operations",
+    "fixed_version": "14.2.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400",
+      "CWE-407"
+    ],
+    "aliases": [
+      "CVE-2026-48988"
+    ],
+    "references": [
+      "https://github.com/markdown-it/markdown-it/security/advisories/GHSA-6v5v-wf23-fmfq",
+      "https://github.com/markdown-it/markdown-it"
+    ]
+  },
+  {
+    "library": "markdown-it",
+    "at_or_above": "0",
+    "max_version": "12.3.2",
+    "cve_id": "GHSA-6vfc-qv3f-vr6c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Uncontrolled Resource Consumption in markdown-it",
+    "fixed_version": "12.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2022-21670"
+    ],
+    "references": [
+      "https://github.com/markdown-it/markdown-it/security/advisories/GHSA-6vfc-qv3f-vr6c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-21670",
+      "https://github.com/markdown-it/markdown-it/commit/ffc49ab46b5b751cd2be0aabb146f2ef84986101"
+    ]
+  },
+  {
+    "library": "markdown-it",
+    "at_or_above": "0",
+    "max_version": "3.0.0",
+    "cve_id": "GHSA-j5p7-jf4q-742q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "markdown-it vulnerable to Inefficient Regular Expression Complexity",
+    "fixed_version": "3.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "CVE-2015-10005"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-10005",
+      "https://github.com/markdown-it/markdown-it/commit/89c8620157d6e38f9872811620d25138fc9d1b0d",
+      "https://github.com/markdown-it/markdown-it"
+    ]
+  }
+]

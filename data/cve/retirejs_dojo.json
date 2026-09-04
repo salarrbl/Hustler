@@ -7,17 +7,124 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Affected versions of dojo are susceptible to a cross-site scripting vulnerability in the dijit.Editor and textarea components, which execute their contents as Javascript, even when sanitized.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-39cx-xcwj-3rc4"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2008-6681/"
+    ]
   },
   {
     "library": "dojo",
-    "max_version": "1.2.0",
-    "cve_id": "CVE-2015-5654",
+    "at_or_above": "1.11.0",
+    "max_version": "1.11.6",
+    "cve_id": "CVE-2010-2273",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Versions of dojo prior to 1.2.0 are vulnerable to Cross-Site Scripting (XSS). The package fails to sanitize HTML code in user-controlled input, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
-    "source": "retire.js"
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-536q-8gxx-m782"
+    ],
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory",
+      "http://www.cvedetails.com/cve/CVE-2010-2272/",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/",
+      "https://dojotoolkit.org/blog/dojo-1-14-released",
+      "https://github.com/advisories/GHSA-536q-8gxx-m782",
+      "https://github.com/dojo/dojo/pull/307"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.13.0",
+    "max_version": "1.13.1",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-536q-8gxx-m782"
+    ],
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory",
+      "http://www.cvedetails.com/cve/CVE-2010-2272/",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/",
+      "https://dojotoolkit.org/blog/dojo-1-14-released",
+      "https://github.com/advisories/GHSA-536q-8gxx-m782",
+      "https://github.com/dojo/dojo/pull/307"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.10.0",
+    "max_version": "1.10.10",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-536q-8gxx-m782"
+    ],
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory",
+      "http://www.cvedetails.com/cve/CVE-2010-2272/",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/",
+      "https://dojotoolkit.org/blog/dojo-1-14-released",
+      "https://github.com/advisories/GHSA-536q-8gxx-m782",
+      "https://github.com/dojo/dojo/pull/307"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.12.0",
+    "max_version": "1.12.4",
+    "cve_id": "CVE-2010-2273",
+    "severity": "MEDIUM",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-536q-8gxx-m782"
+    ],
+    "references": [
+      "http://dojotoolkit.org/blog/dojo-security-advisory",
+      "http://www.cvedetails.com/cve/CVE-2010-2272/",
+      "http://www.cvedetails.com/cve/CVE-2010-2273/",
+      "http://www.cvedetails.com/cve/CVE-2010-2274/",
+      "http://www.cvedetails.com/cve/CVE-2010-2276/",
+      "https://dojotoolkit.org/blog/dojo-1-14-released",
+      "https://github.com/advisories/GHSA-536q-8gxx-m782",
+      "https://github.com/dojo/dojo/pull/307"
+    ]
   },
   {
     "library": "dojo",
@@ -27,77 +134,32 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "Cross-site scripting (XSS) vulnerability in dijit/tests/_testCommon.js in Dojo Toolkit SDK before 1.4.2 allows remote attackers to inject arbitrary web script or HTML via the theme parameter, as demonstrated by an attack against dijit/tests/form/test_Button.html",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "references": [
+      "http://www.cvedetails.com/cve/CVE-2010-2275/"
+    ]
   },
   {
     "library": "dojo",
-    "max_version": "1.10.10",
-    "cve_id": "CVE-2010-2273",
+    "max_version": "1.2.0",
+    "cve_id": "CVE-2015-5654",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
-    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.11.6",
-    "cve_id": "CVE-2010-2273",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.11.10",
-    "cve_id": "CVE-2020-5258",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.12.4",
-    "cve_id": "CVE-2010-2273",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.12.8",
-    "cve_id": "CVE-2020-5258",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.13.1",
-    "cve_id": "CVE-2010-2273",
-    "severity": "MEDIUM",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Versions of dojo prior to 1.4.2 are vulnerable to DOM-based Cross-Site Scripting (XSS). The package does not sanitize URL parameters in the _testCommon.js and runner.html test files, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.13.7",
-    "cve_id": "CVE-2020-5258",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
+    "summary": "Versions of dojo prior to 1.2.0 are vulnerable to Cross-Site Scripting (XSS). The package fails to sanitize HTML code in user-controlled input, allowing attackers to execute arbitrary JavaScript in the victim's browser.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-p82g-2xpp-m5r3"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2015-5654"
+    ]
   },
   {
     "library": "dojo",
@@ -107,46 +169,172 @@
     "cvss": 0,
     "has_poc": false,
     "summary": "In Dojo Toolkit before 1.14.0, there is unescaped string injection in dojox/Grid/DataGrid.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-84cm-x2q5-8225"
+    ],
+    "references": [
+      "https://dojotoolkit.org/blog/dojo-1-14-released"
+    ]
   },
   {
     "library": "dojo",
-    "max_version": "1.14.6",
-    "cve_id": "CVE-2020-5258",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
-    "max_version": "1.15.3",
-    "cve_id": "CVE-2020-5258",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
-  },
-  {
-    "library": "dojo",
+    "at_or_above": "1.16.0",
     "max_version": "1.16.2",
     "cve_id": "CVE-2020-5258",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Prototype pollution in dojo",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
   },
   {
     "library": "dojo",
+    "at_or_above": "1.13.0",
+    "max_version": "1.13.7",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.12.0",
+    "max_version": "1.12.8",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.14.0",
+    "max_version": "1.14.6",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
+  },
+  {
+    "library": "dojo",
+    "max_version": "1.11.10",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "1.15.0",
+    "max_version": "1.15.3",
+    "cve_id": "CVE-2020-5258",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype pollution in dojo",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321",
+      "CWE-74",
+      "CWE-94"
+    ],
+    "aliases": [
+      "GHSA-jxfh-8wgv-vfr2"
+    ],
+    "references": [
+      "https://github.com/advisories/GHSA-jxfh-8wgv-vfr2",
+      "https://github.com/dojo/dojo/security/advisories/GHSA-jxfh-8wgv-vfr2"
+    ]
+  },
+  {
+    "library": "dojo",
+    "at_or_above": "0",
     "max_version": "1.16.5",
     "cve_id": "CVE-2021-23450",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Prototype pollution",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "GHSA-m8gw-hjpr-rjv7"
+    ],
+    "references": [
+      "https://github.com/dojo/dojo/pull/418"
+    ]
   }
 ]

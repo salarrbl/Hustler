@@ -1,0 +1,49 @@
+[
+  {
+    "library": "underscore",
+    "at_or_above": "1.3.2",
+    "max_version": "1.12.1",
+    "cve_id": "GHSA-cf4h-3jhx-xvhq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Arbitrary Code Execution in underscore",
+    "fixed_version": "1.12.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2021-23358"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23358",
+      "https://github.com/jashkenas/underscore/pull/2917",
+      "https://github.com/jashkenas/underscore/commit/4c73526d43838ad6ab43a6134728776632adeb66"
+    ]
+  },
+  {
+    "library": "underscore",
+    "at_or_above": "0",
+    "max_version": "1.13.8",
+    "cve_id": "GHSA-qpx9-hpmf-5gmw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Underscore has unlimited recursion in _.flatten and _.isEqual, potential for DoS attack",
+    "fixed_version": "1.13.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-674",
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2026-27601"
+    ],
+    "references": [
+      "https://github.com/jashkenas/underscore/security/advisories/GHSA-qpx9-hpmf-5gmw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-27601",
+      "https://github.com/jashkenas/underscore/issues/3011"
+    ]
+  }
+]

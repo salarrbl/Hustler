@@ -1,112 +1,255 @@
 [
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.1",
     "cve_id": "CVE-2014-3743",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Versions of marked 0.3.0 and earlier are vulnerable to Cross-Site Scripting (XSS) via two vectors: GFM codeblocks and JavaScript URLs. These attacks bypass the sanitize: true setting and allow injection of arbitrary HTML and script content.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-9cw2-jqp5-7x39"
+    ],
+    "references": [
+      "https://www.npmjs.com/advisories/22"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.3",
     "cve_id": "CVE-2015-1370",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Versions of marked 0.3.2 and earlier are vulnerable to Cross-Site Scripting (XSS) via vbscript: URLs in IE10 compatibility mode. The sanitize: true setting does not prevent vbscript: protocol links from being rendered, enabling script execution when victims click the crafted link.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-cfjh-p3g4-3q2f"
+    ],
+    "references": [
+      "https://github.com/chjj/marked/issues/492",
+      "https://github.com/markedjs/marked/issues/492",
+      "https://github.com/evilpacket/marked/commit/3c191144939107c45a7fa11ab6cb88be6694a1ba",
+      "https://github.com/markedjs/marked/commit/fc372d1c6293267722e33f2719d57cebd67b3da1",
+      "https://www.npmjs.com/advisories/24",
+      "https://www.npmjs.com/advisories/24/versions",
+      "http://www.openwall.com/lists/oss-security/2015/01/23/2"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.4",
     "cve_id": "CVE-2015-8854",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Versions of marked 0.3.3 and earlier are vulnerable to Regular Expression Denial of Service (ReDoS) via the em (emphasis) inline rule. Input reaching this rule can trigger catastrophic backtracking and block the event loop.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-hjcp-j389-59ff"
+    ],
+    "references": [
+      "https://github.com/chjj/marked/issues/497",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/BO2RMVVZVV6NFTU46B5RYRK7ZCXYARZS",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M6BJG6RGDH7ZWVVAUFBFI5L32RSMQN2S",
+      "https://support.f5.com/csp/article/K05052081?utm_source=f5support\u0026amp;utm_medium=RSS",
+      "https://www.npmjs.com/advisories/23",
+      "https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS",
+      "http://www.openwall.com/lists/oss-security/2016/04/20/11"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.6",
     "cve_id": "CVE-2016-10531",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Affected versions of marked are vulnerable to Cross-Site Scripting (XSS) in link components when sanitize: true is configured. HTML entities in link URIs are processed and decoded in a way that allows protocols like javascript: to survive sanitization, executing scripts when the link is clicked.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-vfvf-mqq8-rwqc"
+    ],
+    "references": [
+      "https://github.com/chjj/marked/pull/592",
+      "https://github.com/chjj/marked/pull/592/commits/2cff85979be8e7a026a9aca35542c470cf5da523",
+      "https://www.npmjs.com/advisories/101"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.7",
     "cve_id": "CVE-2017-1000427",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "marked version 0.3.6 and earlier is vulnerable to an XSS attack in the data: URI parser.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "GHSA-7px7-7xjx-hxm8"
+    ],
+    "references": [
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/BO2RMVVZVV6NFTU46B5RYRK7ZCXYARZS",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M6BJG6RGDH7ZWVVAUFBFI5L32RSMQN2S",
+      "https://snyk.io/vuln/npm:marked:20170112"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.9",
     "cve_id": "CVE-2017-16114",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Affected versions of marked are vulnerable to Regular Expression Denial of Service (ReDoS) with significant amplification: 1,000 characters of crafted input can block the event loop for approximately 6 seconds.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-x5pg-88wf-qq4p"
+    ],
+    "references": [
+      "https://github.com/chjj/marked/issues/937",
+      "https://www.npmjs.com/advisories/531"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
     "max_version": "0.3.17",
     "cve_id": "CVE-2018-25110",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Marked prior to version 0.3.17 is vulnerable to a Regular Expression Denial of Service (ReDoS) attack due to catastrophic backtracking in several regular expressions used for parsing HTML tags and markdown links. An attacker can exploit this vulnerability by providing specially crafted markdown input, such as deeply nested or repetitively structured brackets or tag attributes, which cause the parser to hang and lead to a Denial of Service.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-p9wx-2529-fp83"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/issues/1070",
+      "https://github.com/markedjs/marked/pull/1083",
+      "https://github.com/markedjs/marked/commit/20bfc106013ed45713a21672ad4a34df94dcd485",
+      "https://github.com/Checkmarx/Vulnerabilities-Proofs-of-Concept/tree/main/2018/CVE-2018-25110"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "1.1.1",
     "max_version": "2.0.0",
     "cve_id": "CVE-2021-21306",
     "severity": "MEDIUM",
     "cvss": 0,
     "has_poc": false,
     "summary": "Marked versions prior to 2.0.0 are vulnerable to Regular Expression Denial of Service (ReDoS). Processing user-generated Markdown input can trigger catastrophic backtracking in the parser's regular expressions, causing the event loop to block or the server to hang.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-4r62-v4vq-hr96"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-4r62-v4vq-hr96",
+      "https://github.com/markedjs/marked/issues/1927",
+      "https://github.com/markedjs/marked/pull/1864",
+      "https://github.com/markedjs/marked/commit/7293251c438e3ee968970f7609f1a27f9007bccd",
+      "https://www.npmjs.com/package/marked"
+    ]
   },
   {
     "library": "marked",
-    "max_version": "4.0.10",
-    "cve_id": "CVE-2022-21681",
-    "severity": "HIGH",
-    "cvss": 0,
-    "has_poc": false,
-    "summary": "Marked is vulnerable to Regular Expression Denial of Service (ReDoS) via the inline.reflinkSearch regex rule. A crafted Markdown string containing deeply nested bracket patterns causes catastrophic backtracking, blocking the event loop and potentially causing Denial of Service for applications processing untrusted Markdown.",
-    "source": "retire.js"
-  },
-  {
-    "library": "marked",
+    "at_or_above": "0",
     "max_version": "4.0.10",
     "cve_id": "CVE-2022-21680",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Marked is vulnerable to Regular Expression Denial of Service (ReDoS) via the block.def regex rule. A crafted Markdown string with repeated spaces in link definition syntax causes catastrophic backtracking, blocking the event loop and causing Denial of Service for applications processing untrusted Markdown.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333",
+      "CWE-400"
+    ],
+    "aliases": [
+      "GHSA-rrrm-qjm4-v8hf"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-rrrm-qjm4-v8hf",
+      "https://github.com/markedjs/marked/commit/c4a3ccd344b6929afa8a1d50ac54a721e57012c0",
+      "https://github.com/markedjs/marked/releases/tag/v4.0.10",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AIXDMC3CSHYW3YWVSQOXAWLUYQHAO5UX"
+    ]
   },
   {
     "library": "marked",
+    "at_or_above": "0",
+    "max_version": "4.0.10",
+    "cve_id": "CVE-2022-21681",
+    "severity": "HIGH",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Marked is vulnerable to Regular Expression Denial of Service (ReDoS) via the inline.reflinkSearch regex rule. A crafted Markdown string containing deeply nested bracket patterns causes catastrophic backtracking, blocking the event loop and potentially causing Denial of Service for applications processing untrusted Markdown.",
+    "source": "retire.js",
+    "cwe": [
+      "CWE-1333"
+    ],
+    "aliases": [
+      "GHSA-5v2h-r2cx-5xgj"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-5v2h-r2cx-5xgj",
+      "https://github.com/markedjs/marked/commit/8f806573a3f6c6b7a39b8cdb66ab5ebb8d55a5f5",
+      "https://github.com/markedjs/marked/commit/c4a3ccd344b6929afa8a1d50ac54a721e57012c0",
+      "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AIXDMC3CSHYW3YWVSQOXAWLUYQHAO5UX"
+    ]
+  },
+  {
+    "library": "marked",
+    "at_or_above": "18.0.0",
     "max_version": "18.0.2",
     "cve_id": "CVE-2026-41680",
     "severity": "HIGH",
     "cvss": 0,
     "has_poc": false,
     "summary": "Marked 18.0.0 is vulnerable to Denial of Service via memory exhaustion from infinite recursion. A specific 3-byte input (tab, vertical tab, newline) causes an inescapable cycle between the block tokenizer and inline tokenizer that allocates unbounded memory until the Node.js heap limit is reached, crashing the process.",
-    "source": "retire.js"
+    "source": "retire.js",
+    "cwe": [
+      "CWE-400",
+      "CWE-674",
+      "CWE-835"
+    ],
+    "aliases": [
+      "GHSA-6v9c-7cg6-27q7"
+    ],
+    "references": [
+      "https://github.com/markedjs/marked/security/advisories/GHSA-6v9c-7cg6-27q7"
+    ]
   }
 ]

@@ -1,0 +1,2268 @@
+[
+  {
+    "library": "vite",
+    "at_or_above": "4.1.0",
+    "max_version": "4.1.5",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "4.1.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.0.0",
+    "max_version": "4.0.5",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "4.0.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "2.9.16",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "2.9.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "3.0.2",
+    "max_version": "3.2.7",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "3.2.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.3.0",
+    "max_version": "4.3.9",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "4.3.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.2.0",
+    "max_version": "4.2.3",
+    "cve_id": "GHSA-353f-5xf4-qw67",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Server Options (server.fs.deny) can be bypassed using double forward-slash (//)",
+    "fixed_version": "4.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-50",
+      "CWE-706"
+    ],
+    "aliases": [
+      "CVE-2023-34092"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-353f-5xf4-qw67",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://github.com/vitejs/vite/pull/13348"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.13",
+    "cve_id": "GHSA-356w-63v5-8wf4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has an `server.fs.deny` bypass with an invalid `request-target`",
+    "fixed_version": "4.5.13",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2025-32395"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-356w-63v5-8wf4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32395",
+      "https://github.com/vitejs/vite/commit/175a83909f02d3b554452a7bd02b9f340cdfef70"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.0.15",
+    "cve_id": "GHSA-356w-63v5-8wf4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has an `server.fs.deny` bypass with an invalid `request-target`",
+    "fixed_version": "6.0.15",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2025-32395"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-356w-63v5-8wf4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32395",
+      "https://github.com/vitejs/vite/commit/175a83909f02d3b554452a7bd02b9f340cdfef70"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.6",
+    "cve_id": "GHSA-356w-63v5-8wf4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has an `server.fs.deny` bypass with an invalid `request-target`",
+    "fixed_version": "6.2.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2025-32395"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-356w-63v5-8wf4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32395",
+      "https://github.com/vitejs/vite/commit/175a83909f02d3b554452a7bd02b9f340cdfef70"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.1.0",
+    "max_version": "6.1.5",
+    "cve_id": "GHSA-356w-63v5-8wf4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has an `server.fs.deny` bypass with an invalid `request-target`",
+    "fixed_version": "6.1.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2025-32395"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-356w-63v5-8wf4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32395",
+      "https://github.com/vitejs/vite/commit/175a83909f02d3b554452a7bd02b9f340cdfef70"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.18",
+    "cve_id": "GHSA-356w-63v5-8wf4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has an `server.fs.deny` bypass with an invalid `request-target`",
+    "fixed_version": "5.4.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200"
+    ],
+    "aliases": [
+      "CVE-2025-32395"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-356w-63v5-8wf4",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32395",
+      "https://github.com/vitejs/vite/commit/175a83909f02d3b554452a7bd02b9f340cdfef70"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.4",
+    "cve_id": "GHSA-4r4m-qw57-chr8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has a `server.fs.deny` bypassed for `inline` and `raw` with `?import` query",
+    "fixed_version": "6.2.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31125"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4r4m-qw57-chr8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31125",
+      "https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.0.13",
+    "cve_id": "GHSA-4r4m-qw57-chr8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has a `server.fs.deny` bypassed for `inline` and `raw` with `?import` query",
+    "fixed_version": "6.0.13",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31125"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4r4m-qw57-chr8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31125",
+      "https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.1.0",
+    "max_version": "6.1.3",
+    "cve_id": "GHSA-4r4m-qw57-chr8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has a `server.fs.deny` bypassed for `inline` and `raw` with `?import` query",
+    "fixed_version": "6.1.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31125"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4r4m-qw57-chr8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31125",
+      "https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.16",
+    "cve_id": "GHSA-4r4m-qw57-chr8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has a `server.fs.deny` bypassed for `inline` and `raw` with `?import` query",
+    "fixed_version": "5.4.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31125"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4r4m-qw57-chr8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31125",
+      "https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.11",
+    "cve_id": "GHSA-4r4m-qw57-chr8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite has a `server.fs.deny` bypassed for `inline` and `raw` with `?import` query",
+    "fixed_version": "4.5.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31125"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4r4m-qw57-chr8",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31125",
+      "https://github.com/vitejs/vite/commit/59673137c45ac2bcfad1170d954347c1a17ab949"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "8.0.0",
+    "max_version": "8.0.5",
+    "cve_id": "GHSA-4w7w-66w2-5vf9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+    "fixed_version": "8.0.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-39365"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4w7w-66w2-5vf9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39365",
+      "https://github.com/vitejs/vite/pull/22161"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "6.4.2",
+    "cve_id": "GHSA-4w7w-66w2-5vf9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+    "fixed_version": "6.4.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-39365"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4w7w-66w2-5vf9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39365",
+      "https://github.com/vitejs/vite/pull/22161"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.3.2",
+    "cve_id": "GHSA-4w7w-66w2-5vf9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+    "fixed_version": "7.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-39365"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-4w7w-66w2-5vf9",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39365",
+      "https://github.com/vitejs/vite/pull/22161"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.4.0",
+    "max_version": "5.4.6",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "5.4.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.4",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "4.5.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.2.0",
+    "max_version": "5.2.14",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "5.2.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.1.8",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "5.1.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.3.0",
+    "max_version": "5.3.6",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "5.3.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "3.2.11",
+    "cve_id": "GHSA-64vr-g452-qvp3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+    "fixed_version": "3.2.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2024-45812"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3",
+      "https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45812"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.1.6",
+    "cve_id": "GHSA-859w-5945-r5v3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's server.fs.deny bypassed with /. for files under project root",
+    "fixed_version": "6.1.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-46565"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-859w-5945-r5v3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-46565",
+      "https://github.com/vitejs/vite/commit/c22c43de612eebb6c182dd67850c24e4fab8cacb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.19",
+    "cve_id": "GHSA-859w-5945-r5v3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's server.fs.deny bypassed with /. for files under project root",
+    "fixed_version": "5.4.19",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-46565"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-859w-5945-r5v3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-46565",
+      "https://github.com/vitejs/vite/commit/c22c43de612eebb6c182dd67850c24e4fab8cacb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.14",
+    "cve_id": "GHSA-859w-5945-r5v3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's server.fs.deny bypassed with /. for files under project root",
+    "fixed_version": "4.5.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-46565"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-859w-5945-r5v3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-46565",
+      "https://github.com/vitejs/vite/commit/c22c43de612eebb6c182dd67850c24e4fab8cacb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.3.0",
+    "max_version": "6.3.4",
+    "cve_id": "GHSA-859w-5945-r5v3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's server.fs.deny bypassed with /. for files under project root",
+    "fixed_version": "6.3.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-46565"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-859w-5945-r5v3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-46565",
+      "https://github.com/vitejs/vite/commit/c22c43de612eebb6c182dd67850c24e4fab8cacb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.7",
+    "cve_id": "GHSA-859w-5945-r5v3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's server.fs.deny bypassed with /. for files under project root",
+    "fixed_version": "6.2.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-46565"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-859w-5945-r5v3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-46565",
+      "https://github.com/vitejs/vite/commit/c22c43de612eebb6c182dd67850c24e4fab8cacb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.1.0",
+    "max_version": "5.1.7",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "5.1.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.3",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "4.5.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.2.0",
+    "max_version": "5.2.6",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "5.2.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "2.7.0",
+    "max_version": "2.9.18",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "2.9.18",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "3.0.0",
+    "max_version": "3.2.10",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "3.2.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.13",
+    "cve_id": "GHSA-8jhw-289h-jh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` did not deny requests for patterns with directories.",
+    "fixed_version": "5.0.13",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-31207"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-31207",
+      "https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.4.0",
+    "max_version": "4.4.12",
+    "cve_id": "GHSA-92r3-m2mg-pj97",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite XSS vulnerability in `server.transformIndexHtml` via URL payload",
+    "fixed_version": "4.4.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-49293"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-49293",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.5.0",
+    "max_version": "4.5.1",
+    "cve_id": "GHSA-92r3-m2mg-pj97",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite XSS vulnerability in `server.transformIndexHtml` via URL payload",
+    "fixed_version": "4.5.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-49293"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-49293",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.5",
+    "cve_id": "GHSA-92r3-m2mg-pj97",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite XSS vulnerability in `server.transformIndexHtml` via URL payload",
+    "fixed_version": "5.0.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2023-49293"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-49293",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.2.6",
+    "max_version": "5.4.21",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "5.4.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.1.0",
+    "max_version": "7.1.11",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "7.1.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "2.9.18",
+    "max_version": "5.4.21",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "5.4.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.4.1",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "6.4.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.0.8",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "7.0.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "3.2.9",
+    "max_version": "5.4.21",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "5.4.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.5.3",
+    "max_version": "5.4.21",
+    "cve_id": "GHSA-93m4-6634-74q7",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "fixed_version": "5.4.21",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2025-62522"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-93m4-6634-74q7",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-62522",
+      "https://github.com/vitejs/vite/commit/f479cc57c425ed41ceb434fecebd63931b1ed4ed"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.4",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "4.5.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "3.2.11",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "3.2.11",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.2.0",
+    "max_version": "5.2.14",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "5.2.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.1.8",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "5.1.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.3.0",
+    "max_version": "5.3.6",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "5.3.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.4.0",
+    "max_version": "5.4.6",
+    "cve_id": "GHSA-9cwx-2883-4wfx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs.deny` is bypassed when using `?import\u0026raw`",
+    "fixed_version": "5.4.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-45811"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-45811",
+      "https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "2.7.0",
+    "max_version": "2.9.17",
+    "cve_id": "GHSA-c24v-8rfc-w8vw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite dev server option `server.fs.deny` can be bypassed when hosted on case-insensitive filesystem",
+    "fixed_version": "2.9.17",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-178",
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-23331"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-23331"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.0.12",
+    "cve_id": "GHSA-c24v-8rfc-w8vw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite dev server option `server.fs.deny` can be bypassed when hosted on case-insensitive filesystem",
+    "fixed_version": "5.0.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-178",
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-23331"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-23331"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "4.0.0",
+    "max_version": "4.5.2",
+    "cve_id": "GHSA-c24v-8rfc-w8vw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite dev server option `server.fs.deny` can be bypassed when hosted on case-insensitive filesystem",
+    "fixed_version": "4.5.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-178",
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-23331"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-23331"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "3.0.0",
+    "max_version": "3.2.8",
+    "cve_id": "GHSA-c24v-8rfc-w8vw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite dev server option `server.fs.deny` can be bypassed when hosted on case-insensitive filesystem",
+    "fixed_version": "3.2.8",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-178",
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2024-23331"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34092",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-23331"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "5.4.9",
+    "cve_id": "GHSA-c27g-q93r-2cwf",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor vulnerable to command injection via the crafted request on Windows",
+    "fixed_version": "5.4.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77"
+    ],
+    "aliases": [
+      "CVE-2024-52011"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+      "https://github.com/yyx990803/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-52011"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "2.9.0",
+    "cve_id": "GHSA-c27g-q93r-2cwf",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor vulnerable to command injection via the crafted request on Windows",
+    "fixed_version": "2.9.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-77"
+    ],
+    "aliases": [
+      "CVE-2024-52011"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+      "https://github.com/yyx990803/launch-editor/security/advisories/GHSA-c27g-q93r-2cwf",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-52011"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "8.0.0",
+    "max_version": "8.0.16",
+    "cve_id": "GHSA-fx2h-pf6j-xcff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite: `server.fs.deny` bypass on Windows alternate paths",
+    "fixed_version": "8.0.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-53571"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-fx2h-pf6j-xcff",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-53571",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "0.1.24",
+    "cve_id": "GHSA-fx2h-pf6j-xcff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite: `server.fs.deny` bypass on Windows alternate paths",
+    "fixed_version": "0.1.24",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-53571"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-fx2h-pf6j-xcff",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-53571",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "6.4.3",
+    "cve_id": "GHSA-fx2h-pf6j-xcff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite: `server.fs.deny` bypass on Windows alternate paths",
+    "fixed_version": "6.4.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-53571"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-fx2h-pf6j-xcff",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-53571",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.3.5",
+    "cve_id": "GHSA-fx2h-pf6j-xcff",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "vite: `server.fs.deny` bypass on Windows alternate paths",
+    "fixed_version": "7.3.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2026-53571"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-fx2h-pf6j-xcff",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-53571",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.1.0",
+    "max_version": "7.1.5",
+    "cve_id": "GHSA-g4jq-h2w9-997c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite middleware may serve files starting with the same name with the public directory",
+    "fixed_version": "7.1.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58751"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-g4jq-h2w9-997c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58751",
+      "https://github.com/lukeed/sirv/commit/f0113f3f8266328d804ee808f763a3c11f8997eb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.3.6",
+    "cve_id": "GHSA-g4jq-h2w9-997c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite middleware may serve files starting with the same name with the public directory",
+    "fixed_version": "6.3.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58751"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-g4jq-h2w9-997c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58751",
+      "https://github.com/lukeed/sirv/commit/f0113f3f8266328d804ee808f763a3c11f8997eb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.0.7",
+    "cve_id": "GHSA-g4jq-h2w9-997c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite middleware may serve files starting with the same name with the public directory",
+    "fixed_version": "7.0.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58751"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-g4jq-h2w9-997c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58751",
+      "https://github.com/lukeed/sirv/commit/f0113f3f8266328d804ee808f763a3c11f8997eb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "5.4.20",
+    "cve_id": "GHSA-g4jq-h2w9-997c",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite middleware may serve files starting with the same name with the public directory",
+    "fixed_version": "5.4.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-22",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58751"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-g4jq-h2w9-997c",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58751",
+      "https://github.com/lukeed/sirv/commit/f0113f3f8266328d804ee808f763a3c11f8997eb"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.0.7",
+    "cve_id": "GHSA-jqfw-vq24-v9c3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs` settings were not applied to HTML files",
+    "fixed_version": "7.0.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-23",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58752"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-jqfw-vq24-v9c3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58752",
+      "https://github.com/vitejs/vite/commit/0ab19ea9fcb66f544328f442cf6e70f7c0528d5f"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "5.4.20",
+    "cve_id": "GHSA-jqfw-vq24-v9c3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs` settings were not applied to HTML files",
+    "fixed_version": "5.4.20",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-23",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58752"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-jqfw-vq24-v9c3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58752",
+      "https://github.com/vitejs/vite/commit/0ab19ea9fcb66f544328f442cf6e70f7c0528d5f"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.1.0",
+    "max_version": "7.1.5",
+    "cve_id": "GHSA-jqfw-vq24-v9c3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs` settings were not applied to HTML files",
+    "fixed_version": "7.1.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-23",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58752"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-jqfw-vq24-v9c3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58752",
+      "https://github.com/vitejs/vite/commit/0ab19ea9fcb66f544328f442cf6e70f7c0528d5f"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.3.6",
+    "cve_id": "GHSA-jqfw-vq24-v9c3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite's `server.fs` settings were not applied to HTML files",
+    "fixed_version": "6.3.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-23",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-58752"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-jqfw-vq24-v9c3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-58752",
+      "https://github.com/vitejs/vite/commit/0ab19ea9fcb66f544328f442cf6e70f7c0528d5f"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "2.9.13",
+    "cve_id": "GHSA-mv48-hcvh-8jj8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite before v2.9.13 vulnerable to directory traversal via crafted URL to victim's service",
+    "fixed_version": "2.9.13",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2022-35204"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-35204",
+      "https://github.com/vitejs/vite/issues/8498",
+      "https://github.com/vitejs/vite/commit/6851009e6725b17608113a5a63474280075cae1c"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "3.0.0-alpha.0",
+    "max_version": "3.0.0-beta.4",
+    "cve_id": "GHSA-mv48-hcvh-8jj8",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite before v2.9.13 vulnerable to directory traversal via crafted URL to victim's service",
+    "fixed_version": "3.0.0-beta.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-22"
+    ],
+    "aliases": [
+      "CVE-2022-35204"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-35204",
+      "https://github.com/vitejs/vite/issues/8498",
+      "https://github.com/vitejs/vite/commit/6851009e6725b17608113a5a63474280075cae1c"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.3.2",
+    "cve_id": "GHSA-p9ff-h696-f583",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Arbitrary File Read via Vite Dev Server WebSocket",
+    "fixed_version": "7.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-306"
+    ],
+    "aliases": [
+      "CVE-2026-39363"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-p9ff-h696-f583",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39363",
+      "https://github.com/vitejs/vite/pull/22159"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "8.0.0",
+    "max_version": "8.0.5",
+    "cve_id": "GHSA-p9ff-h696-f583",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Arbitrary File Read via Vite Dev Server WebSocket",
+    "fixed_version": "8.0.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-306"
+    ],
+    "aliases": [
+      "CVE-2026-39363"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-p9ff-h696-f583",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39363",
+      "https://github.com/vitejs/vite/pull/22159"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.4.2",
+    "cve_id": "GHSA-p9ff-h696-f583",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite Vulnerable to Arbitrary File Read via Vite Dev Server WebSocket",
+    "fixed_version": "6.4.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-306"
+    ],
+    "aliases": [
+      "CVE-2026-39363"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-p9ff-h696-f583",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39363",
+      "https://github.com/vitejs/vite/pull/22159"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.1.0",
+    "max_version": "7.3.2",
+    "cve_id": "GHSA-v2wj-q39q-566r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite: `server.fs.deny` bypassed with queries",
+    "fixed_version": "7.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-180",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2026-39364"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-v2wj-q39q-566r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39364",
+      "https://github.com/vitejs/vite/pull/22160"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "8.0.0",
+    "max_version": "8.0.5",
+    "cve_id": "GHSA-v2wj-q39q-566r",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite: `server.fs.deny` bypassed with queries",
+    "fixed_version": "8.0.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-180",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2026-39364"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-v2wj-q39q-566r",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-39364",
+      "https://github.com/vitejs/vite/pull/22160"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "2.14.1",
+    "cve_id": "GHSA-v6wh-96g9-6wx3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+    "fixed_version": "2.14.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-522",
+      "CWE-73"
+    ],
+    "aliases": [
+      "CVE-2026-53632"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-v6wh-96g9-6wx3",
+      "https://github.com/vitejs/launch-editor"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "7.0.0",
+    "max_version": "7.3.5",
+    "cve_id": "GHSA-v6wh-96g9-6wx3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+    "fixed_version": "7.3.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-522",
+      "CWE-73"
+    ],
+    "aliases": [
+      "CVE-2026-53632"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-v6wh-96g9-6wx3",
+      "https://github.com/vitejs/launch-editor"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "8.0.0",
+    "max_version": "8.0.16",
+    "cve_id": "GHSA-v6wh-96g9-6wx3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+    "fixed_version": "8.0.16",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-522",
+      "CWE-73"
+    ],
+    "aliases": [
+      "CVE-2026-53632"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-v6wh-96g9-6wx3",
+      "https://github.com/vitejs/launch-editor"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "0.1.24",
+    "cve_id": "GHSA-v6wh-96g9-6wx3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+    "fixed_version": "0.1.24",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-522",
+      "CWE-73"
+    ],
+    "aliases": [
+      "CVE-2026-53632"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-v6wh-96g9-6wx3",
+      "https://github.com/vitejs/launch-editor"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "6.4.3",
+    "cve_id": "GHSA-v6wh-96g9-6wx3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+    "fixed_version": "6.4.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-522",
+      "CWE-73"
+    ],
+    "aliases": [
+      "CVE-2026-53632"
+    ],
+    "references": [
+      "https://github.com/vitejs/launch-editor/security/advisories/GHSA-v6wh-96g9-6wx3",
+      "https://github.com/vitejs/launch-editor"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.0.9",
+    "cve_id": "GHSA-vg6x-rcgg-rjx6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Websites were able to send any requests to the development server and read the response in vite",
+    "fixed_version": "6.0.9",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1385",
+      "CWE-346",
+      "CWE-350"
+    ],
+    "aliases": [
+      "CVE-2025-24010"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-24010",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.12",
+    "cve_id": "GHSA-vg6x-rcgg-rjx6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Websites were able to send any requests to the development server and read the response in vite",
+    "fixed_version": "5.4.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1385",
+      "CWE-346",
+      "CWE-350"
+    ],
+    "aliases": [
+      "CVE-2025-24010"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-24010",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.6",
+    "cve_id": "GHSA-vg6x-rcgg-rjx6",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Websites were able to send any requests to the development server and read the response in vite",
+    "fixed_version": "4.5.6",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1385",
+      "CWE-346",
+      "CWE-350"
+    ],
+    "aliases": [
+      "CVE-2025-24010"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-vg6x-rcgg-rjx6",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-24010",
+      "https://github.com/vitejs/vite"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.15",
+    "cve_id": "GHSA-x574-m823-4x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite bypasses server.fs.deny when using ?raw??",
+    "fixed_version": "5.4.15",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-30208"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-x574-m823-4x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30208",
+      "https://github.com/vitejs/vite/commit/315695e9d97cc6cfa7e6d9e0229fb50cdae3d9f4"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.3",
+    "cve_id": "GHSA-x574-m823-4x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite bypasses server.fs.deny when using ?raw??",
+    "fixed_version": "6.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-30208"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-x574-m823-4x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30208",
+      "https://github.com/vitejs/vite/commit/315695e9d97cc6cfa7e6d9e0229fb50cdae3d9f4"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.1.0",
+    "max_version": "6.1.2",
+    "cve_id": "GHSA-x574-m823-4x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite bypasses server.fs.deny when using ?raw??",
+    "fixed_version": "6.1.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-30208"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-x574-m823-4x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30208",
+      "https://github.com/vitejs/vite/commit/315695e9d97cc6cfa7e6d9e0229fb50cdae3d9f4"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.0.12",
+    "cve_id": "GHSA-x574-m823-4x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite bypasses server.fs.deny when using ?raw??",
+    "fixed_version": "6.0.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-30208"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-x574-m823-4x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30208",
+      "https://github.com/vitejs/vite/commit/315695e9d97cc6cfa7e6d9e0229fb50cdae3d9f4"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.10",
+    "cve_id": "GHSA-x574-m823-4x7w",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite bypasses server.fs.deny when using ?raw??",
+    "fixed_version": "4.5.10",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-30208"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-x574-m823-4x7w",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-30208",
+      "https://github.com/vitejs/vite/commit/315695e9d97cc6cfa7e6d9e0229fb50cdae3d9f4"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.5",
+    "cve_id": "GHSA-xcj6-pq6g-qj4x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+    "fixed_version": "6.2.5",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31486"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-xcj6-pq6g-qj4x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31486",
+      "https://github.com/vitejs/vite/commit/62d7e81ee189d65899bb65f3263ddbd85247b647"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.0.0",
+    "max_version": "6.0.14",
+    "cve_id": "GHSA-xcj6-pq6g-qj4x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+    "fixed_version": "6.0.14",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31486"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-xcj6-pq6g-qj4x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31486",
+      "https://github.com/vitejs/vite/commit/62d7e81ee189d65899bb65f3263ddbd85247b647"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "5.0.0",
+    "max_version": "5.4.17",
+    "cve_id": "GHSA-xcj6-pq6g-qj4x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+    "fixed_version": "5.4.17",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31486"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-xcj6-pq6g-qj4x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31486",
+      "https://github.com/vitejs/vite/commit/62d7e81ee189d65899bb65f3263ddbd85247b647"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "0",
+    "max_version": "4.5.12",
+    "cve_id": "GHSA-xcj6-pq6g-qj4x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+    "fixed_version": "4.5.12",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31486"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-xcj6-pq6g-qj4x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31486",
+      "https://github.com/vitejs/vite/commit/62d7e81ee189d65899bb65f3263ddbd85247b647"
+    ]
+  },
+  {
+    "library": "vite",
+    "at_or_above": "6.1.0",
+    "max_version": "6.1.4",
+    "cve_id": "GHSA-xcj6-pq6g-qj4x",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Vite allows server.fs.deny to be bypassed with .svg or relative paths",
+    "fixed_version": "6.1.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-200",
+      "CWE-284"
+    ],
+    "aliases": [
+      "CVE-2025-31486"
+    ],
+    "references": [
+      "https://github.com/vitejs/vite/security/advisories/GHSA-xcj6-pq6g-qj4x",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-31486",
+      "https://github.com/vitejs/vite/commit/62d7e81ee189d65899bb65f3263ddbd85247b647"
+    ]
+  }
+]

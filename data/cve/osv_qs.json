@@ -1,0 +1,463 @@
+[
+  {
+    "library": "qs",
+    "at_or_above": "2.2.5",
+    "max_version": "6.16.0",
+    "cve_id": "GHSA-4mjr-xmp4-gh2g",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs: Denial of Service via Attacker Controlled isBuffer",
+    "fixed_version": "6.16.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-248",
+      "CWE-703"
+    ],
+    "aliases": [
+      "CVE-2026-82417"
+    ],
+    "references": [
+      "https://github.com/ljharb/qs/security/advisories/GHSA-4mjr-xmp4-gh2g",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-82417",
+      "https://github.com/ljharb/qs/commit/e83d321ffafb38cf210683ac31714fce6ce1c6c6"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "0",
+    "max_version": "6.14.1",
+    "cve_id": "GHSA-6rw7-vpxm-498p",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion",
+    "fixed_version": "6.14.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2025-15284"
+    ],
+    "references": [
+      "https://github.com/ljharb/qs/security/advisories/GHSA-6rw7-vpxm-498p",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-15284",
+      "https://github.com/ljharb/qs/commit/3086902ecf7f088d0d1803887643ac6c03d415b9"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "0",
+    "max_version": "1.0.0",
+    "cve_id": "GHSA-f9cm-p3w6-xvr3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial-of-Service Extended Event Loop Blocking in qs",
+    "fixed_version": "1.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2014-10064"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-10064",
+      "https://github.com/advisories/GHSA-f9cm-p3w6-xvr3",
+      "https://www.npmjs.com/advisories/28"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.1.0",
+    "max_version": "6.1.2",
+    "cve_id": "GHSA-gqgv-6jq5-jjj9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution Protection Bypass in qs",
+    "fixed_version": "6.1.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000048"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000048",
+      "https://github.com/ljharb/qs/issues/200",
+      "https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.3.0",
+    "max_version": "6.3.2",
+    "cve_id": "GHSA-gqgv-6jq5-jjj9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution Protection Bypass in qs",
+    "fixed_version": "6.3.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000048"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000048",
+      "https://github.com/ljharb/qs/issues/200",
+      "https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.2.0",
+    "max_version": "6.2.3",
+    "cve_id": "GHSA-gqgv-6jq5-jjj9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution Protection Bypass in qs",
+    "fixed_version": "6.2.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000048"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000048",
+      "https://github.com/ljharb/qs/issues/200",
+      "https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "0",
+    "max_version": "6.0.4",
+    "cve_id": "GHSA-gqgv-6jq5-jjj9",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Prototype Pollution Protection Bypass in qs",
+    "fixed_version": "6.0.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2017-1000048"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-1000048",
+      "https://github.com/ljharb/qs/issues/200",
+      "https://github.com/ljharb/qs/commit/beade029171b8cef9cee0d03ebe577e2dd84976d"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "0",
+    "max_version": "6.2.4",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.2.4",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.6.0",
+    "max_version": "6.6.1",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.6.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.3.0",
+    "max_version": "6.3.3",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.3.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.7.0",
+    "max_version": "6.7.3",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.7.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.10.0",
+    "max_version": "6.10.3",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.10.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.9.0",
+    "max_version": "6.9.7",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.9.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.8.0",
+    "max_version": "6.8.3",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.8.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.4.0",
+    "max_version": "6.4.1",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.4.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.5.0",
+    "max_version": "6.5.3",
+    "cve_id": "GHSA-hrpp-h998-j3pp",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs vulnerable to Prototype Pollution",
+    "fixed_version": "6.5.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2022-24999"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-24999",
+      "https://github.com/ljharb/qs/pull/428",
+      "https://github.com/ljharb/qs/commit/4310742efbd8c03f6495f07906b45213da0a32ec"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "0",
+    "max_version": "1.0.0",
+    "cve_id": "GHSA-jjv7-qpx3-h62q",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Denial-of-Service Memory Exhaustion in qs",
+    "fixed_version": "1.0.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-400"
+    ],
+    "aliases": [
+      "CVE-2014-7191"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-7191",
+      "https://github.com/visionmedia/node-querystring/issues/104",
+      "https://github.com/raymondfeng/node-querystring/commit/43a604b7847e56bba49d0ce3e222fe89569354d8"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.11.1",
+    "max_version": "6.15.2",
+    "cve_id": "GHSA-q8mj-m7cp-5q26",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set",
+    "fixed_version": "6.15.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-476"
+    ],
+    "aliases": [
+      "CVE-2026-8723"
+    ],
+    "references": [
+      "https://github.com/ljharb/qs/security/advisories/GHSA-q8mj-m7cp-5q26",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-8723",
+      "https://github.com/ljharb/qs/commit/21f80b33e5c8b3f7eba1034fff0da4a4a37a1d41"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.7.0",
+    "max_version": "6.14.2",
+    "cve_id": "GHSA-w7fw-mjwx-w883",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs's arrayLimit bypass in comma parsing allows denial of service",
+    "fixed_version": "6.14.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20"
+    ],
+    "aliases": [
+      "CVE-2026-2391"
+    ],
+    "references": [
+      "https://github.com/ljharb/qs/security/advisories/GHSA-w7fw-mjwx-w883",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-2391",
+      "https://github.com/ljharb/qs/commit/f6a7abff1f13d644db9b05fe4f2c98ada6bf8482"
+    ]
+  },
+  {
+    "library": "qs",
+    "at_or_above": "6.14.2",
+    "max_version": "6.16.0",
+    "cve_id": "GHSA-x5fp-wj9c-mxmx",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "qs array-limit bypass via bracket-key comma parsing",
+    "fixed_version": "6.16.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-770"
+    ],
+    "aliases": [
+      "CVE-2026-82562"
+    ],
+    "references": [
+      "https://github.com/ljharb/qs/security/advisories/GHSA-w7fw-mjwx-w883",
+      "https://github.com/ljharb/qs/security/advisories/GHSA-x5fp-wj9c-mxmx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-82562"
+    ]
+  }
+]

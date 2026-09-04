@@ -1,0 +1,94 @@
+[
+  {
+    "library": "pdfjs-dist",
+    "at_or_above": "2.0.0",
+    "max_version": "2.0.550",
+    "cve_id": "GHSA-7jg2-jgv3-fmr4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
+    "fixed_version": "2.0.550",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2018-5158"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-5158",
+      "https://github.com/mozilla/pdf.js/pull/9659",
+      "https://github.com/mozilla/pdf.js/commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97"
+    ]
+  },
+  {
+    "library": "pdfjs-dist",
+    "at_or_above": "0",
+    "max_version": "1.10.100",
+    "cve_id": "GHSA-7jg2-jgv3-fmr4",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Malicious PDF can inject JavaScript into PDF Viewer",
+    "fixed_version": "1.10.100",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-94"
+    ],
+    "aliases": [
+      "CVE-2018-5158"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-5158",
+      "https://github.com/mozilla/pdf.js/pull/9659",
+      "https://github.com/mozilla/pdf.js/commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97"
+    ]
+  },
+  {
+    "library": "pdfjs-dist",
+    "at_or_above": "5.6.83",
+    "max_version": "6.2.108",
+    "cve_id": "GHSA-hq66-cqwq-w95j",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "PDF.js: Arbitrary JavaScript execution upon opening a malicious PDF ",
+    "fixed_version": "6.2.108",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2026-16633"
+    ],
+    "references": [
+      "https://github.com/mozilla/pdf.js/security/advisories/GHSA-hq66-cqwq-w95j",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=2055885",
+      "https://github.com/mozilla/pdf.js"
+    ]
+  },
+  {
+    "library": "pdfjs-dist",
+    "at_or_above": "0",
+    "max_version": "4.2.67",
+    "cve_id": "GHSA-wgrm-67xf-hhpq",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "PDF.js vulnerable to arbitrary JavaScript execution upon opening a malicious PDF",
+    "fixed_version": "4.2.67",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-754"
+    ],
+    "aliases": [
+      "CVE-2024-4367"
+    ],
+    "references": [
+      "https://github.com/mozilla/pdf.js/security/advisories/GHSA-wgrm-67xf-hhpq",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-4367",
+      "https://github.com/gogs/gogs/issues/7928"
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "library": "datatables",
+    "at_or_above": "0",
+    "max_version": "1.11.3",
+    "cve_id": "GHSA-h73q-5wmj-q8pj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Cross site scripting in datatables.net ",
+    "fixed_version": "1.11.3",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-79"
+    ],
+    "aliases": [
+      "CVE-2021-23445"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-23445",
+      "https://github.com/DataTables/Dist-DataTables/commit/59a8d3f8a3c1138ab08704e783bc52bfe88d7c9b",
+      "https://cdn.datatables.net/1.11.3"
+    ]
+  },
+  {
+    "library": "datatables",
+    "at_or_above": "0",
+    "max_version": "1.10.22",
+    "cve_id": "GHSA-m7j4-fhg6-xf5v",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "datatables.net vulnerable to Prototype Pollution due to incomplete fix",
+    "fixed_version": "1.10.22",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-1321"
+    ],
+    "aliases": [
+      "CVE-2020-28458"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-28458",
+      "https://github.com/DataTables/DataTablesSrc/commit/a51cbe99fd3d02aa5582f97d4af1615d11a1ea03",
+      "https://github.com/DataTables/DataTablesSrc"
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "library": "socket.io",
+    "at_or_above": "0",
+    "max_version": "2.5.1",
+    "cve_id": "GHSA-25hc-qcg6-38wj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "socket.io has an unhandled 'error' event",
+    "fixed_version": "2.5.1",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20",
+      "CWE-754"
+    ],
+    "aliases": [
+      "CVE-2024-38355"
+    ],
+    "references": [
+      "https://github.com/socketio/socket.io/security/advisories/GHSA-25hc-qcg6-38wj",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38355",
+      "https://github.com/socketio/socket.io/commit/15af22fc22bc6030fcead322c106f07640336115"
+    ]
+  },
+  {
+    "library": "socket.io",
+    "at_or_above": "3.0.0",
+    "max_version": "4.6.2",
+    "cve_id": "GHSA-25hc-qcg6-38wj",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "socket.io has an unhandled 'error' event",
+    "fixed_version": "4.6.2",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-20",
+      "CWE-754"
+    ],
+    "aliases": [
+      "CVE-2024-38355"
+    ],
+    "references": [
+      "https://github.com/socketio/socket.io/security/advisories/GHSA-25hc-qcg6-38wj",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-38355",
+      "https://github.com/socketio/socket.io/commit/15af22fc22bc6030fcead322c106f07640336115"
+    ]
+  },
+  {
+    "library": "socket.io",
+    "at_or_above": "0",
+    "max_version": "2.4.0",
+    "cve_id": "GHSA-fxwf-4rqh-v8g3",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "CORS misconfiguration in socket.io",
+    "fixed_version": "2.4.0",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-346",
+      "CWE-453"
+    ],
+    "aliases": [
+      "CVE-2020-28481"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-28481",
+      "https://github.com/socketio/socket.io/issues/3671",
+      "https://github.com/socketio/socket.io/commit/f78a575f66ab693c3ea96ea88429ddb1a44c86c7"
+    ]
+  },
+  {
+    "library": "socket.io",
+    "at_or_above": "0",
+    "max_version": "0.9.7",
+    "cve_id": "GHSA-qv2v-m59f-v5fw",
+    "severity": "UNKNOWN",
+    "cvss": 0,
+    "has_poc": false,
+    "summary": "Insecure randomness in socket.io",
+    "fixed_version": "0.9.7",
+    "source": "osv.dev",
+    "cwe": [
+      "CWE-330"
+    ],
+    "aliases": [
+      "CVE-2017-16031"
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-16031",
+      "https://github.com/socketio/socket.io/issues/856",
+      "https://github.com/socketio/socket.io/pull/857"
+    ]
+  }
+]
