@@ -13,6 +13,7 @@ Technical documentation for the Hustler bug bounty automation tool.
 | 05 | [Configuration](05-Configuration.md) | Complete config.yaml reference with profiles |
 | 06 | [Data Models & MongoDB](06-Data-Models-MongoDB.md) | All MongoDB schemas and Go structs |
 | 07 | [Usage Workflows](07-Usage-Workflows.md) | Bug bounty workflows, MongoDB queries, integration |
+| 08 | [Watchdogs Integration](08-Watchdogs-Integration.md) | Connect to Watchdogs DB, fetch live subs, organize by Platform → Program |
 
 ---
 
@@ -28,6 +29,8 @@ Technical documentation for the Hustler bug bounty automation tool.
 
 ```
 CLI Commands ──▶ Daemon (3s poll) ──▶ Discovery (Katana + Wayback) ──▶ JS Fetch + 8 Analyzers ──▶ MongoDB
+                         ↑
+                   Watchdogs DB ── Fetch/Import ── Platform → Program → Assets
 ```
 
 ### Core Modules
@@ -37,6 +40,7 @@ CLI Commands ──▶ Daemon (3s poll) ──▶ Discovery (Katana + Wayback) �
 4. **CVE Module** - retire.js, osv.dev, npm, embedded server tech with confidence scoring
 5. **Daemon** - Background job processor with phase-level logging
 6. **CLI** - Target/Program/Daemon/JS/CVE/Watchdogs/Web commands
+7. **Watchdogs Integration** - Connect to Watchdogs MongoDB, fetch live subs, organize by Platform → Program
 
 ### Key Features
 - **Explicit triggering** - No automatic scanning
