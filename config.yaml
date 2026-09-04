@@ -14,17 +14,21 @@ watchdogs:
   database: "watchdogs"
   sync_interval: "1h"
   field_mapping:
-    # TODO: confirm Watchdogs schema - these field names need verification against actual Watchdogs MongoDB
-    collection: "http"              # Watchdogs collection to pull from (http, subdomains, etc.)
-    domain_field: "subdomain"       # Field containing the subdomain
-    root_domain_field: "root_domain" # Field containing root domain
-    status_field: "status_code"     # Field for HTTP status code
-    tech_field: "technologies"      # Field for technologies
-    title_field: "title"            # Field for page title
-    ports_field: "ports"            # Field for open ports
-    cdn_field: "cdn"                # Field for CDN
-    provider_field: "providers"     # Field for discovery provider
-    discovered_at_field: "discovered_at" # Field for discovery timestamp
+    # Collection to pull from - uses "http" for live subdomains
+    collection: "http"
+    # Field mappings for Watchdogs HTTP collection
+    domain_field: "subdomain"        # Field containing the subdomain
+    root_domain_field: "root_domain"  # Field containing root domain
+    status_field: "status_code"      # Field for HTTP status code
+    tech_field: "technologies"       # Field for technologies
+    title_field: "title"             # Field for page title
+    ports_field: "ports"             # Field for open ports
+    cdn_field: "cdn"                 # Field for CDN
+    provider_field: "providers"      # Field for discovery provider
+    discovered_at_field: "discovered_at"  # Field for discovery timestamp
+    # Optional: program/platform fields (if Watchdogs has these)
+    # program_field: "program"        # Field for program name
+    # platform_field: "platform"      # Field for platform (e.g., hackerone, bugcrowd)
 
 http:
   timeout_sec: 30
