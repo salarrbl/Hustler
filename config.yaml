@@ -9,7 +9,7 @@ mongo:
   timeout_sec: 10
 
 watchdogs:
-  enabled: false  # MUST be explicitly set to true + CLI invocation to sync
+  enabled: true # MUST be explicitly set to true + CLI invocation to sync
   mongo_uri: "mongodb://localhost:27017"
   database: "watchdogs"
   sync_interval: "1h"

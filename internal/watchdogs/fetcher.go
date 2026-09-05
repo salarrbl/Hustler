@@ -39,6 +39,16 @@ type WatchdogsAsset struct {
 	Platform     string    `bson:"platform,omitempty" json:"platform,omitempty"`
 }
 
+// WatchdogsTarget represents a target entry from Watchdogs targets collection
+type WatchdogsTarget struct {
+	ID        string   `bson:"_id" json:"id"`
+	Domain    string   `bson:"domain" json:"domain"`
+	Name      string   `bson:"name" json:"name"`
+	InScope   []string `bson:"in_scope" json:"in_scope"`
+	CreatedAt time.Time `bson:"created_at" json:"created_at"`
+	UpdatedAt time.Time `bson:"updated_at" json:"updated_at"`
+}
+
 // FetchOptions defines filtering options for fetching from Watchdogs
 type FetchOptions struct {
 	// Filter by specific platform (e.g., "hackerone", "bugcrowd")
@@ -102,9 +112,17 @@ func (f *Fetcher) Close() error {
 func (f *Fetcher) Fetch(ctx context.Context, opts FetchOptions) (*FetchResult, error) {
 	result := &FetchResult{}
 
+	// First, load Watchdogs targets to get program names
+	watchdogsTargets, err := f.loadWatchdogsTargets(ctx)
+	if err != nil {
+		log.Warn().Err(err).Msg("Failed to load Watchdogs targets, proceeding without program mapping")
+	} else {
+		log.Info().Int("targets", len(watchdogsTargets)).Msg("Loaded Watchdogs targets for program mapping")
+	}
+
 	// Build the query filter for HTTP collection
 	filter := bson.M{}
-	
+
 	// Filter for live subs (status code > 0)
 	if opts.LiveOnly {
 		filter["status_code"] = bson.M{"$gt": 0}
@@ -153,7 +171,30 @@ func (f *Fetcher) Fetch(ctx context.Context, opts FetchOptions) (*FetchResult, e
 		platform := asset.Platform
 		programName := asset.ProgramName
 
-		// If not set in Watchdogs, try to derive from Hustler's existing data
+		// Determine platform and program using field mapping from config
+		programField := f.cfg.FieldMapping.ProgramField
+		platformField := f.cfg.FieldMapping.PlatformField
+
+		// If field mapping is configured, try to extract from the original document
+		if programField != "" || platformField != "" {
+			// We need to re-decode the document to get the raw fields
+			// Since we already have the asset decoded, we'll use the struct fields if they match
+			// For now, we rely on the struct tags which use "program_name" and "platform"
+			// This works if the field_mapping matches the default field names
+		}
+
+		// If not set in Watchdogs, try to derive from Watchdogs targets collection
+		if platform == "" || programName == "" {
+			if wt, ok := watchdogsTargets[asset.RootDomain]; ok {
+				if programName == "" && wt.Name != "" && wt.Name != "Unknown Program" && wt.Name != "freelance" {
+					programName = wt.Name
+				}
+				// Watchdogs targets don't have platform field, we'll use the target's domain as platform hint
+				// but for now we'll default
+			}
+		}
+
+		// If still not set, try to derive from Hustler's existing data
 		if platform == "" || programName == "" {
 			derived, err := f.deriveFromHustler(ctx, asset.RootDomain)
 			if err == nil && derived != nil {
@@ -356,6 +397,27 @@ func (f *Fetcher) getOrCreateProgram(ctx context.Context, name, platform string)
 	}
 
 	return result.InsertedID.(string), nil
+}
+
+// loadWatchdogsTargets loads the targets from Watchdogs targets collection
+// Returns a map of root_domain -> WatchdogsTarget
+func (f *Fetcher) loadWatchdogsTargets(ctx context.Context) (map[string]WatchdogsTarget, error) {
+	collection := f.watchdogsDb.Collection("targets")
+	cursor, err := collection.Find(ctx, bson.M{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to query targets collection: %w", err)
+	}
+	defer cursor.Close(ctx)
+
+	result := make(map[string]WatchdogsTarget)
+	for cursor.Next(ctx) {
+		var wt WatchdogsTarget
+		if err := cursor.Decode(&wt); err != nil {
+			continue
+		}
+		result[strings.ToLower(wt.Domain)] = wt
+	}
+	return result, cursor.Err()
 }
 
 // TargetTreeNode represents a node in the target hierarchy

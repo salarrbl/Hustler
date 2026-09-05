@@ -376,7 +376,7 @@ func init() {
 	watchdogsListAssetsCmd.Flags().StringVar(&watchdogsPlatform, "platform", "", "Filter by platform")
 	watchdogsListAssetsCmd.Flags().StringVar(&watchdogsProgram, "program", "", "Filter by program name")
 	watchdogsListAssetsCmd.Flags().IntVar(&watchdogsLimit, "limit", 7, "Number of assets to show per program (0 = show all)")
-	watchdogsListAssetsCmd.Flags().BoolVarP(&watchdogsShowCount, "count", "c", false, "Show only counts, not the actual targets")
+	watchdogsListAssetsCmd.Flags().BoolVar(&watchdogsShowCount, "count", false, "Show only counts, not the actual targets")
 
 	// Build command hierarchy
 	watchdogsCmd.AddCommand(watchdogsSyncCmd)
